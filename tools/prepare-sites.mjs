@@ -1,0 +1,11 @@
+import './build.mjs';
+import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { root } from './site.mjs';
+const assets=resolve(root,'sites-public');
+rmSync(assets,{recursive:true,force:true});
+cpSync(resolve(root,'dist'),assets,{recursive:true});
+const books=JSON.parse(readFileSync(resolve(root,'public/books/index.html'),'utf8').match(/<script[^>]*id="bk-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+mkdirSync(resolve(root,'hosting/generated'),{recursive:true});
+writeFileSync(resolve(root,'hosting/generated/books.json'),JSON.stringify(books.map(b=>b.slug))+'\n');
+cpSync(resolve(root,'reference/ratings.json'),resolve(root,'hosting/generated/ratings.json'));

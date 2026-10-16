@@ -7,3 +7,9 @@ playwright-report/
 .env.*
 .data/
 subscribers.csv
+sites-public/
+.sites-runtime/
+.wrangler/
+.vinext/
+.vercel/
+.next/
