@@ -75,3 +75,9 @@ git switch -c personalize/my-portfolio samdickie-clone-baseline-2026-10-16
 현재는 김광일 프로필, 전화/메일/GitHub 링크, 이메일·번호 복사, vCard, 공통 사진, Spotlight/일정 문의를 개인화했습니다. 사진 원본은 그대로 복사했으며, Memoji 스타일 이미지는 첨부 사진을 참고해 생성한 아바타입니다. 실사 ↔ 아바타 전환 상태는 `itsme-look`에 저장합니다. vCard는 사진을 포함하고 UTF-8 75바이트 줄 접기·CRLF를 사용합니다.
 
 소개·경력·글·프로젝트·책·뉴스레터의 원본 참고 콘텐츠는 아직 개인화하지 않았습니다. About에 참고 콘텐츠 표시를 두었고, 지도는 실제 위치가 아닌 샘플 경로로 표시합니다. 원본 글의 저자 표시는 유지합니다. 직접 원본 파일을 수정하는 후속 작업에서는 별도 변경 명세가 필요합니다.
+
+## 영문·한글 공통 타이포그래피
+
+`public/personal/typography.css`를 모든 HTML의 마지막 공통 스타일로 적용합니다. 일반 본문·메뉴·앱 위젯·버튼·입력창은 같은 글꼴 순서를 쓰며, 독립 VR 페이지도 공통 폰트를 따릅니다. 코드·단축키의 고정폭 표시는 Apple 계열 고정폭 폰트 우선순위를 유지합니다.
+
+Apple 기기는 `-apple-system`/SF Pro 및 Apple SD Gothic Neo를, 다른 기기는 직접 호스팅한 Pretendard Variable v1.3.9를 사용합니다. Apple 글꼴 바이너리는 배포하지 않습니다. Pretendard는 영문·한글을 함께 지원하는 SIL OFL 1.1 글꼴이며, 원본 파일·라이선스·버전·SHA-256은 `public/personal/fonts/`에 있습니다. 글꼴은 같은 사이트에서 로드하며 런타임 외부 CDN 의존성이 없습니다. 한글 어절을 우선 유지하고 긴 주소는 줄바꿈합니다. 사용하지 않는 Inter 프리로드는 응답·빌드 결과에서 제거합니다.

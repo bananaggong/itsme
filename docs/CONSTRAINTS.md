@@ -32,3 +32,7 @@ URL 확인을 위해 추가한 `preview/sites-hosting` 브랜치는 비공개 Si
 `personalize/contact-kim-gwangil`의 첫 개인화는 연락처·프로필·공통 사이트 표시와 메일 연결에 한정합니다. GitHub는 `https://github.com/bananaggong` 계정 링크를 사용합니다. 소개/경력/글/프로젝트/책/뉴스레터는 원본 참고 콘텐츠이며, 김광일의 실제 이력·저작·구독자 수를 주장하지 않습니다. 홈의 지도도 샘플 경로이며 실제 위치가 아닙니다. 실사 사진은 사용자가 제공한 원본, Memoji 스타일 그림은 그 사진을 참고해 생성한 아바타입니다.
 
 개인화는 응답·빌드 시 동일하게 적용합니다. 캡처 자산 및 기준 태그는 보존하므로 원본 비교용 시각 테스트는 기준 태그에서 실행하며, 개인화 화면은 새 연락처 흐름으로 확인합니다. 실제 전화 연결·이메일 발송·연락처 앱 가져오기는 운영체제 밖 동작이므로 링크/vCard 계약까지만 자동 확인합니다.
+
+영문·한글 폰트는 Apple 시스템 글꼴 우선, 다른 기기는 직접 호스팅한 Pretendard Variable v1.3.9로 통일했습니다. Apple의 SF 글꼴 다운로드 라이선스는 일반 웹폰트 재배포를 허용하는 조건이 아니므로 Apple 폰트 파일은 포함하지 않습니다. 대신 기기 내장 글꼴을 사용합니다. [Apple 공식 글꼴·라이선스](https://developer.apple.com/fonts/), [Pretendard 공식 사용법·OFL 안내](https://github.com/orioncactus/pretendard/blob/main/packages/pretendard/README.md).
+
+같은 글꼴 이름을 사용해도 OS·브라우저의 렌더링과 이모지 모양까지 완전히 같지는 않습니다. 옛 사이트 뷰어·글/프로젝트의 이미지 속 글자는 원본 이미지이므로 CSS 폰트 변경 대상이 아닙니다. Linux Chromium에서는 영문·한글에 실제 Pretendard 웹폰트가 쓰이는지 확인하며, 실제 Apple 하드웨어의 시스템 글꼴 렌더링은 별도 확인 범위입니다.

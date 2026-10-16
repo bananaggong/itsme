@@ -1,0 +1,43 @@
+/* Native Apple type on Apple devices; self-hosted cross-platform fallback.
+   Pretendard Variable v1.3.9: SIL OFL 1.1, see fonts/Pretendard-LICENSE.txt. */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("/personal/fonts/PretendardVariable-v1.3.9.woff2") format("woff2");
+}
+
+:root {
+  --font-apple: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  --font: var(--font-apple);
+  --font-system: var(--font-apple);
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --vr-display: var(--font-apple);
+  --vr-pixel: var(--font-apple);
+  --vr-system: var(--font-apple);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-apple);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+button, input, textarea, select { font-family: inherit; }
+code, kbd, samp, pre { font-family: var(--font-mono); }
+/* The fixed, centered pill must keep its intrinsic width and single-line labels. */
+.nav {
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+/* Standalone VR typography also follows the shared font choice. */
+.vr-ticker-track span, .vr-footer { font-family: var(--font-apple); }
