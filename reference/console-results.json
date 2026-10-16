@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-16T08:47:00.160Z",
+  "reports": [
+    {
+      "path": "/newsletter/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/books/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/about/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/archive/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/beta-directory/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/betatesta/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/fiilo/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/nocode/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/projects/old-site/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/vr/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/artificial-intelligence-company-accused-of-using-humans-to-fake-its-ai-tech/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/automating-my-newsletter-creation-process/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/can-i-build-an-online-shoe-retailer-with-no-shoes/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/comprehensive-list-of-smoke-test-techniques-to-test-early-signs-of-desirability/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/creating-a-minimalist-dark-themed-notion-dashboard/",
+      "messages": [],
+      "failed": [
+        {
+          "url": "https://www.youtube-nocookie.com/embed/3CWX35NvLB0",
+          "error": "net::ERR_TUNNEL_CONNECTION_FAILED"
+        }
+      ]
+    },
+    {
+      "path": "/writing/creating-a-new-coffee-brand-created-like-a-software-product/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/do-you-know-how-each-of-these-well-known-tech-businesses-started-life-as/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/growing-an-email-newsletter-to-16k-people-whilst-validating-your-startup-idea/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-i-created-my-personal-portfolio-website-using-no-code/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-i-run-product-at-brewbroker/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-the-latest-tech-products-do-early-access-betas/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-the-worlds-largest-hotel-chain-validated-their-business-with-air-mattresses/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-to-completely-automate-user-feedback-before-you-launch/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/is-this-one-of-the-most-unique-landing-pages/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/my-5-step-process-for-product-immersement/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/product-managers-its-time-to-create-a-product-lab-heres-why/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/re-designing-the-product-briefing-document-from-the-ground-up/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/recreating-my-personal-website-using-notion/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/start-with-problem-validation-not-solution-validation/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/taking-advantage-of-ios14-widgets/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/time-to-create-a-landing-page-and-test-your-mvp/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/top-6-marketplaces-to-buy-and-sell-side-projects/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/we-launched-very-very-very-early-like-scary-early/",
+      "messages": [],
+      "failed": []
+    },
+    {
+      "path": "/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/",
+      "messages": [],
+      "failed": []
+    }
+  ]
+}

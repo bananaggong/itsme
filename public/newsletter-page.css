@@ -1,0 +1,310 @@
+/* Newsletter page: a macOS Messages window where the visitor subscribes by replying.
+   Prefix ms- (Messages). The window lights (.window-lights) come from about.css's
+   pattern, repeated here so this page doesn't need about.css. */
+:root {
+  --ms-window: #ffffff;
+  --ms-chrome: #f6f6f8;          /* title bar and the Details sidebar */
+  --ms-rule: rgba(60, 60, 67, .14);
+  --ms-bubble: #e9e9eb;          /* Sam's grey bubbles */
+  --ms-bubble-text: #111111;
+  --ms-bubble-muted: #58585f;    /* secondary text inside a grey bubble (--muted is too faint there) */
+  --ms-me: #0071e3;              /* the visitor's blue bubbles: Apple blue that passes 4.5:1 with white */
+  --ms-me-soft: #e3effd;         /* quick-reply hover */
+  --ms-chip-line: #b9d5f5;
+  --ms-chip-text: #0060c2;
+  --ms-card: #ffffff;            /* raised boxes in the sidebar */
+  --ms-typing: #9d9da6;
+  --ms-shadow: 0 28px 80px rgba(0, 0, 0, .16), 0 2px 8px rgba(0, 0, 0, .06);
+}
+
+:root[data-theme="dark"] {
+  --ms-window: #151517;
+  --ms-chrome: #1f1f22;
+  --ms-rule: rgba(255, 255, 255, .1);
+  --ms-bubble: #3a3a3e;
+  --ms-bubble-text: #f2f2f4;
+  --ms-bubble-muted: #b8b8c0;
+  --ms-me-soft: #13304f;
+  --ms-chip-line: #2d5a8a;
+  --ms-chip-text: #7db8ff;
+  --ms-card: #26262b;
+  --ms-typing: #8e8e96;
+  --ms-shadow: 0 30px 90px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .07);
+}
+
+.ms-body { font-family: var(--font-system); }
+
+.ms-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 110px 24px 32px;
+}
+
+/* ---------------------------------------------------------------- the window */
+
+.ms-window {
+  height: clamp(620px, calc(100dvh - 142px), 900px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  overflow: hidden;
+  background: var(--ms-window);
+  border: 1px solid var(--ms-rule);
+  border-radius: 20px;
+  box-shadow: var(--ms-shadow);
+}
+
+.ms-chat { min-height: 0; display: flex; flex-direction: column; }
+
+.ms-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 16px 12px;
+  background: var(--ms-chrome);
+  border-bottom: 1px solid var(--ms-rule);
+}
+
+.window-lights { position: absolute; left: 18px; top: 18px; display: flex; gap: 8px; }
+.window-lights span {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+}
+.window-lights span:nth-child(2) { background: #febc2e; }
+.window-lights span:nth-child(3) { background: #28c840; }
+
+.ms-header-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.ms-title { font-size: 12px; font-weight: 500; line-height: 1.3; text-align: center; }
+.ms-title span { color: var(--muted); }
+
+/* ---------------------------------------------------------------- the conversation */
+
+.ms-thread {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ms-stamp { align-self: center; padding-bottom: 10px; font-size: 11px; color: var(--muted); }
+
+.ms-msg { display: flex; }
+.ms-msg[hidden] { display: none; }
+.ms-msg--me { justify-content: flex-end; }
+.ms-msg--sam + .ms-msg--me,
+.ms-msg--me + .ms-msg--sam { margin-top: 12px; }   /* a little space when the speaker changes */
+
+.ms-bubble {
+  max-width: min(440px, 80%);
+  padding: 8px 13px;
+  border-radius: 18px;
+  background: var(--ms-bubble);
+  color: var(--ms-bubble-text);
+  font-size: 15px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.ms-msg--me .ms-bubble { background: var(--ms-me); color: #fff; }
+.ms-bubble a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* The latest issue, shown as a rich link like Messages does */
+.ms-preview {
+  width: 300px;
+  max-width: 80%;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: filter .2s;
+}
+.ms-preview:hover { filter: brightness(.96); }
+.ms-preview img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.ms-preview-text { display: flex; flex-direction: column; gap: 2px; padding: 10px 14px 12px; }
+.ms-preview-text strong { font-size: 14px; font-weight: 600; }
+.ms-preview-text span { font-size: 12px; color: var(--ms-bubble-muted); }
+.ms-preview:focus-visible { outline: 2px solid var(--ms-me); outline-offset: 2px; }
+
+.ms-delivered { align-self: flex-end; padding-top: 2px; font-size: 11px; color: var(--muted); }
+
+/* "Sam is typing": three dots that pulse in turn */
+.ms-typing { display: flex; gap: 4px; padding: 13px 14px; }
+.ms-typing span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ms-typing);
+  animation: ms-typing 1.2s ease-in-out infinite;
+}
+.ms-typing span:nth-child(2) { animation-delay: .15s; }
+.ms-typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes ms-typing {
+  0%, 60%, 100% { opacity: .35; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+
+/* New messages pop in from their own side */
+.ms-msg.is-new { animation: ms-pop .28s cubic-bezier(.2, .9, .3, 1.2) both; }
+.ms-msg--sam.is-new { transform-origin: left bottom; }
+.ms-msg--me.is-new { transform-origin: right bottom; }
+@keyframes ms-pop {
+  from { opacity: 0; transform: scale(.85) translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------------------------------------------------------------- replying */
+
+.ms-footer { display: flex; flex-direction: column; gap: 10px; padding: 12px 20px 16px; }
+
+.ms-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ms-chips[hidden] { display: none; }
+.ms-chip {
+  padding: 8px 14px;
+  border: 1px solid var(--ms-chip-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ms-chip-text);
+  font: 500 14px var(--font-system);
+  cursor: pointer;
+  transition: background .2s;
+}
+.ms-chip:hover { background: var(--ms-me-soft); }
+.ms-chip:focus-visible { outline: 2px solid var(--ms-me); outline-offset: 2px; }
+
+.ms-compose {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 4px 16px;
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  transition: border-color .2s;
+}
+.ms-compose:focus-within { border-color: var(--ms-me); }
+
+.ms-hidden-label {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ms-input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: 16px var(--font-system);   /* 16px stops iPhones zooming in when the box is tapped */
+}
+.ms-input:focus { outline: none; }
+.ms-input::placeholder { color: var(--muted); }
+.ms-input:disabled { cursor: default; }
+
+.ms-send {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ms-me);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+.ms-send:active { transform: scale(.92); }
+.ms-send:disabled { opacity: .35; cursor: default; }
+.ms-send:focus-visible { outline: 2px solid var(--ms-me); outline-offset: 2px; }
+.ms-send svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------------------------------------------------------------- details sidebar */
+
+.ms-info {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: var(--ms-chrome);
+  border-left: 1px solid var(--ms-rule);
+}
+
+.ms-contact { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.ms-contact img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+.ms-contact h2 { font-size: 17px; font-weight: 600; }
+.ms-contact p { font-size: 13px; color: var(--muted); }
+
+.ms-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ms-facts div {
+  display: flex;
+  flex-direction: column-reverse;   /* number on top, label under it, like Messages' info buttons */
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border-radius: 10px;
+  background: var(--ms-card);
+}
+.ms-facts dd { font-size: 15px; font-weight: 600; }
+.ms-facts dt { font-size: 11px; color: var(--muted); }
+
+.ms-links-head { display: flex; align-items: baseline; justify-content: space-between; padding: 0 4px; margin-bottom: -14px; }
+.ms-links-head h2 { font-size: 13px; font-weight: 600; }
+.ms-links-head a { font-size: 13px; color: var(--ms-chip-text); }
+.ms-links-head a:hover { text-decoration: underline; }
+
+.ms-links { border-radius: 12px; background: var(--ms-card); overflow: hidden; }
+.ms-links li + li { border-top: 1px solid var(--ms-rule); }
+.ms-link { display: flex; align-items: center; gap: 12px; padding: 9px 12px; transition: background .15s; }
+.ms-link:hover { background: var(--ss-hover); }
+.ms-link:focus-visible { outline: 2px solid var(--ms-me); outline-offset: -2px; }
+.ms-link img { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px; object-fit: cover; }
+.ms-link > span { display: flex; flex-direction: column; min-width: 0; }
+.ms-link-title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-link time { font-size: 12px; color: var(--muted); }
+
+/* Turnstile's box (newsletter-page.js), shown only if Cloudflare asks the visitor to tick it */
+.ms-turnstile { display: flex; justify-content: center; }
+.ms-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.ms-privacy { padding: 0 16px; font-size: 11px; line-height: 1.4; color: var(--muted); }
+
+/* ---------------------------------------------------------------- smaller screens */
+
+/* Tablets: the details move under the chat, like tapping the contact on an iPhone */
+@media (max-width: 900px) {
+  .ms-window { height: auto; grid-template-columns: 1fr; }
+  .ms-chat { height: clamp(560px, calc(100dvh - 142px), 760px); }
+  .ms-info { border-left: 0; border-top: 1px solid var(--ms-rule); }
+  .ms-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms-links li + li { border-top: 0; }
+  .ms-links li:nth-child(n + 3) { border-top: 1px solid var(--ms-rule); }
+}
+
+/* Phones: edge to edge, no window chrome */
+@media (max-width: 640px) {
+  .ms-page { padding: 96px 12px 24px; }
+  .ms-window { border-radius: 20px; }
+  .ms-chat { height: calc(100dvh - 120px); min-height: 520px; }
+  .window-lights { display: none; }
+  .ms-thread { padding: 16px 14px; }
+  .ms-footer { padding: 10px 12px 12px; }
+  .ms-chip { font-size: 13px; padding: 7px 12px; }
+  .ms-links { display: block; }
+  .ms-links li + li { border-top: 1px solid var(--ms-rule); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-msg.is-new { animation: none; }
+  .ms-typing span { animation: none; opacity: .6; }
+}

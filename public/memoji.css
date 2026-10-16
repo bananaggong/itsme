@@ -1,0 +1,322 @@
+/* ==========================================================
+   Portrait tile: "Siri, turn me into a Memoji"
+   A pretend Apple Intelligence moment, played by memoji.js:
+   1. .is-busy      Siri's rainbow glow runs round the edge of the tile
+   2. .is-asking    the "Ask Siri" bar slides up and the request is typed in
+   3. .is-making    the picture shimmers while Siri "thinks"
+   4. data-look     "memoji" or "pixel": which picture is showing afterwards
+   .to-memoji keeps the real photo showing during the scene, so it's the photo
+   (not the pixel art) that turns into the Memoji.
+   ========================================================== */
+
+/* Lets the browser animate the gradient's starting angle, which makes the colours travel round */
+@property --siri-spin {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.tile--avatar {
+  container-type: inline-size;  /* sizes below can follow the tile's width (cqi = 1% of it) */
+  --siri-colours: #bc82f3, #f5b9ea, #8d9fff, #ff6778, #ffba71, #c686ff, #bc82f3; /* Apple Intelligence glow */
+  --siri-glass: rgba(255, 255, 255, .78);
+  --siri-glass-text: #1d1d1f;
+  --siri-hint: rgba(29, 29, 31, .5);
+  --siri-send-idle: rgba(120, 120, 128, .2);
+}
+:root[data-theme="dark"] .tile--avatar {
+  --siri-glass: rgba(36, 36, 40, .78);
+  --siri-glass-text: #f5f5f7;
+  --siri-hint: rgba(245, 245, 247, .55);
+  --siri-send-idle: rgba(120, 120, 128, .36);
+}
+
+/* ---------- The Memoji picture (sits above the pixel art and the photo) ---------- */
+.tile--avatar .avatar-memoji {
+  position: absolute;
+  inset: 0;
+  image-rendering: auto;
+  opacity: 0;
+  filter: blur(14px) saturate(1.5);
+  transform: scale(1.12);
+  transition: opacity .6s ease, filter .8s ease, transform .9s cubic-bezier(.2, .8, .2, 1);
+}
+.tile--avatar[data-look="memoji"] .avatar-memoji {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+/* Returning visitor who's already a Memoji: no fade on arrival */
+.tile--avatar.is-instant .avatar-memoji { transition: none; }
+
+/* During the scene, show the real photo whatever the mouse is doing */
+.tile--avatar.to-memoji .avatar-photo {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+/* While Siri "thinks": the picture softens and brightens under a travelling sheen */
+.tile--avatar.to-memoji.is-making .avatar-photo,
+.tile--avatar.is-making[data-look="memoji"] .avatar-memoji {
+  filter: blur(5px) saturate(1.5) brightness(1.08);
+  transform: scale(.97);
+  transition: filter 1.2s ease, transform 1.4s ease;
+}
+.siri-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .6) 50%, transparent 65%) 0 0 / 300% 100%,
+    conic-gradient(from var(--siri-spin) at 50% 55%, var(--siri-colours));
+  mix-blend-mode: soft-light;
+  transition: opacity .5s ease;
+}
+.tile--avatar.is-making .siri-shimmer {
+  opacity: 1;
+  animation: siri-sheen 1.1s linear infinite, siri-spin 3s linear infinite;
+}
+
+/* ---------- The rainbow glow round the edge ---------- */
+.siri-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+.tile--avatar.is-busy .siri-glow {
+  opacity: 1;
+  animation: siri-spin 3.2s linear infinite;
+}
+/* Two rings of the same gradient: a crisp thin one, and a wide blurred one for the haze.
+   Each ring is the gradient with the middle cut out (the mask keeps only the padding).
+   The haze ring sits inside .siri-haze, which does the blurring, so the blur softens the
+   ring's cut-out edge too (a blur on the ring itself happens before the cut, leaving a hard edge). */
+.siri-glow::before,
+.siri-haze::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 3px;
+  background: conic-gradient(from var(--siri-spin), var(--siri-colours));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.siri-haze {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  filter: blur(12px);
+  opacity: .9;
+}
+.siri-haze::before { padding: 14px; }
+
+/* ---------- The "Ask Siri" bar ---------- */
+.siri-bar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 6px 0 16px;
+  border-radius: 22px;
+  background: var(--siri-glass);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, .35);
+  color: var(--siri-glass-text);
+  font: 500 clamp(13px, 5.4cqi, 16px) / 1 var(--font-system);
+  opacity: 0;
+  transform: translateY(calc(100% + 16px)) scale(.9);
+  transition: opacity .3s ease, transform .5s cubic-bezier(.3, 1.3, .5, 1);
+}
+.tile--avatar.is-asking .siri-bar {
+  opacity: 1;
+  transform: none;
+}
+/* The bar's own thin rainbow outline */
+.siri-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from var(--siri-spin), var(--siri-colours));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.tile--avatar.is-busy .siri-bar::before { animation: siri-spin 3.2s linear infinite; }
+
+.siri-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.siri-placeholder { color: var(--siri-hint); }
+.siri-text:not(:empty) ~ .siri-placeholder { display: none; }
+.siri-caret {
+  flex-shrink: 0;
+  width: 2px;
+  height: 1.15em;
+  margin-left: 1px;
+  border-radius: 1px;
+  background: var(--apple-blue);
+  animation: siri-blink 1s steps(1) infinite;
+}
+
+.siri-send {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--siri-send-idle);
+  color: #fff;
+  transition: background .2s ease, transform .15s ease;
+}
+.siri-send svg { width: 16px; height: 16px; }
+.siri-bar.has-text .siri-send { background: var(--apple-blue); }
+.siri-bar.is-sent .siri-send { transform: scale(.82); }
+
+/* ---------- The Siri button (bottom right) ---------- */
+.siri-button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 5px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--siri-glass);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .4);
+  color: var(--siri-glass-text);
+  font: 600 14px / 1 var(--font-system);
+  cursor: pointer;
+  transition: opacity .3s ease, transform .4s cubic-bezier(.3, 1.3, .5, 1);
+}
+.siri-button:focus-visible { outline: 3px solid var(--apple-blue); outline-offset: 3px; }
+.siri-button:active { transform: scale(.94); }
+/* Out of the way while the scene plays (the bar takes its place) */
+.tile--avatar.is-busy .siri-button {
+  opacity: 0;
+  transform: scale(.6);
+  pointer-events: none;
+}
+
+/* ---------- The Siri logo (an SVG in index.html), brought to life like Apple's ----------
+   1. Always: each ribbon of light slowly turns round the ball at its own speed, and twists
+      (squashes flat and flips over), which reads as ribbons turning in 3D. The bright core breathes.
+   2. Until the button has been pressed: every few seconds Siri "wakes" — the ball pops up
+      with a springy bounce and a rainbow glow blooms behind it, inviting a tap.
+   3. Hover or keyboard focus: the ribbons also breathe faster, as if Siri is listening. */
+.siri-orb {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+}
+.siri-ribbons {
+  mix-blend-mode: screen;   /* overlapping ribbons add up to brighter light, like the real thing */
+  transform-origin: 50% 50%;
+  transform-box: view-box;
+}
+.siri-ribbons path,
+.siri-core {
+  transform-origin: 50% 50%;
+  transform-box: view-box;  /* turn round the middle of the ball, not each ribbon's own box */
+}
+/* `rotate` and `scale` are separate properties, so the turning and twisting run side by side */
+.siri-ribbons path:nth-child(1) { animation: siri-turn 9s linear infinite, siri-twist 3.1s ease-in-out infinite alternate; }
+.siri-ribbons path:nth-child(2) { animation: siri-turn 7s linear infinite reverse, siri-twist 2.5s ease-in-out -1.2s infinite alternate; }
+.siri-ribbons path:nth-child(3) { animation: siri-turn 11s linear -4s infinite, siri-twist 3.7s ease-in-out -.6s infinite alternate; }
+.siri-core { animation: siri-core 2.2s ease-in-out infinite alternate; }
+
+.siri-button:hover .siri-ribbons,
+.siri-button:focus-visible .siri-ribbons { animation: siri-breathe 1.6s ease-in-out infinite; }
+
+/* The rainbow glow behind the ball, in the logo's own colours (only seen when Siri wakes) */
+.siri-button::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(from 20deg, #ff4fa8, #37c8ff, #3cf0b0, #3d6bff, #ff4fa8);
+  filter: blur(7px);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+/* Wakes only while it's still the pixel art and nobody has pressed it on this visit */
+.tile--avatar[data-look="pixel"]:not(.was-used) .siri-orb { animation: siri-wake 5s 1.5s infinite; }
+.tile--avatar[data-look="pixel"]:not(.was-used) .siri-button::before { animation: siri-bloom 5s 1.5s infinite; }
+
+/* Nothing to see while the tile's scrolled out of view, so everything pauses (memoji.js sets .is-away) */
+.tile--avatar.is-away .siri-button::before,
+.tile--avatar.is-away .siri-orb,
+.tile--avatar.is-away .siri-orb * { animation-play-state: paused; }
+
+/* The words next to the orb: tucked away, slid out on hover (or keyboard focus) */
+.siri-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: max-width .35s ease, opacity .25s ease, padding .35s ease;
+}
+.siri-button:focus-visible .siri-label,
+.tile--avatar.is-hinting .siri-label { max-width: 140px; padding: 0 10px 0 9px; opacity: 1; }
+@media (hover: hover) {
+  .tile--avatar:hover .siri-label { max-width: 140px; padding: 0 10px 0 9px; opacity: 1; }
+}
+
+@keyframes siri-spin { to { --siri-spin: 360deg; } }
+@keyframes siri-sheen { from { background-position: 100% 0, 0 0; } to { background-position: -50% 0, 0 0; } }
+@keyframes siri-blink { 50% { opacity: 0; } }
+@keyframes siri-breathe { 50% { transform: scale(1.08, .72) rotate(-8deg); } }
+@keyframes siri-turn { to { rotate: 360deg; } }
+@keyframes siri-twist { to { scale: 1 -.75; } }
+@keyframes siri-core { from { opacity: .45; scale: .8; } to { opacity: .9; scale: 1.15; } }
+/* A springy pop, then quiet for the rest of the 5 seconds */
+@keyframes siri-wake {
+  0%, 22%, 100% { scale: 1; animation-timing-function: ease-out; }
+  6%  { scale: 1.16; animation-timing-function: ease-in-out; }
+  12% { scale: .95; }
+  17% { scale: 1.03; }
+}
+@keyframes siri-bloom {
+  0%, 34%, 100% { opacity: 0; scale: .7; }
+  8%  { opacity: .85; scale: 1.25; animation-timing-function: ease-out; }
+}
+
+/* Less movement: no spinning or zooming, just gentle fades (memoji.js also skips the typing) */
+@media (prefers-reduced-motion: reduce) {
+  .tile--avatar .avatar-memoji,
+  .tile--avatar.to-memoji.is-making .avatar-photo,
+  .tile--avatar.is-making[data-look="memoji"] .avatar-memoji { transform: none; }
+  .siri-glow, .siri-bar::before, .siri-shimmer, .siri-ribbons, .siri-caret,
+  .siri-ribbons path, .siri-core, .siri-orb, .siri-button::before { animation: none !important; }
+  .siri-bar { transform: none; }
+}

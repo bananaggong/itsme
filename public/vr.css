@@ -1,0 +1,411 @@
+/* /vr: VR Corp, Sam's AI-made landing page (vr/index.html). Stands alone: it doesn't load
+   styles.css, since it has its own look, copied from the 2023 Webflow original.
+   Fonts are hosted in assets/vr/: Orbitron and Press Start 2P (SIL Open Font License) and
+   Mega Man 10 (CC BY-NC-SA, credited in the footer). Prefix vr-. */
+
+@font-face {
+  font-family: "Orbitron";
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/assets/vr/orbitron-latin.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Press Start 2P";
+  font-display: swap;
+  src: url(/assets/vr/press-start-2p-latin.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Mega Man 10";
+  font-display: swap;
+  src: url(/assets/vr/megaman10.woff2) format("woff2");
+}
+
+:root {
+  color-scheme: light;
+  --vr-ink: #101828;          /* headings */
+  --vr-text: #000;
+  --vr-muted: #3a4554;
+  --vr-gold: #face55;         /* feature icon rings */
+  --vr-gold-bg: #eee4c7;
+  --vr-green: #02f5a4;        /* the ticker text */
+  --vr-purple: #7f56d9;
+  --vr-purple-dark: #6941c6;
+  --vr-amber: #fec84b;
+  --vr-line: #fff;
+  --vr-display: "Orbitron", "Arial Black", sans-serif;
+  --vr-pixel: "Press Start 2P", "Courier New", monospace;
+  --vr-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.vr {
+  min-height: 100vh;
+  cursor: cell;               /* the original's little crosshair cursor */
+  color: var(--vr-text);
+  font: 16px/1.5 var(--vr-display);
+  -webkit-font-smoothing: antialiased;
+  /* The grainy blue-to-orange gradient photo stretches over the whole page */
+  background: #f2a15d url(/assets/vr/background.webp) center / cover;
+}
+/* :where() gives these page-wide defaults no weight, so any specific rule below wins */
+:where(.vr) img { display: block; max-width: 100%; height: auto; }
+:where(.vr) a { color: inherit; }
+.vr :focus-visible { outline: 3px solid var(--vr-purple); outline-offset: 3px; }
+
+.vr-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- 1. Hero */
+
+.vr-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 67px 2rem 105px;
+  background: url(/assets/vr/background.webp) 50% 0 / cover;
+}
+/* The "An AI experiment · 2023" badge: an arcade-style label in the ticker's colours.
+   The four black shadows notch its corners like 8-bit pixels; the amber one is its drop shadow. */
+.vr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding: 12px 16px;
+  background: #000;
+  color: var(--vr-green);
+  font: 13px/1.4 var(--vr-pixel);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  box-shadow:
+    0 -4px #000, 0 4px #000, -4px 0 #000, 4px 0 #000,
+    8px 8px var(--vr-amber), 4px 12px var(--vr-amber), 12px 4px var(--vr-amber);
+  transform: rotate(-3deg);   /* tilted like the "This is not real" ticker */
+}
+.vr-badge-year { color: var(--vr-amber); }
+.vr-badge-star { width: 10px; height: 10px; fill: var(--vr-amber); shape-rendering: crispEdges; }   /* a 5×5 pixel star */
+
+.vr-title {
+  color: var(--vr-ink);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.vr-lede { max-width: 48rem; margin-top: 1.5rem; font-size: 1.25rem; }
+.vr-hero-headset { width: 100%; max-width: 48rem; margin-top: 4rem; }
+
+/* "None of this is real" strip */
+.vr-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem 3rem;
+  width: min(100%, 1100px);
+  max-width: 800px;
+  margin-top: 120px;
+  padding: 1.25rem 1rem;
+  border-radius: .75rem;
+  box-shadow: 0 12px 16px 3px rgba(0, 0, 0, .54), 0 4px 6px -2px rgba(16, 24, 40, .03);
+}
+.vr-notice p { font-weight: 600; }
+.vr-button {
+  flex-shrink: 0;
+  padding: 5px 15px;
+  border: 2px solid #000;
+  border-radius: .5rem;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s, color .2s;
+}
+.vr-button:hover { background: var(--vr-amber); color: #000; }
+
+/* ---------------------------------------------------------------- 2. Three modes */
+
+.vr-modes { display: grid; grid-template-columns: repeat(3, 1fr); }
+.vr-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+}
+.vr-mode--vhs { background: #b6c8d4; }
+.vr-mode--sniff { background: #d1b294; }
+.vr-mode--cassette { background: #f29d43; }
+.vr-mode h2 {
+  margin: 21px 45px 0;
+  padding: 25px 0 15px;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+.vr-mode p { margin: 0 45px; padding-top: 16px; line-height: 25px; }
+.vr-mode img { width: 88%; margin-top: auto; padding-top: 40px; }
+
+/* ---------------------------------------------------------------- shared section bits */
+
+.vr-section { max-width: 80rem; margin: 0 auto; padding: 0 2rem; text-align: center; }
+.vr-eyebrow { margin-bottom: .75rem; font: 600 1rem/1.5 var(--vr-pixel); }
+.vr-heading { max-width: 48rem; margin: 0 auto; color: var(--vr-ink); font-size: 2.25rem; font-weight: 600; line-height: 1.3; }
+.vr-intro { max-width: 48rem; margin: 1rem auto 0; font-size: 1.125rem; }
+
+/* ---------------------------------------------------------------- 3. Features */
+
+.vr-features { padding-top: 4.2rem; }
+.vr-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem 0;
+}
+.vr-feature-col { display: grid; gap: 3rem; }
+.vr-feature { display: flex; flex-direction: column; align-items: center; }
+.vr-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem; height: 3rem;
+  border: .5rem solid var(--vr-gold);
+  border-radius: 50%;
+  background: var(--vr-gold-bg);
+}
+.vr-icon img { width: 20px; height: 20px; }
+.vr-feature h3 { margin-top: 1rem; color: var(--vr-ink); font: 600 1.25rem/1.5 var(--vr-pixel); }
+.vr-feature p { margin-top: .5rem; }
+.vr-feature-headset { justify-self: center; }
+
+/* The sound button */
+.vr-dare {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--vr-line);   /* the line between the features and the button */
+}
+.vr-sound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: 800 16px var(--vr-display);
+  cursor: pointer;
+}
+.vr-sound svg {
+  box-sizing: content-box;
+  width: 24px; height: 24px;
+  padding: 1rem;
+  border-radius: 90px;
+  background: #000;
+  box-shadow: 0 4px #161616;
+  fill: none;
+  stroke: #fbf9fc;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .1s, box-shadow .1s;
+}
+.vr-sound:hover svg { background-image: linear-gradient(to right, var(--vr-purple), var(--vr-amber)); }
+.vr-sound:active svg { transform: translateY(4px); box-shadow: 0 0 #161616; }
+.vr-sound[aria-pressed="true"] svg { background-image: linear-gradient(to right, var(--vr-purple), var(--vr-amber)); }
+
+/* ---------------------------------------------------------------- 4. Reviews */
+
+.vr-reviews { padding-top: 2.5rem; padding-bottom: 3.4rem; margin-bottom: 50px; }
+.vr-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  text-align: left;
+}
+.vr-review {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid #f9fafb;
+  border-radius: 1rem;
+  background: rgba(249, 250, 251, .19);
+}
+.vr-stars { font-size: 1.25rem; letter-spacing: .15em; line-height: 1; }
+.vr-review blockquote { font-size: 1.25rem; font-weight: 500; }
+.vr-review figcaption { display: flex; align-items: center; gap: .75rem; margin-top: auto; }
+.vr-review figcaption img { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; }
+.vr-review strong { display: block; color: var(--vr-ink); font: 600 1rem/1.5 var(--vr-pixel); }
+.vr-review figcaption span span { display: block; color: #1d2433; font: .875rem/1.5 var(--vr-system); }
+
+/* ---------------------------------------------------------------- 5. Ticker */
+
+.vr-ticker {
+  overflow: hidden;
+  background: #000;
+  transform: rotate(-3deg);
+}
+.vr-ticker-track { display: flex; width: max-content; animation: vr-scroll 40s linear infinite; }
+.vr-ticker-track span {
+  margin-right: 20px;
+  padding: 12px 0;
+  color: var(--vr-green);
+  font: 22px "Mega Man 10", var(--vr-pixel);
+  white-space: nowrap;
+}
+@keyframes vr-scroll { to { transform: translateX(-50%); } }   /* half the copies = one loop */
+
+/* ---------------------------------------------------------------- 6. Company */
+
+.vr-company {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+  text-align: left;
+}
+.vr-company .vr-heading { max-width: none; margin: 0; font-size: 2.8rem; font-weight: 800; line-height: 1.2; }
+.vr-company-text p { margin-top: 1.5rem; font-size: 1.125rem; }
+
+/* Five sepia photos on a 6×6 grid, overlapping like the original */
+.vr-collage {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+  aspect-ratio: 1;
+}
+.vr-collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 13px; filter: sepia(1); }
+.vr-c1 { grid-area: 2 / 2 / 4 / 4; }
+.vr-c2 { grid-area: 4 / 1 / 6 / 3; }
+.vr-c3 { grid-area: 4 / 3 / 7 / 5; }
+.vr-c4 { grid-area: 4 / 5 / 6 / 7; }
+.vr-c5 { grid-area: 1 / 4 / 4 / 6; }
+
+/* ---------------------------------------------------------------- 7. How it was made */
+
+.vr-cta {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 58.5rem;
+  margin: 100px auto 78px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 11px rgba(0, 0, 0, .36);
+  overflow: hidden;
+}
+.vr-cta-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 45px 65px 45px 0;
+  text-align: center;
+}
+.vr-cta h2 { color: var(--vr-ink); font-size: 2.7rem; font-weight: 600; line-height: 1.2; }
+.vr-cta p { font-size: 1.25rem; }
+.vr-cta-button {
+  padding: .625rem 1.125rem;
+  border-radius: .5rem;
+  background: #000;
+  color: #fff;
+  font: 600 1rem/1.5 var(--vr-system);
+  text-decoration: none;
+  transition: background .3s;
+  align-self: stretch;   /* as wide as the text above it */
+}
+.vr-cta-button:hover { background: var(--vr-purple-dark); }
+.vr-cta-image { max-width: 51%; align-self: flex-end; }
+
+/* ---------------------------------------------------------------- Footer */
+
+.vr-footer {
+  /* the line runs the full width; the content stays in the middle 940px */
+  padding: 80px max(30px, calc((100% - 940px) / 2)) 40px;
+  border-top: 1px solid var(--vr-line);
+  color: var(--vr-muted);
+  font-family: Arial, sans-serif;
+}
+.vr-footer-logo { width: 174px; }
+.vr-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #e4ebf3;
+}
+.vr-footer-bottom p { max-width: 492px; font-size: 14px; }
+.vr-footer-x {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border: 1px solid var(--vr-muted);
+  border-radius: 50%;
+}
+.vr-footer-x svg { width: 14px; height: 14px; fill: currentColor; }
+.vr-credits { margin-top: 32px; font-size: 12px; }
+
+/* ---------------------------------------------------------------- Smaller screens */
+
+@media (max-width: 991px) {
+  .vr-title { font-size: 3.25rem; }
+  .vr-modes { grid-template-columns: 1fr; }
+  .vr-mode h2, .vr-mode p { margin-left: 95px; margin-right: 95px; }
+  .vr-mode img { width: 70%; }
+  .vr-feature-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .vr-feature-headset { grid-column: 1 / -1; grid-row: 1; max-width: 70%; }
+  .vr-review-grid { grid-template-columns: 1fr; }
+  .vr-company { grid-template-columns: 1fr; }
+  .vr-cta { margin-left: 2rem; margin-right: 2rem; }
+  .vr-cta-text { padding: 3rem 65px; }
+  .vr-cta-image { display: none; }
+}
+
+@media (max-width: 767px) {
+  .vr-hero { padding: 4rem 1rem 66px; }
+  .vr-title { font-size: 2.25rem; }
+  .vr-badge { gap: 8px; margin-bottom: 28px; padding: 10px 12px; font-size: 10px; }
+  .vr-lede { font-size: 1.125rem; }
+  .vr-notice { flex-direction: column; margin-top: 60px; }
+  .vr-section { padding-left: 1rem; padding-right: 1rem; }
+  .vr-heading { font-size: 1.75rem; line-height: 1.4; }
+  .vr-mode h2, .vr-mode p { margin-left: 24px; margin-right: 24px; }
+  .vr-mode h2 { font-size: 28px; line-height: 34px; }
+  .vr-mode img { width: 100%; }
+  .vr-feature-grid { grid-template-columns: 1fr; }
+  .vr-feature h3 { font-size: 1.125rem; }
+  .vr-review { padding: 1.5rem; }
+  .vr-review blockquote { font-size: 1.0625rem; }
+  .vr-ticker-track span { font-size: 15px; }
+  .vr-company { text-align: center; padding-top: 5rem; }
+  .vr-company .vr-heading { font-size: 2.25rem; }
+  .vr-company-text p { font-size: 1rem; line-height: 1.8; }
+  .vr-cta { margin: 60px 1rem; }
+  .vr-cta-text { padding: 2.5rem 1.5rem; }
+  .vr-cta h2 { font-size: 2.25rem; }
+  .vr-cta p { font-size: 1.125rem; }
+  .vr-footer { padding: 60px 16px 32px; }
+  .vr-footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vr-ticker-track { animation: none; }
+}

@@ -1,0 +1,2 @@
+# Keep captured assets byte-identical, including vCard CRLF and original whitespace.
+public/** -text -whitespace

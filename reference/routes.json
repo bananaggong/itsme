@@ -1,0 +1,2745 @@
+[
+  {
+    "path": "/",
+    "title": "Sam Dickie | Product Manager & Maker based in Scotland",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "siri-button",
+        "type": "button",
+        "aria-label": "Ask Siri to turn Sam into a Memoji"
+      },
+      {
+        "element": "button",
+        "class": "ch-slot",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sw-app is-active sw-app--padded",
+        "aria-label": "Notion"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sw-app",
+        "aria-label": "Dia"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sw-app sw-app--padded",
+        "aria-label": "Gumroad"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sw-app",
+        "aria-label": "Substack"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sw-app",
+        "aria-label": "Apple Podcasts"
+      },
+      {
+        "element": "button",
+        "class": "ff-light ff-light--zoom",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Add a sticky note"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Add a shape"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Add a text box"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool ff-tool--media",
+        "type": "button",
+        "aria-label": "Add a photo from your device"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Draw with the pen"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool ff-tool--history",
+        "type": "button",
+        "aria-label": "Undo"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool ff-tool--history",
+        "type": "button",
+        "aria-label": "Redo"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool ff-tool--reset",
+        "type": "button",
+        "aria-label": "Reset the board"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool ff-expand",
+        "type": "button",
+        "aria-label": "Expand the board"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Zoom out"
+      },
+      {
+        "element": "button",
+        "class": "ff-zoom-value",
+        "type": "button",
+        "aria-label": "Zoom to 100%"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Zoom in"
+      },
+      {
+        "element": "button",
+        "class": "ff-tool",
+        "type": "button",
+        "aria-label": "Zoom to fit the whole board"
+      },
+      {
+        "element": "button",
+        "class": "ff-btn",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "ff-btn ff-btn--danger",
+        "type": "button"
+      },
+      {
+        "element": "input",
+        "class": "ff-file",
+        "type": "file"
+      },
+      {
+        "element": "button",
+        "class": "tile tile--photobooth pb-launch",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "ph-next",
+        "aria-label": "Show next photo"
+      },
+      {
+        "element": "button",
+        "class": "ph-info-button",
+        "type": "button",
+        "aria-label": "Photo details"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sp-row is-active"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sp-row"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sp-row"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sp-row"
+      },
+      {
+        "element": "button",
+        "type": "button",
+        "class": "sp-row"
+      },
+      {
+        "element": "button",
+        "class": "ct-copy",
+        "type": "button",
+        "aria-label": "Copy email address"
+      },
+      {
+        "element": "button",
+        "class": "tile tile--shortcut",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "ra-edit",
+        "type": "button"
+      },
+      {
+        "element": "dialog",
+        "class": "pb-window",
+        "aria-label": "Photo Booth"
+      },
+      {
+        "element": "form",
+        "class": "pb-lights"
+      },
+      {
+        "element": "button",
+        "type": "submit",
+        "class": "pb-light pb-light--close",
+        "aria-label": "Close Photo Booth"
+      },
+      {
+        "element": "video",
+        "class": "pb-video"
+      },
+      {
+        "element": "button",
+        "class": "pb-retry",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "pb-shutter",
+        "type": "button",
+        "aria-label": "Take a photo"
+      },
+      {
+        "element": "button",
+        "class": "pb-effects-button",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "ra-reset",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "ra-done",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "im-close",
+        "type": "button",
+        "aria-label": "Close notification"
+      },
+      {
+        "element": "button",
+        "class": "im-reply",
+        "type": "button"
+      },
+      {
+        "element": "form",
+        "class": "im-compose"
+      },
+      {
+        "element": "input",
+        "class": "im-input",
+        "type": "text",
+        "name": "reply",
+        "aria-label": "Your reply to Sam"
+      },
+      {
+        "element": "button",
+        "class": "im-send",
+        "type": "submit"
+      }
+    ],
+    "scripts": [
+      "/playlists.js?v=82e4a8f73d",
+      "/photos.js?v=04db76e57a",
+      "/switcher.js?v=64d9483e9a",
+      "/findmy.js?v=9fc3be48fb",
+      "/freeform.js?v=9db6ff388d",
+      "/newsletter.js?v=87f024485b",
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/photobooth.js?v=90f223db9c",
+      "/imessage.js?v=33036a2e83",
+      "/contact.js?v=5003e9dda6",
+      "/officehours.js?v=cb5a9f5e70",
+      "/memoji.js?v=a5bb2d17e3",
+      "/rearrange.js?v=eaed139c19",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://aiuxplayground.com/",
+      "https://blush.design/",
+      "https://coolors.co/",
+      "https://open.spotify.com/playlist/1kmaCCEuMAqsgTwNQ52tqC",
+      "https://podcasts.apple.com/gb/podcast/ai-i/id1719789201",
+      "https://podcasts.apple.com/us/podcast/acquired/id1050462261",
+      "https://podcasts.apple.com/us/podcast/core-memory/id1789397163",
+      "https://podcasts.apple.com/us/podcast/david-senra/id1836497887",
+      "https://podcasts.apple.com/us/podcast/founders/id1141877104",
+      "https://podcasts.apple.com/us/podcast/lennys-podcast-product-career-growth/id1627920305",
+      "https://podcasts.apple.com/us/podcast/not-investment-advice/id1563288568",
+      "https://podcasts.apple.com/us/podcast/tbpn/id1772360235",
+      "https://samdickie.substack.com/about",
+      "https://samdickie.substack.com/p/letters-to-a-young-creator",
+      "https://samdickie.substack.com/p/paying-to-see-the-future",
+      "https://samdickie.substack.com/p/the-case-against-personal-software",
+      "https://samdickie.substack.com/p/the-idiot-index-for-code",
+      "https://samdickie.substack.com/p/we-are-the-nerds",
+      "https://samdickie.substack.com/subscribe",
+      "https://squoosh.app/",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://thisdickie.gumroad.com/l/bVBqw",
+      "https://thisdickie.gumroad.com/l/egNFC",
+      "https://thisdickie.gumroad.com/l/kVaIu",
+      "https://thisdickie.gumroad.com/l/ldgiz",
+      "https://thisdickie.gumroad.com/l/research-questions",
+      "https://thisdickie.gumroad.com/l/two-pager",
+      "https://thisdickie.gumroad.com/l/wwfpu",
+      "https://thisdickie.notion.site/12-Smoke-Test-Techniques-7b5bc6f530f7498f92ee15c9140d2823",
+      "https://thisdickie.notion.site/A-curated-list-of-personal-website-inspiration-2022-26-5b38135e96fb41aa9d750a96b947c591",
+      "https://thisdickie.notion.site/Shape-Up-Basecamp-de61187006d24f6bb5476f2737cac314",
+      "https://thisdickie.notion.site/Webflow-Resources-6789172520c84544ad8907c8cc8cd645",
+      "https://thisdickie.notion.site/YC-Startup-Weekly-Planning-Template-b19ebce5fc5c4035a7f337d26c99c2c2",
+      "https://validation-co.webflow.io/",
+      "https://www.linkedin.com/in/samdickie/",
+      "https://www.openstreetmap.org/copyright",
+      "https://x.com/thisdickie"
+    ],
+    "images": [
+      "/assets/sam-portrait.png",
+      "/assets/sam-photo.webp",
+      "/assets/sam-memoji.webp",
+      "/assets/apps/notion.png",
+      "/assets/apps/notion.png",
+      "/assets/apps/notion.png",
+      "/assets/apps/tabs/x.png",
+      "/assets/apps/tabs/validation-co.png",
+      "/assets/apps/tabs/squoosh.png",
+      "/assets/apps/tabs/blush.png",
+      "/assets/apps/tabs/coolors.png",
+      "/assets/apps/tabs/aiuxplayground.svg?v=29258645a8",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/notion.png",
+      "/assets/apps/dia.png",
+      "/assets/apps/gumroad.png",
+      "/assets/apps/substack.png",
+      "/assets/apps/podcasts.png",
+      "/assets/apps/photobooth.svg?v=5ff900fb38",
+      "/assets/apps/photobooth.svg?v=5ff900fb38",
+      "/assets/photos/photo-1.webp",
+      "/assets/photos/photo-2.webp",
+      "/assets/photos/photo-3.webp",
+      "/assets/photos/photo-4.webp",
+      "/assets/photos/photo-5.webp",
+      "/assets/photos/photo-6.webp",
+      "/assets/photos/photo-7.webp",
+      "/assets/playlist-1.webp",
+      "/assets/playlist-1.webp",
+      "/assets/playlist-2.webp",
+      "/assets/playlist-3.webp",
+      "/assets/playlist-4.webp",
+      "/assets/playlist-5.webp",
+      "/assets/playlist-1.webp",
+      "/assets/map/map-light.svg?v=5450f37046",
+      "/assets/map/map-dark.svg?v=5bd513cd98",
+      "/assets/sam-photo.webp",
+      "/assets/sam-photo.webp",
+      "/assets/sam-photo.webp",
+      "/assets/apps/books.webp",
+      "/assets/books/product-led-seo.webp",
+      "/assets/books/the-man-who-solved-the-market.webp",
+      "/assets/books/the-infinity-machine.webp",
+      "/assets/featured/rebuilt-with-ai.webp",
+      "/assets/featured/rebuilt-with-ai-dark.webp",
+      "/assets/apps/news.webp",
+      "/assets/sam-photo.webp"
+    ]
+  },
+  {
+    "path": "/about/",
+    "title": "About Sam Dickie | Product Manager & Maker",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "notes-tool notes-sidebar-toggle",
+        "type": "button",
+        "aria-label": "Hide Notes sidebars"
+      },
+      {
+        "element": "button",
+        "class": "notes-tool notes-compose",
+        "type": "button",
+        "aria-label": "Create a temporary note"
+      },
+      {
+        "element": "button",
+        "class": "note-row note-row--draft",
+        "type": "button"
+      },
+      {
+        "element": "button",
+        "class": "draft-back",
+        "type": "button"
+      },
+      {
+        "element": "input",
+        "class": "draft-title",
+        "name": "temporary-note-title",
+        "type": "text",
+        "aria-label": "Note title"
+      }
+    ],
+    "scripts": [
+      "/about.js?v=7c0f582a4f",
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.founderandlightning.com/",
+      "https://www.skyscanner.com",
+      "https://www.softr.io",
+      "https://www.stackerhq.com",
+      "https://x.com/thisdickie"
+    ],
+    "images": [
+      "/assets/sam-portrait.png",
+      "/assets/sam-portrait.png"
+    ]
+  },
+  {
+    "path": "/books/",
+    "title": "Books I've read | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": ""
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": "product-startups"
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": "business-stories"
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": "money-investing"
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": "life-habits"
+      },
+      {
+        "element": "button",
+        "class": "bk-chip",
+        "type": "button",
+        "data-topic": "creativity-design"
+      },
+      {
+        "element": "dialog",
+        "class": "bk-card"
+      },
+      {
+        "element": "button",
+        "class": "bk-close",
+        "type": "button",
+        "aria-label": "Close"
+      },
+      {
+        "element": "button",
+        "class": "bk-rate-star",
+        "type": "button",
+        "aria-label": "Rate 1 out of 5"
+      },
+      {
+        "element": "button",
+        "class": "bk-rate-star",
+        "type": "button",
+        "aria-label": "Rate 2 out of 5"
+      },
+      {
+        "element": "button",
+        "class": "bk-rate-star",
+        "type": "button",
+        "aria-label": "Rate 3 out of 5"
+      },
+      {
+        "element": "button",
+        "class": "bk-rate-star",
+        "type": "button",
+        "aria-label": "Rate 4 out of 5"
+      },
+      {
+        "element": "button",
+        "class": "bk-rate-star",
+        "type": "button",
+        "aria-label": "Rate 5 out of 5"
+      }
+    ],
+    "scripts": [
+      "/books.js?v=c4abdf45da",
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.amazon.co.uk/",
+      "https://www.amazon.co.uk/s?k=American+Kingpin+Nick+Bilton",
+      "https://www.amazon.co.uk/s?k=Apple+David+Pogue",
+      "https://www.amazon.co.uk/s?k=Atomic+Habits+James+Clear",
+      "https://www.amazon.co.uk/s?k=Billion+Dollar+Loser+Reeves+Wiedeman",
+      "https://www.amazon.co.uk/s?k=Bitcoin+Billionaires+Ben+Mezrich",
+      "https://www.amazon.co.uk/s?k=Conspiracy+Ryan+Holiday",
+      "https://www.amazon.co.uk/s?k=Creativity%2C+Inc.+Ed+Catmull",
+      "https://www.amazon.co.uk/s?k=Cribsheet+Emily+Oster",
+      "https://www.amazon.co.uk/s?k=Four+Thousand+Weeks+Oliver+Burkeman",
+      "https://www.amazon.co.uk/s?k=Hegarty+on+Creativity+John+Hegarty",
+      "https://www.amazon.co.uk/s?k=Inspired+Marty+Cagan",
+      "https://www.amazon.co.uk/s?k=Jony+Ive+Leander+Kahney",
+      "https://www.amazon.co.uk/s?k=Kanban+David+J.+Anderson",
+      "https://www.amazon.co.uk/s?k=Life+in+Half+a+Second+Matthew+Michalewicz",
+      "https://www.amazon.co.uk/s?k=Minimalism+Joshua+Fields+Millburn",
+      "https://www.amazon.co.uk/s?k=Never+Enough+Andrew+Wilkinson",
+      "https://www.amazon.co.uk/s?k=Not+Fade+Away+Laurence+Shames",
+      "https://www.amazon.co.uk/s?k=Product+Leadership+Richard+Banfield",
+      "https://www.amazon.co.uk/s?k=Product-Led+SEO+Eli+Schwartz",
+      "https://www.amazon.co.uk/s?k=Setting+the+Table+Danny+Meyer",
+      "https://www.amazon.co.uk/s?k=Testing+Business+Ideas+David+J.+Bland",
+      "https://www.amazon.co.uk/s?k=The+%24100+Startup+Chris+Guillebeau",
+      "https://www.amazon.co.uk/s?k=The+4-Hour+Body+Tim+Ferriss",
+      "https://www.amazon.co.uk/s?k=The+4-Hour+Work+Week+Tim+Ferriss",
+      "https://www.amazon.co.uk/s?k=The+Book+of+Elon+Eric+Jorgenson",
+      "https://www.amazon.co.uk/s?k=The+Every+Dave+Eggers",
+      "https://www.amazon.co.uk/s?k=The+Hard+Thing+About+Hard+Things+Ben+Horowitz",
+      "https://www.amazon.co.uk/s?k=The+Holy+Grail+of+Investing+Tony+Robbins",
+      "https://www.amazon.co.uk/s?k=The+Infinity+Machine+Sebastian+Mallaby",
+      "https://www.amazon.co.uk/s?k=The+Life-Changing+Magic+of+Tidying+Marie+Kondo",
+      "https://www.amazon.co.uk/s?k=The+Making+of+Prince+of+Persia+Jordan+Mechner",
+      "https://www.amazon.co.uk/s?k=The+Man+Who+Solved+the+Market+Gregory+Zuckerman",
+      "https://www.amazon.co.uk/s?k=The+Millionaire+Next+Door+Thomas+J.+Stanley",
+      "https://www.amazon.co.uk/s?k=The+Minimalist+Entrepreneur+Sahil+Lavingia",
+      "https://www.amazon.co.uk/s?k=The+Mom+Test+Rob+Fitzpatrick",
+      "https://www.amazon.co.uk/s?k=The+New+New+Thing+Michael+Lewis",
+      "https://www.amazon.co.uk/s?k=The+Trading+Game+Gary+Stevenson",
+      "https://www.amazon.co.uk/s?k=Tools+of+Titans+Tim+Ferriss",
+      "https://www.amazon.co.uk/s?k=Unshakeable+Tony+Robbins",
+      "https://www.amazon.co.uk/s?k=We+Are+the+Nerds+Christine+Lagorio-Chafkin",
+      "https://www.amazon.co.uk/s?k=What+I+Talk+About+When+I+Talk+About+Running+Haruki+Murakami",
+      "https://www.amazon.co.uk/s?k=Will+It+Fly%3F+Pat+Flynn"
+    ],
+    "images": [
+      "/assets/apps/books.webp",
+      "/assets/books/product-led-seo.webp",
+      "/assets/books/the-man-who-solved-the-market.webp",
+      "/assets/books/the-infinity-machine.webp",
+      "/assets/books/the-book-of-elon.webp",
+      "/assets/books/the-new-new-thing.webp",
+      "/assets/books/we-are-the-nerds.webp",
+      "/assets/books/the-making-of-prince-of-persia.webp",
+      "/assets/books/american-kingpin.webp",
+      "/assets/books/four-thousand-weeks.webp",
+      "/assets/books/the-trading-game.webp",
+      "/assets/books/the-holy-grail-of-investing.webp",
+      "/assets/books/creativity-inc.webp",
+      "/assets/books/never-enough.webp",
+      "/assets/books/cribsheet.webp",
+      "/assets/books/the-every.webp",
+      "/assets/books/setting-the-table.webp",
+      "/assets/books/atomic-habits.webp",
+      "/assets/books/jony-ive.webp",
+      "/assets/books/billion-dollar-loser.webp",
+      "/assets/books/conspiracy.webp",
+      "/assets/books/the-minimalist-entrepreneur.webp",
+      "/assets/books/the-mom-test.webp",
+      "/assets/books/bitcoin-billionaires.webp",
+      "/assets/books/will-it-fly.webp",
+      "/assets/books/inspired.webp",
+      "/assets/books/testing-business-ideas.webp",
+      "/assets/books/the-millionaire-next-door.webp",
+      "/assets/books/unshakeable.webp",
+      "/assets/books/product-leadership.webp",
+      "/assets/books/kanban.webp",
+      "/assets/books/tools-of-titans.webp",
+      "/assets/books/the-life-changing-magic-of-tidying.webp",
+      "/assets/books/what-i-talk-about-when-i-talk-about-running.webp",
+      "/assets/books/the-4-hour-body.webp",
+      "/assets/books/not-fade-away.webp",
+      "/assets/books/minimalism.webp",
+      "/assets/books/life-in-half-a-second.webp",
+      "/assets/books/the-4-hour-work-week.webp",
+      "/assets/books/the-hard-thing-about-hard-things.webp",
+      "/assets/books/hegarty-on-creativity.webp",
+      "/assets/books/the-100-startup.webp"
+    ]
+  },
+  {
+    "path": "/newsletter/",
+    "title": "Creator Club newsletter | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "form",
+        "class": "ms-compose",
+        "action": "/api/subscribe"
+      },
+      {
+        "element": "input",
+        "class": "ms-input",
+        "type": "email",
+        "name": "email"
+      },
+      {
+        "element": "input",
+        "class": "ms-trap",
+        "type": "text",
+        "name": "website"
+      },
+      {
+        "element": "button",
+        "class": "ms-send",
+        "type": "submit",
+        "aria-label": "Subscribe"
+      }
+    ],
+    "scripts": [
+      "/newsletter-page.js?v=6cac5bde74",
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/archive",
+      "https://samdickie.substack.com/p/did-ai-kill-the-lean-startup",
+      "https://samdickie.substack.com/p/letters-to-a-young-creator",
+      "https://samdickie.substack.com/p/paying-to-see-the-future",
+      "https://samdickie.substack.com/p/the-case-against-personal-software",
+      "https://samdickie.substack.com/p/the-idiot-index-for-code",
+      "https://samdickie.substack.com/p/the-website-built-like-an-operating",
+      "https://samdickie.substack.com/p/the-world-is-short-software",
+      "https://samdickie.substack.com/p/we-are-the-nerds",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/newsletter/letters-to-a-young-creator.webp",
+      "/assets/sam-photo-small.webp",
+      "/assets/newsletter/letters-to-a-young-creator-thumb.webp",
+      "/assets/newsletter/paying-to-see-the-future-thumb.webp",
+      "/assets/newsletter/the-case-against-personal-software-thumb.webp",
+      "/assets/newsletter/the-idiot-index-for-code-thumb.webp",
+      "/assets/newsletter/we-are-the-nerds-thumb.webp",
+      "/assets/newsletter/the-world-is-short-software-thumb.webp",
+      "/assets/newsletter/the-website-built-like-an-operating-thumb.webp",
+      "/assets/newsletter/did-ai-kill-the-lean-startup-thumb.webp"
+    ]
+  },
+  {
+    "path": "/projects/",
+    "title": "Projects | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://kidsknowbest.co.uk/",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://vialma.com/en",
+      "https://wagonex.com/",
+      "https://www.founderandlightning.com/",
+      "https://www.skyscanner.net/",
+      "https://www.softr.com/",
+      "https://www.stackerhq.com/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/projects/nocode/card.webp",
+      "/assets/projects/nocode/icon.webp",
+      "/assets/projects/betatesta/card.webp",
+      "/assets/projects/betatesta/icon.webp",
+      "/assets/projects/fiilo/card.webp",
+      "/assets/projects/beta-directory/card.webp",
+      "/assets/projects/beta-directory/icon.webp",
+      "/assets/old-site/home-0.webp",
+      "/assets/logo.svg?v=b855eee757",
+      "/assets/projects/work/founderandlightning-logo.webp",
+      "/assets/projects/work/brewbroker-logo.webp",
+      "/assets/projects/work/wagonex-logo.webp",
+      "/assets/projects/work/kidsknowbest-logo.webp",
+      "/assets/projects/work/vialma-logo.webp",
+      "/assets/projects/work/softr-logo.webp",
+      "/assets/projects/work/stacker-logo.webp",
+      "/assets/projects/work/skyscanner-logo.webp"
+    ]
+  },
+  {
+    "path": "/projects/archive/",
+    "title": "The archive | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "images": [
+      "/assets/projects/archive/accolade.webp",
+      "/assets/projects/archive/cabin-fever.webp",
+      "/assets/projects/archive/cut-the-noise.webp",
+      "/assets/projects/archive/lp-feedback.webp",
+      "/assets/projects/archive/startup-quest.webp",
+      "/assets/projects/archive/design-io.webp",
+      "/assets/projects/archive/sgp.webp"
+    ]
+  },
+  {
+    "path": "/projects/beta-directory/",
+    "title": "Beta Directory | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.betadirectory.tech"
+    ],
+    "images": [
+      "/assets/projects/beta-directory/icon.webp",
+      "/assets/projects/beta-directory/preview-0.webp",
+      "/assets/projects/beta-directory/preview-2.webp",
+      "/assets/projects/nocode/icon.webp",
+      "/assets/projects/betatesta/icon.webp"
+    ]
+  },
+  {
+    "path": "/projects/betatesta/",
+    "title": "BetaTesta: Pairing makers with testers | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://betatesta.xyz/",
+      "http://www.ucreate.it/",
+      "https://startupsventurecapital.com/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users-bd56bcb5bd3e",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.producthunt.com/posts/betatesta"
+    ],
+    "images": [
+      "/assets/projects/betatesta/icon.webp",
+      "/assets/projects/betatesta/preview-0.webp",
+      "/assets/projects/betatesta/preview-2.webp",
+      "/assets/projects/nocode/icon.webp",
+      "/assets/projects/beta-directory/icon.webp"
+    ]
+  },
+  {
+    "path": "/projects/fiilo/",
+    "title": "fiilo: Biodegradable 3D-printed homeware | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://fiilo.com/",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "images": [
+      "/assets/projects/fiilo/preview-0.webp",
+      "/assets/projects/fiilo/preview-1.webp",
+      "/assets/projects/nocode/icon.webp",
+      "/assets/projects/betatesta/icon.webp",
+      "/assets/projects/beta-directory/icon.webp"
+    ]
+  },
+  {
+    "path": "/projects/nocode/",
+    "title": "NoCode | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.nocode.tech",
+      "https://www.producthunt.com/posts/nocode-2-0",
+      "https://www.stackerhq.com/"
+    ],
+    "images": [
+      "/assets/projects/nocode/icon.webp",
+      "/assets/projects/nocode/preview-0.webp",
+      "/assets/projects/nocode/preview-2.webp",
+      "/assets/projects/betatesta/icon.webp",
+      "/assets/projects/beta-directory/icon.webp"
+    ]
+  },
+  {
+    "path": "/projects/old-site/",
+    "title": "The old site | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "os-tool os-sidebar-toggle",
+        "type": "button",
+        "aria-label": "Hide bookmarks"
+      },
+      {
+        "element": "button",
+        "class": "os-tool os-back",
+        "type": "button",
+        "aria-label": "Back"
+      },
+      {
+        "element": "button",
+        "class": "os-tool os-forward",
+        "type": "button",
+        "aria-label": "Forward"
+      },
+      {
+        "element": "button",
+        "class": "os-tool os-overview-toggle",
+        "type": "button",
+        "aria-label": "Show all pages"
+      },
+      {
+        "element": "summary"
+      },
+      {
+        "element": "summary"
+      },
+      {
+        "element": "summary"
+      },
+      {
+        "element": "summary"
+      },
+      {
+        "element": "summary"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/old-site.js?v=ea3149f0dd",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://web.archive.org/web/2026/https://www.samdickie.me/"
+    ],
+    "images": []
+  },
+  {
+    "path": "/vr/",
+    "title": "Step Back Into The Future | An AI Experiment",
+    "controls": [
+      {
+        "element": "button",
+        "class": "vr-sound",
+        "type": "button"
+      },
+      {
+        "element": "audio",
+        "class": "vr-audio",
+        "src": "/assets/vr/button-sound.mp3"
+      }
+    ],
+    "scripts": [
+      "/vr.js?v=378a2526c1",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/thisdickie"
+    ],
+    "images": [
+      "/assets/vr/headset.webp",
+      "/assets/vr/portrait-vhs.webp",
+      "/assets/vr/portrait-sniff.webp",
+      "/assets/vr/portrait-cassette.webp",
+      "/assets/vr/icon-sun.svg?v=8fc56c2404",
+      "/assets/vr/icon-zap.svg?v=d6e73bb71b",
+      "/assets/vr/headset.webp",
+      "/assets/vr/icon-film.svg?v=c3f5e23c1b",
+      "/assets/vr/icon-umbrella.svg?v=17b286b833",
+      "/assets/vr/avatar-barry.webp",
+      "/assets/vr/avatar-vivian.webp",
+      "/assets/vr/avatar-susan.webp",
+      "/assets/vr/collage-1.webp",
+      "/assets/vr/collage-2.webp",
+      "/assets/vr/collage-grandmother.webp",
+      "/assets/vr/collage-computer.webp",
+      "/assets/vr/collage-5.webp",
+      "/assets/vr/vr-man.webp",
+      "/assets/vr/vr-corp-logo.webp"
+    ]
+  },
+  {
+    "path": "/writing/",
+    "title": "Writing | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "all"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "case-study"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "how-to"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "product-management"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "no-code"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "growth"
+      },
+      {
+        "element": "button",
+        "class": "wr-chip",
+        "type": "button",
+        "data-topic": "user-testing"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "images": [
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/artificial-intelligence-company-accused-of-using-humans-to-fake-its-ai-tech/",
+    "title": "AI Company Accused of Using Humans to Fake Its AI Tech",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://medium.com/@samdickie/start-with-problem-validation-not-solution-validation-752c665d0b00",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Artificial%20Intelligence%20Company%20Accused%20of%20Using%20Humans%20to%20Fake%20Its%20AI%20Tech&url=https%3A//www.samdickie.me/writing/artificial-intelligence-company-accused-of-using-humans-to-fake-its-ai-tech/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/artificial-intelligence-company-accused-of-using-humans-to-fake-its-ai-tech/cover.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/automating-my-newsletter-creation-process/",
+    "title": "Automating my newsletter creation process | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.airtable.com",
+      "http://www.nocode.tech",
+      "http://www.soundcloud.com",
+      "http://www.stoopinbox.com",
+      "http://www.zapier.com",
+      "https://feedly.com/",
+      "https://getpocket.com/",
+      "https://openai.com/blog/openai-api/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://stoopinbox.com/",
+      "https://vimeo.com/365065639",
+      "https://www.getrevue.co/",
+      "https://www.youtube.com/watch?v=L6bIMdSJd6o",
+      "https://x.com/intent/post?text=Automating%20my%20newsletter%20creation%20process&url=https%3A//www.samdickie.me/writing/automating-my-newsletter-creation-process/",
+      "https://zapier.com/blog/how-to-use-rss-feeds",
+      "https://zapier.com/shared/27bd61b855952bb28f060493dec4554fdf82a0d6"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/01-screenshot-2021-03-14-at-19-46-04.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/02-group-135.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/03-screenshot-2021-03-14-at-18-16-29.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/04-screenshot-2021-03-14-at-18-19-22.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/05-screenshot-2021-03-14-at-18-24-12.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/06-screenshot-2021-03-14-at-19-35-43.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/07-newsletter-process.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/08-screenshot-2021-03-14-at-18-34-05.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/can-i-build-an-online-shoe-retailer-with-no-shoes/",
+    "title": "Can I build an online shoe retailer with no shoes?",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.linkedin.com/pulse/artificial-intelligence-company-accused-using-humans-fake-sam-dickie/?trackingId=TUUvusjMToauaejUFuaXMg%3D%3D",
+      "https://www.ucreate.it/",
+      "https://x.com/intent/post?text=Can%20I%20build%20an%20online%20shoe%20retailer%20with%20no%20shoes%3F&url=https%3A//www.samdickie.me/writing/can-i-build-an-online-shoe-retailer-with-no-shoes/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/can-i-build-an-online-shoe-retailer-with-no-shoes/cover.webp",
+      "/assets/writing/can-i-build-an-online-shoe-retailer-with-no-shoes/01-0.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/comprehensive-list-of-smoke-test-techniques-to-test-early-signs-of-desirability/",
+    "title": "Comprehensive list of 'Smoke Test' techniques | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Comprehensive%20list%20of%20%27Smoke%20Test%27%20techniques&url=https%3A//www.samdickie.me/writing/comprehensive-list-of-smoke-test-techniques-to-test-early-signs-of-desirability/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/comprehensive-list-of-smoke-test-techniques-to-test-early-signs-of-desirability/cover.webp",
+      "/assets/writing/comprehensive-list-of-smoke-test-techniques-to-test-early-signs-of-desirability/01-screely-1592759940797.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/creating-a-minimalist-dark-themed-notion-dashboard/",
+    "title": "Creating a Minimalist, Dark Themed Notion Dashboard",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "iframe",
+        "src": "https://www.youtube-nocookie.com/embed/3CWX35NvLB0"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.youtube-nocookie.com/embed/3CWX35NvLB0",
+      "https://x.com/intent/post?text=Creating%20a%20Minimalist%2C%20Dark%20Themed%20Notion%20Dashboard&url=https%3A//www.samdickie.me/writing/creating-a-minimalist-dark-themed-notion-dashboard/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/creating-a-minimalist-dark-themed-notion-dashboard/cover.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/creating-a-new-coffee-brand-created-like-a-software-product/",
+    "title": "Creating a new coffee brand like a software product",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Creating%20a%20new%20coffee%20brand%20like%20a%20software%20product&url=https%3A//www.samdickie.me/writing/creating-a-new-coffee-brand-created-like-a-software-product/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/creating-a-new-coffee-brand-created-like-a-software-product/cover.webp",
+      "/assets/writing/creating-a-new-coffee-brand-created-like-a-software-product/01-macadamia.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/do-you-know-how-each-of-these-well-known-tech-businesses-started-life-as/",
+    "title": "Do you know how these tech giants started life?",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Do%20you%20know%20how%20each%20of%20these%20well-known%20tech%20businesses%20started%20life%20as%3F&url=https%3A//www.samdickie.me/writing/do-you-know-how-each-of-these-well-known-tech-businesses-started-life-as/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/do-you-know-how-each-of-these-well-known-tech-businesses-started-life-as/cover.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/",
+    "title": "Experiment #1: Creating a landing page using AI tools + No code",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "iframe",
+        "src": "https://www.youtube-nocookie.com/embed/FrUDuR3nZZg"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://colormind.io/",
+      "https://beta.elevenlabs.io/",
+      "https://discord.com/",
+      "https://fonts.google.com/",
+      "https://graphicsgurl.com/midjourney-aspect-ratio/#:~:text=MidJourney's%20default%20size%20is%20square,ratios%20%E2%80%93%20this%20is%20the%20original",
+      "https://huemint.com/brand-intersection/",
+      "https://linusekenstam.substack.com/",
+      "https://linusekenstam.substack.com/p/quick-beautiful-portrait-prompt",
+      "https://medium.com/mlearning-ai/an-advanced-guide-to-writing-prompts-for-midjourney-text-to-image-aa12a1e33b6",
+      "https://midjourney.com/home/?callbackUrl=/app/",
+      "https://openai.com/dall-e-2/",
+      "https://productprompts.gumroad.com/l/promptbook?layout=profile",
+      "https://promptbase.com/marketplace",
+      "https://samdickie.substack.com/subscribe",
+      "https://stablediffusionweb.com/",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/LinusEkenstam",
+      "https://twitter.com/MartinSlaney",
+      "https://www.d-id.com/photo-to-video/",
+      "https://www.genius.design/",
+      "https://www.khroma.co/train",
+      "https://www.photoroom.com/",
+      "https://www.prompthunt.com/",
+      "https://www.usegalileo.ai/",
+      "https://www.youtube-nocookie.com/embed/FrUDuR3nZZg",
+      "https://x.com/intent/post?text=Experiment%20%231%3A%20Creating%20a%20landing%20page%20using%20AI%20tools%20%2B%20No%20code&url=https%3A//www.samdickie.me/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/01-2023-02-19-17-07-samdickie-webflow-io.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/02-img-0278-1.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/03-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/04-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/05-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/06-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/07-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/08-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/09-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/10-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/11-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/12-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/13-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/14-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/15-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/16-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/17-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/18-white-violet-retro-pop-90s-ui-podcast-episode-rele.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/",
+    "title": "From WhatsApp group MVP to a $1.3m investment",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://amie.so/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/Bo0MH4CKS/status/1292998406722539520?s=20",
+      "https://twitter.com/dennismuellr/status/1293476752770113536?s=20",
+      "https://twitter.com/dennismuellr/status/1293896365332889600?s=20",
+      "https://twitter.com/dennismuellr/status/1294661591754059776?s=20",
+      "https://twitter.com/dennismuellr/status/1296119063429644289?s=20",
+      "https://twitter.com/dennismuellr/status/1296176696547323905?s=20",
+      "https://twitter.com/gaby_goldberg/status/1296457669931409411?s=20",
+      "https://x.com/intent/post?text=From%20WhatsApp%20group%20MVP%20to%20a%20%241.3m%20investment.%20A%20founder%E2%80%99s%20validation%20journey.&url=https%3A//www.samdickie.me/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/01-dennis.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/02-ee1nkqzwaacplvv.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/03-screenshot-2020-08-11-at-14-32-48.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/04-old.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/growing-an-email-newsletter-to-16k-people-whilst-validating-your-startup-idea/",
+    "title": "Growing a newsletter to 16k+ while validating a startup",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/danshipper",
+      "https://x.com/intent/post?text=Growing%20an%20email%20newsletter%20to%2016k%2B%20subs%20%26%20validating%20your%20startup%20idea&url=https%3A//www.samdickie.me/writing/growing-an-email-newsletter-to-16k-people-whilst-validating-your-startup-idea/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/growing-an-email-newsletter-to-16k-people-whilst-validating-your-startup-idea/cover.webp",
+      "/assets/writing/growing-an-email-newsletter-to-16k-people-whilst-validating-your-startup-idea/01-screely-1593704286763.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-i-created-my-personal-portfolio-website-using-no-code/",
+    "title": "How I Created My Personal Portfolio Website Using No-code",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.gomoodboard.com/",
+      "http://www.gomoodboard.com/boards/txoOdjaE/share",
+      "http://www.heymeta.com/",
+      "http://www.weebly.com/",
+      "https://getmakerlog.com/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.canva.com/",
+      "https://www.hover.com/",
+      "https://www.moneylab.co/",
+      "https://www.notion.so/thisdickie/A-curated-list-of-personal-website-inspiration-2020-65270708af6541d2a60cc109999f41cf",
+      "https://www.privy.com/",
+      "https://www.screely.com/",
+      "https://www.ucraft.com/free-logo-maker",
+      "https://x.com/intent/post?text=How%20I%20Created%20My%20Personal%20Portfolio%20Website%20Using%20No-code&url=https%3A//www.samdickie.me/writing/how-i-created-my-personal-portfolio-website-using-no-code/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-i-created-my-personal-portfolio-website-using-no-code/cover.webp",
+      "/assets/writing/how-i-created-my-personal-portfolio-website-using-no-code/01-1-aan8e4q-aw1cj-1mhtxxwa.webp",
+      "/assets/writing/how-i-created-my-personal-portfolio-website-using-no-code/02-1-aot1hrekne3rvqv9yvs8fg.webp",
+      "/assets/writing/how-i-created-my-personal-portfolio-website-using-no-code/03-1-uhgyzie-d0mddh9w5yh8cq.webp",
+      "/assets/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/cover-card.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-i-run-product-at-brewbroker/",
+    "title": "How I Run Product at BrewBroker | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://theleanstartup.com/principles",
+      "http://www.brewbroker.com/",
+      "https://medium.com/brewbroker/brewbroker-soft-launch-811a93418ac6",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.craftbeerrising.co.uk/",
+      "https://www.crowdcube.com/companies/brew-brokers-ltd/pitches/bPWj1Z",
+      "https://x.com/intent/post?text=How%20I%20Run%20Product%20at%20BrewBroker&url=https%3A//www.samdickie.me/writing/how-i-run-product-at-brewbroker/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/cover.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/01-1-d37q9xldzopmz9slmuzlha.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/02-1-fbtnjbm8mh6l5kiqixdfgw.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/03-1-hbgnjf2gyqz6lnftcugbuq.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/04-1-ijxgtizngnkqyk9i7ahf-g.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/05-1-thy5fqqhidgb4snkomzyba.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/06-1-wfm2neakkgs5c0-93tuguq.gif",
+      "/assets/writing/start-with-problem-validation-not-solution-validation/cover-card.webp",
+      "/assets/writing/re-designing-the-product-briefing-document-from-the-ground-up/cover-card.webp",
+      "/assets/writing/my-5-step-process-for-product-immersement/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-the-latest-tech-products-do-early-access-betas/",
+    "title": "How the latest tech products do early access betas",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://amieso.typeform.com/to/llEaiVJl",
+      "https://gabygoldberg.medium.com/the-value-of-a-velvet-rope-effects-of-hype-and-exclusivity-on-launch-strategies-8e8061cf517e",
+      "https://mightyapp.typeform.com/to/LcRM2O",
+      "https://pitch.com/presentations/Turning-a-waitlist-into-a-relationship-5poSoP5tcwHD4vsrZh4xBT4X?slide=79c85178-bd36-4ffc-98c3-0ab601521637",
+      "https://samdickie.substack.com/subscribe",
+      "https://slashtalk.typeform.com/to/Yw6yf8",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://superhuman.com/welcome?source=typeform_2005",
+      "https://www.flowrite.com/blog/referral-program",
+      "https://www.typeform.com/blog/inspiration/superhuman-product-market-fit/",
+      "https://x.com/intent/post?text=How%20the%20latest%20tech%20products%20do%20early%20access%20betas&url=https%3A//www.samdickie.me/writing/how-the-latest-tech-products-do-early-access-betas/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/01-tweet.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/02-hey.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/03-mymind.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/04-amie.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/05-pitch.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/06-typedream-beta.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/07-superhman.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-the-worlds-largest-hotel-chain-validated-their-business-with-air-mattresses/",
+    "title": "How Airbnb validated its business with air mattresses",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.ucreate.it/spark",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=How%20the%20world%E2%80%99s%20largest%20hotel%20chain%20validated%20their%20business%20with%20air%20mattresses&url=https%3A//www.samdickie.me/writing/how-the-worlds-largest-hotel-chain-validated-their-business-with-air-mattresses/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-the-worlds-largest-hotel-chain-validated-their-business-with-air-mattresses/cover.webp",
+      "/assets/writing/how-the-worlds-largest-hotel-chain-validated-their-business-with-air-mattresses/01-0.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-to-completely-automate-user-feedback-before-you-launch/",
+    "title": "How to Completely Automate User Feedback Before you Launch",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://airtable.com/invite/r/SiYOecra",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/GetBetaTesta",
+      "https://ucreate.typeform.com/to/RliimB",
+      "https://x.com/intent/post?text=How%20to%20Completely%20Automate%20User%20Feedback%20Before%20you%20Launch&url=https%3A//www.samdickie.me/writing/how-to-completely-automate-user-feedback-before-you-launch/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-to-completely-automate-user-feedback-before-you-launch/cover.webp",
+      "/assets/writing/how-to-completely-automate-user-feedback-before-you-launch/01-1-esqe6yojjw1bmsk2imz38w.gif",
+      "/assets/writing/how-to-completely-automate-user-feedback-before-you-launch/02-1-nmxplqxdd1zlozcbsbfbkq.webp",
+      "/assets/writing/how-to-completely-automate-user-feedback-before-you-launch/03-1-nqu-5hckj9kh-q-cdbl-rw.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/",
+    "title": "How to Create an Automated User Feedback Database",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://nocode.tech/",
+      "https://medium.com/@samdickie/how-to-completely-automate-user-feedback-before-you-launch-329b97be7c69",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/thisdickie",
+      "https://www.ucreate.it/",
+      "https://x.com/intent/post?text=How%20to%20Create%20an%20Automated%20User%20Feedback%20Database%20using%20No-code%20Tools&url=https%3A//www.samdickie.me/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/cover.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/01-1-0dtkamirlca2noxcxryypg.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/02-1-hrk7djmmsggjfueeypd8fg.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/03-1-q-tyabqjco6cl5gy-jthzq.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/04-1-8gxch7yk2umquo0icz3zgq.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/05-1-op25tterzrf3eeycj7soew.webp",
+      "/assets/writing/how-to-create-an-automated-user-feedback-database-using-no-code-tools/06-1-esbplc3hl6gd9glyuzbikw.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/",
+    "title": "I studied every user testing platform and here’s what I found",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.betatesta.xyz/",
+      "http://www.ucreate.it/",
+      "https://hackernoon.com/tagged/startup",
+      "https://hackernoon.com/tagged/ux",
+      "https://medium.com/@aytekintank",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://ucreate.typeform.com/to/RliimB",
+      "https://x.com/intent/post?text=I%20studied%20every%20user%20testing%20platform%20and%20here%E2%80%99s%20what%20I%20found&url=https%3A//www.samdickie.me/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/cover.webp",
+      "/assets/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/01-1-arxdiwkuc-4abaukjuacua.webp",
+      "/assets/writing/i-studied-every-user-testing-platform-and-heres-what-i-found/02-1-5x0weruemqnrovaynd7fha.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/is-this-one-of-the-most-unique-landing-pages/",
+    "title": "Is this one of the most unique landing pages? | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://clay.earth/",
+      "https://clay.earth/story",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Is%20this%20one%20of%20the%20most%20unique%20landing%20pages%3F&url=https%3A//www.samdickie.me/writing/is-this-one-of-the-most-unique-landing-pages/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/01-screenshot-2021-01-20-at-15-15-41.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/02-screenshot-2021-01-20-at-15-16-57.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/03-screenshot-2021-01-20-at-15-18-06.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/04-screenshot-2021-01-20-at-15-19-04.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/05-screenshot-2021-01-20-at-19-33-33.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/06-screenshot-2021-01-20-at-19-37-11.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/07-screenshot-2021-01-19-at-21-23-00.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/08-screenshot-2021-01-20-at-15-24-14.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/09-screenshot-2021-01-20-at-15-25-17.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/my-5-step-process-for-product-immersement/",
+    "title": "My 5 Step Process for Product Immersement | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management",
+      "http://www.ucreate.it/",
+      "https://rapidbi.com/deep-dive-brainstorming-technique-ideo/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=My%205%20Step%20Process%20for%20Product%20Immersement&url=https%3A//www.samdickie.me/writing/my-5-step-process-for-product-immersement/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/my-5-step-process-for-product-immersement/cover.webp",
+      "/assets/writing/start-with-problem-validation-not-solution-validation/cover-card.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/cover-card.webp",
+      "/assets/writing/re-designing-the-product-briefing-document-from-the-ground-up/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/",
+    "title": "My weekend MVP: zero code, zero cash, hundreds of users",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://shareasale.com/r.cfm?b=910149&u=1370311&m=37723&urllink=&afftrack=",
+      "http://www.betatesta.xyz/",
+      "http://www.mailchimp.com/monkey-rewards/?utm_source=freemium_newsletter&utm_medium=email&utm_campaign=monkey_rewards&aid=315a11002c5b88461a5766bce&afl=1",
+      "http://www.nocode.tech/",
+      "http://www.nocode.tech/early-stage-users.html",
+      "http://www.typeform.com/",
+      "http://www.zapier.com/",
+      "https://airtable.com/invite/r/SiYOecra",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.producthunt.com/posts/betatesta",
+      "https://x.com/intent/post?text=My%20weekend%20MVP%3A%20using%20zero%20code%20or%20cash%20and%20acquiring%20hundreds%20of%20users&url=https%3A//www.samdickie.me/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/cover.webp",
+      "/assets/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/01-1-ckdrhpy9jyb9mfpnvw1tq.webp",
+      "/assets/writing/my-weekend-mvp-using-zero-code-or-cash-and-acquiring-hundreds-of-users/02-screenshot-2020-05-05-at-19-27-25.webp",
+      "/assets/writing/how-i-created-my-personal-portfolio-website-using-no-code/cover-card.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/product-managers-its-time-to-create-a-product-lab-heres-why/",
+    "title": "Product Managers - It's time to create a Product Lab. Here's why.",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://community.monzo.com/c/making-monzo/labs",
+      "https://en.wikipedia.org/wiki/Feature_toggle",
+      "https://monzo.com/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://testflight.apple.com/join/2NZLBFyb",
+      "https://twitter.com/MakingMonzo",
+      "https://x.com/intent/post?text=Product%20Managers%20-%20It%27s%20time%20to%20create%20a%20Product%20Lab.%20Here%27s%20why.&url=https%3A//www.samdickie.me/writing/product-managers-its-time-to-create-a-product-lab-heres-why/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/cover.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/01-monzo-labs.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/02-sneak-peeks-on-iphone.webp",
+      "/assets/writing/product-managers-its-time-to-create-a-product-lab-heres-why/03-1-2kil4hv7-y2mbzfmrmhqaq.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/re-designing-the-product-briefing-document-from-the-ground-up/",
+    "title": "Re-designing the Product Briefing Document from the Ground Up",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.ucreate.it/",
+      "https://blog.gitalytics.com/what-are-okrs-for-software-development-teams/",
+      "https://hbr.org/2007/09/performing-a-project-premortem",
+      "https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca",
+      "https://producthabits.com/exploring-the-most-effective-product-workflows-in-tech/",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://www.drift.com/blog/one-pager/",
+      "https://x.com/intent/post?text=Re-designing%20the%20Product%20Briefing%20Document%20from%20the%20Ground%20Up&url=https%3A//www.samdickie.me/writing/re-designing-the-product-briefing-document-from-the-ground-up/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/re-designing-the-product-briefing-document-from-the-ground-up/cover.webp",
+      "/assets/writing/re-designing-the-product-briefing-document-from-the-ground-up/01-group-21.webp",
+      "/assets/writing/start-with-problem-validation-not-solution-validation/cover-card.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/cover-card.webp",
+      "/assets/writing/my-5-step-process-for-product-immersement/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/recreating-my-personal-website-using-notion/",
+    "title": "Recreating My Personal Site Using Notion (+ Free Templates)",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.notion.so",
+      "https://chilipepper.io/",
+      "https://fruitionsite.com/",
+      "https://notion-website-template.samdickie.me/",
+      "https://popsy.co/?samdickie",
+      "https://popsy.co/?via=sam",
+      "https://potion.so/?via=sam",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/DannPetty/status/1312752089592983552?s=20",
+      "https://twitter.com/nqaze/status/1312740191325614081?s=21",
+      "https://twitter.com/thisdickie/status/1312437653560676354?s=20",
+      "https://unsplash.com/",
+      "https://www.heymeta.com/",
+      "https://www.notion.so/Callout-blocks-5b2638247b54447eb2e21145f97194b0",
+      "https://www.notion.vip/icons/",
+      "https://www.openpeeps.com/",
+      "https://x.com/intent/post?text=Recreating%20My%20Personal%20Site%20Using%20Notion%20%2B%20Free%20Notion%20Personal%20Site%20Template%20Pack&url=https%3A//www.samdickie.me/writing/recreating-my-personal-website-using-notion/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/01-group-51.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/02-group-template.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/03-ezgif-com-gif-maker.gif",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/start-with-problem-validation-not-solution-validation/",
+    "title": "Start with Problem Validation, NOT Solution Validation",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://lp.ucreate.it/spark/?utm_source=md&utm_medium=so&utm_campaign=spark_sam_article_problem_validation",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://ucreate.it/?utm_source=md&utm_medium=so&utm_campaign=spark_sam_article_problem_validation",
+      "https://www.cbinsights.com/research/startup-failure-reasons-top/",
+      "https://www.ideou.com/blogs/inspiration/how-to-prototype-a-new-business",
+      "https://www.indiehackers.com/post/how-to-brainstorm-great-business-ideas-ab51c3d51c",
+      "https://x.com/intent/post?text=Start%20with%20Problem%20Validation%2C%20NOT%20Solution%20Validation&url=https%3A//www.samdickie.me/writing/start-with-problem-validation-not-solution-validation/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/start-with-problem-validation-not-solution-validation/cover.webp",
+      "/assets/writing/start-with-problem-validation-not-solution-validation/01-1-01q8xqcxdjqpodobg1yrma.webp",
+      "/assets/writing/how-i-run-product-at-brewbroker/cover-card.webp",
+      "/assets/writing/re-designing-the-product-briefing-document-from-the-ground-up/cover-card.webp",
+      "/assets/writing/my-5-step-process-for-product-immersement/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/taking-advantage-of-ios14-widgets/",
+    "title": "How to take advantage of the new iOS 14 Widgets | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=How%20to%20take%20advantage%20of%20the%20new%20iOS%2014%20Widgets&url=https%3A//www.samdickie.me/writing/taking-advantage-of-ios14-widgets/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/cover.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/01-how-to-use-iphone-ipad-home-screen-widgets-ios-14.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/02-screen-shot-2020-06-22-at-18-09-53-1024x640.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/03-image-17-07-2020-at-10-49.webp",
+      "/assets/writing/taking-advantage-of-ios14-widgets/04-ryan-hoover-ios14-widgets-tweet.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/time-to-create-a-landing-page-and-test-your-mvp/",
+    "title": "Time to create a landing page and test your MVP | Sam Dickie",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://shareasale.com/r.cfm?b=910149&u=1370311&m=37723&urllink=&afftrack=",
+      "http://www.nocode.tech/",
+      "http://www.nocode.tech/early-stage-users.html",
+      "http://www.nocode.tech/mockups.html",
+      "http://www.nocode.tech/newsletter.html",
+      "http://www.nocode.tech/newsletters.html",
+      "http://www.nocode.tech/websitebuilders.html",
+      "https://mailchimp.com/",
+      "https://medium.com/wdstack/https-medium-com-samdickie-launching-nocode-tech-1efb2f937955",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://twitter.com/nocodetech",
+      "https://www.canva.com/",
+      "https://www.hover.com/",
+      "https://x.com/intent/post?text=Time%20to%20create%20a%20landing%20page%20and%20test%20your%20MVP&url=https%3A//www.samdickie.me/writing/time-to-create-a-landing-page-and-test-your-mvp/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/time-to-create-a-landing-page-and-test-your-mvp/cover.webp",
+      "/assets/writing/time-to-create-a-landing-page-and-test-your-mvp/01-1-i8t2glhvgqtlgdxnh3bckg.webp",
+      "/assets/writing/time-to-create-a-landing-page-and-test-your-mvp/02-screenshot-2020-05-05-at-19-33-56.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/top-6-marketplaces-to-buy-and-sell-side-projects/",
+    "title": "The Top 6 Marketplaces to Buy and Sell Side Projects Online",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://opportunityoverload.com/",
+      "http://www.siteworthtraffic.com/report/1kprojects.com",
+      "https://exchange.shopify.com/",
+      "https://flippa.com/valuation",
+      "https://flippa.com/websites",
+      "https://hackernoon.com/tagged/alexa",
+      "https://hackernoon.com/tagged/google",
+      "https://howmuchismysideprojectworth.com/",
+      "https://join.slack.com/t/nocodecommunity/shared_invite/enQtMjYzNTczOTM1ODQ3LTI3OTJiNmVlMDdiZTI3Yjk0OTAxZmU4MDZlZTQ1ZWUxMWZjZTliZDc5NTJmZTZhMmQ1ZTQwZDA4NzA2ZDlmNzY",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://transferslot.com/",
+      "https://transferwise.com/",
+      "https://twitter.com/curious_founder",
+      "https://www.1kprojects.com/?Sam_Dickie",
+      "https://www.indiehackers.com/forum/im-looking-to-sell-some-of-my-side-projects-where-do-i-start-e5a8d6133e",
+      "https://www.producthunt.com/stories/how-i-built-and-sold-my-company-in-18-months",
+      "https://www.sideprojectors.com/",
+      "https://x.com/intent/post?text=The%20Top%206%20Marketplaces%20to%20Buy%20and%20Sell%20Side%20Projects%20Online&url=https%3A//www.samdickie.me/writing/top-6-marketplaces-to-buy-and-sell-side-projects/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/cover.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/01-1-dte32mfzo1rhf5ovscbezg.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/02-1-bjkmwclftzcr7p00es2urg.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/03-1-n0x6qv5di10wz7mmymxvrw.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/04-1-syjgauzbygy9v6ow9zwiyg.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/05-1-kgmeuwhwqvcthtje-asxpa.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/06-1-p1fr52gjbblxvwn9a4-z9w.webp",
+      "/assets/writing/top-6-marketplaces-to-buy-and-sell-side-projects/07-1-mhkxo1mtvnijieyaw7zd0a.webp",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/we-launched-very-very-very-early-like-scary-early/",
+    "title": "We launched very, very, very early. Like, scary early.",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=We%20launched%20very%2C%20very%2C%20very%20early.%20Like%2C%20scary%20early.&url=https%3A//www.samdickie.me/writing/we-launched-very-very-very-early-like-scary-early/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/we-launched-very-very-very-early-like-scary-early/cover.webp",
+      "/assets/writing/is-this-one-of-the-most-unique-landing-pages/cover-card.webp",
+      "/assets/writing/how-the-latest-tech-products-do-early-access-betas/cover-card.webp",
+      "/assets/writing/from-whatsapp-group-prototype-to-a-1-3-million-investment/cover-card.webp"
+    ]
+  },
+  {
+    "path": "/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/",
+    "title": "Why I Unsubscribed 25% Of My Newsletter Subscribers",
+    "controls": [
+      {
+        "element": "button",
+        "class": "nav-search",
+        "type": "button",
+        "aria-label": "Search the site"
+      },
+      {
+        "element": "button",
+        "class": "theme-toggle",
+        "type": "button",
+        "aria-label": "Switch to dark mode"
+      },
+      {
+        "element": "button",
+        "class": "wr-copy",
+        "type": "button"
+      }
+    ],
+    "scripts": [
+      "/theme.js?v=74ea5f93ab",
+      "/look.js?v=d45ebe80f1",
+      "/spotlight.js?v=eb0e1e92b2",
+      "/nav-badge.js?v=1ba31a2e38",
+      "/sound.js?v=824da64e95",
+      "/writing.js?v=373ee53859",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "externalLinks": [
+      "http://www.nocode.tech/newsletter.html",
+      "https://kb.mailchimp.com/lists/manage-contacts/identify-inactive-subscribers",
+      "https://medium.com/@samdickie/one-simple-mailchimp-hack-to-propel-your-newsletter-subscriber-engagement-9dfb247d3fee",
+      "https://samdickie.substack.com/subscribe",
+      "https://static.cloudflareinsights.com/beacon.min.js",
+      "https://x.com/intent/post?text=Why%20I%20Unsubscribed%2025%25%20Of%20My%20Newsletter%20Subscribers&url=https%3A//www.samdickie.me/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/"
+    ],
+    "images": [
+      "/assets/sam-photo-small.webp",
+      "/assets/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/cover.webp",
+      "/assets/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/01-1-mriiriovypgmtbk8nav1vq.webp",
+      "/assets/writing/why-i-unsubscribed-25-of-my-newsletter-subscribers/02-1-gjkmspr9fyiuu57mkp2hlg.gif",
+      "/assets/writing/experiment-1-creating-a-landing-page-using-ai-tools-no-code/cover-card.webp",
+      "/assets/writing/automating-my-newsletter-creation-process/cover-card.webp",
+      "/assets/writing/recreating-my-personal-website-using-notion/cover-card.webp"
+    ]
+  }
+]

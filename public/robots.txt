@@ -1,0 +1,6 @@
+# Every page may be read by search engines. The sitemap lists them all
+# (rebuilt by tools/build_sitemap.py).
+User-agent: *
+Allow: /
+
+Sitemap: https://www.samdickie.me/sitemap.xml

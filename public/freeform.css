@@ -1,0 +1,478 @@
+/* ==========================================================
+   Freeform tile — a pretend Apple Freeform board (freeform.js).
+   Its colours are tokens on the tile (--ff-*), with dark values below.
+   The 2×2 "expanded" size and the smaller Spotify tile live in home.css.
+   ========================================================== */
+.tile--freeform {
+  --ff-window: #ffffff;
+  --ff-bar: #f6f6f7;
+  --ff-canvas: #ffffff;
+  --ff-dot: #d1d1d6;
+  --ff-rule: rgba(60, 60, 67, .14);
+  --ff-hover: rgba(0, 0, 0, .06);
+  --ff-on: rgba(0, 0, 0, .1);
+  --ff-text: #1c1c1e;
+  --ff-muted: #6e6e73;
+  --ff-select: #007aff;
+  --ff-connector: #8e8e93;
+  --ff-card: #ffffff;
+  --ff-card-edge: rgba(0, 0, 0, .08);
+  --ff-pop: #ffffff;
+  --ff-pop-edge: rgba(0, 0, 0, .08);
+  --ff-item-shadow: 0 1px 2px rgba(0, 0, 0, .10), 0 8px 20px rgba(0, 0, 0, .07);
+  --ff-pop-shadow: 0 14px 36px rgba(0, 0, 0, .18);
+
+  /* Sticky notes keep their paper colours in both themes, like Freeform */
+  --ff-note-text: #1c1c1e;
+  --n-yellow: #ffe680;
+  --n-green: #c2efb3;
+  --n-blue: #bfdfff;
+  --n-pink: #ffc9de;
+  --n-purple: #ddcdff;
+  --n-orange: #ffd4a8;
+
+  /* Shapes use Apple's system colours */
+  --s-blue: #007aff;
+  --s-green: #34c759;
+  --s-yellow: #ffcc00;
+  --s-orange: #ff9500;
+  --s-pink: #ff2d55;
+  --s-purple: #af52de;
+
+  /* Timeline bars: each company's colour (F+L deepens with each promotion) */
+  /* (all dark enough for white labels to pass 4.5:1) */
+  --b-fl1: #b85530;
+  --b-fl2: #a1461f;
+  --b-fl3: #853616;
+  --b-softr: #c8325a;
+  --b-stacker: #2c2c31;
+  --b-sky: #0768d4;
+  --b-substack: #c94a0a;
+  --b-scout: #8a4cc6;
+
+  /* Pen inks; "ink" flips with the theme */
+  --p-ink: #1c1c1e;
+  --p-blue: #0a7cff;
+  --p-red: #ff3b30;
+  --p-green: #28b451;
+  --p-orange: #ff9500;
+
+  container-type: inline-size;   /* the titlebar tidies itself up when the tile is narrow */
+  padding: 0;
+  gap: 0;
+  background: var(--ff-window);
+  color: var(--ff-text);
+  font-family: var(--font-system);
+  outline: 1px solid var(--dark-tile-edge);
+  outline-offset: -1px;
+}
+
+:root[data-theme="dark"] .tile--freeform {
+  --ff-window: #1c1c1e;
+  --ff-bar: #2a2a2d;
+  --ff-canvas: #1c1c1e;
+  --ff-dot: #3a3a3e;
+  --ff-rule: rgba(255, 255, 255, .12);
+  --ff-hover: rgba(255, 255, 255, .08);
+  --ff-on: rgba(255, 255, 255, .14);
+  --ff-text: #f2f2f4;
+  --ff-muted: #a1a1a8;
+  --ff-select: #0a84ff;
+  --ff-card: #2c2c2e;
+  --ff-card-edge: rgba(255, 255, 255, .08);
+  --ff-pop: #2c2c2e;
+  --ff-pop-edge: rgba(255, 255, 255, .1);
+  --ff-item-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .3);
+  --ff-pop-shadow: 0 14px 36px rgba(0, 0, 0, .5);
+  --p-ink: #f2f2f4;
+  --b-stacker: #4a4a52;   /* lifted so it shows on the dark board */
+}
+
+/* :where() gives this reset no weight, so each button's own class below wins over it */
+:where(.tile--freeform) button { font: inherit; color: inherit; }
+
+/* ---------- Titlebar ---------- */
+.ff-titlebar {
+  position: relative;
+  z-index: 3;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 50px;
+  padding: 0 10px 0 18px;
+  background: var(--ff-bar);
+  border-bottom: 1px solid var(--ff-rule);
+}
+
+.ff-lights { display: flex; gap: 8px; flex: none; }
+.ff-light {
+  width: 12px; height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+}
+.ff-light:nth-child(2) { background: #febc2e; }
+.ff-light--zoom { display: grid; place-items: center; background: #28c840; cursor: pointer; }
+/* Like macOS: pointing at the lights shows the green one's symbol */
+.ff-lights:hover .ff-light--zoom::after {
+  content: "";
+  width: 6px; height: 6px;
+  background:
+    linear-gradient(135deg, #0b5b16 0 38%, transparent 38% 62%, #0b5b16 62%);
+}
+
+
+.ff-tools { display: flex; align-items: center; gap: 1px; margin-left: auto; }
+.ff-actions { display: flex; align-items: center; gap: 1px; margin-left: auto; }
+
+.ff-tool {
+  width: 34px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ff-text);
+  cursor: pointer;
+}
+.ff-tool svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: currentColor; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.ff-tool:hover { background: var(--ff-hover); }
+.ff-tool[aria-pressed="true"], .ff-tool[aria-expanded="true"] { background: var(--ff-on); }
+.ff-tool:disabled { opacity: .35; cursor: default; background: transparent; }
+.ff-tool:focus-visible { outline: 2px solid var(--ff-select); outline-offset: 1px; }
+
+.ff-expand .ff-icon-shrink,
+.ff-expand[aria-expanded="true"] .ff-icon-grow { display: none; }
+.ff-expand[aria-expanded="true"] .ff-icon-shrink { display: block; }
+.ff-expand[aria-expanded="true"] { background: transparent; }
+.ff-expand[aria-expanded="true"]:hover { background: var(--ff-hover); }
+
+/* Narrow tiles (phones): the traffic lights go and the buttons tighten up, so all nine
+   buttons still fit on one line (9 × 32px + padding ≈ 330px). Undo and redo only go
+   on a tile narrower than any phone. */
+@container (max-width: 440px) {
+  .ff-titlebar { gap: 8px; padding-left: 14px; }
+  .ff-lights { display: none; }
+  .ff-tool { width: 32px; }
+}
+@container (max-width: 340px) {
+  .ff-tool--history { display: none; }
+}
+
+/* ---------- Canvas ---------- */
+.ff-viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background-color: var(--ff-canvas);
+  background-image: radial-gradient(circle, var(--ff-dot) 1.1px, transparent 1.5px);
+  background-size: 24px 24px;
+  touch-action: pan-y;        /* on phones a vertical swipe still scrolls the page (see freeform.js) */
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+}
+.ff-viewport:focus-visible { box-shadow: inset 0 0 0 2px var(--ff-select); }
+.ff-viewport.is-panning { cursor: grabbing; }
+.ff-viewport.is-pen, .ff-viewport.is-eraser { cursor: crosshair; }
+
+.ff-world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+.ff-links, .ff-strokes {
+  position: absolute;
+  left: 0; top: 0;
+  width: 1px; height: 1px;
+  overflow: visible;
+  pointer-events: none;
+}
+.ff-link-line { fill: none; stroke: var(--ff-connector); stroke-width: 2.5; stroke-linecap: round; }
+.ff-arrowhead { fill: none; stroke: var(--ff-connector); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ff-stroke { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Things on the board ---------- */
+.ff-item { position: absolute; color: var(--ff-text); outline: none; }
+.ff-item::after {                      /* selection outline, just outside the item */
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 2px solid var(--ff-select);
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+}
+.ff-item.is-selected::after { opacity: 1; }
+.ff-item:focus-visible::after { opacity: 1; border-style: dashed; }
+
+.ff-handle {
+  position: absolute;
+  right: -11px; bottom: -11px;
+  z-index: 2;
+  width: 14px; height: 14px;
+  border: 2px solid var(--ff-select);
+  border-radius: 50%;
+  background: #fff;
+  cursor: nwse-resize;
+  display: none;
+}
+.ff-item.is-selected .ff-handle { display: block; }
+.ff-viewport.is-pen .ff-handle, .ff-viewport.is-eraser .ff-handle { display: none; }
+
+.ff-note {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: var(--c);
+  color: var(--ff-note-text);
+  box-shadow: var(--ff-item-shadow);
+  text-align: center;
+}
+.ff-note-text {
+  width: 100%;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  outline: none;
+  min-height: 1.2em;
+}
+.ff-text-body {
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  outline: none;
+  min-height: 1.2em;
+  text-wrap: pretty;
+}
+.ff-text--label .ff-text-body {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ff-muted);
+}
+.is-editing .ff-text-body, .is-editing .ff-note-text { cursor: text; user-select: text; -webkit-user-select: text; }
+.ff-text-body:empty::before, .ff-note-text:empty::before { content: attr(data-empty); opacity: .45; }
+
+.ff-shape svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.ff-shape path { fill: var(--c); }
+
+.ff-image {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 0;
+  background: #fdfdfc;
+  box-shadow: var(--ff-item-shadow);
+}
+.ff-image img { width: 100%; flex: 1; min-height: 0; object-fit: cover; -webkit-user-drag: none; pointer-events: none; }
+.ff-image figcaption {
+  height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a3c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Job cards: company logo, title, dates and place, like a LinkedIn entry */
+.ff-role {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  background: var(--ff-card);
+  box-shadow: var(--ff-item-shadow), 0 0 0 1px var(--ff-card-edge);
+}
+.ff-role-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+.ff-role-logo {
+  flex: none;
+  width: 36px; height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+}
+.ff-role-logo svg { width: 24px; height: 24px; }
+.ff-role-who { display: flex; flex-direction: column; min-width: 0; }
+.ff-role-who strong { font-size: 14.5px; font-weight: 650; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.ff-role-who span { margin-top: 2px; font-size: 12.5px; color: var(--ff-muted); }
+.ff-role-when, .ff-role-where { font-size: 12.5px; line-height: 1.35; color: var(--ff-muted); font-variant-numeric: tabular-nums; }
+.ff-role-when { color: var(--ff-text); }
+
+/* Bars along the timeline: how long each job lasted */
+.ff-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--c);
+  box-shadow: var(--ff-item-shadow);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ff-bar span { overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Floating controls inside the canvas ---------- */
+.ff-float {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--ff-pop);
+  border: 1px solid var(--ff-pop-edge);
+  border-radius: 11px;
+  box-shadow: var(--ff-pop-shadow);
+  font-size: 13px;
+  color: var(--ff-text);
+}
+.ff-zoom { left: 12px; bottom: 12px; }
+.tile--freeform:not(.is-expanded) .ff-zoom { display: none; }   /* the small tile is a preview: expand to get the controls */
+.ff-zoom .ff-tool { width: 28px; height: 28px; }
+.ff-zoom .ff-tool svg { width: 17px; height: 17px; }
+.ff-zoom-value {
+  min-width: 48px;
+  height: 28px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.ff-zoom-value:hover { background: var(--ff-hover); }
+.ff-zoom-value:focus-visible { outline: 2px solid var(--ff-select); }
+@container (max-width: 440px) {
+  .ff-zoom [data-zoom="in"], .ff-zoom [data-zoom="out"] { display: none; }
+}
+
+.ff-ctx { transform: translateX(-50%); }
+.ff-ctx[hidden], .ff-penbar[hidden] { display: none; }
+.ff-swatch {
+  width: 24px; height: 24px;
+  margin: 0 1px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--sw);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12);
+  cursor: pointer;
+}
+.ff-swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ff-pop), 0 0 0 4px var(--ff-select); }
+.ff-swatch:focus-visible { outline: 2px solid var(--ff-select); outline-offset: 3px; }
+.ff-ctx-sep { width: 1px; height: 20px; margin: 0 5px; background: var(--ff-rule); }
+.ff-ctx-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--ff-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ff-ctx-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ff-ctx-btn:hover { background: var(--ff-hover); }
+.ff-ctx-btn--danger { color: #ff3b30; }
+.ff-ctx-btn:focus-visible { outline: 2px solid var(--ff-select); }
+
+.ff-penbar { top: 12px; left: 50%; transform: translateX(-50%); }
+.ff-penbar .ff-tool { width: 32px; height: 28px; }
+
+.ff-toast {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 14px;
+  transform: translate(-50%, 8px);
+  max-width: calc(100% - 32px);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--ff-text);
+  color: var(--ff-window);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+.ff-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* Popovers hanging off titlebar buttons */
+.ff-pop {
+  position: absolute;
+  z-index: 6;
+  padding: 8px;
+  background: var(--ff-pop);
+  border: 1px solid var(--ff-pop-edge);
+  border-radius: 14px;
+  box-shadow: var(--ff-pop-shadow);
+  color: var(--ff-text);
+}
+.ff-pop[hidden] { display: none; }
+.ff-shapes { display: grid; grid-template-columns: repeat(5, 40px); gap: 4px; }
+.ff-shape-btn {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  cursor: pointer;
+}
+.ff-shape-btn:hover { background: var(--ff-hover); }
+.ff-shape-btn:focus-visible { outline: 2px solid var(--ff-select); }
+.ff-shape-btn svg { width: 26px; height: 26px; }
+.ff-shape-btn path { fill: var(--s-blue); }
+
+.ff-reset { width: 240px; padding: 14px; }
+.ff-reset p { margin-bottom: 4px; font-size: 13px; font-weight: 650; }
+.ff-reset small { display: block; margin-bottom: 12px; font-size: 12px; line-height: 1.4; color: var(--ff-muted); }
+.ff-reset-row { display: flex; justify-content: flex-end; gap: 8px; }
+.ff-btn {
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-window);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ff-btn--danger { border-color: transparent; background: #ff3b30; color: #fff; }
+.ff-btn:focus-visible { outline: 2px solid var(--ff-select); outline-offset: 2px; }
+
+.ff-file { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-toast { transition: none; }
+}

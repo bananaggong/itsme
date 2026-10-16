@@ -1,0 +1,176 @@
+/* 404 page (404.html): a pretend Find My search for the missing page.
+   The map, compass and zoom buttons reuse the homepage Find My tile's .fm-* styles
+   (styles.css); lost.js switches the tile between .is-searching, .is-lost and .is-ringing. */
+
+.tile--lost {
+  --fm-land: #f4f1ea;                    /* same map colours as the homepage Find My tile */
+  --fm-glass: rgba(255, 255, 255, .82);
+  --fm-button: rgba(255, 255, 255, .9);
+  --fm-divider: rgba(0, 0, 0, .1);
+  --fm-text: #111;
+  --fm-text-2: rgba(0, 0, 0, .55);
+  --lost-blue: #0a84ff;                  /* Find My's "searching" blue */
+  --lost-blue-text: #0066cc;             /* darker, so small blue text is readable on the light tile */
+  --lost-pin: #ffffff;
+  --lost-pin-ink: #111111;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+}
+:root[data-theme="dark"] .tile--lost {
+  --fm-land: #344559;
+  --fm-glass: rgba(30, 38, 50, .72);
+  --fm-button: rgba(69, 86, 110, .85);
+  --fm-divider: rgba(255, 255, 255, .15);
+  --fm-text: #fff;
+  --fm-text-2: rgba(255, 255, 255, .65);
+  --lost-pin: #4b5563;
+  --lost-pin-ink: #ffffff;
+  --lost-blue-text: #409cff;
+}
+
+/* ---------- the map ---------- */
+.lost-map {
+  position: relative;
+  height: 340px;
+  background: var(--fm-land);
+  overflow: hidden;
+}
+
+/* The spot being searched: rings, a dot, and the page's pin above it */
+.lost-target {
+  position: absolute;
+  left: 50%; top: 58%;
+  width: 0; height: 0;
+}
+.lost-ring {
+  position: absolute;
+  left: -130px; top: -130px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  border: 2px solid var(--lost-blue);
+  background: color-mix(in srgb, var(--lost-blue) 12%, transparent);
+  opacity: 0;
+  transform: scale(.1);
+}
+.is-searching .lost-ring { animation: lost-radar 2.4s cubic-bezier(.2, .6, .4, 1) infinite; }
+.is-searching .lost-ring:nth-child(2) { animation-delay: .8s; }
+.is-searching .lost-ring:nth-child(3) { animation-delay: 1.6s; }
+@keyframes lost-radar {
+  0%   { transform: scale(.1); opacity: .9; }
+  100% { transform: scale(1);  opacity: 0; }
+}
+
+.lost-dot {
+  position: absolute;
+  left: -6px; top: -6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--lost-blue);
+  box-shadow: 0 0 0 3px #fff, 0 2px 6px rgba(0, 0, 0, .3);
+  transition: background .6s ease;
+}
+.is-lost .lost-dot { background: #8e9aab; }
+
+.lost-pin {                    /* like an AirTag's pin: a round badge pointing at the dot */
+  position: absolute;
+  left: -28px; top: -72px;
+  width: 56px; height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lost-pin);
+  color: var(--lost-pin-ink);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .3);
+  transform-origin: 50% 130%;
+  transition: filter .6s ease, opacity .6s ease;
+}
+.lost-pin::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 100%;
+  translate: -50% -2px;
+  border: 8px solid transparent;
+  border-top: 10px solid var(--lost-pin);
+}
+.lost-pin svg { width: 28px; height: 28px; }
+.is-searching .lost-pin { animation: lost-bob 1.2s ease-in-out infinite; }
+@keyframes lost-bob { 50% { translate: 0 -6px; } }
+.is-lost .lost-pin { filter: grayscale(1); opacity: .75; }      /* offline, like a lost AirTag */
+.is-ringing .lost-pin { animation: lost-wiggle .5s ease-in-out infinite; opacity: 1; }
+@keyframes lost-wiggle {
+  25% { rotate: -12deg; }
+  75% { rotate: 12deg; }
+}
+
+/* ---------- the card under the map, like Find My's item sheet ---------- */
+.lost-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--tile-pad);
+}
+.lost-item { display: flex; align-items: flex-start; gap: 16px; }
+.lost-icon {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text);
+}
+.lost-icon svg { width: 26px; height: 26px; }
+.lost-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.lost-title {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.lost-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.lost-status-text { overflow: hidden; text-overflow: ellipsis; }
+.is-searching .lost-status { color: var(--lost-blue-text); }
+
+.lost-spinner {                /* the little "searching" spinner, only while searching */
+  display: none;
+  flex-shrink: 0;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--lost-blue) 25%, transparent);
+  border-top-color: var(--lost-blue);
+  animation: lost-spin .8s linear infinite;
+}
+.is-searching .lost-spinner { display: block; }
+@keyframes lost-spin { to { rotate: 360deg; } }
+
+.lost-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.lost-links .button { display: inline-block; margin: 0; }
+.lost-sound {                  /* a real <button>, so drop the browser's own border */
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+.lost-sound:disabled { opacity: .6; cursor: default; }
+
+@media (max-width: 640px) {
+  .lost-map { height: 240px; }
+  .lost-item { flex-direction: column; gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile--lost .lost-ring,
+  .tile--lost .lost-pin,
+  .tile--lost .lost-spinner { animation: none; }
+}

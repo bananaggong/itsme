@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sam Dickie | Product Manager & Maker based in Scotland</title>
+  <meta name="description" content="Sam Dickie is a product manager and maker in Scotland, helping early-stage founders turn ideas into products people actually use.">
+  <link rel="canonical" href="https://www.samdickie.me/">
+
+  <!-- Social sharing preview (what shows when the link is pasted into Slack, LinkedIn, etc.) -->
+  <meta property="og:site_name" content="Sam Dickie">
+  <meta property="og:title" content="Sam Dickie | Product Manager & Maker based in Scotland">
+  <meta property="og:description" content="I help early-stage founders drag ideas out of the “wouldn’t it be cool if…” phase and into something real people actually use.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.samdickie.me/">
+  <meta property="og:image" content="https://www.samdickie.me/assets/og/home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The samdickie.me homepage">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Tells Google who this site is about (name, photo, profiles), for its search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.samdickie.me/#website",
+        "url": "https://www.samdickie.me/",
+        "name": "Sam Dickie",
+        "author": { "@id": "https://www.samdickie.me/#sam" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.samdickie.me/#sam",
+        "name": "Sam Dickie",
+        "url": "https://www.samdickie.me/",
+        "image": "https://www.samdickie.me/assets/sam-photo.jpg",
+        "jobTitle": "Product Manager",
+        "homeLocation": { "@type": "Place", "name": "Scotland" },
+        "sameAs": [
+          "https://www.linkedin.com/in/samdickie/",
+          "https://x.com/thisdickie",
+          "https://samdickie.substack.com/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+
+  <!-- Font: Inter, a free stand-in for the paid "Graphik" font Marco's site uses -->
+  <!-- Inter, hosted on this site (assets/fonts/, set up in styles.css); fetched early so text doesn't wait -->
+  <link rel="preload" href="/assets/fonts/inter-latin-v20.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/home.css?v=7bb48506f9">
+  <link rel="stylesheet" href="/freeform.css?v=c1b8b5f851">
+  <link rel="stylesheet" href="/memoji.css?v=c8d6029ac1">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+
+  <!-- Light/dark: apply the saved choice (or the device's setting) before the page is drawn,
+       so dark-mode visitors never see a flash of white. theme.js handles the switch itself. -->
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Liquid Glass, if the visitor turned it on (glass.js)
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- Floating pill navigation -->
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link is-active" aria-current="page">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/writing/" class="nav-link">Writing</a>
+    <a href="/projects/" class="nav-link">Projects</a>
+    <a href="/newsletter/" class="nav-link">Newsletter</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+
+  <!-- Light/dark switch: shows a moon in light mode and a sun in dark mode -->
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main class="page">
+    <!-- The bento grid: every direct child is one tile -->
+    <div class="grid">
+
+      <!-- 1. Intro (big 2×2 tile) -->
+      <section class="tile tile--intro">
+        <h1 class="intro-title">
+          Sam <span class="muted">is a Product Manager &amp; Maker in</span> Scotland
+        </h1>
+        <div class="intro-body">
+          <p>Welcome to my personal website. Version&hellip; honestly, I've lost count.</p>
+          <p>By day, I'm a product manager. By night, I'm a novice web designer, compulsive tinkerer and <a href="/newsletter/">newsletter writer</a>.</p>
+          <p>This site is where the tinkering ends up. I've been rebuilding it for over a decade: part self-expression, part test bed for whatever new tech has caught my eye.</p>
+          <p>This time I <a href="/projects/old-site/">ditched Webflow</a> and rebuilt the whole thing from scratch with AI: four days, mostly Claude Opus 5.5, more than a billion tokens and over 20,000 lines of code.</p>
+          <p>The result is a bento box of my favourite Apple apps, shrunk down into widgets.</p>
+          <p>If you own one of the billion-plus Apple devices out there, this should feel familiar. If not, poke around anyway. Everything’s clickable and nothing’s breakable. Probably.</p>
+        </div>
+      </section>
+
+      <!-- 2. Portrait. On desktop, hovering swaps the pixel art for the real photo.
+           The Siri button (memoji.js) plays a pretend Siri request that turns the photo
+           into a Memoji; pressing it again changes Sam back. The Siri logo's ribbons swirl,
+           and until it's been pressed it wakes up every few seconds to invite a tap. -->
+      <div class="tile tile--avatar" data-look="pixel">
+        <img src="/assets/sam-portrait.png" alt="Pixel-art portrait of Sam" class="avatar-pixel">
+        <img src="/assets/sam-photo.webp" alt="" class="avatar-photo">
+        <img src="/assets/sam-memoji.webp" alt="" class="avatar-memoji" loading="lazy" decoding="async">
+        <div class="siri-shimmer" aria-hidden="true"></div>
+        <div class="siri-glow" aria-hidden="true"><span class="siri-haze"></span></div>
+        <div class="siri-bar" aria-hidden="true">
+          <span class="siri-field"><span class="siri-text"></span><span class="siri-caret"></span><span class="siri-placeholder">Ask Siri&hellip;</span></span>
+          <span class="siri-send"><svg viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <button class="siri-button" type="button" aria-pressed="false" aria-label="Ask Siri to turn Sam into a Memoji">
+          <!-- Siri-style logo: a dark ball with glowing ribbons (drawn here, not Apple's file) -->
+          <svg class="siri-orb" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="siri-ball" cx="50%" cy="42%" r="60%">
+                <stop offset="0" stop-color="#23264a"/><stop offset=".65" stop-color="#0c0d1c"/><stop offset="1" stop-color="#020207"/>
+              </radialGradient>
+              <linearGradient id="siri-pink" x1="0" x2="1"><stop offset="0" stop-color="#ff2d8e" stop-opacity="0"/><stop offset=".5" stop-color="#ff4fa8"/><stop offset="1" stop-color="#ff2d8e" stop-opacity="0"/></linearGradient>
+              <linearGradient id="siri-blue" x1="0" x2="1"><stop offset="0" stop-color="#1fb5ff" stop-opacity="0"/><stop offset=".5" stop-color="#37c8ff"/><stop offset="1" stop-color="#3d6bff" stop-opacity="0"/></linearGradient>
+              <linearGradient id="siri-green" x1="0" x2="1"><stop offset="0" stop-color="#2fe39c" stop-opacity="0"/><stop offset=".5" stop-color="#3cf0b0"/><stop offset="1" stop-color="#2fe39c" stop-opacity="0"/></linearGradient>
+              <radialGradient id="siri-core" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+              <filter id="siri-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".9"/></filter>
+              <clipPath id="siri-clip"><circle cx="50" cy="50" r="48"/></clipPath>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#siri-ball)"/>
+            <g class="siri-ribbons" clip-path="url(#siri-clip)" filter="url(#siri-soft)">
+              <path d="M6 50C22 22 38 22 50 50S78 78 94 50C78 36 64 38 50 50S22 64 6 50Z" fill="url(#siri-blue)" opacity=".95"/>
+              <path d="M6 50C22 76 38 78 50 50S78 20 94 50C78 64 64 62 50 50S22 38 6 50Z" fill="url(#siri-pink)" opacity=".95"/>
+              <path d="M10 50C26 32 40 34 50 50S74 68 90 50C74 60 62 58 50 50S26 42 10 50Z" fill="url(#siri-green)" opacity=".9"/>
+            </g>
+            <ellipse class="siri-core" cx="50" cy="50" rx="16" ry="6" fill="url(#siri-core)" opacity=".7"/>
+            <circle cx="50" cy="50" r="47.5" fill="none" stroke="#fff" stroke-opacity=".18"/>
+            <ellipse cx="50" cy="22" rx="28" ry="12" fill="#fff" opacity=".08"/>
+          </svg>
+          <span class="siri-label" aria-hidden="true">Memoji me</span>
+        </button>
+        <p class="sr-only siri-status" role="status"></p>
+      </div>
+
+      <!-- 3. Office hours, styled as the Calendar "Up Next" widget from the iPhone Home Screen.
+           officehours.js swaps the red heading for today's weekday and shows the date
+           (without it, the heading just says "Office hours"). The events are deliberately
+           vague (no days or times), so they never go out of date: to change what's booked,
+           edit the booked events' text.
+           Booking: pressing the open slot (or anywhere on the tile) opens a day picker. officehours.js
+           fills it with the next three weekdays; each day is an email to data-email with that day in
+           the subject. Picking one shows a "requested" tick, then opens the email. -->
+      <section class="tile tile--office" aria-label="Office hours" data-email="samdickie@gmail.com">
+        <div class="ch-head">
+          <div>
+            <p class="ch-weekday">Office hours</p>
+            <p class="ch-date" hidden></p>
+          </div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </div>
+        <ul class="ch-events">
+          <li class="ch-event ch-event--booked"><span class="ch-title">Product advice</span><span class="ch-time">Booked</span></li>
+          <li class="ch-event ch-event--booked"><span class="ch-title">Idea validation</span><span class="ch-time">Booked</span></li>
+          <li class="ch-event ch-event--open">
+            <button class="ch-slot" type="button" aria-expanded="false" aria-controls="ch-days">
+              <span class="ch-title">Open slot · 30 min</span>
+              <!-- "Book it →" swaps in on hover; screen readers only hear the first -->
+              <span class="ch-time"><span class="ch-status">Available this week</span><span class="ch-cta" aria-hidden="true">Book it →</span></span>
+              <span class="ch-tick" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.3 2.3 4.7-4.9"/></svg></span>
+            </button>
+            <div class="ch-days" id="ch-days" inert>
+              <div class="ch-days-inner"></div>
+            </div>
+          </li>
+        </ul>
+        <p class="ch-foot">Free video calls · 108 founders helped<span class="sr-only"> with product advice, validation and no-code MVPs</span></p>
+        <p class="sr-only" aria-live="polite"></p>
+      </section>
+
+      <!-- 4. App switcher (wide). Like the macOS app switcher: each app in the dock
+           has a panel of link cards above it, matched by data-app. To add a link: copy an
+           <a class="sw-card"> inside the right panel and change its href, title and URL text.
+           Placeholder cards have no href, so they can't be clicked until a real link is added. -->
+      <section class="tile tile--switcher" aria-label="Where to find me">
+        <p class="tile-app sw-label"><img class="tile-app-icon sw-label-icon" src="/assets/apps/notion.png" alt=""><span class="sw-label-name">Notion</span></p>
+
+        <div class="sw-cards">
+          <div class="sw-panel is-active" data-app="notion">
+            <a class="sw-card" href="https://thisdickie.notion.site/A-curated-list-of-personal-website-inspiration-2022-26-5b38135e96fb41aa9d750a96b947c591" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/notion.png" alt=""><span class="sw-card-text">Personal website inspiration</span></span>
+              <span class="sw-card-url">thisdickie.notion.site/a-curated-list-of-personal-website-inspiration-2022-26</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.notion.site/YC-Startup-Weekly-Planning-Template-b19ebce5fc5c4035a7f337d26c99c2c2" target="_blank" rel="noopener">
+              <span class="sw-card-title"><span class="sw-emoji">👾</span><span class="sw-card-text">YC Weekly Planning Template</span></span>
+              <span class="sw-card-url">thisdickie.notion.site/yc-startup-weekly-planning-template</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.notion.site/12-Smoke-Test-Techniques-7b5bc6f530f7498f92ee15c9140d2823" target="_blank" rel="noopener">
+              <span class="sw-card-title"><span class="sw-emoji">👨🏻‍🚒</span><span class="sw-card-text">12 Smoke Test Techniques</span></span>
+              <span class="sw-card-url">thisdickie.notion.site/12-smoke-test-techniques</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.notion.site/Shape-Up-Basecamp-de61187006d24f6bb5476f2737cac314" target="_blank" rel="noopener">
+              <span class="sw-card-title"><span class="sw-emoji">🏕</span><span class="sw-card-text">Shape Up – Basecamp</span></span>
+              <span class="sw-card-url">thisdickie.notion.site/shape-up-basecamp</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.notion.site/Webflow-Resources-6789172520c84544ad8907c8cc8cd645" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/notion.png" alt=""><span class="sw-card-text">Webflow Resources</span></span>
+              <span class="sw-card-url">thisdickie.notion.site/webflow-resources</span>
+            </a>
+          </div>
+          <div class="sw-panel" data-app="dia">
+            <a class="sw-card" href="https://x.com/thisdickie" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/x.png" alt="" loading="lazy" decoding="async"><span class="sw-card-text">Sam Dickie 👾 (@thisdickie)</span></span>
+              <span class="sw-card-url">x.com/thisdickie</span>
+            </a>
+            <a class="sw-card" href="https://validation-co.webflow.io/" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/validation-co.png" alt="" loading="lazy" decoding="async"><span class="sw-card-text">Validation Co</span></span>
+              <span class="sw-card-url">validation-co.webflow.io</span>
+            </a>
+            <a class="sw-card" href="https://squoosh.app/" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/squoosh.png" alt="" loading="lazy" decoding="async"><span class="sw-card-text">Squoosh</span></span>
+              <span class="sw-card-url">squoosh.app</span>
+            </a>
+            <a class="sw-card" href="https://blush.design/" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/blush.png" alt="" loading="lazy" decoding="async"><span class="sw-card-text">Blush: Illustrations for everyone</span></span>
+              <span class="sw-card-url">blush.design</span>
+            </a>
+            <a class="sw-card" href="https://coolors.co/" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/coolors.png" alt="" loading="lazy" decoding="async"><span class="sw-card-text">Coolors: Palette generator</span></span>
+              <span class="sw-card-url">coolors.co</span>
+            </a>
+            <a class="sw-card" href="https://aiuxplayground.com/" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/tabs/aiuxplayground.svg?v=29258645a8" alt="" loading="lazy" decoding="async"><span class="sw-card-text">AI UX Playground</span></span>
+              <span class="sw-card-url">aiuxplayground.com</span>
+            </a>
+          </div>
+          <div class="sw-panel" data-app="gumroad">
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/ldgiz" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">Mega Notion Website Kit</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/ldgiz</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/kVaIu" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">Notion Component Kit</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/kVaIu</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/egNFC" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">Notion Website Template</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/egNFC</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/wwfpu" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">Website Inspiration</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/wwfpu</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/bVBqw" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">12 Smoke Test Techniques</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/bVBqw</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/two-pager" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">Product Brief Template</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/two-pager</span>
+            </a>
+            <a class="sw-card" href="https://thisdickie.gumroad.com/l/research-questions" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/gumroad.png" alt=""><span class="sw-card-text">100+ Research Questions</span></span>
+              <span class="sw-card-url">thisdickie.gumroad.com/l/research-questions</span>
+            </a>
+          </div>
+          <div class="sw-panel" data-app="substack">
+            <a class="sw-card" href="https://samdickie.substack.com/p/letters-to-a-young-creator" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/substack.png" alt=""><span class="sw-card-text">Letters to a young creator</span></span>
+              <span class="sw-card-url">samdickie.substack.com/p/letters-to-a-young-creator</span>
+            </a>
+            <a class="sw-card" href="https://samdickie.substack.com/p/paying-to-see-the-future" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/substack.png" alt=""><span class="sw-card-text">Paying to see the future</span></span>
+              <span class="sw-card-url">samdickie.substack.com/p/paying-to-see-the-future</span>
+            </a>
+            <a class="sw-card" href="https://samdickie.substack.com/p/the-case-against-personal-software" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/substack.png" alt=""><span class="sw-card-text">The case against personal software</span></span>
+              <span class="sw-card-url">samdickie.substack.com/p/the-case-against-personal-software</span>
+            </a>
+            <a class="sw-card" href="https://samdickie.substack.com/p/the-idiot-index-for-code" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/substack.png" alt=""><span class="sw-card-text">The Idiot Index for Code</span></span>
+              <span class="sw-card-url">samdickie.substack.com/p/the-idiot-index-for-code</span>
+            </a>
+            <a class="sw-card" href="https://samdickie.substack.com/p/we-are-the-nerds" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/substack.png" alt=""><span class="sw-card-text">We are the nerds</span></span>
+              <span class="sw-card-url">samdickie.substack.com/p/we-are-the-nerds</span>
+            </a>
+          </div>
+          <div class="sw-panel" data-app="podcasts">
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/tbpn/id1772360235" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">TBPN</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/tbpn/id1772360235</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/gb/podcast/ai-i/id1719789201" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">AI &amp; I</span></span>
+              <span class="sw-card-url">podcasts.apple.com/gb/podcast/ai-i/id1719789201</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/core-memory/id1789397163" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">Core Memory</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/core-memory/id1789397163</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/david-senra/id1836497887" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">David Senra</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/david-senra/id1836497887</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/founders/id1141877104" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">Founders</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/founders/id1141877104</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/acquired/id1050462261" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">Acquired</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/acquired/id1050462261</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/lennys-podcast-product-career-growth/id1627920305" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">Lenny&rsquo;s Podcast</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/lennys-podcast-product-career-growth/id1627920305</span>
+            </a>
+            <a class="sw-card" href="https://podcasts.apple.com/us/podcast/not-investment-advice/id1563288568" target="_blank" rel="noopener">
+              <span class="sw-card-title"><img src="/assets/apps/podcasts.png" alt=""><span class="sw-card-text">Not Investment Advice</span></span>
+              <span class="sw-card-url">podcasts.apple.com/us/podcast/not-investment-advice/id1563288568</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sw-dock">
+          <button type="button" class="sw-app is-active sw-app--padded" data-app="notion" aria-label="Notion" aria-pressed="true">
+            <img src="/assets/apps/notion.png" alt="">
+          </button>
+          <button type="button" class="sw-app" data-app="dia" aria-label="Dia" aria-pressed="false">
+            <img src="/assets/apps/dia.png" alt="">
+          </button>
+          <button type="button" class="sw-app sw-app--padded" data-app="gumroad" aria-label="Gumroad" aria-pressed="false">
+            <img src="/assets/apps/gumroad.png" alt="">
+          </button>
+          <button type="button" class="sw-app" data-app="substack" aria-label="Substack" aria-pressed="false">
+            <img src="/assets/apps/substack.png" alt="">
+          </button>
+          <button type="button" class="sw-app" data-app="podcasts" aria-label="Apple Podcasts" aria-pressed="false">
+            <img src="/assets/apps/podcasts.png" alt="">
+          </button>
+        </div>
+      </section>
+
+      <!-- 5. Newsletter (wide), styled as the macOS Mail app: a sidebar of mailboxes and an inbox of
+           past issues. Each email links to its issue on Substack; Subscribe goes to Substack's sign-up.
+           newsletter.js slides the newest issue in the first time the tile is seen.
+           Icons: Tabler Icons (MIT licence), drawn inline. -->
+      <section class="tile tile--newsletter" aria-label="Creator Club newsletter">
+        <div class="ml-sidebar" aria-hidden="true">
+          <div class="ss-lights"><span></span><span></span><span></span></div>
+          <p class="ml-heading">Favourites</p>
+          <p class="ml-box is-current">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M4 13h3l3 3h4l3 -3h3"/></svg>
+            Inbox<span class="ml-count">8,800+</span>
+          </p>
+          <p class="ml-box">
+            <svg class="ml-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></svg>
+            Creator Club
+          </p>
+          <p class="ml-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11"/><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"/></svg>
+            Sent
+          </p>
+        </div>
+        <div class="ml-main">
+          <div class="ml-toolbar">
+            <div>
+              <p class="ml-title">Inbox</p>
+              <p class="ml-sub">Creator Club · monthly · 8,800+ readers</p>
+            </div>
+            <a class="ml-subscribe" href="https://samdickie.substack.com/subscribe" target="_blank" rel="noopener">Subscribe</a>
+          </div>
+          <!-- Latest issues from samdickie.substack.com, newest first. The preview is the first sentence of
+               the issue's Personal Updates (May uses its third). To add one: copy an .ml-item, mark the
+               old newest row "is-read", and move the ml-new class onto the new one (it slides in).
+               The list scrolls inside the tile. -->
+          <ul class="ml-list">
+            <li class="ml-item">
+              <a class="ml-row ml-new" href="https://samdickie.substack.com/p/letters-to-a-young-creator" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Sam Dickie</span><span class="ml-date">3 Sep</span>
+                <span class="ml-subject">Letters to a young creator</span>
+                <span class="ml-preview">I’ve been going back and forth on my opinion on using AI for writing this newsletter.</span>
+              </a>
+            </li>
+            <li class="ml-item">
+              <a class="ml-row" href="https://samdickie.substack.com/about" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Creator Club</span><span class="ml-date">Pinned</span>
+                <span class="ml-subject">Welcome to Creator Club</span>
+                <span class="ml-preview">What I’m building, what I’m reading and new products worth a look. Roughly monthly. Never boring (I try).</span>
+              </a>
+            </li>
+            <li class="ml-item">
+              <a class="ml-row is-read" href="https://samdickie.substack.com/p/paying-to-see-the-future" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Sam Dickie</span><span class="ml-date">26 May</span>
+                <span class="ml-subject">Paying to see the future</span>
+                <span class="ml-preview">I’m just about to leave for a week in Italy to untether myself, hang with family and friends, drink wine, eat pizza and hopefully get some reading in!</span>
+              </a>
+            </li>
+            <li class="ml-item">
+              <a class="ml-row is-read" href="https://samdickie.substack.com/p/the-case-against-personal-software" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Sam Dickie</span><span class="ml-date">22 Apr</span>
+                <span class="ml-subject">The case against personal software</span>
+                <span class="ml-preview">I’m working on a small side project to get some additional reps in using both Claude Code and Codex.</span>
+              </a>
+            </li>
+            <li class="ml-item">
+              <a class="ml-row is-read" href="https://samdickie.substack.com/p/the-idiot-index-for-code" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Sam Dickie</span><span class="ml-date">28 Feb</span>
+                <span class="ml-subject">The Idiot Index for Code</span>
+                <span class="ml-preview">I think most people in tech right now would agree: there’s a lot of anxiety about the exponential pace of AI.</span>
+              </a>
+            </li>
+            <li class="ml-item">
+              <a class="ml-row is-read" href="https://samdickie.substack.com/p/we-are-the-nerds" target="_blank" rel="noopener">
+                <span class="ml-dot"></span><span class="ml-from">Sam Dickie</span><span class="ml-date">28 Jan</span>
+                <span class="ml-subject">We are the nerds</span>
+                <span class="ml-preview">Welcome to the first issue of 2026.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. Freeform (wide; the expand button makes it 2×2 and shrinks Spotify to one row),
+           styled as Apple's Freeform app: Sam's product career on a hand-drawn timeline.
+           Visitors can pan, zoom, drag things, add notes and draw; their changes stay in their
+           own browser. What's on the board lives in freeform.js (ROLES, SIDE, HIGHLIGHTS). -->
+      <section class="tile tile--freeform" aria-label="Freeform board: Sam's product career, 2017 to now">
+        <header class="ff-titlebar">
+          <div class="ff-lights">
+            <span class="ff-light" aria-hidden="true"></span>
+            <span class="ff-light" aria-hidden="true"></span>
+            <button class="ff-light ff-light--zoom" type="button" tabindex="-1" aria-hidden="true" title="Expand"></button>
+          </div>
+
+          <div class="ff-tools" role="toolbar" aria-label="Add to the board">
+            <button class="ff-tool" type="button" data-add="note" aria-label="Add a sticky note" title="Sticky note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 4.5h15v9.5l-5.5 5.5H4.5z"/><path d="M19.5 14H14v5.5"/></svg>
+            </button>
+            <button class="ff-tool" type="button" data-add="shape" aria-label="Add a shape" aria-expanded="false" aria-controls="ff-shapes" title="Shape">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="9.5" width="10.5" height="10.5" rx="1.5"/><circle cx="15.5" cy="8.5" r="5"/></svg>
+            </button>
+            <button class="ff-tool" type="button" data-add="text" aria-label="Add a text box" title="Text box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M8.5 16.5 12 7.5l3.5 9M9.7 13.6h4.6"/></svg>
+            </button>
+            <button class="ff-tool ff-tool--media" type="button" data-add="media" aria-label="Add a photo from your device" title="Photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4 17.5 5-4.5 4 3.5 3-2.5 4 3.5"/></svg>
+            </button>
+            <button class="ff-tool" type="button" data-add="pen" aria-label="Draw with the pen" aria-pressed="false" title="Pen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 15.4 15.9 5.1a2 2 0 0 1 2.9 0l.1.1a2 2 0 0 1 0 2.9L8.6 18.4z"/><path d="m14.2 6.8 3 3"/></svg>
+            </button>
+          </div>
+
+          <div class="ff-actions">
+            <button class="ff-tool ff-tool--history" type="button" data-act="undo" aria-label="Undo" title="Undo (⌘Z)" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5"/><path d="M5 11h9.5a4.75 4.75 0 0 1 0 9.5H12"/></svg>
+            </button>
+            <button class="ff-tool ff-tool--history" type="button" data-act="redo" aria-label="Redo" title="Redo (⇧⌘Z)" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6.5 19.5 11 15 15.5"/><path d="M19 11H9.5a4.75 4.75 0 0 0 0 9.5H12"/></svg>
+            </button>
+            <button class="ff-tool ff-tool--reset" type="button" data-act="reset" aria-label="Reset the board" aria-expanded="false" aria-controls="ff-reset" title="Reset board">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.8 12.5a7.3 7.3 0 1 0 2.1-5.6"/><path d="M5 4.5v3.9h3.9"/></svg>
+            </button>
+            <button class="ff-tool ff-expand" type="button" aria-expanded="false" aria-label="Expand the board" title="Expand">
+              <svg class="ff-icon-grow" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4.5h5.5V10M19.5 4.5l-6 6M10 19.5H4.5V14M4.5 19.5l6-6"/></svg>
+              <svg class="ff-icon-shrink" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10h-5V5M14 10l6-6M5 14h5v5M10 14l-6 6"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="ff-viewport" tabindex="0" role="application" aria-roledescription="board"
+             aria-label="Board. Drag the background to move around, pinch or hold Command and scroll to zoom. Tab to reach each item.">
+          <div class="ff-world">
+            <svg class="ff-links" aria-hidden="true">
+              <defs>
+                <marker id="ff-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" markerUnits="strokeWidth">
+                  <path class="ff-arrowhead" d="M1.5 1.5 8.5 5 1.5 8.5"/>
+                </marker>
+              </defs>
+              <g class="ff-links-g"></g>
+            </svg>
+            <div class="ff-items"></div>
+            <svg class="ff-strokes" aria-hidden="true"><g class="ff-strokes-g"></g></svg>
+          </div>
+
+          <div class="ff-float ff-zoom ff-ui" role="group" aria-label="Zoom">
+            <button class="ff-tool" type="button" data-zoom="out" aria-label="Zoom out">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
+            </button>
+            <button class="ff-zoom-value" type="button" aria-label="Zoom to 100%">100%</button>
+            <button class="ff-tool" type="button" data-zoom="in" aria-label="Zoom in">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg>
+            </button>
+            <button class="ff-tool" type="button" data-zoom="fit" aria-label="Zoom to fit the whole board" title="Zoom to fit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9V4.5H9M19.5 9V4.5H15M4.5 15v4.5H9M19.5 15v4.5H15"/></svg>
+            </button>
+          </div>
+
+          <div class="ff-float ff-ctx ff-ui" role="toolbar" aria-label="Selected item" hidden></div>
+          <div class="ff-float ff-penbar ff-ui" role="toolbar" aria-label="Pen" hidden></div>
+          <div class="ff-toast" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="ff-pop ff-shapes" id="ff-shapes" role="menu" aria-label="Shapes" hidden></div>
+        <div class="ff-pop ff-reset" id="ff-reset" role="dialog" aria-label="Reset the board" hidden>
+          <p>Reset the board?</p>
+          <small>Everything goes back to how Sam left it. Your notes, photos and drawings are removed.</small>
+          <div class="ff-reset-row">
+            <button class="ff-btn" type="button" data-reset="cancel">Cancel</button>
+            <button class="ff-btn ff-btn--danger" type="button" data-reset="confirm">Reset</button>
+          </div>
+        </div>
+        <input class="ff-file" type="file" id="ff-file" accept="image/*" tabindex="-1" aria-hidden="true">
+      </section>
+
+      <!-- 11. Photo Booth (square). Opens the Photo Booth window further down the page
+           (photobooth.js): the visitor's camera with Photo Booth effects -->
+      <button class="tile tile--photobooth pb-launch" type="button">
+        <span class="tile-app"><img class="tile-app-icon" src="/assets/apps/photobooth.svg?v=5ff900fb38" alt="">Photo Booth</span>
+        <img src="/assets/apps/photobooth.svg?v=5ff900fb38" alt="" class="pb-app-icon" width="120" height="120">
+        <span class="caption"><span aria-hidden="true">📸 </span>Go on, take a selfie<span class="sr-only"> in Photo Booth. Nothing is saved or uploaded</span></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </button>
+
+      <!-- 12. Photos (square). A slideshow in the style of Apple Photos.
+           To add or swap a photo: change the src, alt and caption of a <figure> below
+           (leave out the <figcaption> for no caption). Photos go in /assets/photos/;
+           square photos around 1000×1000px work best.
+           Photo details (shown by the ⓘ button) are the data-… attributes on each <figure>:
+           data-device="Apple iPhone 8 Plus"  data-lens="Telephoto Camera — 56 mm f2.8"
+           data-mp="9"  data-date="2018-03-15" (year-month-day). Leave any out to skip that line;
+           a photo with none of them gets no ⓘ button. -->
+      <section class="tile tile--photos" aria-label="Photos" aria-roledescription="slideshow">
+        <div class="ph-slides">
+          <figure class="ph-slide is-active"
+                  data-device="Apple iPhone 8 Plus" data-lens="Telephoto Camera — 56 mm f2.8" data-mp="2" data-date="2022-10-09">
+            <img src="/assets/photos/photo-1.webp" alt="Art deco hotels and palm trees along Ocean Drive" loading="lazy" decoding="async">
+            <figcaption>📍 South Beach, Miami</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Telephoto Camera — 56 mm f2.8" data-mp="9" data-date="2018-03-15">
+            <img src="/assets/photos/photo-2.webp" alt="A curved mirrored sculpture reflecting brick buildings and blue sky" loading="lazy">
+            <figcaption>📍 Birmingham, UK</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Telephoto Camera — 56 mm f2.8" data-mp="9" data-date="2018-04-22">
+            <img src="/assets/photos/photo-3.webp" alt="A whitewashed church dome with a cross against a deep blue sky" loading="lazy">
+            <figcaption>📍 Greece</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Wide Camera — 28 mm f1.8" data-mp="9" data-date="2018-04-23">
+            <img src="/assets/photos/photo-4.webp" alt="A rooftop pool overlooking the city and hills" loading="lazy">
+            <figcaption>📍 Athens</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Telephoto Camera — 56 mm f2.8" data-mp="8" data-date="2018-09-10">
+            <img src="/assets/photos/photo-5.webp" alt="Red rock formations rising above green pine trees" loading="lazy">
+            <figcaption>📍 Garden of the Gods, Colorado</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Telephoto Camera — 56 mm f2.8" data-mp="9" data-date="2018-09-12">
+            <img src="/assets/photos/photo-6.webp" alt="An open road towards mountains, behind an RV towing a red Jeep" loading="lazy">
+            <figcaption>📍 Colorado</figcaption>
+          </figure>
+          <figure class="ph-slide"
+                  data-device="Apple iPhone 8 Plus" data-lens="Wide Camera — 28 mm f1.8" data-mp="9" data-date="2019-02-25">
+            <img src="/assets/photos/photo-7.webp" alt="A turquoise bay curving into a golden beach and forest" loading="lazy">
+            <figcaption>📍 Abel Tasman, New Zealand</figcaption>
+          </figure>
+        </div>
+
+        <!-- Invisible button covering the whole tile: tap for the next photo -->
+        <button type="button" class="ph-next" aria-label="Show next photo"></button>
+
+        <!-- Photo details, like the info panel in Apple Photos. photos.js fills it in
+             from the current photo's data-… attributes -->
+        <button class="ph-info-button" type="button" aria-label="Photo details" aria-expanded="false" aria-controls="ph-info" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.2v.1"/></svg>
+        </button>
+        <div class="ph-info" id="ph-info" hidden>
+          <p class="ph-info-date"></p>
+          <div class="ph-info-card">
+            <p class="ph-info-device"></p>
+            <p class="ph-info-lens"></p>
+            <p class="ph-info-mp"></p>
+          </div>
+        </div>
+
+        <!-- Photos-style app icon, drawn in SVG (not Apple's own artwork): eight see-through
+             capsule petals that darken where they overlap (the "multiply" blend) -->
+        <span class="ph-icon" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <g class="ph-petals">
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#f89c32" transform="rotate(0 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#f7d235" transform="rotate(45 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#b3d43f" transform="rotate(90 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#5dc15b" transform="rotate(135 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#3bb3c3" transform="rotate(180 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#4f86e3" transform="rotate(225 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#9a66d1" transform="rotate(270 50 50)"/>
+              <rect x="39" y="14" width="22" height="37" rx="11" fill="#ec4e72" transform="rotate(315 50 50)"/>
+            </g>
+          </svg>
+        </span>
+
+        <div class="ph-dots" aria-hidden="true"></div>
+      </section>
+
+      <!-- 13. Spotify playlists (big 2×2, styled like the Spotify app). It comes before Find My and
+           Contact so the grid packs those two into the gap on its left, under Photo Booth and Photos.
+           To add a playlist: copy one <li> in the list below and change its title, cover
+           image and data-* values. The row marked "is-active" is shown when the page loads. -->
+      <section class="tile tile--spotify" aria-label="Sam's Spotify playlists">
+        <!-- The header: its colour glow (.sp-glow) takes on the selected playlist's colour -->
+        <div class="sp-head">
+          <div class="sp-glow" aria-hidden="true"></div>
+
+          <header class="sp-top">
+            <span class="tile-app"><svg class="tile-app-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ed760"/><path d="M6.5 9.3c3.8-1.1 8-.8 11.2 1M7 12.4c3.1-.9 6.6-.6 9.3.9M7.6 15.4c2.5-.7 5.1-.5 7.2.7" stroke="#000" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+Personal playlists</span>
+            <a class="sp-open" href="https://open.spotify.com/playlist/1kmaCCEuMAqsgTwNQ52tqC" target="_blank" rel="noopener">Open in Spotify ↗</a>
+          </header>
+
+          <!-- The "hero": shows whichever playlist is selected -->
+          <div class="sp-hero">
+            <img class="sp-cover" src="/assets/playlist-1.webp" alt="" loading="lazy">
+            <div class="sp-hero-text">
+              <span class="sp-kicker">Playlist</span>
+              <h2 class="sp-title">Chillout V2</h2>
+              <p class="sp-meta"><strong>sam.dickie</strong> · <span class="sp-detail">277 songs</span></p>
+            </div>
+            <a class="sp-play" href="https://open.spotify.com/playlist/1kmaCCEuMAqsgTwNQ52tqC" target="_blank" rel="noopener" aria-label="Play Chillout V2 on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- The list: click a row to show it in the hero above -->
+        <div class="sp-list-head" aria-hidden="true"><span>#</span><span>Title</span><span>Songs</span></div>
+        <ul class="sp-list">
+          <li><button type="button" class="sp-row is-active" aria-pressed="true"
+                data-detail="277 songs" data-color="#b43a64"
+                data-url="https://open.spotify.com/playlist/1kmaCCEuMAqsgTwNQ52tqC">
+            <span class="sp-num">1</span>
+            <img src="/assets/playlist-1.webp" alt="" loading="lazy">
+            <span class="sp-name"><span class="sp-name-title">Chillout V2</span><small>sam.dickie</small></span>
+            <span class="sp-count">277</span>
+          </button></li>
+          <li><button type="button" class="sp-row" aria-pressed="false"
+                data-detail="295 songs" data-color="#2438c4"
+                data-url="https://open.spotify.com/playlist/0PSGS4hDhh3M4jMPf0VuBg">
+            <span class="sp-num">2</span>
+            <img src="/assets/playlist-2.webp" alt="" loading="lazy">
+            <span class="sp-name"><span class="sp-name-title">Deep Work 🧠</span><small>sam.dickie</small></span>
+            <span class="sp-count">295</span>
+          </button></li>
+          <li><button type="button" class="sp-row" aria-pressed="false"
+                data-detail="118 songs" data-color="#b3262e"
+                data-url="https://open.spotify.com/playlist/0AEdnf21gTgeGBeDoZP7fN">
+            <span class="sp-num">3</span>
+            <img src="/assets/playlist-3.webp" alt="" loading="lazy">
+            <span class="sp-name"><span class="sp-name-title">Faux-fi Mix 🎧</span><small>sam.dickie</small></span>
+            <span class="sp-count">118</span>
+          </button></li>
+          <li><button type="button" class="sp-row" aria-pressed="false"
+                data-detail="384 songs" data-color="#6b5140"
+                data-url="https://open.spotify.com/playlist/1m9YB8bfGSLlvnuy5PkmMs">
+            <span class="sp-num">4</span>
+            <img src="/assets/playlist-4.webp" alt="" loading="lazy">
+            <span class="sp-name"><span class="sp-name-title">Coffee Chill ☕️</span><small>sam.dickie</small></span>
+            <span class="sp-count">384</span>
+          </button></li>
+          <li><button type="button" class="sp-row" aria-pressed="false"
+                data-detail="34 songs" data-color="#2a8fa8"
+                data-url="https://open.spotify.com/playlist/0Cumv4sZOh64E5N4iPsbJB">
+            <span class="sp-num">5</span>
+            <img src="/assets/playlist-5.webp" alt="" loading="lazy">
+            <span class="sp-name"><span class="sp-name-title">Beach vibes</span><small>sam.dickie</small></span>
+            <span class="sp-count">34</span>
+          </button></li>
+        </ul>
+
+        <!-- Mini "now playing" bar, like the bottom of the Spotify app -->
+        <footer class="sp-player" aria-hidden="true">
+          <img class="sp-player-cover" src="/assets/playlist-1.webp" alt="" loading="lazy">
+          <span class="sp-player-name"><span class="sp-player-title">Chillout V2</span><small>sam.dickie</small></span>
+          <span class="sp-player-controls">
+            <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" fill="currentColor"/></svg>
+            <span class="sp-player-play"><svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/></svg></span>
+            <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" fill="currentColor"/></svg>
+          </span>
+          <span class="sp-progress"><span></span></span>
+        </footer>
+      </section>
+
+      <!-- 14. Find My (square). A pretend Find My map: Sam walks a 45-second loop around
+           Westminster. The maps (assets/map/map-light.svg and map-dark.svg) and route (assets/map/route.json) were
+           generated from OpenStreetMap data by tools/build_map.py; findmy.js does the walking. -->
+      <section class="tile tile--findmy" aria-label="Find My: Sam walking around Westminster, London">
+        <img class="fm-map fm-map--light" src="/assets/map/map-light.svg?v=5450f37046" alt="" loading="lazy">
+        <img class="fm-map fm-map--dark" src="/assets/map/map-dark.svg?v=5bd513cd98" alt="" loading="lazy">
+
+        <!-- Sam's pin: photo, pointer, location dot and accuracy halo -->
+        <div class="fm-person" aria-hidden="true">
+          <span class="fm-halo"></span>
+          <span class="fm-dot"></span>
+          <span class="fm-pin"><img src="/assets/sam-photo.webp" alt=""></span>
+        </div>
+
+        <div class="fm-card">
+          <img src="/assets/sam-photo.webp" alt="">
+          <span class="fm-card-text"><strong>Sam Dickie</strong><small><span class="fm-street">Whitehall</span> · Probably lost</small></span>
+        </div>
+
+        <div class="fm-controls" aria-hidden="true">
+          <span class="fm-compass">N</span>
+          <span class="fm-zoom"><span>+</span><span>−</span></span>
+        </div>
+        <a class="fm-legal" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+      </section>
+
+      <!-- 15. Contact (square), styled as a card in the Contacts app: photo and name,
+           a row of action buttons, then the email address. "save" downloads a vCard
+           (assets/sam-dickie.vcf) that phones and Mail add straight to the address book.
+           contact.js adds the Copy button's behaviour. -->
+      <section class="tile tile--contact" aria-label="Contact card: say hi">
+        <div class="ct-head">
+          <img class="ct-photo" src="/assets/sam-photo.webp" alt="">
+          <h2 class="ct-name">Sam Dickie</h2>
+          <p class="ct-note">Got an idea to test or a product to fix?</p>
+        </div>
+        <ul class="ct-actions">
+          <li><a class="ct-action" href="mailto:samdickie@gmail.com?subject=What%27s%20up%3F%20via%20samdickie.me">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            mail</a></li>
+          <li><a class="ct-action" href="https://www.linkedin.com/in/samdickie/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5" r="2.1" fill="currentColor"/><rect x="3.2" y="8.8" width="3.6" height="11.7" rx=".6" fill="currentColor"/><path d="M9.6 8.8h3.4v1.6c.6-1 1.8-1.9 3.7-1.9 3 0 4.1 1.9 4.1 5v7h-3.6v-6.2c0-1.5-.4-2.6-1.9-2.6s-2.1 1.2-2.1 2.6v6.2H9.6z" fill="currentColor"/></svg>
+            linkedin</a></li>
+          <li><a class="ct-action" href="https://x.com/thisdickie" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.3 4.7H5.5z" fill="currentColor"/></svg>
+            x</a></li>
+          <li><a class="ct-action" href="/assets/sam-dickie.vcf" download="Sam Dickie.vcf" aria-label="Save contact card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 20c.6-3.6 3.2-5.6 6.5-5.6 1.2 0 2.3.3 3.2.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M18 13.5v7M14.5 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            save</a></li>
+        </ul>
+        <div class="ct-field">
+          <a class="ct-field-link" href="mailto:samdickie@gmail.com?subject=What%27s%20up%3F%20via%20samdickie.me">
+            <span class="ct-field-label">email</span>
+            <span class="ct-field-value">samdickie@gmail.com</span>
+          </a>
+          <button class="ct-copy" type="button" data-copy="samdickie@gmail.com" aria-label="Copy email address" hidden>
+            <svg class="ct-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 5.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <svg class="ct-done-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="ct-status" role="status"></span>
+        </div>
+      </section>
+
+      <!-- 16. Books (wide): the newest books from /books, which lists every book Sam has read.
+           tools/build_books.py writes what's between the markers from content/books/books.yaml,
+           so edit the list there, not here. On laptops the Newsletter tile is 2×2 so this one
+           completes the grid's last row. -->
+      <a class="tile tile--books" href="/books/">
+        <!-- books-tile:start (written by tools/build_books.py) -->
+        <span class="bk-tile-text">
+          <span class="tile-app bk-tile-app"><img class="tile-app-icon bk-glyph" src="/assets/apps/books.webp" alt="">Books</span>
+          <span class="tile-heading">On my shelf</span>
+          <span class="small">42 books I’ve read, with my ratings and where to buy them.</span>
+        </span>
+        <span class="bk-tile-shelf" aria-hidden="true">
+          <img class="bk-tile-cover" src="/assets/books/product-led-seo.webp" alt="" width="324" height="500" loading="lazy">
+          <img class="bk-tile-cover" src="/assets/books/the-man-who-solved-the-market.webp" alt="" width="315" height="475" loading="lazy">
+          <img class="bk-tile-cover" src="/assets/books/the-infinity-machine.webp" alt="" width="331" height="500" loading="lazy">
+        </span>
+        <!-- books-tile:end -->
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <!-- ⌘K: Spotlight's keyboard shortcut as two keycaps (like marco.fyi). Clicking presses
+           the keys and opens Spotlight; holding ⌘ (or Ctrl) on a real keyboard presses the ⌘ key
+           here too, and K opens it. Wired up in spotlight.js. -->
+      <button class="tile tile--shortcut" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K">
+        <span class="kc-keys" aria-hidden="true">
+          <span class="kc-key kc-key--mod"><span class="kc-hint">Press</span><span class="kc-cap">⌘</span></span>
+          <span class="kc-key kc-key--k"><span class="kc-hint">and</span><span class="kc-cap">K</span></span>
+        </span>
+        <span class="kc-tap" aria-hidden="true">Tap to search</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </button>
+
+      <!-- Featured story, styled like an Apple News widget. To feature something: swap the picture
+           (assets/featured/, a light and a dark version; this cover is drawn in tools/covers/), the source and the headline, and once it has an address change this
+           <section> to <a class="tile tile--news" href="…"> and remove the Coming soon label. -->
+      <section class="tile tile--news is-soon" aria-label="Featured story">
+        <img class="nw-cover nw-cover--light" src="/assets/featured/rebuilt-with-ai.webp" alt="" width="720" height="720" loading="lazy">
+        <img class="nw-cover nw-cover--dark" src="/assets/featured/rebuilt-with-ai-dark.webp" alt="" width="720" height="720" loading="lazy">
+        <span class="tile-app nw-app"><img class="tile-app-icon" src="/assets/apps/news.webp" alt="">News</span>
+        <span class="nw-story">
+          <span class="nw-source">Sam Dickie</span>
+          <span class="nw-headline">How I rebuilt this website end to end with AI</span>
+          <span class="nw-soon">Coming soon</span>
+        </span>
+      </section>
+
+    </div>
+
+    <!-- Rearrange (rearrange.js): visitors can drag the tiles into their own order, saved in their
+         browser. This puts a saved order back straight away, before the page is drawn. New tiles
+         that aren't in a visitor's saved order keep their usual place. -->
+    <script>
+      (function () {
+        var grid = document.querySelector('.grid');
+        var tiles = [].slice.call(grid.children);
+        var name = function (t) { return (t.className.match(/\btile--([\w-]+)/) || [])[1]; };
+        tiles.forEach(function (t, i) { t.dataset.home = i; });   // Sam's order, for Reset
+        try { var saved = JSON.parse(localStorage.getItem('tile-order')); } catch (e) {}
+        if (!Array.isArray(saved)) return;
+        var sorted = tiles.filter(function (t) { return saved.indexOf(name(t)) > -1; })
+          .sort(function (a, b) { return saved.indexOf(name(a)) - saved.indexOf(name(b)); });
+        tiles.forEach(function (t, i) { if (saved.indexOf(name(t)) < 0) sorted.splice(i, 0, t); });
+        sorted.forEach(function (t) { grid.appendChild(t); });
+        if (sorted.some(function (t, i) { return t !== tiles[i]; })) grid.classList.add('is-custom');
+      })();
+    </script>
+
+    <div class="ra-controls">
+      <button class="ra-edit" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.6"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.6"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.6"/><rect x="9" y="9" width="5.5" height="5.5" rx="1.6"/></svg>
+        Edit layout
+      </button>
+    </div>
+
+    <footer class="footer">© Sam Dickie · Made in Scotland</footer>
+  </main>
+
+  <!-- Photo Booth window, opened from the Photo Booth tile. A <dialog> sits above the page,
+       keeps keyboard focus inside itself and closes with Escape. The camera picture never
+       leaves the visitor's device: it's drawn onto the <canvas> here, frame by frame.
+       To add an effect, add an entry to EFFECTS in photobooth.js. -->
+  <dialog class="pb-window" aria-label="Photo Booth">
+    <div class="pb-titlebar">
+      <!-- The red light closes the window: it submits this "dialog" form, which is the browser's
+           built-in way to close a <dialog>. It must stay type="submit" (type="button" does nothing). -->
+      <form method="dialog" class="pb-lights">
+        <button type="submit" class="pb-light pb-light--close" aria-label="Close Photo Booth"></button>
+        <span class="pb-light pb-light--min" aria-hidden="true"></span>
+        <span class="pb-light pb-light--max" aria-hidden="true"></span>
+      </form>
+      <span class="pb-title">Photo Booth</span>
+    </div>
+
+    <div class="pb-stage">
+      <video class="pb-video" playsinline muted></video>
+      <canvas class="pb-canvas" aria-label="Your camera"></canvas>
+      <div class="pb-grid" hidden></div>
+      <p class="pb-effect-name" hidden></p>
+      <div class="pb-message">
+        <p class="pb-message-title">Waiting for your camera…</p>
+        <p class="pb-message-body">Allow camera access in your browser’s prompt. Nothing is recorded or uploaded.</p>
+        <button class="pb-retry" type="button" hidden>Try again</button>
+      </div>
+      <div class="pb-flash" aria-hidden="true"></div>
+    </div>
+
+    <div class="pb-toolbar">
+      <button class="pb-shutter" type="button" aria-label="Take a photo" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.5 7.6 6.5H5a2 2 0 0 0-2 2V17a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a2 2 0 0 0-2-2h-2.6L15 4.5zM12 9a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" fill="currentColor"/></svg>
+      </button>
+      <span class="pb-countdown" aria-hidden="true" hidden><span>3</span><span>2</span><span>1</span></span>
+      <button class="pb-effects-button" type="button" aria-pressed="false" disabled>Effects</button>
+    </div>
+
+    <div class="pb-tray">
+      <p class="pb-tray-empty">Your photos appear here. Click one to save it.</p>
+    </div>
+  </dialog>
+
+  <!-- Rearrange: floating Reset / Done buttons while the tiles are being moved (rearrange.js) -->
+  <div class="ra-bar" role="toolbar" aria-label="Edit layout" hidden>
+    <button class="ra-reset" type="button" disabled>Reset</button>
+    <button class="ra-done" type="button">Done</button>
+  </div>
+  <p id="ra-help" class="sr-only">Use the arrow keys to move this tile.</p>
+  <p class="ra-status sr-only" role="status"></p>
+
+  <!-- iMessage notification: slides in from the top right 10 seconds after the visitor
+       first scrolls (imessage.js) and slides away by itself after 8 seconds unless hovered.
+       Hidden until then; the reply isn't sent anywhere. -->
+  <section class="im" aria-label="Message from Sam Dickie" hidden>
+    <button class="im-close" type="button" aria-label="Close notification">
+      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="im-main">
+      <span class="im-avatar">
+        <img src="/assets/sam-photo.webp" alt="" draggable="false">
+        <!-- Small Messages app badge -->
+        <svg class="im-badge" viewBox="0 0 20 20" aria-hidden="true">
+          <rect width="20" height="20" rx="5" fill="#34c759"/>
+          <path d="M10 4.6c-3.3 0-5.9 2.1-5.9 4.8 0 1.5.8 2.8 2.1 3.7-.1.9-.6 1.8-1.3 2.3 1.5.1 2.8-.4 3.6-1.2.5.1 1 .1 1.5.1 3.3 0 5.9-2.1 5.9-4.9S13.3 4.6 10 4.6z" fill="#fff"/>
+        </svg>
+      </span>
+
+      <div class="im-text">
+        <p class="im-head">
+          <span class="im-name">Sam Dickie</span>
+          <span class="im-time">now</span>
+          <button class="im-reply" type="button">Reply</button>
+        </p>
+        <p class="im-body">Hey, saw you scrolling. No pressure, but the Siri button does something 👀</p>
+      </div>
+    </div>
+
+    <!-- Revealed by Reply: grows open underneath the message -->
+    <form class="im-compose" autocomplete="off">
+      <div class="im-compose-inner">
+        <input class="im-input" type="text" name="reply" placeholder="Reply to Sam" aria-label="Your reply to Sam" maxlength="500" tabindex="-1">
+        <button class="im-send" type="submit" disabled tabindex="-1">Send</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Modules: each script gets its own private scope, and they run once the page has loaded -->
+  <script type="module" src="/playlists.js?v=82e4a8f73d"></script>
+  <script type="module" src="/photos.js?v=04db76e57a"></script>
+  <script type="module" src="/switcher.js?v=64d9483e9a"></script>
+  <script type="module" src="/findmy.js?v=9fc3be48fb"></script>
+  <script type="module" src="/freeform.js?v=9db6ff388d"></script>
+  <script type="module" src="/newsletter.js?v=87f024485b"></script>
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+  <script type="module" src="/photobooth.js?v=90f223db9c"></script>
+  <script type="module" src="/imessage.js?v=33036a2e83"></script>
+  <script type="module" src="/contact.js?v=5003e9dda6"></script>
+  <script type="module" src="/officehours.js?v=cb5a9f5e70"></script>
+  <script type="module" src="/memoji.js?v=a5bb2d17e3"></script>
+  <script type="module" src="/rearrange.js?v=eaed139c19"></script>
+  <!-- Cloudflare Web Analytics: page views and visits, no cookies and nothing personal.
+       Dashboard: Cloudflare → Analytics & Logs → Web Analytics → samdickie.me -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bc4693f3cb624c0489fd86a5ecdb8d59"}'></script>
+</body>
+</html>

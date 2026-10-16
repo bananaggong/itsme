@@ -1,0 +1,445 @@
+/* ==========================================================
+   Font: Inter (SIL Open Font License), hosted in assets/fonts/ rather than
+   loaded from Google, so pages don't wait on a second server. Two files:
+   plain Latin, and accented Latin, which only downloads if a page needs it.
+   "Inter Fallback" is Arial resized to Inter's proportions, so text doesn't
+   jump when Inter arrives a moment after the page first shows.
+   ========================================================== */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fonts/inter-latin-v20.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fonts/inter-latin-ext-v20.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Helvetica");
+  size-adjust: 107.12%;
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
+
+/* ==========================================================
+   Design tokens — change these to restyle the whole site.
+   Light values here; dark values in the block below, which applies
+   when <html data-theme="dark"> (set by the switch, see theme.js).
+   ========================================================== */
+:root {
+  color-scheme: light;      /* native scrollbars and form controls match */
+  --bg: #ffffff;
+  --tile: #f7f7f9;          /* light grey tile, same as marco.fyi */
+  --text: #111111;
+  --muted: #6b6b73;
+  --body-text: #4a4a52;     /* longer paragraphs */
+  --line: #e7e7ec;
+  --outline: #d7d7dd;       /* arrow circles, outlined boxes */
+  --card: #ffffff;          /* raised surfaces inside tiles */
+  --on-text: #ffffff;       /* text on dark buttons (buttons use --text as background) */
+  --glass: rgba(255, 255, 255, .85);   /* frosted pills: nav, captions */
+  --glass-active: #eeeef1;  /* highlighted item in the nav */
+  --shadow: rgba(0, 0, 0, .18);
+  --hover-ring: transparent;           /* dark mode adds a faint outline on hover */
+  --dark-tile-edge: transparent;       /* dark mode outlines the always-dark tiles */
+  --accent: #2fd08a;        /* green, from Sam's logo */
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Inter", sans-serif; /* San Francisco on Apple devices */
+  --ss-sidebar: #efeff2;    /* Settings-style sidebar */
+  --ss-hover: rgba(0, 0, 0, .06);
+  --ss-select: #0071e3;     /* Apple blue that passes 4.5:1 with white text */
+  --apple-blue: #007aff;    /* Apple system colours, for Settings-style icons */
+  --apple-orange: #ff9500;
+  --apple-teal: #30b0c7;
+  --apple-green: #34c759;
+  --apple-purple: #af52de;
+  --apple-pink: #ff2d55;
+  --badge: #ff3b30;         /* Apple's system red: the Newsletter link's unread dot */
+  --radius: 32px;           /* tile corners */
+  --tile-pad: 32px;         /* default space inside a tile */
+  --gap: 16px;
+  --font: "Inter", "Inter Fallback", system-ui, -apple-system, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --badge: #ff453a;         /* system red, dark-mode version */
+  --bg: #0e0e10;            /* near-black: softer on the eyes than pure black */
+  --tile: #1a1a1d;
+  --text: #f2f2f4;
+  --muted: #9d9da6;
+  --body-text: #c6c6ce;
+  --line: #2e2e33;
+  --outline: #3a3a41;
+  --card: #26262b;
+  --on-text: #0e0e10;
+  --glass: rgba(34, 34, 38, .8);
+  --glass-active: #34343a;
+  --shadow: rgba(0, 0, 0, .5);
+  --hover-ring: rgba(255, 255, 255, .14);
+  --dark-tile-edge: rgba(255, 255, 255, .08);
+  --ss-sidebar: #232327;
+  --ss-hover: rgba(255, 255, 255, .07);
+}
+
+/* The light/dark cross-fade (theme.js runs it as a View Transition) */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .35s; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Words for screen readers only: off screen, but still read out */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* ==========================================================
+   Floating pill navigation
+   ========================================================== */
+.nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);           /* frosted-glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  font-family: var(--font);              /* same on every page, whatever the page's own font */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color .2s, background .2s;
+}
+.nav-link:hover { color: var(--text); }
+.nav-link.is-active { background: var(--glass-active); color: var(--text); font-weight: 600; }
+
+/* Unread dot on the Newsletter link, added by nav-badge.js when there's an issue the
+   visitor hasn't seen. It sits on the top-right corner of the word; the negative margins
+   cancel out the room it takes, so the nav doesn't change width when it appears. */
+.nav-link.has-news::after {
+  content: '';
+  align-self: flex-start;
+  width: 6px; height: 6px;
+  margin: -1px -7px 0 -5px;
+  border-radius: 50%;
+  background: var(--badge);
+}
+
+/* ==========================================================
+   Light/dark switch — top left, styled to match the nav pill
+   ========================================================== */
+.theme-toggle {
+  position: fixed;
+  top: 28px;              /* 42px tall, so this centres it on the 51px nav pill (which starts at 24px) */
+  left: 24px;
+  z-index: 10;
+  width: 42px;            /* same height as the highlighted link inside the nav */
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+.theme-toggle:hover { transform: rotate(-12deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.theme-toggle svg { width: 18px; height: 18px; }
+.icon-sun,
+:root[data-theme="dark"] .icon-moon { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
+
+/* Spotlight's search button (spotlight.js): phones only, at the right end of the nav pill,
+   mirroring the light/dark switch at the left. Laptops press ⌘K or / instead. */
+.nav-search { display: none; }
+
+/* ==========================================================
+   Page + bento grid
+   ========================================================== */
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 110px 16px 40px;
+}
+
+/* 4 equal columns; rows are roughly square on a laptop screen */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(260px, 23vw, 330px);
+  grid-auto-flow: dense;   /* lets small tiles fill gaps left by big ones */
+  gap: var(--gap);
+}
+::view-transition-group(*) { animation-duration: .5s; animation-timing-function: cubic-bezier(.2, .9, .3, 1); }
+
+/* ==========================================================
+   Base tile
+   ========================================================== */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--tile-pad);
+  background: var(--tile);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Tiles that are links get a subtle hover */
+a.tile { transition: transform .3s ease, box-shadow .3s ease; }
+a.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px var(--hover-ring), 0 16px 32px -16px var(--shadow);
+}
+
+/* Shared text styles */
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.small  { font-size: 14px; color: var(--muted); line-height: 1.55; }
+.small strong { color: var(--text); }
+.tile-app-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 5px; }
+.tile-heading { font-size: 24px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+
+.button {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--on-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Show the map that matches the theme (the hidden one isn't downloaded) */
+.fm-map--dark,
+:root[data-theme="dark"] .fm-map--light { display: none; }
+:root[data-theme="dark"] .fm-map--dark { display: block; }
+.fm-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* findmy.js assumes this when placing the pin */
+}
+
+/* Compass and zoom buttons, bottom-right (just for show) */
+.fm-controls {
+  position: absolute;
+  right: 12px; bottom: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  color: var(--fm-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+.fm-compass,
+.fm-zoom {
+  background: var(--fm-button);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+.fm-compass {
+  width: 30px; height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border-top: 2px solid #ff453a;   /* the red "north" tick */
+}
+.fm-zoom {
+  display: flex;
+  flex-direction: column;
+  width: 28px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.fm-zoom span + span { border-top: 1px solid var(--fm-divider); }
+
+.fm-legal {
+  position: absolute;
+  top: 8px; right: 12px;
+  font-size: 9px;
+  color: var(--fm-text-2);
+}
+.fm-legal:hover { color: var(--fm-text); }
+
+/* 404 page: its own styles are in lost.css. The soft button is shared. */
+.button--soft { background: var(--card); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+/* The Books app's orange icon, also used on /books */
+.bk-glyph { flex-shrink: 0; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 6px; background: var(--apple-orange); }
+.bk-glyph svg { width: 15px; height: 15px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ==========================================================
+   Responsive: smaller laptops, tablet (2 columns) and phone (1 column)
+   ========================================================== */
+/* Smaller laptops: tiles are narrower, so tighten the spacing inside them */
+@media (max-width: 1300px) {
+  :root { --tile-pad: 24px; }
+}
+
+/* Below ~1180px four columns get too narrow for the text tiles, so switch to two */
+@media (max-width: 1180px) {
+  .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(280px, auto); }   /* rows grow to fit here, so fix the height and let the inbox scroll */
+}
+
+/* Narrower screens: slimmer nav links so the nav never touches the light/dark switch */
+@media (max-width: 760px) {
+  .nav-link { padding: 10px 14px; }
+}
+
+@media (max-width: 640px) {
+  :root { --radius: 24px; }
+  .page { padding-top: 88px; }
+  /* One centred pill: theme.js moves the light/dark switch inside the nav, before the links */
+  .nav { top: 16px; align-items: center; }
+  .nav-link { padding: 8px 6px; font-size: 12px; }
+  .nav + .theme-toggle { visibility: hidden; }   /* not moved in yet: hide it rather than overlap the nav */
+  .nav .theme-toggle {
+    position: relative;
+    top: 0; left: 0;                /* undo the corner position it has on wide screens */
+    width: 34px; height: 34px;      /* same height as the links */
+    margin-right: 5px;              /* room for the divider */
+    border: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .nav .theme-toggle svg { width: 17px; height: 17px; }
+  .nav .theme-toggle::after {       /* thin divider between the switch and the links */
+    content: "";
+    position: absolute;
+    right: -3px; top: 9px; bottom: 9px;
+    width: 1px;
+    background: var(--outline);
+  }
+  .nav-search {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 34px; height: 34px;
+    margin-left: 5px;               /* room for the divider */
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .nav-search svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+  .nav-search:focus-visible { outline: 2px solid var(--text); outline-offset: -2px; }
+  .nav-search::before {             /* divider between the links and the button */
+    content: "";
+    position: absolute;
+    left: -3px; top: 9px; bottom: 9px;
+    width: 1px;
+    background: var(--outline);
+  }
+  .grid { grid-template-columns: 1fr; grid-auto-rows: minmax(260px, auto); }
+}
+
+/* Most phones: slimmer links and buttons so the pill, with the switch and the search
+   button at either end, keeps a gap from the screen edges */
+@media (max-width: 440px) {
+  .nav-link { padding: 8px 5px; }
+  .nav .theme-toggle, .nav-search { width: 32px; }
+}
+@media (max-width: 389px) {
+  .nav-link { padding: 8px 4px; }
+}
+
+/* Very small phones: drop the "Home" link (you're already on it) so the nav fits beside the switch */
+@media (max-width: 374px) {
+  .nav-link[href="/"] { display: none; }
+  .nav-link { padding: 8px 3px; }
+}
+
+/* Respect people who've asked their device to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+
+All captured media queries:
+@media (hover: hover)
+@media (hover: none)
+@media (max-width: 1180px)
+@media (max-width: 1300px)
+@media (max-width: 374px)
+@media (max-width: 389px)
+@media (max-width: 440px)
+@media (max-width: 460px)
+@media (max-width: 520px)
+@media (max-width: 640px)
+@media (max-width: 700px)
+@media (max-width: 760px)
+@media (max-width: 767px)
+@media (max-width: 900px)
+@media (max-width: 980px)
+@media (max-width: 991px)
+@media (min-width: 1160px)
+@media (min-width: 1181px)
+@media (min-width: 1181px) and (max-width: 1240px)
+@media (min-width: 1181px) and (max-width: 1400px)
+@media (min-width: 1181px) and (max-width: 1439px)
+@media (min-width: 981px)
+@media (prefers-contrast: more)
+@media (prefers-reduced-motion: reduce)
+@media (prefers-reduced-transparency: reduce)

@@ -1,0 +1,486 @@
+{
+  "date": "2026-10-16T08:30:34.820Z",
+  "tests": [
+    {
+      "suite": "source-desktop",
+      "name": "theme toggles and persists between routes",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--dark-home.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Spotlight keyboard, fuzzy search, calculator and Escape",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--spotlight-calculator.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Spotlight actions: Liquid Glass on/off",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--liquid-glass.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Siri transforms portrait, persists and reverses",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--memoji.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "office hours expands three weekday mailto choices",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--officehours.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "all five app switcher tabs update selected content",
+      "pass": true,
+      "apps": 5
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Photos cycles all seven pictures and toggles metadata",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--photo-details.png",
+      "photos": 7
+    },
+    {
+      "suite": "source-desktop",
+      "name": "five playlists change title, cover, count and actual Spotify target",
+      "pass": true,
+      "playlists": 5,
+      "playback": "Original opens Spotify; no in-page audio source."
+    },
+    {
+      "suite": "source-desktop",
+      "name": "copy contact email and downloadable vCard",
+      "pass": true
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Freeform note, text, shapes, photo, undo/redo, zoom, drawing, reset",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--freeform-edited.png",
+      "initialItems": 36,
+      "uploadedPhotoStored": "browser localStorage only"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "layout keyboard reorder, persistence and reset",
+      "pass": true
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Photo Booth camera, four effects, countdown, download and stop",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--photobooth.png",
+      "camera": "Chromium synthetic video device; no physical camera accessed"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "About section navigation and editable temporary note",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--about-draft.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Writing topic filters hide unrelated rows and reset to 29",
+      "pass": true
+    },
+    {
+      "suite": "source-desktop",
+      "name": "Books filters, all 42 detail cards and deep links",
+      "pass": true,
+      "cards": 42,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--book-details.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "newsletter quick replies and invalid email validation",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--newsletter-chat.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "old-site sidebar, overview, back/forward and linked screenshot",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-desktop--old-site-about.png"
+    },
+    {
+      "suite": "source-desktop",
+      "name": "VR actual audio play and pause",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "theme toggles and persists between routes",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--dark-home.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Spotlight keyboard, fuzzy search, calculator and Escape",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--spotlight-calculator.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Spotlight actions: Liquid Glass on/off",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--liquid-glass.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Siri transforms portrait, persists and reverses",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--memoji.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "office hours expands three weekday mailto choices",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--officehours.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "all five app switcher tabs update selected content",
+      "pass": true,
+      "apps": 5
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Photos cycles all seven pictures and toggles metadata",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--photo-details.png",
+      "photos": 7
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "five playlists change title, cover, count and actual Spotify target",
+      "pass": true,
+      "playlists": 5,
+      "playback": "Original opens Spotify; no in-page audio source."
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "copy contact email and downloadable vCard",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Freeform note, text, shapes, photo, undo/redo, zoom, drawing, reset",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--freeform-edited.png",
+      "initialItems": 36,
+      "uploadedPhotoStored": "browser localStorage only"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "layout keyboard reorder, persistence and reset",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Photo Booth camera, four effects, countdown, download and stop",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--photobooth.png",
+      "camera": "Chromium synthetic video device; no physical camera accessed"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "About section navigation and editable temporary note",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--about-draft.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Writing topic filters hide unrelated rows and reset to 29",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "Books filters, all 42 detail cards and deep links",
+      "pass": true,
+      "cards": 42,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--book-details.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "book rating updates server, then survives reload",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "newsletter quick replies and invalid email validation",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--newsletter-chat.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "newsletter valid email reaches persistent local import queue",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "old-site sidebar, overview, back/forward and linked screenshot",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-desktop--old-site-about.png"
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "VR actual audio play and pause",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "theme toggles and persists between routes",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--dark-home.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Spotlight keyboard, fuzzy search, calculator and Escape",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--spotlight-calculator.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Spotlight actions: Liquid Glass on/off",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--liquid-glass.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Siri transforms portrait, persists and reverses",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--memoji.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "office hours expands three weekday mailto choices",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--officehours.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "all five app switcher tabs update selected content",
+      "pass": true,
+      "apps": 5
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Photos cycles all seven pictures and toggles metadata",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--photo-details.png",
+      "photos": 7
+    },
+    {
+      "suite": "source-mobile",
+      "name": "five playlists change title, cover, count and actual Spotify target",
+      "pass": true,
+      "playlists": 5,
+      "playback": "Original opens Spotify; no in-page audio source."
+    },
+    {
+      "suite": "source-mobile",
+      "name": "copy contact email and downloadable vCard",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "layout keyboard reorder, persistence and reset",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Photo Booth camera, four effects, countdown, download and stop",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--photobooth.png",
+      "camera": "Chromium synthetic video device; no physical camera accessed"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "iMessage search trigger, reply and dismissal",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "About section navigation and editable temporary note",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--about-draft.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Writing topic filters hide unrelated rows and reset to 29",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Books filters, all 42 detail cards and deep links",
+      "pass": true,
+      "cards": 42,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--book-details.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "newsletter quick replies and invalid email validation",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--newsletter-chat.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "old-site sidebar, overview, back/forward and linked screenshot",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--old-site-about.png"
+    },
+    {
+      "suite": "source-mobile",
+      "name": "VR actual audio play and pause",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "theme toggles and persists between routes",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--dark-home.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Spotlight keyboard, fuzzy search, calculator and Escape",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--spotlight-calculator.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Spotlight actions: Liquid Glass on/off",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--liquid-glass.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Siri transforms portrait, persists and reverses",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--memoji.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "office hours expands three weekday mailto choices",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--officehours.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "all five app switcher tabs update selected content",
+      "pass": true,
+      "apps": 5
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Photos cycles all seven pictures and toggles metadata",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--photo-details.png",
+      "photos": 7
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "five playlists change title, cover, count and actual Spotify target",
+      "pass": true,
+      "playlists": 5,
+      "playback": "Original opens Spotify; no in-page audio source."
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "copy contact email and downloadable vCard",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "layout keyboard reorder, persistence and reset",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Photo Booth camera, four effects, countdown, download and stop",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--photobooth.png",
+      "camera": "Chromium synthetic video device; no physical camera accessed"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "iMessage search trigger, reply and dismissal",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "About section navigation and editable temporary note",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--about-draft.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Writing topic filters hide unrelated rows and reset to 29",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Books filters, all 42 detail cards and deep links",
+      "pass": true,
+      "cards": 42,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--book-details.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "book rating updates server, then survives reload",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "newsletter quick replies and invalid email validation",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--newsletter-chat.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "newsletter valid email reaches persistent local import queue",
+      "pass": true
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "old-site sidebar, overview, back/forward and linked screenshot",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--old-site-about.png"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "VR actual audio play and pause",
+      "pass": true
+    },
+    {
+      "suite": "source-desktop",
+      "name": "iMessage search trigger, reply and dismissal",
+      "pass": true
+    },
+    {
+      "suite": "clone-desktop",
+      "name": "iMessage search trigger, reply and dismissal",
+      "pass": true
+    },
+    {
+      "suite": "source-mobile",
+      "name": "Freeform note, text, shapes, photo, undo/redo, zoom, drawing, reset",
+      "pass": true,
+      "screenshot": "/workspace/itsme/reference/screenshots/states/source-mobile--freeform-edited.png",
+      "initialItems": 36,
+      "uploadedPhotoStored": "browser localStorage only"
+    },
+    {
+      "suite": "clone-mobile",
+      "name": "Freeform note, text, shapes, photo, undo/redo, zoom, drawing, reset",
+      "pass": true,
+      "screenshot": "/tmp/itsme-qa/states/clone-mobile--freeform-edited.png",
+      "initialItems": 36,
+      "uploadedPhotoStored": "browser localStorage only"
+    }
+  ],
+  "errors": []
+}

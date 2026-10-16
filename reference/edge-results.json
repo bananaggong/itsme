@@ -1,0 +1,184 @@
+{
+  "date": "2026-10-16T08:41:35.101Z",
+  "checks": [
+    {
+      "name": "responsive 320",
+      "pass": true,
+      "width": 320,
+      "columns": "288px"
+    },
+    {
+      "name": "responsive 375",
+      "pass": true,
+      "width": 375,
+      "columns": "343px"
+    },
+    {
+      "name": "responsive 640",
+      "pass": true,
+      "width": 640,
+      "columns": "608px"
+    },
+    {
+      "name": "responsive 768",
+      "pass": true,
+      "width": 768,
+      "columns": "360px 360px"
+    },
+    {
+      "name": "responsive 1180",
+      "pass": true,
+      "width": 1180,
+      "columns": "566px 566px"
+    },
+    {
+      "name": "responsive 1280",
+      "pass": true,
+      "width": 1280,
+      "columns": "300px 300px 300px 300px"
+    },
+    {
+      "name": "responsive 1920",
+      "pass": true,
+      "width": 1920,
+      "columns": "330px 330px 330px 330px"
+    },
+    {
+      "name": "dark 1440 /about/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-about.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-about.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /writing/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-writing.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-writing.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /projects/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-projects.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-projects.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /newsletter/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-newsletter.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-newsletter.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /books/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-books.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-books.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /projects/old-site/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-projects--old-site.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-projects--old-site.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 1440 /vr/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-vr.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-vr.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-home.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-home.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /about/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-about.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-about.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /writing/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-writing.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-writing.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /projects/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-projects.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-projects.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /newsletter/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-newsletter.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-newsletter.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /books/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-books.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-books.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /projects/old-site/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-projects--old-site.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-projects--old-site.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "dark 390 /vr/",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-390-vr.png",
+      "render": "/tmp/itsme-qa/extra/dark-390-vr.png",
+      "mismatchRatio": 0
+    },
+    {
+      "name": "clone real-time photo autoplay, Find My motion and Mail arrival",
+      "pass": true
+    },
+    {
+      "name": "source real-time photo autoplay, Find My motion and Mail arrival",
+      "pass": true
+    },
+    {
+      "name": "clone camera permission-denied message and retry",
+      "pass": true
+    },
+    {
+      "name": "clone no-JavaScript navigation and content fallbacks",
+      "pass": true
+    },
+    {
+      "name": "source camera permission-denied message and retry",
+      "pass": true
+    },
+    {
+      "name": "source no-JavaScript navigation and content fallbacks",
+      "pass": true
+    },
+    {
+      "name": "dark 1440 /",
+      "pass": true,
+      "reference": "reference/screenshots/extra/dark-1440-home.png",
+      "render": "/tmp/itsme-qa/extra/dark-1440-home.png",
+      "mismatchRatio": 0
+    }
+  ],
+  "failures": []
+}

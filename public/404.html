@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Sam Dickie</title>
+  <meta name="description" content="This page doesn’t exist on samdickie.me. It may have moved when the site was rebuilt.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+  <!-- Inter, hosted on this site (assets/fonts/, set up in styles.css); fetched early so text doesn't wait -->
+  <link rel="preload" href="/assets/fonts/inter-latin-v20.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/lost.css?v=e31f5fae3e">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Liquid Glass, if the visitor turned it on (glass.js)
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Served by worker/index.js for any address that isn't a page on the site.
+       The links are absolute so they work from any depth (e.g. /old/page/here). -->
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/writing/" class="nav-link">Writing</a>
+    <a href="/projects/" class="nav-link">Projects</a>
+    <a href="/newsletter/" class="nav-link">Newsletter</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main class="page">
+    <!-- A pretend Find My search for the missing page: radar rings pulse round a "page"
+         pin, then it goes grey like an offline AirTag and the card says it can't be found.
+         Play Sound plays an AirTag-style chirp. Script: /lost.js, styles: /lost.css.
+         The map is the homepage Find My map. Icon: Tabler Icons "file-unknown" (MIT). -->
+    <section class="tile tile--lost" aria-labelledby="lost-title">
+      <div class="lost-map">
+        <img class="fm-map fm-map--light" src="/assets/map/map-light.svg?v=5450f37046" alt="">
+        <img class="fm-map fm-map--dark" src="/assets/map/map-dark.svg?v=5bd513cd98" alt="">
+        <div class="lost-target" aria-hidden="true">
+          <span class="lost-ring"></span><span class="lost-ring"></span><span class="lost-ring"></span>
+          <span class="lost-dot"></span>
+          <span class="lost-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 17v.01"/><path d="M12 14a1.5 1.5 0 1 0 -1.14 -2.474"/></svg></span>
+        </div>
+        <div class="fm-controls" aria-hidden="true">
+          <span class="fm-compass">N</span>
+          <span class="fm-zoom"><span>+</span><span>−</span></span>
+        </div>
+        <a class="fm-legal" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+      </div>
+
+      <div class="lost-sheet">
+        <div class="lost-item">
+          <span class="lost-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 17v.01"/><path d="M12 14a1.5 1.5 0 1 0 -1.14 -2.474"/></svg></span>
+          <div class="lost-text">
+            <span class="label">Error 404</span>
+            <h1 id="lost-title" class="lost-title">This page doesn’t exist</h1>
+            <p class="lost-status" aria-live="polite">
+              <span class="lost-spinner" aria-hidden="true"></span>
+              <span class="lost-status-text">No location found · Last seen on the old version of this site</span>
+            </p>
+          </div>
+        </div>
+        <p class="small">It may have moved when I rebuilt the site. Try one of these instead:</p>
+        <ul class="lost-links">
+          <li><button class="button button--soft lost-sound" type="button" hidden>Play Sound</button></li>
+          <li><a class="button" href="/">Home</a></li>
+          <li><a class="button button--soft" href="/writing/">Writing</a></li>
+          <li><a class="button button--soft" href="/projects/">Projects</a></li>
+          <li><a class="button button--soft" href="/projects/old-site/">The old site</a></li>
+          <li><a class="button button--soft" href="https://samdickie.substack.com/archive">Newsletter archive</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+  <script type="module" src="/lost.js?v=592a52d86d"></script>
+  <!-- Cloudflare Web Analytics: page views and visits, no cookies and nothing personal.
+       Dashboard: Cloudflare → Analytics & Logs → Web Analytics → samdickie.me -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bc4693f3cb624c0489fd86a5ecdb8d59"}'></script>
+</body>
+</html>

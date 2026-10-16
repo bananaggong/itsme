@@ -1,0 +1,26 @@
+{
+  "name": "itsme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Preserved samdickie.me reference clone for subsequent personalization",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "audit": "node tools/audit.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "node tools/verify.mjs",
+    "test:interactions": "node tools/interactions.mjs",
+    "test:edges": "node tools/edge-cases.mjs",
+    "subscribers:export": "node tools/export-subscribers.mjs",
+    "capture:source": "python3 tools/capture.py"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1",
+    "pngjs": "^7.0.0"
+  }
+}

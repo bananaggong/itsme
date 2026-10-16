@@ -1,0 +1,320 @@
+/* ==========================================================
+   The Old site page (projects/old-site/): the old samdickie.me in a Safari window.
+   Behaviour: old-site.js. Page: tools/templates/old-site.html (built by build_old_site.py).
+   ========================================================== */
+
+.os-window {
+  --os-chrome: #f3f3f5;          /* toolbar */
+  --os-field: #e4e4e8;           /* address field */
+  --os-icon: #5d5d66;            /* toolbar icons */
+  --os-behind: #e9e9ee;          /* behind the screenshot while it loads */
+  --os-link: 0, 113, 227;        /* link highlight: Apple blue, as r, g, b */
+  --os-radius: 14px;
+}
+:root[data-theme="dark"] .os-window {
+  --os-chrome: #2a2a2e;
+  --os-field: #3a3a40;
+  --os-icon: #b4b4bd;
+  --os-behind: #1c1c1f;
+  --os-link: 77, 163, 255;
+}
+
+.os-head { margin-bottom: 24px; }
+.os-head .pj-app-sub { max-width: 640px; }
+
+/* ---------- The window ---------- */
+.os-window {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: clamp(480px, calc(100svh - 140px), 920px);
+  border-radius: var(--os-radius);
+  background: var(--card);
+  box-shadow: 0 0 0 1px var(--line), 0 24px 60px -12px var(--shadow);
+  overflow: hidden;
+}
+
+/* ---------- Toolbar ---------- */
+.os-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--os-chrome);
+  border-bottom: 1px solid var(--line);
+}
+.os-lights { display: flex; gap: 8px; margin: 0 14px 0 4px; }
+.os-lights i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.os-lights i:nth-child(2) { background: #febc2e; }
+.os-lights i:nth-child(3) { background: #28c840; }
+.os-history { display: flex; }
+
+.os-tool {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--os-icon);
+  cursor: pointer;
+  transition: background .15s;
+}
+.os-tool:hover:not(:disabled) { background: var(--ss-hover); }
+.os-tool:disabled { opacity: .35; cursor: default; }
+.os-tool svg {
+  width: 20px; height: 20px;
+  fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.os-tool[aria-expanded="true"].os-overview-toggle { background: var(--ss-hover); color: var(--text); }
+.os-tool:focus-visible,
+.os-bookmark:focus-visible,
+.os-card:focus-visible,
+.os-folder summary:focus-visible { outline: 2px solid var(--ss-select); outline-offset: 1px; }
+
+.os-address {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  max-width: 620px;
+  height: 34px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: var(--os-field);
+  font-size: 13px;
+  overflow: hidden;
+}
+.os-clock { flex-shrink: 0; width: 15px; height: 15px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
+.os-url {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--muted);
+}
+.os-url strong { color: var(--text); font-weight: 500; }
+.os-date {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--card);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Safari's blue loading bar, along the bottom of the address field */
+.os-progress {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  height: 2.5px;
+  background: rgb(var(--os-link));
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+}
+.is-loading .os-progress { opacity: 1; transform: scaleX(.8); transition: transform 2.5s cubic-bezier(.1, .7, .2, 1); }
+.is-loaded .os-progress { opacity: 0; transform: scaleX(1); transition: transform .2s ease-out, opacity .3s .25s; }
+
+/* ---------- Body: sidebar, page, overview ---------- */
+.os-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 0;
+  transition: grid-template-columns .3s cubic-bezier(.2, .9, .3, 1);
+}
+.is-sidebar-hidden .os-body { grid-template-columns: 0 minmax(0, 1fr); }
+
+.os-sidebar {
+  position: relative;       /* old-site.js measures bookmarks from its top */
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 12px 10px 24px;
+  background: var(--ss-sidebar);
+  border-right: 1px solid var(--line);
+  font-size: 13px;
+}
+.is-sidebar-hidden .os-sidebar { visibility: hidden; transition: visibility 0s .3s; }
+.os-sidebar-title {
+  padding: 0 10px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.os-folder + .os-folder { margin-top: 6px; }
+.os-folder summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+.os-folder summary::-webkit-details-marker { display: none; }
+.os-folder summary::before {       /* disclosure chevron */
+  content: "";
+  width: 6px; height: 6px;
+  margin: 0 3px 0 1px;
+  border-right: 1.6px solid var(--muted);
+  border-bottom: 1.6px solid var(--muted);
+  transform: rotate(-45deg);
+  transition: transform .2s;
+}
+.os-folder[open] summary::before { transform: rotate(45deg); }
+.os-folder summary:hover { background: var(--ss-hover); }
+.os-count { margin-left: auto; font-weight: 500; color: var(--muted); font-size: 12px; }
+.os-folder ul { list-style: none; padding: 2px 0 4px; }
+.os-bookmark {
+  display: block;
+  padding: 5px 10px 5px 26px;
+  border-radius: 7px;
+  color: var(--body-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.os-bookmark:hover { background: var(--ss-hover); }
+.os-bookmark[aria-current] { background: var(--ss-select); color: #fff; }
+
+/* The page itself */
+.os-view {
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--os-behind);
+  outline: none;
+}
+.os-shot { position: relative; width: 100%; }
+.os-shot img { display: block; width: 100%; height: auto; }
+.os-shot img + img { margin-top: -1px; }   /* overlap the slices a pixel, so no hairline shows between them */
+.os-noscript { padding: 32px; color: var(--body-text); }
+
+/* The invisible links over the screenshot. Hovering one (or, just after a page opens,
+   all of them at once) shows a soft blue box, so it's clear the screenshot is clickable. */
+.os-link {
+  position: absolute;
+  border-radius: 6px;
+  transition: background .25s, box-shadow .25s;
+}
+.os-link:hover,
+.os-link:focus-visible,
+.is-hinting .os-link {
+  background: rgba(var(--os-link), .14);
+  box-shadow: 0 0 0 2px rgba(var(--os-link), .55);
+  outline: none;
+}
+.is-hinting .os-link { transition-duration: .15s; }
+
+/* Safari's status bar: where the hovered link goes */
+.os-status {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  max-width: min(70%, 560px);
+  padding: 4px 10px;
+  border-radius: 7px;
+  background: var(--card);
+  box-shadow: 0 0 0 1px var(--line), 0 4px 14px var(--shadow);
+  font-size: 12px;
+  color: var(--body-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .15s, transform .15s;
+  pointer-events: none;
+}
+.os-status.is-shown { opacity: 1; transform: none; }
+.is-sidebar-hidden .os-status { left: 8px; }
+.os-window:not(.is-sidebar-hidden) .os-status { left: 258px; }
+
+/* ---------- Tab overview: every page as a thumbnail ---------- */
+.os-overview {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--tile);
+  animation: os-zoom-out .25s cubic-bezier(.2, .9, .3, 1);
+}
+.os-overview[hidden] { display: none; }
+@keyframes os-zoom-out { from { opacity: 0; transform: scale(1.03); } }
+.os-overview-inner { padding: 24px 28px 40px; }
+.os-overview section + section { margin-top: 32px; }
+.os-overview h2 {
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.os-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 20px 16px; }
+.os-card { display: flex; flex-direction: column; gap: 2px; min-width: 0; border-radius: 12px; }
+.os-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 300;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: var(--os-behind);
+  box-shadow: 0 0 0 1px var(--line), 0 6px 18px -8px var(--shadow);
+  transition: transform .2s, box-shadow .2s;
+}
+.os-card:hover img { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 12px 24px -8px var(--shadow); }
+.os-card[aria-current] img { box-shadow: 0 0 0 3px var(--ss-select), 0 6px 18px -8px var(--shadow); }
+.os-card strong { font-size: 13px; font-weight: 600; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.os-card span { font-size: 12px; color: var(--muted); }
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 760px) {
+  .os-window { height: calc(100svh - 110px); --os-radius: 12px; }
+  .os-lights { display: none; }
+  .os-toolbar { gap: 2px; padding: 8px; }
+  .os-tool { width: 32px; }
+  /* The sidebar slides over the page instead of pushing it aside */
+  .os-body,
+  .is-sidebar-hidden .os-body { grid-template-columns: minmax(0, 1fr); }
+  .os-sidebar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 4;
+    width: min(280px, 85%);
+    box-shadow: 8px 0 30px var(--shadow);
+    transition: transform .3s cubic-bezier(.2, .9, .3, 1);
+  }
+  .is-sidebar-hidden .os-sidebar { transform: translateX(-105%); }
+  .os-window:not(.is-sidebar-hidden) .os-status { left: 8px; }
+  .os-overview-inner { padding: 18px 16px 32px; }
+  .os-cards { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px 12px; }
+}
+@media (max-width: 520px) {
+  .os-date { display: none; }
+  .os-address { padding: 0 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .os-body, .os-sidebar, .os-overview, .os-link, .os-status, .os-card img { transition: none; animation: none; }
+  .is-loading .os-progress { transition: none; }
+}

@@ -1,0 +1,278 @@
+/* Spotlight (spotlight.js): the search window opened with ⌘K, / or the 🔍 on phones.
+   Styled after Spotlight on a Mac: a frosted search bar near the top of the screen,
+   results on the left, a preview of the selected one on the right. spotlight.js loads
+   this file itself as the page loads, so pages don't link to it.
+   The nav's 🔍 button is styled in styles.css, since it's on screen from the start. */
+
+.spotlight {
+  --sl-bg: rgba(246, 246, 248, .84);
+  --sl-solid: #f6f6f8;               /* for browsers without frosted glass */
+  --sl-line: rgba(0, 0, 0, .1);
+  --sl-text: #1d1d1f;
+  --sl-muted: #636369;               /* 4.5:1 on the panel, for small text */
+  --sl-select: #0071e3;              /* Apple blue that passes 4.5:1 with white text */
+  --sl-chip: rgba(120, 120, 128, .14);
+  --sl-top: 16vh;
+
+  position: fixed;
+  inset: var(--sl-top) 0 auto;
+  width: min(680px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100vh - var(--sl-top) - 24px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sl-text);
+  overflow: visible;
+  font-family: var(--font-system);
+  -webkit-font-smoothing: antialiased;
+}
+:root[data-theme="dark"] .spotlight {
+  --sl-bg: rgba(40, 40, 44, .8);
+  --sl-solid: #2a2a2e;
+  --sl-line: rgba(255, 255, 255, .1);
+  --sl-text: #f5f5f7;
+  --sl-muted: #a1a1a8;
+  --sl-select: #0a64d8;
+  --sl-chip: rgba(120, 120, 128, .28);
+}
+.spotlight::backdrop { background: rgba(0, 0, 0, .1); }
+:root[data-theme="dark"] .spotlight::backdrop { background: rgba(0, 0, 0, .3); }
+
+.sl-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--sl-bg);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  box-shadow: 0 0 0 .5px rgba(0, 0, 0, .18), 0 24px 80px rgba(0, 0, 0, .28);
+  animation: sl-in .16s ease-out;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sl-panel { background: var(--sl-solid); }
+}
+@keyframes sl-in { from { opacity: 0; transform: scale(.97) translateY(-6px); } }
+
+/* ---- The search bar ---- */
+.sl-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+}
+.sl-bar > svg {
+  flex: none;
+  width: 24px; height: 24px;
+  fill: none;
+  stroke: var(--sl-muted);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+.sl-input {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 0;
+  border: 0;
+  outline: 0;                        /* the whole window is the focus: it only exists while you type */
+  background: transparent;
+  color: inherit;
+  font: 400 24px/1.25 var(--font-system);
+  letter-spacing: -.01em;
+}
+.sl-input::placeholder { color: var(--sl-muted); }
+.sl-cancel { display: none; }
+
+/* ---- Results and preview ---- */
+.sl-body { display: none; min-height: 0; border-top: 1px solid var(--sl-line); }
+.has-results .sl-body { display: grid; grid-template-columns: minmax(0, 1fr) 250px; }
+
+.sl-list {
+  max-height: min(440px, calc(100vh - var(--sl-top) - 110px));
+  padding: 4px 8px 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.sl-group-name {
+  margin: 10px 10px 4px;
+  color: var(--sl-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.sl-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.sl-row.is-selected { background: var(--sl-select); color: #fff; }
+.sl-row.is-selected .sl-sub,
+.sl-row.is-selected .sl-out { color: #fff; }      /* full white: anything paler fails contrast on the blue */
+
+.sl-icon {
+  flex: none;
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.sl-icon--books { object-fit: contain; border-radius: 2px; }
+.sl-icon--pages, .sl-icon--links { object-fit: contain; }
+.sl-icon--emoji, .sl-icon--glyph {
+  display: grid;
+  place-items: center;
+  background: var(--sl-chip);
+  font-size: 16px;
+  line-height: 1;
+}
+.sl-icon--glyph svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.sl-row.is-selected .sl-icon--emoji, .sl-row.is-selected .sl-icon--glyph { background: rgba(255, 255, 255, .2); }
+
+.sl-text { display: flex; align-items: baseline; gap: 8px; flex: 1; min-width: 0; }
+.sl-title, .sl-sub { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sl-title { flex: 0 1 auto; max-width: 75%; font-size: 14px; font-weight: 500; }
+.sl-sub { flex: 1 1 0; min-width: 0; color: var(--sl-muted); font-size: 13px; }
+.sl-out { flex: none; color: var(--sl-muted); font-size: 12px; }
+
+.sl-preview {
+  display: flex;
+  min-height: 0;
+  max-height: min(440px, calc(100vh - var(--sl-top) - 110px));
+  padding: 24px 20px;
+  overflow-y: auto;
+  border-left: 1px solid var(--sl-line);
+}
+.sl-pv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin: auto 0;
+  text-align: center;
+}
+.sl-pv .sl-icon {
+  width: auto; height: auto;
+  max-width: 100%;
+  max-height: 140px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .14);
+}
+.sl-pv .sl-icon--books { max-height: 170px; border-radius: 3px; }
+.sl-pv .sl-icon--pages, .sl-pv .sl-icon--links { width: 64px; height: 64px; box-shadow: none; }
+.sl-pv .sl-icon--emoji, .sl-pv .sl-icon--glyph { width: 72px; height: 72px; border-radius: 18px; font-size: 38px; box-shadow: none; }
+.sl-pv .sl-icon--glyph svg { width: 30px; height: 30px; }
+.sl-pv .sl-icon--swatch { width: 96px; height: 96px; border-radius: 22px; }
+.sl-pv-title { font-size: 16px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.sl-pv-meta { color: var(--sl-muted); font-size: 12px; }
+.sl-pv-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  color: var(--sl-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.sl-pv-hint { margin-top: 12px; color: var(--sl-muted); font-size: 12px; }
+.sl-pv-hint kbd {
+  display: inline-block;
+  min-width: 20px;
+  padding: 1px 5px;
+  border: 1px solid var(--sl-line);
+  border-radius: 5px;
+  font: inherit;
+}
+
+.sl-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Narrower windows: no room for the preview */
+@media (max-width: 760px) {
+  .has-results .sl-body { grid-template-columns: minmax(0, 1fr); }
+  .sl-preview { display: none; }
+}
+
+/* Phones: a sheet at the top of the screen, above the keyboard, with a Cancel button */
+@media (max-width: 640px) {
+  .spotlight {
+    --sl-top: 8px;
+    width: calc(100vw - 16px);
+    max-height: calc(var(--sl-viewport, 100dvh) - 16px);
+  }
+  .sl-panel { border-radius: 18px; }
+  .sl-bar { gap: 10px; padding: 10px 12px 10px 14px; }
+  .sl-bar > svg { width: 20px; height: 20px; }
+  .sl-input { font-size: 17px; }       /* 16px or more, or iPhones zoom in on the box */
+  .sl-cancel {
+    display: block;
+    flex: none;
+    padding: 6px 2px;
+    border: 0;
+    background: none;
+    color: var(--sl-select);
+    font: 400 16px var(--font-system);
+    cursor: pointer;
+  }
+  :root[data-theme="dark"] .sl-cancel { color: #409cff; }
+  .sl-list { max-height: calc(var(--sl-viewport, 100dvh) - 90px); padding: 2px 6px 6px; }
+  .sl-row { min-height: 44px; }        /* finger-sized */
+  .sl-text { flex-direction: column; align-items: stretch; gap: 1px; }
+  .sl-sub { flex: none; }
+  .sl-title { max-width: none; font-size: 15px; }
+  .sl-icon { width: 30px; height: 30px; }
+}
+
+/* ---- Little extras ---- */
+
+/* "Email address copied" and friends */
+.sl-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--on-text);
+  font: 500 14px var(--font-system);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+  transform: translateX(-50%);
+  animation: sl-toast-in .2s ease-out;
+  transition: opacity .3s;
+}
+.sl-toast.is-out { opacity: 0; }
+@keyframes sl-toast-in { from { opacity: 0; transform: translate(-50%, 8px); } }
+
+/* The seafoam egg: the page turns NoCode green for a moment */
+.sl-wash {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  animation: sl-wash 2.6s ease-in-out forwards;
+}
+:root[data-theme="dark"] .sl-wash { mix-blend-mode: screen; --sl-wash: .55; }
+@keyframes sl-wash {
+  15%, 60% { opacity: var(--sl-wash, .9); }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-panel, .sl-toast { animation: none; }
+  .sl-wash { animation-duration: 1.8s; }
+}
