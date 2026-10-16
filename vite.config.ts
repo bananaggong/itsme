@@ -20,7 +20,7 @@ export default defineConfig(async () => {
           main: './hosting/worker.ts',
           compatibility_date: '2026-05-15',
           compatibility_flags: ['nodejs_compat'],
-          assets: { binding: 'ASSETS', run_worker_first: true },
+          assets: { binding: 'ASSETS', run_worker_first: true, not_found_handling: '404-page' },
           d1_databases: [{ binding: hosting.d1, database_name: 'itsme-preview', database_id: '00000000-0000-4000-8000-000000000000' }],
         },
       }),
