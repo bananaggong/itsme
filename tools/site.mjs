@@ -3,24 +3,27 @@ import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from '
 import { createServer } from 'node:http';
 import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { personalizeHTML, personalizeJavaScript, personalizeSearchIndex } from './personalize.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.gif':'image/gif', '.woff2':'font/woff2', '.woff':'font/woff', '.mp3':'audio/mpeg', '.mp4':'video/mp4', '.webm':'video/webm', '.ico':'image/x-icon', '.vcf':'text/vcard; charset=utf-8', '.xml':'application/xml; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.pdf':'application/pdf' };
 
-// Preserve captured HTML on disk. Only omit the original owner's analytics beacon
-// when serving/building the clone; no visual or interactive code is changed.
+// Keep captured bytes on disk. Serving and building share the identity overlay
+// and omit the original owner's analytics beacon.
 export function cloneHTML(html) {
-  return html.replace(/\s*<script\b[^>]*src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js"[^>]*><\/script>/g, '');
+  return personalizeHTML(html.replace(/\s*<script\b[^>]*src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js"[^>]*><\/script>/g, ''));
 }
 
 export function cloneJavaScript(source, name) {
   // The captured production page has no active Turnstile site key. Its original
   // localhost-only test widget adds an empty flex gap and changes mobile geometry.
   // Exercise the production branch on the clone's localhost, too.
-  return name==='newsletter-page.js'
+  return personalizeJavaScript(name==='newsletter-page.js'
     ? source.replace("const LOCAL = /^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname);",'const LOCAL = false;')
-    : source;
+    : source, name);
 }
+
+export const cloneJSON = (source, name) => name==='search.json' ? personalizeSearchIndex(source) : source;
 
 export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.env.DATA_DIR || resolve(root,'.data'), now=()=>Date.now() }={}) {
   const bookHTML = readFileSync(resolve(publicDir,'books/index.html'),'utf8');
@@ -112,7 +115,8 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
       if(!existsSync(target)) {status=404;target=resolve(publicDir,'404.html');}
       let bytes=readFileSync(target);
       if(extname(target)==='.html') bytes=Buffer.from(cloneHTML(bytes.toString('utf8')));
-      if(target===resolve(publicDir,'newsletter-page.js')) bytes=Buffer.from(cloneJavaScript(bytes.toString('utf8'),'newsletter-page.js'));
+      if(extname(target)==='.js') bytes=Buffer.from(cloneJavaScript(bytes.toString('utf8'),target.slice(target.lastIndexOf(sep)+1)));
+      if(target===resolve(publicDir,'search.json')) bytes=Buffer.from(cloneJSON(bytes.toString('utf8'),'search.json'));
       res.writeHead(status,{'Content-Type':mime[extname(target)] || 'application/octet-stream','Cache-Control':extname(target)==='.html'?'no-cache':'public, max-age=3600','Content-Length':bytes.length});
       return res.end(req.method==='HEAD'?undefined:bytes);
     } catch(error) {

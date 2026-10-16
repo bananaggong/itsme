@@ -1,0 +1,13 @@
+/* Personal identity additions; captured reference styles remain intact. */
+.tile--avatar { background: #fff; }
+.tile--avatar img { image-rendering: auto; object-position: 50% 24%; }
+.tile--contact { padding: 20px; gap: 8px; }
+.ct-photo { width: 36px; height: 36px; margin-bottom: 4px; object-position: 50% 24%; }
+.ct-name { font-size: 19px; }
+.ct-field { padding-block: 6px; }
+.ct-field-value { font-size: 13px; }
+.ct-actions { gap: 6px; }
+.ct-action { min-height: 40px; }
+.profile-reference { border-left: 3px solid var(--muted); padding-left: 12px; color: var(--muted); font-size: 13px; }
+@media (max-width: 640px) { .tile--contact { min-height: 290px; } }
+@media (min-width: 1350px) { .tile--contact { padding: 24px; gap: 10px; } .ct-photo { width: 48px; height: 48px; } }
