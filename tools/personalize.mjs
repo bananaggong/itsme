@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
 const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url)));
-for (const file of [p.photo, p.memoji, '/personal/profile.css', '/personal/contact.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
+for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const mail = `mailto:${p.email}?subject=${encodeURIComponent(`안녕하세요, ${p.name}님`)}`;
@@ -29,7 +29,8 @@ export function personalizeHTML(html) {
     .replace(/(<img\b[^>]*\bsrc=")\/assets\/sam-(?:photo[^"/]*|portrait\.png)(")/g, `$1${p.photo}$2 data-profile-photo`)
     .replace(/(<img\b[^>]*\bsrc=")\/assets\/sam-memoji\.webp(")/g, `$1${p.memoji}$2`)
     .replace(/alt="Pixel-art portrait of Sam(?: Dickie)?"/g, `alt="${p.name} 프로필 사진"`);
-  html = html.replace('</head>', `<link rel="stylesheet" href="/personal/profile.css?v=${profileVersion}"></head>`);
+  html = html.replace(/<link\b[^>]*rel="preload"[^>]*href="\/assets\/fonts\/inter[^"]*"[^>]*>\s*/g, '')
+    .replace('</head>', `<link rel="stylesheet" href="/personal/typography.css?v=${profileVersion}"><link rel="stylesheet" href="/personal/profile.css?v=${profileVersion}"></head>`);
   html = html.replace(/src="\/contact\.js[^" ]*"/g, `src="/personal/contact.js?v=${profileVersion}"`);
   for (const name of ['look', 'memoji', 'officehours', 'spotlight', 'newsletter-page']) {
     html = html.replace(new RegExp(`src="/${name}\\.js[^" ]*"`, 'g'), `src="/${name}.js?v=${profileVersion}"`);
