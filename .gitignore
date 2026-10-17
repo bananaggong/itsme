@@ -13,3 +13,4 @@ sites-public/
 .vinext/
 .vercel/
 .next/
+.env*
