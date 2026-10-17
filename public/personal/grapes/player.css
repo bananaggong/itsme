@@ -57,6 +57,18 @@
 .gp-fallback i { position: absolute; width: 19%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #fff 0, #ddb6ff 5%, #ac3aef 23%, #8e27db 58%, #d04ed8 100%); box-shadow: inset -3px -4px 8px #ffffff70, 0 0 16px #b85afa20; }
 .gp-fallback i:nth-child(5n) { width: 25%; }
 .gp-fallback i:nth-child(1) { left: 40%; top: 1%; }.gp-fallback i:nth-child(2) { left: 64%; top: 6%; }.gp-fallback i:nth-child(3) { left: 22%; top: 13%; }.gp-fallback i:nth-child(4) { left: 76%; top: 27%; }.gp-fallback i:nth-child(5) { left: 5%; top: 28%; }.gp-fallback i:nth-child(6) { left: 50%; top: 26%; }.gp-fallback i:nth-child(7) { left: 29%; top: 35%; }.gp-fallback i:nth-child(8) { left: 67%; top: 49%; }.gp-fallback i:nth-child(9) { left: 45%; top: 49%; }.gp-fallback i:nth-child(10) { left: 14%; top: 57%; }.gp-fallback i:nth-child(11) { left: 50%; top: 77%; }.gp-fallback i:nth-child(12) { left: 33%; top: 72%; }.gp-fallback i:nth-child(13) { left: 74%; top: 68%; }.gp-fallback i:nth-child(14) { left: 5%; top: 49%; }.gp-fallback i:nth-child(15) { left: 41%; top: 14%; }.gp-fallback i:nth-child(16) { left: 58%; top: 60%; }.gp-fallback i:nth-child(17) { left: 20%; top: 5%; }
+@media (min-width: 1181px) {
+  .grid.is-ff-expanded .tile--grapes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: 45px minmax(0, 1fr); }
+  .grid.is-ff-expanded .tile--grapes .gp-header { grid-column: 1 / -1; padding-top: 12px; }
+  .grid.is-ff-expanded .tile--grapes .gp-stage { min-height: 0; height: 100%; }
+  .grid.is-ff-expanded .tile--grapes .gp-controls { grid-column: 2; grid-row: 2; padding: 12px 16px; gap: 10px 8px; align-content: center; border-top: 0; border-left: 1px solid var(--gp-line); }
+  .grid.is-ff-expanded .gp-now h2 { font-size: 20px; }
+  .grid.is-ff-expanded .gp-label { font-size: 8px; letter-spacing: .5px; }
+  .grid.is-ff-expanded .gp-transport { gap: 2px; }
+  .grid.is-ff-expanded .gp-transport button { width: 22px; }
+  .grid.is-ff-expanded .gp-transport [data-gp-play] { width: 36px; height: 36px; font-size: 15px; }
+  .grid.is-ff-expanded .gp-hint { font-size: 9px; padding: 6px 8px; bottom: 10px; }
+}
 @media (max-width: 600px) {
   .tile.tile--grapes { min-height: 570px; }
   .tile--grapes .gp-header { padding: 20px 18px 0; }

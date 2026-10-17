@@ -86,7 +86,8 @@ export function personalizeJavaScript(source, name) {
 }
 
 export function personalizeSearchIndex(source) {
-  const index = JSON.parse(source);
+  const index = JSON.parse(source).filter(item => !item.u.startsWith('https://open.spotify.com/playlist/'));
+  index.push({g:'Links', t:'Grapes 음악 플레이어', u:'/#grapes-player', s:'포도알을 눌러 17곡의 샘플을 재생해보세요.', w:'grapes music audio sample player grape 포도 음악 샘플 재생 플레이어', e:'🍇', m:'Music'});
   for (const item of index) {
     if (item.u === '/') item.s = `${p.name}의 개인 웹사이트. ${p.email} · ${p.phone}`;
     if (item.u === '/about/') item.s = `${p.name}의 소개와 연락처. GitHub bananaggong`;
