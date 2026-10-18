@@ -1,10 +1,11 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { replacePlaylist } from './grape-player.mjs';
+import { mapVersion, personalizeMapHTML, personalizeMapJavaScript } from './personalize-map.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url)));
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -33,7 +34,7 @@ export function personalizeHTML(html) {
   html = html.replace(/<link\b[^>]*rel="preload"[^>]*href="\/assets\/fonts\/inter[^"]*"[^>]*>\s*/g, '')
     .replace('</head>', `<link rel="stylesheet" href="/personal/typography.css?v=${profileVersion}"><link rel="stylesheet" href="/personal/profile.css?v=${profileVersion}"></head>`);
   html = html.replace(/src="\/contact\.js[^" ]*"/g, `src="/personal/contact.js?v=${profileVersion}"`);
-  for (const name of ['look', 'memoji', 'officehours', 'spotlight', 'newsletter-page', 'rearrange']) {
+  for (const name of ['look', 'memoji', 'officehours', 'spotlight', 'newsletter-page', 'rearrange', 'findmy']) {
     html = html.replace(new RegExp(`src="/${name}\\.js[^" ]*"`, 'g'), `src="/${name}.js?v=${profileVersion}"`);
   }
   if (html.includes('class="tile tile--intro"')) {
@@ -63,12 +64,13 @@ export function personalizeHTML(html) {
       .replace(/(<meta (?:name="description"|property="og:(?:title|description)") content=")[^"]*(")/g, `$1${p.name}의 소개와 연락처$2`)
       .replace('content="Sam"', `content="${p.givenName}"`).replace('content="Dickie"', `content="${p.familyName}"`);
   }
-  return replacePlaylist(html).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
+  return personalizeMapHTML(replacePlaylist(html)).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
 }
 
 export function personalizeJavaScript(source, name) {
+  if (name === 'findmy.js') return personalizeMapJavaScript(source);
   if (name === 'rearrange.js') return source.replace("spotify: 'Spotify'", "spotify: 'Grapes 플레이어'");
   if (!['spotlight.js', 'officehours.js', 'look.js', 'memoji.js', 'newsletter-page.js'].includes(name)) return source;
   source = source.replaceAll('samdickie@gmail.com', p.email).replaceAll('samdickie.me', 'itsme')
