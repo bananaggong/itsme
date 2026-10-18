@@ -20,6 +20,15 @@ const phone = icon('<path d="m7 3 3 5-2.3 2.3a15 15 0 0 0 6 6L16 14l5 3-1 4C11 2
 const github = icon('<path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.29-.5-1.43.11-2.98 0 0 .95-.31 3.08 1.15a10.72 10.72 0 0 1 5.6 0c2.14-1.46 3.08-1.15 3.08-1.15.61 1.55.23 2.69.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.1c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/>');
 const save = icon('<circle cx="10" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 20c.6-3.6 3.2-5.6 6.5-5.6 1.2 0 2.3.3 3.2.8M18 13.5v7M14.5 17h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 const action = (href, label, glyph, extra = '') => `<li><a class="ct-action" href="${escape(href)}" ${extra}>${glyph}${label}</a></li>`;
+const intro = `<div class="intro-body">
+  <p>학교를 졸업하고 무작정 서울로 올라온 지, 어느덧 1년이 되었습니다. 여전히 하고 싶은 게 많습니다. 하나를 시작하면 또 다른 게 궁금해져서, 취미도 하나둘 늘어났고요.</p>
+  <p>AI로 음악을 만들어 플레이리스트로 엮기도 하고, 그 경험을 외국인들에게 강의하기도 했습니다. 제가 만든 음악은 이곳의 플레이어에서 들으실 수 있어요. 잠깐 틀어두고 읽으셔도 좋겠습니다.</p>
+  <p>때로는 사색에 잠겨 글을 씁니다. 그림이나 영화에서 시작한 이야기가 어느새 제 이야기가 되기도 해요. 그렇게 쓴 글들은 ‘심심풀이’라는 이름으로 모으고 있습니다. 아래 인스타그램에서 만나보실 수 있어요.</p>
+  <p>그중에서도 가장 무게를 두고 있는 일은 프로덕트를 만드는 일입니다. 시작은 대개 제가 겪었던 작은 경험이었어요.</p>
+  <p>네트워킹이 끝난 뒤 남았던 공허함은 커피챗 플랫폼 <a href="https://intume.kr/" target="_blank" rel="noopener noreferrer">‘인투미’</a>를 만드는 계기가 되었습니다. 지방을 여행하다 알게 된 청년마을은 로컬 여행 플랫폼 <a href="https://nuvio.kr/" target="_blank" rel="noopener noreferrer">‘누비오’</a>로 이어졌고요. 일본을 여행할 때는 여행 길잡이 <a href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer">‘갈팡질팡’</a>도 소소하게 만들어보았습니다.</p>
+  <p>그 밖에도 이런저런 웹사이트를 만들며 지내고 있습니다. 하고 싶은 게 많아 조금 분주하지만, 직접 해보고 나서야 알게 되는 것들이 좋아요.</p>
+  <p>이곳에는 그렇게 해본 일들을 하나씩 남겨두려고 합니다. 음악을 듣거나, 글을 읽거나, 만든 것들을 눌러보세요. 지금의 저는 이곳에 조금씩 담겨 있습니다.</p>
+</div>`;
 
 export function personalizeHTML(html) {
   html = html.replace(/<title>([^<]*)<\/title>/, (_, title) => `<title>${title.replaceAll('Sam Dickie', p.name)}</title>`)
@@ -40,8 +49,8 @@ export function personalizeHTML(html) {
     html = html.replace(new RegExp(`src="/${name}\\.js[^" ]*"`, 'g'), `src="/${name}.js?v=${profileVersion}"`);
   }
   if (html.includes('class="tile tile--intro"')) {
-    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">${p.name}<span class="muted">의</span><br>개인 웹사이트</h1>`)
-      .replace(/<div class="intro-body">[\s\S]*?<\/div>/, `<div class="intro-body"><p>안녕하세요, 김광일입니다.</p><p>이곳은 저의 프로젝트와 관심사를 담아갈 개인 공간입니다.</p><p>이메일이나 전화로 편하게 연락해 주세요.<br><a href="${mail}">${p.email}</a><br><a href="tel:${p.phoneInternational}">${p.phone}</a></p><p><a href="${p.github}" target="_blank" rel="noopener">GitHub · bananaggong ↗</a></p></div>`)
+    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">하고잡이, ${p.name}입니다.</h1>`)
+      .replace(/<div class="intro-body">[\s\S]*?<\/div>/, intro)
       .replace(/<section class="tile tile--contact"[\s\S]*?<\/section>/, `<section class="tile tile--contact" aria-label="${p.name} 연락처"><div class="ct-head"><img class="ct-photo" src="${p.photo}" data-profile-photo alt="${p.name} 프로필 사진"><h2 class="ct-name">${p.name}</h2></div><ul class="ct-actions">${action(mail, '메일', envelope)}${action('tel:'+p.phoneInternational, '전화', phone)}${action(p.github, 'GitHub', github, 'target="_blank" rel="noopener" aria-label="bananaggong GitHub"')}${action(p.vcard, '저장', save, `download="${p.name}.vcf" aria-label="${p.name} 연락처 저장"`)}</ul>${field('이메일', p.email, mail)}${field('전화번호', p.phone, 'tel:'+p.phoneInternational)}</section>`)
       .replace(/(<span class="fm-card-text"><strong>)Sam Dickie/, '$1지도 데모')
       .replace(' · Probably lost', ' · 샘플 경로')
