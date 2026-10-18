@@ -27,5 +27,13 @@ export function personalizeMapJavaScript(source) {
     .replace('offsetY = (tile.clientHeight - height * scale) / 2;', `offsetY = (tile.clientHeight - height * scale) / 2;
     if (home) home.style.transform = \`translate(\${offsetX + route.home.x * scale}px, \${offsetY + route.home.y * scale}px)\`;`)
     .replace('if (streetLabel.textContent !== street)', 'if (streetLabel && streetLabel.textContent !== street)')
+    .replace('person.style.transform = `translate(${offsetX + x * scale}px, ${offsetY + y * scale}px)`;', `// Align the moving portrait to device pixels so its composited layer stays sharp.
+    const bounds = tile.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    const originX = bounds.left + tile.clientLeft;
+    const originY = bounds.top + tile.clientTop;
+    const pinX = Math.round((originX + offsetX + x * scale) * ratio) / ratio - originX;
+    const pinY = Math.round((originY + offsetY + y * scale) * ratio) / ratio - originY;
+    person.style.transform = \`translate(\${pinX}px, \${pinY}px)\`;`)
     .replace('let progress = 0.12;', 'let progress = 0;');
 }

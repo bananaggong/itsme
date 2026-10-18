@@ -1,4 +1,6 @@
 /* Personal identity additions; captured reference styles remain intact. */
+img[data-profile-photo] { image-rendering: auto; object-position: 50% 24%; }
+.note-profile img[data-profile-photo] { flex-shrink: 0; }
 .tile--avatar { background: #fff; }
 .tile--avatar img { image-rendering: auto; object-position: 50% 24%; }
 .tile--contact { padding: 20px; gap: 8px; }
