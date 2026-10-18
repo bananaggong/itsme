@@ -1,6 +1,10 @@
 /* Personal identity additions; captured reference styles remain intact. */
 img[data-profile-photo] { image-rendering: auto; object-position: 50% 24%; }
 .note-profile img[data-profile-photo] { flex-shrink: 0; }
+@media (min-width: 701px) {
+  /* Keep the existing Notes window inside short screens, including keyboard focus. */
+  .notes-window { min-height: min(650px, calc(100dvh - 142px)); }
+}
 @media (min-width: 1181px) {
   .grid { grid-auto-rows: minmax(clamp(260px, 23vw, 330px), auto); }
 }
