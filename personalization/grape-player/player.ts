@@ -7,7 +7,6 @@ function initialize(tile: HTMLElement) {
   const audio = tile.querySelector<HTMLAudioElement>('audio')!;
   const stage = tile.querySelector<HTMLElement>('.gp-stage')!;
   const canvas = tile.querySelector<HTMLCanvasElement>('canvas')!;
-  const select = tile.querySelector<HTMLSelectElement>('[data-gp-select]')!;
   const play = tile.querySelector<HTMLButtonElement>('[data-gp-play]')!;
   const title = tile.querySelector<HTMLElement>('[data-gp-title]')!;
   const artist = tile.querySelector<HTMLElement>('[data-gp-artist]')!;
@@ -41,7 +40,6 @@ function initialize(tile: HTMLElement) {
     tile.dataset.playing = String(playing);
     tile.dataset.track = String(index);
     tile.dataset.loading = String(loading);
-    select.value = String(index);
     title.textContent = SONGS[index].title;
     artist.textContent = SONGS[index].artist;
     play.setAttribute('aria-label', playing ? '일시정지' : '재생');
@@ -105,7 +103,6 @@ function initialize(tile: HTMLElement) {
     else void start(next);
   }
   play.addEventListener('click', () => toggle());
-  select.addEventListener('change', () => void start(Number(select.value)));
   tile.querySelector('[data-gp-prev]')!.addEventListener('click', () => void start((index + SONGS.length - 1) % SONGS.length));
   tile.querySelector('[data-gp-next]')!.addEventListener('click', () => void start((index + 1) % SONGS.length));
   seek.addEventListener('input', () => { audio.currentTime = Number(seek.value); updateTime(); });
