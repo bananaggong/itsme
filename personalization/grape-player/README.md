@@ -11,8 +11,12 @@
 
 `tools/grape-player.mjs`가 개인화 단계에서 Spotify 섹션과 모듈을 교체한다.
 `tile--spotify` 식별자는 저장된 카드 순서·2×2 레이아웃·확대 전환 호환을 위해
-유지하며, 화면과 편집 모드의 접근성 이름은 Grapes다. Freeform 보드를 확대해
-카드가 한 줄 높이가 되면 포도알과 컨트롤을 가로로 배치한다. 사이트 검색도
+유지하며, 화면과 편집 모드의 접근성 이름은 Grapes다. Spotify 카드의 기존
+`.sp-list`·`.sp-row`·`.sp-player`를 재사용해 스크롤 곡 목록과 하단 재생바를
+표시한다. 곡 선택 드롭다운·`SOUND BY GRAPES` 문구·일반 상태 문구는 화면에서
+제거했다. 재생 상태는 스크린 리더에 알리며 실제 실패 때만 오류를 표시한다.
+Freeform 보드를 확대해 데스크톱 카드가 한 줄 높이가 되면 기존 카드처럼
+목록을 접고 포도알·제목·하단 재생바를 유지한다. 태블릿·모바일은 목록을 유지한다. 사이트 검색도
 기존 Spotify 링크 대신 Grapes 카드로 연결한다.
 캡처 원본과 기준 태그는 변경하지 않는다.
 
@@ -24,7 +28,8 @@ npm run build:grapes
 npm run build
 ```
 
-생성된 `public/personal/grapes/*.js`와 라이선스 고지는 소스와 함께 커밋한다.
+`widget.template.html`의 곡 행은 `songs.ts`에서 생성한다. 생성된 `widget.html`,
+`public/personal/grapes/*.js`와 라이선스 고지는 소스와 함께 커밋한다.
 Vercel 정적 빌드는 이 산출물을 사용하므로 운영 서버에 Three.js·GSAP·React를
 설치하거나 외부 CDN을 호출할 필요가 없다. 장면 모듈은 카드가 가까워질 때
 불러오며 음원은 선택한 곡만 가져온다. CSS와 진입 모듈에는 내용 해시가 붙는다.
