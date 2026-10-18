@@ -1,0 +1,52 @@
+{
+  "capturedOn": "2026-10-18",
+  "screens": "Unmodified screenshots of public landing pages. No authenticated or administrator data.",
+  "projects": [
+    {
+      "id": "nuvio",
+      "sourceUrl": "https://nuvio.kr/",
+      "iconSource": "C:/projects/NUVIO/nuvio-web/public/icons/app/icon-512.png",
+      "assets": [
+        {
+          "path": "/personal/projects/nuvio-icon.png",
+          "sha256": "b93064ec361eab8bc9f33af20f1d3ab8e25b337fb0ddfe34f1cebc25a3df6880",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "/personal/projects/nuvio-preview.png",
+          "sha256": "ff51b3e83a4fb8efa3ca49264b765ce2166f8b2741b719065f4a0ffe194542b6",
+          "size": [
+            1265,
+            712
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intume",
+      "sourceUrl": "https://intume.kr/",
+      "iconSource": "C:/projects/intume-web/app/icon.png",
+      "assets": [
+        {
+          "path": "/personal/projects/intume-icon.png",
+          "sha256": "2890e300dfc3f7600b989a7c74957c9ffb117df20c58cfa7cacb13ccbe31f3b7",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "/personal/projects/intume-preview.png",
+          "sha256": "a21e98ab6f2d55006abf906d2a883eba161dda707b2e7a4bd066aadd5d48fed0",
+          "size": [
+            1440,
+            900
+          ]
+        }
+      ]
+    }
+  ]
+}

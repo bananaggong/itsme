@@ -11,3 +11,19 @@
 .profile-reference { border-left: 3px solid var(--muted); padding-left: 12px; color: var(--muted); font-size: 13px; }
 @media (max-width: 640px) { .tile--contact { min-height: 290px; } }
 @media (min-width: 1350px) { .tile--contact { padding: 24px; gap: 10px; } .ct-photo { width: 48px; height: 48px; } }
+
+/* Fixed home marker at the map's recorded address coordinates. */
+.fm-home { position: absolute; top: 0; left: 0; width: 0; height: 0; z-index: 3; pointer-events: none; }
+.fm-home-marker {
+  position: absolute; left: -15px; top: -15px;
+  width: 30px; height: 30px; display: grid; place-items: center;
+  background: #1a73e8; border: 2px solid #fff; border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+.fm-home-marker img { width: 20px; height: 20px; }
+.fm-home-label {
+  position: absolute; left: 19px; top: -8px; white-space: nowrap;
+  color: #1967d2; font-size: 12px; font-weight: 600; line-height: 16px;
+  text-shadow: 0 0 3px var(--fm-land), 0 0 3px var(--fm-land);
+}
+:root[data-theme="dark"] .fm-home-label { color: #8ab4f8; }

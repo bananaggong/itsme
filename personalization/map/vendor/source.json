@@ -1,0 +1,8 @@
+{
+  "name": "Google Material Symbols Rounded - home (filled, 24px)",
+  "source": "https://github.com/google/material-design-icons/blob/master/symbols/web/home/materialsymbolsrounded/home_fill1_24px.svg",
+  "downloadUrl": "https://raw.githubusercontent.com/google/material-design-icons/master/symbols/web/home/materialsymbolsrounded/home_fill1_24px.svg",
+  "sha256": "d6b0cb6d80710caaba1ce1be0da5a34b757d802f0e9442968c5ca2c39a868f6f",
+  "license": "Apache-2.0",
+  "modifications": "The generated public SVG sets the original path fill to white; the source geometry is unchanged."
+}

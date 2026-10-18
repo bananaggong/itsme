@@ -1,0 +1,39 @@
+{
+  "profileUrl": "https://www.instagram.com/simsim__puli/",
+  "capturedOn": "2026-10-18",
+  "selection": "Four manually selected original cover images and public post captions observed on the profile. Not an automatically synchronized feed.",
+  "posts": [
+    {
+      "postUrl": "https://www.instagram.com/simsim__puli/p/DWks4aRmI29/",
+      "title": "오래 쓴 가면은 내 얼굴이 될까",
+      "image": "/personal/instagram/DWks4aRmI29.jpg",
+      "sha256": "362a9174ff22b65d4be6f88eecfa0ac7a0ae5f2129a11e56e16528c15bfbbdb2",
+      "imageCredit": "Rene Magritte, Le Soir qui Tombe"
+    },
+    {
+      "postUrl": "https://www.instagram.com/simsim__puli/p/DUJ7desEl53/",
+      "title": "오점이 될 것인지 그림 한 점이 될 것인지",
+      "image": "/personal/instagram/DUJ7desEl53.jpg",
+      "sha256": "c9ee918c3dcedac10bfbd3096b717ba03c7c3a9ce79ae417284311d5244dcb16",
+      "imageCredit": "이우환, 대화"
+    },
+    {
+      "postUrl": "https://www.instagram.com/simsim__puli/p/DTBn-uck2dm/",
+      "title": "우리가 함께 쓴 문장에 주석은 필요 없으니",
+      "image": "/personal/instagram/DTBn-uck2dm.jpg",
+      "sha256": "c3494578988ca199794d365ce522289c1a3e75c5fa3382db22aacf73b80fef75",
+      "imageCredit": "Rene Magritte, The Lovers"
+    },
+    {
+      "postUrl": "https://www.instagram.com/simsim__puli/p/DS8DWHcj8zh/",
+      "title": "당신은 쏟아지듯 내려 우리는 닿았습니다",
+      "image": "/personal/instagram/DS8DWHcj8zh.jpg",
+      "sha256": "2cd3e6a348d874ff4cf25d1e2ea6df2cfd471acab34436f70e5dd1580eb5a0c9",
+      "imageCredit": "영화 러브 레터"
+    }
+  ],
+  "logo": {
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/instagram.svg",
+    "licenseFile": "/personal/instagram/Simple-Icons-LICENSE.txt"
+  }
+}

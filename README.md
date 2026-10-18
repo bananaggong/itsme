@@ -74,7 +74,15 @@ git switch -c personalize/my-portfolio samdickie-clone-baseline-2026-10-16
 
 현재는 김광일 프로필, 전화/메일/GitHub 링크, 이메일·번호 복사, vCard, 공통 사진, Spotlight/일정 문의를 개인화했습니다. 사진 원본은 그대로 복사했으며, Memoji 스타일 이미지는 첨부 사진을 참고해 생성한 아바타입니다. 실사 ↔ 아바타 전환 상태는 `itsme-look`에 저장합니다. vCard는 사진을 포함하고 UTF-8 75바이트 줄 접기·CRLF를 사용합니다.
 
-소개·경력·글·프로젝트·책·뉴스레터의 원본 참고 콘텐츠는 아직 개인화하지 않았습니다. About에 참고 콘텐츠 표시를 두었고, 지도는 실제 위치가 아닌 샘플 경로로 표시합니다. 원본 글의 저자 표시는 유지합니다. 직접 원본 파일을 수정하는 후속 작업에서는 별도 변경 명세가 필요합니다.
+소개·경력·글·프로젝트·책·뉴스레터의 원본 참고 콘텐츠는 아직 개인화하지 않았습니다. About에 참고 콘텐츠 표시를 두었습니다. 지도는 서울 성동구 마장동 797-80에서 출발해 마장역·왕십리역 주변의 실제 OSM 도로를 따라 약 1.8km를 90초마다 도는 산책 애니메이션으로 개인화했습니다. `http://localhost:3000/#majang-walk`에서 확인하며, 데이터 출처와 재생성 방법은 [personalization/map/README.md](personalization/map/README.md)에 있습니다. 원본 글의 저자 표시는 유지합니다. 직접 원본 파일을 수정하는 후속 작업에서는 별도 변경 명세가 필요합니다.
+
+## 프로젝트 위젯
+
+홈의 기존 앱 독은 누비오·인투미 프로젝트 위젯으로 교체했습니다. `personalization/projects.json`에 서비스 소개와 링크를 관리하고, `public/personal/projects/`에는 원본 앱 아이콘과 공개 홈페이지 캡처를 보관합니다. 아이콘을 누르거나 키보드로 선택하면 해당 서비스의 실제 화면과 소개로 전환되며, '서비스 보기'는 각 공개 사이트로 연결됩니다. 선택 내용은 사용자가 바꾸기 전까지 유지하며, 기존 `switcher` 레이아웃 저장 키를 유지합니다. 출처와 이미지 해시는 `personalization/projects-provenance.json`에 기록합니다.
+
+## Instagram 글쓰기 위젯
+
+홈의 기존 Inbox 카드는 `@simsim__puli`의 글쓰기 공간을 소개하는 Instagram 위젯으로 교체했습니다. `personalization/instagram.json`에서 소개 문구·선별 게시물 네 편·원본 링크를 관리합니다. 게시물 표지는 원본 그대로 `public/personal/instagram/`에서 제공하며 PC에서는 네 장을 나란히, 모바일에서는 가로로 넘겨 봅니다. 이미지 출처·원본 이미지의 작품 표기·SHA-256은 `personalization/instagram-provenance.json`에 기록합니다. 게시물 클릭은 Instagram의 해당 글로, 계정명과 '글 더 읽기'는 프로필로 연결됩니다. 실시간 자동 동기화가 아닌 선별한 게시물 모음입니다. 기존 Inbox의 레이아웃 저장 키는 유지합니다.
 
 ## 영문·한글 공통 타이포그래피
 

@@ -11,10 +11,11 @@ import json
 import math
 import sys
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CFG = json.loads((ROOT / 'personalization/map/config.json').read_text())
+CFG = json.loads((ROOT / 'personalization/map/config.json').read_text(encoding='utf-8'))
 R = 6371000
 COS = math.cos(math.radians(CFG['latitude']))
 WALKABLE = {'residential', 'living_street', 'service', 'pedestrian', 'footway', 'path', 'steps', 'unclassified'}
@@ -29,16 +30,16 @@ def distance(a, b):
     return math.hypot(a[0]-b[0], a[1]-b[1])
 
 
-def shortest(graph, start, end, banned):
+def shortest(graph, start, end, banned=frozenset(), banned_nodes=frozenset(), max_distance=700):
     queue, best = [(0, start, [start])], {start: 0}
     while queue:
         cost, node, path = heapq.heappop(queue)
         if node == end:
             return cost, path
-        if cost > best.get(node, math.inf) or cost > 700:
+        if cost > best.get(node, math.inf) or cost > max_distance:
             continue
         for nxt, weight in graph[node].items():
-            if frozenset((node, nxt)) == banned:
+            if frozenset((node, nxt)) in banned or nxt in banned_nodes:
                 continue
             nc = cost + weight
             if nc < best.get(nxt, math.inf):
@@ -51,7 +52,7 @@ def area(points):
     return abs(sum(a[0]*b[1]-b[0]*a[1] for a, b in zip(points, points[1:]))) / 2
 
 
-def build_walk(nodes, ways):
+def walking_graph(nodes, ways):
     graph, names = defaultdict(dict), {}
     for way in ways:
         tags = way.get('tags', {})
@@ -67,6 +68,11 @@ def build_walk(nodes, ways):
                 continue
             graph[a][b] = graph[b][a] = d
             names[frozenset((a, b))] = tags.get('name', '마장동 골목길')
+    return graph, names
+
+
+def build_walk(nodes, ways):
+    graph, names = walking_graph(nodes, ways)
 
     edges = [(min(distance(nodes[a], (0, 0)), distance(nodes[b], (0, 0))), a, b)
              for a in graph for b in graph[a] if a < b]
@@ -75,7 +81,7 @@ def build_walk(nodes, ways):
     for proximity, a, b in sorted(edges)[:140]:
         if proximity > 220:
             break
-        result = shortest(graph, a, b, frozenset((a, b)))
+        result = shortest(graph, a, b, {frozenset((a, b))})
         if not result:
             continue
         length, path = result
@@ -104,6 +110,33 @@ def build_walk(nodes, ways):
     pts = [nodes[n] for n in ring]
     streets = [names[frozenset(edge)] for edge in zip(ring, ring[1:])]
     return pts, streets, ring, length
+
+
+def build_station_tour(nodes, ways):
+    graph, names = walking_graph(nodes, ways)
+    start = min(graph, key=lambda n: distance(nodes[n], (0, 0)))
+    if distance(nodes[start], (0, 0)) > 75:
+        raise ValueError('No public walking street near the starting address.')
+    anchors = [start]
+    for waypoint in CFG['waypoints']:
+        entrance = nodes[waypoint['entranceNodeId']]
+        nearest = min(graph, key=lambda n: distance(nodes[n], entrance))
+        if distance(nodes[nearest], entrance) > 60:
+            raise ValueError(f"No verified walking street near {waypoint['name']}.")
+        anchors.append(nearest)
+    route, used, length = [start], set(), 0
+    for a, b in zip(anchors, anchors[1:] + anchors[:1]):
+        # Keep each leg on connected OSM streets and return on different streets.
+        result = shortest(graph, a, b, used, set(route) - {a, b}, max_distance=2500)
+        if not result:
+            raise ValueError('No continuous station loop without retracing streets. Inspect the OSM graph.')
+        leg_length, leg = result
+        route.extend(leg[1:])
+        used.update(frozenset(edge) for edge in zip(leg, leg[1:]))
+        length += leg_length
+    pts = [nodes[n] for n in route]
+    streets = [names[frozenset(edge)] for edge in zip(route, route[1:])]
+    return pts, streets, route, length
 
 
 def smooth_walk(points, streets):
@@ -162,7 +195,8 @@ def make_svg(elements, nodes, theme, viewport):
         if way.get('tags', {}).get('railway') in {'rail', 'light_rail'}:
             parts.append(f'<path d="{path(way.get("nodes", []))}" fill="none" stroke="{c["rail"]}" stroke-width="3" stroke-dasharray="8 5"/>')
     parts.append('</g>')
-    placed = []
+    stations = [(waypoint['name'], xy(nodes[waypoint['stationNodeId']])) for waypoint in CFG.get('waypoints', [])]
+    placed = [p for _, p in stations]
     # Place each named street once along its longest available geometry.
     by_name = {}
     for way in roads:
@@ -185,6 +219,8 @@ def make_svg(elements, nodes, theme, viewport):
             if angle < -90: angle += 180
             parts.append(f'<text x="{x:.1f}" y="{y:.1f}" transform="rotate({angle:.1f} {x:.1f} {y:.1f})" text-anchor="middle" dominant-baseline="central" fill="{c["text"]}" stroke="{c["land"]}" stroke-width="5" paint-order="stroke" font-family="-apple-system,BlinkMacSystemFont,Apple SD Gothic Neo,Pretendard Variable,sans-serif" font-size="25" font-weight="600">{html.escape(name)}</text>')
             placed.append((x,y)); break
+    for name, (x, y) in stations:
+        parts.append(f'<g><circle cx="{x:.1f}" cy="{y:.1f}" r="15" fill="#7450bb" stroke="{c["road"]}" stroke-width="6"/><text x="{x+28:.1f}" y="{y+2:.1f}" dominant-baseline="central" fill="{c["text"]}" stroke="{c["land"]}" stroke-width="8" paint-order="stroke" font-family="-apple-system,BlinkMacSystemFont,Apple SD Gothic Neo,sans-serif" font-size="40" font-weight="700">{html.escape(name)}</text></g>')
     parts.append('</svg>')
     return '\n'.join(parts)
 
@@ -196,11 +232,12 @@ def main():
     elements = data['elements']
     nodes = {e['id']:project(e['lon'],e['lat']) for e in elements if e['type']=='node'}
     ways = [e for e in elements if e['type']=='way']
-    route, streets, ids, length = build_walk(nodes, ways)
+    route, streets, ids, length = build_station_tour(nodes, ways) if CFG.get('waypoints') else build_walk(nodes, ways)
     smooth, labels = smooth_walk(route, streets)
-    xs, ys = zip(*route)
+    extent = route + [nodes[w['stationNodeId']] for w in CFG.get('waypoints', [])]
+    xs, ys = zip(*extent)
     cx,cy = (min(xs)+max(xs))/2, (min(ys)+max(ys))/2
-    span = max(520, (max(xs)-min(xs))*2.6, (max(ys)-min(ys))*2.6)
+    span = max(CFG.get('minMapSpanMeters', 520), (max(xs)-min(xs))*1.6, (max(ys)-min(ys))*1.65)
     # Reserve headroom for the photo pin and the original card's bottom panel.
     cy += span*.035
     output = ROOT/'public/personal/map'
@@ -208,11 +245,17 @@ def main():
     scale = 1200/span
     points = [[round((x-cx+span/2)*scale,2),round((y-cy+span/2)*scale,2)] for x,y in smooth]
     result = dict(width=1200,height=1200,points=points,streets=labels,loopMs=CFG['loopMs'],distanceMeters=round(length,1),address=CFG['address'],roadAddress=CFG['roadAddress'],title=CFG['title'],sourceNodeIds=ids,sourceLicense='ODbL-1.0',metersPerUnit=span/1200)
-    (output/'route.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n')
+    result['waypoints'] = CFG.get('waypoints', [])
+    result['cardAddress'] = CFG['cardAddress']
+    result['home'] = dict(x=round((-cx+span/2)*scale, 2), y=round((-cy+span/2)*scale, 2))
+    (output/'route.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n', encoding='utf-8')
+    home_icon = (ROOT/'personalization/map/vendor/google-home.svg').read_text(encoding='utf-8')
+    (output/'google-home.svg').write_text(home_icon.replace('<path ', '<path fill="#fff" '), encoding='utf-8')
+    (output/'Google-Material-Symbols-LICENSE.txt').write_bytes((ROOT/'personalization/map/vendor/Google-Material-Symbols-LICENSE.txt').read_bytes())
     for theme in ['light','dark']:
-        (output/f'map-{theme}.svg').write_text(make_svg(elements,nodes,theme,(cx,cy,span)))
-    receipt = dict(source='OpenStreetMap API / Overpass',sha256=hashlib.sha256(raw).hexdigest(),bbox=CFG['bbox'],nodeCount=len(nodes),wayCount=len(ways),routeNodeIds=ids,routeDistanceMeters=round(length,1),cornerRadiusMeters=1.5,addressSources=CFG['sources'])
-    (ROOT/'personalization/map/provenance.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
+        (output/f'map-{theme}.svg').write_text(make_svg(elements,nodes,theme,(cx,cy,span)), encoding='utf-8')
+    receipt = dict(source='OpenStreetMap API / Overpass',sourceUrl=CFG['dataUrl'],sourceFileModifiedAt=datetime.fromtimestamp(source.stat().st_mtime, timezone.utc).isoformat(),sha256=hashlib.sha256(raw).hexdigest(),bbox=CFG['bbox'],nodeCount=len(nodes),wayCount=len(ways),routeNodeIds=ids,routeDistanceMeters=round(length,1),cornerRadiusMeters=1.5,waypoints=CFG.get('waypoints', []),addressSources=CFG['sources'])
+    (ROOT/'personalization/map/provenance.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n', encoding='utf-8')
     print(f'Built both themes; {len(points)} route points, {length:.0f} m closed public-street loop.')
 
 
