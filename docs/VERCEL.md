@@ -1,7 +1,7 @@
 # gwangil.xyz 운영 배포
 
 - Vercel 팀: `bananaggongs-projects`, 프로젝트: `itsme`.
-- 운영 소스: `deploy/gwangil-xyz`. 개인화 기준은 `30b4de7`입니다.
+- 운영 소스: `main`. Vercel Production 환경도 `main`을 추적하며, 이 브랜치에 푸시하면 운영 빌드 후 도메인에 자동 반영됩니다.
 - 웹사이트는 로그인 없이 접속하는 정적 HTML이고 `/api/ratings`, `/api/subscribe`는 Vercel Functions입니다.
 - 빌드는 기존 개인화 변환을 그대로 사용합니다. 전체 Sites/Next 의존성 대신 `deployment/vercel`의 저장 SDK만 설치합니다.
 - 기존 Sites 비공개 미리보기와 D1 데이터는 별도로 유지합니다. 데이터를 복제하거나 접근 범위를 변경하지 않습니다.
