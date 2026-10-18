@@ -1,14 +1,15 @@
 import { build } from 'esbuild';
 import { copyFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 const directory = new URL('./', import.meta.url);
 const output = new URL('../../public/personal/grapes/', directory);
 for (const name of readdirSync(output)) if (/^(player|scene-|chunk-).*\.js(?:\.LEGAL\.txt)?$/.test(name)) unlinkSync(new URL(name, output));
 await build({
-  absWorkingDir: directory.pathname,
+  absWorkingDir: fileURLToPath(directory),
   entryPoints: ['player.ts'], bundle: true, minify: true, format: 'esm',
   target: ['safari15', 'chrome100', 'firefox100'], legalComments: 'linked',
   splitting: true, entryNames: 'player', chunkNames: 'scene-[hash]',
-  outdir: output.pathname,
+  outdir: fileURLToPath(output),
 });
 for (const [source, name] of [['three/LICENSE', 'THREE-LICENSE.txt']]) {
   copyFileSync(new URL('node_modules/' + source, directory), new URL('../../public/personal/grapes/' + name, directory));

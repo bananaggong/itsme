@@ -13,6 +13,7 @@ function initialize(tile: HTMLElement) {
   const status = tile.querySelector<HTMLElement>('[data-gp-status]')!;
   const seek = tile.querySelector<HTMLInputElement>('[data-gp-seek]')!;
   const time = tile.querySelector<HTMLElement>('[data-gp-time]')!;
+  const placeholder = tile.querySelector<HTMLElement>('[data-gp-placeholder]')!;
   let index = 0;
   let request = 0;
   let selected = false;
@@ -120,12 +121,16 @@ function initialize(tile: HTMLElement) {
     status.textContent = '음원을 불러오지 못했습니다. 다시 재생해 주세요.';
     render();
   });
+  function showSceneFallback() {
+    tile.dataset.scene = 'fallback';
+    placeholder.textContent = '아래 재생 버튼으로 음악을 들어보세요';
+    tile.querySelector<HTMLElement>('.gp-hint')!.textContent = '이전·다음 버튼으로 곡을 바꿀 수 있어요';
+  }
   canvas.addEventListener('webglcontextlost', event => {
     event.preventDefault();
     destroyScene?.();
     destroyScene = undefined;
-    tile.dataset.scene = 'fallback';
-    tile.querySelector<HTMLElement>('.gp-hint')!.textContent = '아래에서 곡을 골라 재생해보세요';
+    showSceneFallback();
   });
   async function loadScene() {
     if (sceneStarted || disposed) return;
@@ -137,11 +142,10 @@ function initialize(tile: HTMLElement) {
         container: stage, canvas, onSelect: toggle,
         getActiveIndex: () => selected ? index : null,
         getAnalyser: () => analyser,
-        onIntroReady: () => { tile.dataset.scene = 'ready'; },
+        onFirstRender: () => { tile.dataset.scene = 'ready'; },
       });
     } catch {
-      tile.dataset.scene = 'fallback';
-      tile.querySelector<HTMLElement>('.gp-hint')!.textContent = '아래에서 곡을 골라 재생해보세요';
+      showSceneFallback();
     }
   }
   const observer = new IntersectionObserver(entries => {

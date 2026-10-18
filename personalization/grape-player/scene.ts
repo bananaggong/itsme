@@ -144,9 +144,9 @@ function shuffledIndices(length: number) {
   return values;
 }
 
-export function mountGrapeScene({container: heroEl, canvas: canvasEl, onSelect, onIntroReady, getActiveIndex, getAnalyser}: {
+export function mountGrapeScene({container: heroEl, canvas: canvasEl, onSelect, onFirstRender, getActiveIndex, getAnalyser}: {
   container: HTMLElement; canvas: HTMLCanvasElement; onSelect: (index: number) => void;
-  onIntroReady: () => void; getActiveIndex: () => number | null; getAnalyser: () => AnalyserNode | null;
+  onFirstRender: () => void; getActiveIndex: () => number | null; getAnalyser: () => AnalyserNode | null;
 }) {
     const wrap = heroEl;
     const canvas = canvasEl;
@@ -323,7 +323,7 @@ export function mountGrapeScene({container: heroEl, canvas: canvasEl, onSelect, 
     let autoRotY = 0.28;
     let introRotationMix = 0;
     let introComplete = false;
-    let introNotified = false;
+    let firstRenderNotified = false;
     let elapsedTime = 0;
     let isPointerIn = false;
     let lockedGrapeIdx: number | null = null;
@@ -361,10 +361,6 @@ export function mountGrapeScene({container: heroEl, canvas: canvasEl, onSelect, 
       const introTimeline = gsap.timeline({
         paused: true,
         onComplete: () => {
-          if (!introNotified) {
-            introNotified = true;
-            onIntroReady?.();
-          }
           rotationDelayId = globalThis.setTimeout(() => {
             introComplete = true;
           }, ROTATION_DELAY_MS);
@@ -564,6 +560,10 @@ export function mountGrapeScene({container: heroEl, canvas: canvasEl, onSelect, 
         }
 
         renderer.render(scene, camera);
+        if (!firstRenderNotified) {
+          firstRenderNotified = true;
+          onFirstRender();
+        }
       };
 
       gsap.ticker.add(tickerFn);

@@ -1,6 +1,13 @@
 {
   "repository": "https://github.com/bananaggong/grapes-web",
   "commit": "6cf309d2353bef5a29f6c3ab011336539a97eb64",
+  "logo": {
+    "path": "public/grapeslogo2.png",
+    "localPath": "public/personal/grapes/logo.png",
+    "website": "https://www.grapes.my/grapeslogo2.png",
+    "gitBlob": "21f8658a3cf115577ca45087a960d144e536eaf1",
+    "sha256": "79b326c2873b52d3c29156cb64ed10cbfba0b32d7c5ff1eaa1eb6ecdba642da5"
+  },
   "sourceFiles": [
     {
       "path": "components/HeroCanvas.tsx",

@@ -50,6 +50,11 @@ export function personalizeHTML(html) {
     html = html.replace(new RegExp(`src="/${name}\\.js[^" ]*"`, 'g'), `src="/${name}.js?v=${profileVersion}"`);
   }
   if (html.includes('class="tile tile--intro"')) {
+    html = html
+      .replace(/<!-- 11\. Photo Booth[\s\S]*?<button class="tile tile--photobooth[\s\S]*?<\/button>/, '')
+      .replace(/<!-- Featured story,[\s\S]*?<section class="tile tile--news[\s\S]*?<\/section>/, '')
+      .replace(/<!-- Photo Booth window,[\s\S]*?<dialog class="pb-window"[\s\S]*?<\/dialog>/, '')
+      .replace(/<script\b[^>]*src="\/photobooth\.js[^"]*"[^>]*><\/script>\s*/, '');
     html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">하고잡이, ${p.name}입니다.</h1>`)
       .replace(/<div class="intro-body">[\s\S]*?<\/div>/, intro)
       .replace(/<section class="tile tile--contact"[\s\S]*?<\/section>/, `<section class="tile tile--contact" aria-label="${p.name} 연락처"><div class="ct-head"><img class="ct-photo" src="${p.photo}" data-profile-photo alt="${p.name} 프로필 사진"><h2 class="ct-name">${p.name}</h2></div><ul class="ct-actions">${action(mail, '메일', envelope)}${action('tel:'+p.phoneInternational, '전화', phone)}${action(p.github, 'GitHub', github, 'target="_blank" rel="noopener" aria-label="bananaggong GitHub"')}${action(p.vcard, '저장', save, `download="${p.name}.vcf" aria-label="${p.name} 연락처 저장"`)}</ul>${field('이메일', p.email, mail)}${field('전화번호', p.phone, 'tel:'+p.phoneInternational)}</section>`)
@@ -85,6 +90,7 @@ export function personalizeJavaScript(source, name) {
   if (name === 'findmy.js') return personalizeMapJavaScript(source);
   if (name === 'rearrange.js') return source.replace("spotify: 'Spotify'", "spotify: 'Grapes 플레이어'").replace("newsletter: 'Newsletter'", "newsletter: '심심풀이 Instagram'").replace("switcher: 'Where to find me'", "switcher: '내가 만든 것들'");
   if (!['spotlight.js', 'officehours.js', 'look.js', 'memoji.js', 'newsletter-page.js'].includes(name)) return source;
+  if (name === 'spotlight.js') source = source.replace(/\n  \{\n    e: '📸', t: 'Open Photo Booth'[\s\S]*?\n  \},/, '');
   source = source.replaceAll('samdickie@gmail.com', p.email).replaceAll('samdickie.me', 'itsme')
     .replace(/\bSam\b/g, p.name).replaceAll('pixel art', 'photo');
   if (name === 'look.js') source = source.replaceAll('/assets/sam-memoji.webp', p.memoji+'?v='+profileVersion).replace("const KEY = 'sam-look';", "const KEY = 'itsme-look';")
