@@ -4,6 +4,7 @@ import { replacePlaylist } from './grape-player.mjs';
 import { mapVersion, personalizeMapHTML, personalizeMapJavaScript } from './personalize-map.mjs';
 import { instagram, instagramVersion, personalizeInstagramHTML } from './instagram.mjs';
 import { projectsVersion, personalizeProjectsHTML } from './projects.mjs';
+import { personalizeBrandHTML } from './brand.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
@@ -31,6 +32,7 @@ const intro = `<div class="intro-body">
 </div>`;
 
 export function personalizeHTML(html) {
+  html = personalizeBrandHTML(html);
   html = html.replace(/<title>([^<]*)<\/title>/, (_, title) => `<title>${title.replaceAll('Sam Dickie', p.name)}</title>`)
     .replace(/(<meta property="og:(?:site_name|title)" content=")([^"]*)/g, (_, prefix, value) => prefix + value.replaceAll('Sam Dickie', p.name))
     .replace(/(<link rel="canonical" href=")https:\/\/www\.samdickie\.me/g, `$1${p.siteUrl}`)

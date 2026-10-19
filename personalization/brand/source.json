@@ -1,0 +1,11 @@
+{
+  "archive": "gwangil-logo-v1.zip",
+  "archiveSha256": "78fc8750702da6ba102886bf8ffd153bd4e7bb8e5645291d0ed1c8efe1620635",
+  "sharedConversation": "https://chatgpt.com/share/6ad5ac14-e254-83ee-8f97-303f36c0d80c",
+  "variant": "A / current ellipse / monochrome",
+  "files": [
+    {"source": "gwangil-logo-v1/gwangil-master.svg", "local": "personalization/brand/gwangil-master.svg", "sha256": "c9a58916aefd00247e768109c0cb53b346e5c454e269e05ca5dc55d9f1916a1c"},
+    {"source": "gwangil-logo-v1/assets/a-mono.svg", "local": "public/personal/brand/logo-mono.svg", "sha256": "ac6b006e492ca1cf4e3fb7b2f5921a4392e2ccdf03ff570e8f9c54fe9f796295"},
+    {"source": "gwangil-logo-v1/assets/a-reverse.svg", "local": "public/personal/brand/logo-reverse.svg", "sha256": "3830faa6c2ff272c3f546a90ac22e98dd90ac0f35e2b4efdd58ea671378a54e7"}
+  ]
+}
