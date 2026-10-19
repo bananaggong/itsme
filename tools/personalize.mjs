@@ -6,10 +6,11 @@ import { instagram, instagramVersion, personalizeInstagramHTML } from './instagr
 import { projectsVersion, personalizeProjectsHTML } from './projects.mjs';
 import { personalizeBrandHTML } from './brand.mjs';
 import { portraitVersion, personalizePortraitHTML, personalizePortraitJavaScript } from './portrait.mjs';
+import { messagesVersion, personalizeMessagesHTML } from './messages.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion);
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -84,7 +85,7 @@ export function personalizeHTML(html) {
       .replace(/(<meta (?:name="description"|property="og:(?:title|description)") content=")[^"]*(")/g, `$1${p.name}의 소개와 연락처$2`)
       .replace('content="Sam"', `content="${p.givenName}"`).replace('content="Dickie"', `content="${p.familyName}"`);
   }
-  return personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
+  return personalizeMessagesHTML(personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
 }

@@ -14,6 +14,9 @@ function initialize(tile: HTMLElement) {
   const seek = tile.querySelector<HTMLInputElement>('[data-gp-seek]')!;
   const time = tile.querySelector<HTMLElement>('[data-gp-time]')!;
   const placeholder = tile.querySelector<HTMLElement>('[data-gp-placeholder]')!;
+  const metadata = tile.querySelector<HTMLElement>('[data-gp-metadata]')!;
+  const empty = tile.querySelector<HTMLElement>('[data-gp-empty]')!;
+  const timePlaceholder = tile.querySelector<HTMLElement>('[data-gp-time-placeholder]')!;
   let index = 0;
   let request = 0;
   let selected = false;
@@ -29,20 +32,27 @@ function initialize(tile: HTMLElement) {
   tile.querySelectorAll<HTMLButtonElement | HTMLSelectElement>('[disabled]').forEach(control => control.disabled = false);
   const clock = (n: number) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`;
   function updateTime() {
-    const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+    const duration = selected && Number.isFinite(audio.duration) ? audio.duration : 0;
+    const currentTime = selected ? audio.currentTime : 0;
     seek.max = String(duration || 1);
-    seek.value = String(audio.currentTime);
+    seek.value = String(currentTime);
     seek.disabled = duration === 0;
-    seek.setAttribute('aria-valuetext', `${clock(audio.currentTime)} / ${clock(duration)}`);
-    time.textContent = `${clock(audio.currentTime)} / ${clock(duration)}`;
+    seek.setAttribute('aria-valuetext', selected ? `${clock(currentTime)} / ${clock(duration)}` : '선택한 곡 없음');
+    time.hidden = !selected;
+    timePlaceholder.hidden = selected;
+    time.textContent = selected ? `${clock(currentTime)} / ${clock(duration)}` : '';
   }
   function render() {
-    const playing = !audio.paused;
+    const playing = selected && !audio.paused;
     tile.dataset.playing = String(playing);
-    tile.dataset.track = String(index);
+    tile.dataset.track = selected ? String(index) : '';
     tile.dataset.loading = String(loading);
-    title.textContent = SONGS[index].title;
-    artist.textContent = SONGS[index].artist;
+    tile.dataset.selection = selected ? 'selected' : 'idle';
+    metadata.hidden = !selected;
+    empty.hidden = selected;
+    metadata.setAttribute('aria-busy', String(loading));
+    title.textContent = selected ? SONGS[index].title : '';
+    artist.textContent = selected ? SONGS[index].artist : '';
     play.setAttribute('aria-label', playing ? '일시정지' : '재생');
     play.setAttribute('aria-pressed', String(playing));
     play.textContent = playing ? 'Ⅱ' : '▶';
@@ -84,12 +94,10 @@ function initialize(tile: HTMLElement) {
       loading = false;
       status.textContent = `${SONGS[index].artist} · ${SONGS[index].title} 재생 중`;
       render();
+      document.dispatchEvent(new CustomEvent('itsme:music-played'));
     } catch {
       if (ticket !== request || disposed) return;
-      loading = false;
-      selected = false;
-      status.textContent = '재생하지 못했습니다. 재생 버튼을 눌러 다시 시도해 주세요.';
-      render();
+      stop('재생하지 못했습니다. 재생 버튼을 눌러 다시 시도해 주세요.');
     }
   }
   function pause() {
@@ -98,6 +106,19 @@ function initialize(tile: HTMLElement) {
     loading = false;
     status.textContent = '일시정지 · 재생 버튼을 누르면 이어집니다.';
     render();
+  }
+  function stop(message: string) {
+    ++request;
+    selected = false;
+    loading = false;
+    audio.pause();
+    audio.currentTime = 0;
+    status.textContent = message;
+    render();
+  }
+  function selectGrape(next: number) {
+    if (selected && next === index) stop('재생 종료 · 다른 포도알을 골라보세요.');
+    else void start(next);
   }
   function toggle(next = index) {
     if (next === index && (!audio.paused || loading)) pause();
@@ -111,15 +132,10 @@ function initialize(tile: HTMLElement) {
   audio.addEventListener('pause', render);
   audio.addEventListener('playing', () => { loading = false; render(); });
   audio.addEventListener('ended', () => {
-    selected = false;
-    status.textContent = '재생 완료 · 다른 포도알을 골라보세요.';
-    render();
+    stop('재생 완료 · 다른 포도알을 골라보세요.');
   });
   audio.addEventListener('error', () => {
-    selected = false;
-    loading = false;
-    status.textContent = '음원을 불러오지 못했습니다. 다시 재생해 주세요.';
-    render();
+    if (audio.error) stop('음원을 불러오지 못했습니다. 다시 재생해 주세요.');
   });
   function showSceneFallback() {
     tile.dataset.scene = 'fallback';
@@ -139,7 +155,7 @@ function initialize(tile: HTMLElement) {
       const { mountGrapeScene } = await import('./scene');
       if (disposed) return;
       destroyScene = mountGrapeScene({
-        container: stage, canvas, onSelect: toggle,
+        container: stage, canvas, onSelect: selectGrape,
         getActiveIndex: () => selected ? index : null,
         getAnalyser: () => analyser,
         onFirstRender: () => { tile.dataset.scene = 'ready'; },

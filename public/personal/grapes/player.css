@@ -28,7 +28,14 @@
 :root[data-theme="dark"] .gp-hint { background: rgb(27 16 43 / 65%); border-color: var(--gp-line); }
 .tile--grapes .gp-controls { flex-shrink: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 12px; padding: 20px 24px 16px; border-top: 1px solid var(--gp-line); background: rgb(255 255 255 / 32%); }
 :root[data-theme="dark"] .gp-controls { background: rgb(13 10 23 / 45%); }
-.gp-now { min-width: 0; }
+.gp-now { min-width: 0; min-height: 52px; }
+.tile--grapes [hidden] { display: none; }
+.gp-empty { display: grid; align-content: center; gap: 9px; min-height: 52px; }
+.gp-skeleton { display: block; border-radius: 5px; background: var(--gp-line); }
+.gp-skeleton-title { width: min(76%, 270px); height: 24px; }
+.gp-skeleton-artist { width: 58px; height: 10px; }
+.gp-skeleton-time { width: 62px; height: 8px; }
+.tile--grapes[data-selection="idle"] .gp-progress input { opacity: .35; cursor: default; }
 .gp-label { display: block; font-size: 9px; letter-spacing: 1.1px; font-weight: 700; color: var(--gp-muted); margin-bottom: 6px; }
 .gp-now h2 { font-size: clamp(21px, 2.2vw, 30px); letter-spacing: -.6px; line-height: 1.15; margin: 0 0 4px; overflow-wrap: anywhere; }
 .gp-now p { margin: 0; font-size: 12px; color: var(--gp-muted); }

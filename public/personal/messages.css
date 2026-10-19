@@ -1,0 +1,15 @@
+.im-personal .im-body { display: block; -webkit-line-clamp: unset; overflow: visible; line-height: 1.5; }
+.im-personal .im-close { opacity: 1; transform: none; }
+.im-personal .im-time { display: block !important; }
+.im-actions { display: flex; justify-content: flex-end; margin-top: 10px; padding-left: 51px; }
+.im-ack {
+  min-height: 32px; padding: 6px 12px; border: 0; border-radius: 12px;
+  font: 500 12px / 1.4 var(--font-system); cursor: pointer;
+  color: var(--text); background: var(--im-field);
+}
+.im-ack:hover { background: var(--im-button); }
+.im-ack:focus-visible { outline: 2px solid var(--apple-blue); outline-offset: 2px; }
+@media (max-width: 600px) {
+  .im-personal { left: 12px; right: 12px; width: auto; max-width: none; }
+  .im-ack { min-height: 40px; }
+}
