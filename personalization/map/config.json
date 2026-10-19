@@ -7,7 +7,7 @@
   "dataUrl": "https://www.openstreetmap.org/api/0.6/map.json?bbox=127.0350,37.5598,127.0454,37.5682",
   "title": "출근길",
   "cardAddress": "마조로 15나길 7-1",
-  "loopMs": 90000,
+  "loopMs": 45000,
   "minMapSpanMeters": 1200,
   "waypoints": [
     { "name": "마장역", "entranceNodeId": 3402984151, "stationNodeId": 6039313633 },

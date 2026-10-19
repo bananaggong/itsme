@@ -132,7 +132,8 @@ function initialize(tile: HTMLElement) {
   audio.addEventListener('pause', render);
   audio.addEventListener('playing', () => { loading = false; render(); });
   audio.addEventListener('ended', () => {
-    stop('재생 완료 · 다른 포도알을 골라보세요.');
+    if (disposed || !selected || !audio.ended) return;
+    void start((index + 1) % SONGS.length);
   });
   audio.addEventListener('error', () => {
     if (audio.error) stop('음원을 불러오지 못했습니다. 다시 재생해 주세요.');
