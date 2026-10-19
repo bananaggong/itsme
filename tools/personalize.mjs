@@ -5,10 +5,11 @@ import { mapVersion, personalizeMapHTML, personalizeMapJavaScript } from './pers
 import { instagram, instagramVersion, personalizeInstagramHTML } from './instagram.mjs';
 import { projectsVersion, personalizeProjectsHTML } from './projects.mjs';
 import { personalizeBrandHTML } from './brand.mjs';
+import { portraitVersion, personalizePortraitHTML, personalizePortraitJavaScript } from './portrait.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion);
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -83,12 +84,13 @@ export function personalizeHTML(html) {
       .replace(/(<meta (?:name="description"|property="og:(?:title|description)") content=")[^"]*(")/g, `$1${p.name}의 소개와 연락처$2`)
       .replace('content="Sam"', `content="${p.givenName}"`).replace('content="Dickie"', `content="${p.familyName}"`);
   }
-  return personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
+  return personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
 }
 
 export function personalizeJavaScript(source, name) {
+  source = personalizePortraitJavaScript(source, name);
   if (name === 'findmy.js') return personalizeMapJavaScript(source);
   if (name === 'rearrange.js') return source.replace("spotify: 'Spotify'", "spotify: 'Grapes 플레이어'").replace("newsletter: 'Newsletter'", "newsletter: '심심풀이 Instagram'").replace("switcher: 'Where to find me'", "switcher: '내가 만든 것들'");
   if (!['spotlight.js', 'officehours.js', 'look.js', 'memoji.js', 'newsletter-page.js'].includes(name)) return source;

@@ -1,0 +1,59 @@
+/* Real daily photos use their own square viewport, without changing the other
+   profile pictures on the site. Framing is independent of the grid row height. */
+.tile--avatar[data-portrait-mode] { aspect-ratio: 1; align-self: start; overflow: clip; }
+.tile--avatar .avatar-profile { display: block; position: absolute; inset: 0; }
+.portrait-photos, .portrait-slide { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.portrait-slide { opacity: 0; transition: opacity .3s ease; }
+.tile--avatar[data-portrait-mode="daily"] .portrait-slide.is-current { opacity: 1; }
+.tile--avatar .portrait-slide img {
+  position: absolute;
+  width: var(--photo-width);
+  height: auto;
+  max-width: none;
+  left: var(--photo-left);
+  top: var(--photo-top);
+  contain: none;
+  object-fit: fill;
+  image-rendering: auto;
+}
+.tile--avatar .siri-bar { font-size: clamp(12px, 4.1cqi, 15px); pointer-events: none; }
+.tile--avatar .siri-button { z-index: 2; }
+.tile--avatar .siri-bar, .tile--avatar .siri-glow { z-index: 3; }
+.tile--avatar .siri-shimmer { z-index: 1; }
+.portrait-controls {
+  position: absolute; z-index: 2; left: 12px; bottom: 12px;
+  display: flex; align-items: center; height: 44px; padding: 0 2px;
+  color: var(--siri-glass-text); background: var(--siri-glass);
+  border-radius: 22px;
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .4);
+}
+.portrait-controls[hidden] { display: none; }
+.portrait-controls button {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 28px; height: 44px; padding: 0;
+  color: inherit; border: 0; border-radius: 20px; background: transparent;
+  cursor: pointer; font: 400 26px / 1 var(--font-system);
+}
+.portrait-dots { display: flex; }
+.portrait-dots button { width: 20px; }
+.portrait-dots span { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .35; }
+.portrait-dots button[aria-pressed="true"] span { opacity: 1; }
+.portrait-controls button:focus-visible { outline: 2px solid var(--apple-blue); outline-offset: -2px; }
+.portrait-controls button[aria-disabled="true"] { cursor: wait; }
+.tile--avatar .siri-status.has-error {
+  position: absolute; z-index: 4; left: 12px; right: 12px; bottom: 64px;
+  width: auto; height: auto; margin: 0; padding: 10px 12px;
+  overflow: visible; clip: auto; clip-path: none; white-space: normal;
+  border-radius: 12px; background: var(--siri-glass); color: var(--siri-glass-text);
+  font: 500 12px / 1.5 var(--font-system);
+}
+/* Narrow columns keep both controls and the full return label readable. */
+@container (max-width: 329px) {
+  .portrait-controls { bottom: 64px; }
+  .tile--avatar[data-portrait-mode="daily"] .siri-status.has-error { bottom: 116px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait-slide { transition: none; }
+}
