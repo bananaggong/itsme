@@ -8,12 +8,13 @@
 .pj-card:hover .pj-visit { text-decoration: underline; text-underline-offset: 3px; }
 .pj-card:focus-visible { outline: 2px solid var(--sw-purple); outline-offset: -2px; }
 .pj-shot { display: block; width: 100%; height: 128px; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+#project-panel-galpang .pj-shot { object-position: 50% 75%; }
 .pj-info { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; gap: 5px; }
 .pj-name { font-size: 20px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
 .pj-description { color: var(--muted); font-size: 12px; line-height: 1.5; word-break: keep-all; overflow-wrap: anywhere; }
 .pj-visit { display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; font-size: 12px; font-weight: 600; line-height: 1.3; }
 .pj-visit svg { width: 15px; height: 15px; }
-.pj-domain { color: var(--muted); font-size: 10px; line-height: 1.2; }
+.pj-domain { color: var(--muted); font-size: 10px; line-height: 1.2; overflow-wrap: anywhere; }
 .tile--projects .sw-dock { max-width: 100%; padding: 7px; gap: 8px; flex-shrink: 0; }
 .tile--projects .sw-app { --sw-app-size: 58px; border-radius: 17px; }
 .tile--projects .sw-app img { background: #fff; }
@@ -26,6 +27,8 @@
 }
 @media (max-width: 360px) {
   .tile--projects { padding: 16px; }
+  .tile--projects .sw-dock { gap: 6px; }
+  .tile--projects .sw-app { --sw-app-size: 50px; border-radius: 15px; }
   .pj-card { gap: 10px; padding: 6px; }
   .pj-shot { height: 120px; }
   .pj-name { font-size: 17px; }

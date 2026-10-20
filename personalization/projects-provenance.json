@@ -1,6 +1,6 @@
 {
   "capturedOn": "2026-10-18",
-  "screens": "Unmodified screenshots of public landing pages. No authenticated or administrator data.",
+  "screens": "Per-project sources: public landing screenshots for NUVIO and Intume; approved composite for Galpang; fictional source-component demo for LOAM.",
   "projects": [
     {
       "id": "nuvio",
@@ -47,6 +47,21 @@
           ]
         }
       ]
+    },
+    {
+      "id": "galpang",
+      "sourceUrl": "https://gal-pang-jil-pang.vercel.app/",
+      "provenance": "personalization/galpang-project-provenance.json",
+      "preview": "/personal/projects/galpang-shibuya.webp",
+      "note": "User-approved staged travel scene, not an unmodified screenshot."
+    },
+    {
+      "id": "loam",
+      "sourceUrl": "/projects/loam/",
+      "provenance": "personalization/loam-project-provenance.json",
+      "preview": "/personal/projects/loam-board.jpg",
+      "icon": "/personal/projects/loam-icon.svg",
+      "note": "Fictional example data in source UI components. Icon reuses the existing Loam text wordmark and portfolio colors."
     }
   ]
 }

@@ -13,10 +13,15 @@ const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7
 
 export function personalizeProjectsHTML(html) {
   if (!html.includes('class="tile tile--switcher"')) return html;
-  const panels = projects.map((project, index) => `<div class="sw-panel${index === 0 ? ' is-active' : ''}" data-app="${escape(project.id)}" id="project-panel-${escape(project.id)}"${index === 0 ? '' : ' hidden'}><a class="pj-card" href="${escape(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(project.name)} 서비스 보기"><img class="pj-shot" src="${asset(project.preview)}" alt="${escape(project.name)}의 실제 공개 홈페이지 화면" width="1440" height="900" loading="lazy" decoding="async"><span class="pj-info"><strong class="pj-name">${escape(project.brand)}</strong><span class="pj-description">${escape(project.description)}</span><span class="pj-visit">서비스 보기${arrow}</span><span class="pj-domain">${escape(project.domain)}</span></span></a></div>`).join('');
+  const panels = projects.map((project, index) => {
+    const external = /^https?:\/\//.test(project.url);
+    const cta = project.cta || '서비스 보기';
+    const alt = project.previewAlt || `${project.name}의 실제 공개 홈페이지 화면`;
+    return `<div class="sw-panel${index === 0 ? ' is-active' : ''}" data-app="${escape(project.id)}" id="project-panel-${escape(project.id)}"${index === 0 ? '' : ' hidden'}><a class="pj-card" href="${escape(project.url)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''} aria-label="${escape(project.name)} ${escape(cta)}${external ? ' (새 탭)' : ''}"><img class="pj-shot" src="${asset(project.preview)}" alt="${escape(alt)}" width="1440" height="900" loading="lazy" decoding="async"><span class="pj-info"><strong class="pj-name">${escape(project.brand)}</strong><span class="pj-description">${escape(project.description)}</span><span class="pj-visit">${escape(cta)}${arrow}</span><span class="pj-domain">${escape(project.domain)}</span></span></a></div>`;
+  }).join('');
   const apps = projects.map((project, index) => `<button class="sw-app${index === 0 ? ' is-active' : ''}" type="button" data-app="${escape(project.id)}" aria-label="${escape(project.name)}" aria-pressed="${index === 0}" aria-controls="project-panel-${escape(project.id)}"><img src="${asset(project.icon)}" alt="" width="58" height="58"></button>`).join('');
   const first = projects[0];
-  const widget = `<section class="tile tile--switcher tile--projects" id="project-workbench" aria-label="내가 만든 것들: 누비오와 인투미"><p class="tile-app sw-label"><img class="tile-app-icon sw-label-icon" src="${asset(first.icon)}" alt=""><span class="sw-label-name">${escape(first.name)}</span></p><div class="sw-cards">${panels}</div><div class="sw-dock" role="group" aria-label="프로젝트 선택">${apps}</div></section>`;
+  const widget = `<section class="tile tile--switcher tile--projects" id="project-workbench" aria-label="내가 만든 것들: ${escape(projects.map(project => project.name).join(', '))}"><p class="tile-app sw-label"><img class="tile-app-icon sw-label-icon" src="${asset(first.icon)}" alt=""><span class="sw-label-name">${escape(first.name)}</span></p><div class="sw-cards">${panels}</div><div class="sw-dock" role="group" aria-label="프로젝트 선택">${apps}</div></section>`;
   return html.replace(/<section class="tile tile--switcher"[\s\S]*?<\/section>/, widget)
     .replace(/src="\/switcher\.js[^" ]*"/, `src="/personal/projects/widget.js?v=${projectsVersion}"`)
     .replace('</head>', `<link rel="stylesheet" href="/personal/projects/widget.css?v=${projectsVersion}"></head>`);

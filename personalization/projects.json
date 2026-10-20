@@ -19,6 +19,29 @@
       "domain": "intume.kr",
       "icon": "/personal/projects/intume-icon.png",
       "preview": "/personal/projects/intume-preview.png"
+    },
+    {
+      "id": "galpang",
+      "name": "갈팡질팡",
+      "brand": "갈팡질팡.",
+      "description": "지금 위치와 남은 시간에 맞춰 다음 여행지를 고르는 길잡이",
+      "url": "https://gal-pang-jil-pang.vercel.app/",
+      "domain": "gal-pang-jil-pang.vercel.app",
+      "icon": "/personal/projects/galpang-icon.png",
+      "preview": "/personal/projects/galpang-shibuya.webp",
+      "previewAlt": "일본 거리에서 갈팡질팡을 사용하는 모습을 연출한 합성 이미지"
+    },
+    {
+      "id": "loam",
+      "name": "LOAM",
+      "brand": "LOAM",
+      "description": "가설에 증거를 연결하고, 판단과 배운 점을 기록하는 도구",
+      "url": "/projects/loam/",
+      "domain": "예시 화면 체험 가능",
+      "cta": "자세히 보기",
+      "icon": "/personal/projects/loam-icon.svg",
+      "preview": "/personal/projects/loam-board.jpg",
+      "previewAlt": "가상 예시 프로젝트 마감한입으로 구성한 LOAM 가설 보드"
     }
   ]
 }

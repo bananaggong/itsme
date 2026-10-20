@@ -6,7 +6,7 @@ const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)))
 for (const path of ['../tools/loam-project.mjs', '../public/personal/projects/loam-detail.css', '../public/personal/projects/loam-card.jpg', '../public/personal/projects/loam-board.jpg', '../public/personal/projects/loam-evidence.jpg', '../public/personal/projects/loam-memory.jpg']) {
   hash.update(readFileSync(new URL(path, import.meta.url)));
 }
-for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css']) {
+for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-home-mobile.jpg', 'intume-events-mobile.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css', 'galpang-icon.png', 'galpang-shibuya.webp']) {
   hash.update(readFileSync(new URL('../public/personal/projects/' + name, import.meta.url)));
 }
 for (const path of ['/personal/projects/stories.css', '/personal/projects/nuvio-detail.css', '/personal/projects/nuvio-open-section.webp', '/personal/projects/nuvio-icon.png', '/personal/projects/nuvio-wordmark.svg', '/personal/projects/nuvio-symbol.svg', '/personal/projects/nuvio-open-hero.webp', '/personal/projects/nuvio-social-preview.png']) {
@@ -48,17 +48,33 @@ const intumeCard = `<a class="pj-story pj-story--intume" id="intume" href="/proj
       <p class="pj-eyebrow" lang="en">Ongoing project</p>
       <h2 class="pj-story-title"><span>만남이 끝나도,</span><span>대화는 이어지도록</span></h2>
     </div>
-    <span class="intume-browser" aria-hidden="true">
-      <span class="nuvio-browser-bar">
-        <span class="nuvio-browser-lights"><i></i><i></i><i></i></span>
-        <span class="nuvio-browser-address">${lock}<span>intume.kr</span>${refresh}</span>
-      </span>
-      <img class="intume-browser-screen" src="${asset('/personal/projects/intume-home-screen.jpg')}" alt="" width="1280" height="800" decoding="async">
+    <span class="intume-screen-scene" aria-hidden="true">
+      <span class="intume-screen intume-screen--home"><img src="${asset('/personal/projects/intume-home-mobile.jpg')}" alt="" width="430" height="860" decoding="async"></span>
+      <span class="intume-screen intume-screen--profile"><img src="${asset('/personal/projects/intume-profile-mobile.jpg')}" alt="" width="430" height="860" decoding="async"></span>
+      <span class="intume-screen intume-screen--events"><img src="${asset('/personal/projects/intume-events-mobile.jpg')}" alt="" width="415" height="830" decoding="async"></span>
+      <span class="intume-screen intume-screen--coffee"><img src="${asset('/personal/projects/intume-coffeechat-screen.jpg')}" alt="" width="415" height="830" decoding="async"></span>
     </span>
     <div class="pj-strip">
       <span class="pj-icon intume-story-icon" aria-hidden="true"><img src="${asset('/personal/projects/intume-icon.png')}" alt="" width="512" height="512"></span>
       <span class="pj-strip-text"><strong>인투미</strong><span>프로필에서 커피챗과 모임까지</span></span>
       <span class="pj-get">자세히 보기</span>
+    </div>
+  </div>
+</a>`;
+
+const galpangCard = `<a class="pj-story pj-story--galpang" id="galpang" href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="갈팡질팡. 서비스 보기 (새 탭)" lang="ko">
+  <div class="pj-story-clip">
+    <div class="pj-story-text">
+      <p class="pj-eyebrow" lang="en">Side project</p>
+      <h2 class="pj-story-title"><span>여긴 다 봤는데,</span><span>다음엔 어디로?</span></h2>
+    </div>
+    <div class="galpang-story-media">
+      <img class="pj-story-img galpang-story-photo" src="${asset('/personal/projects/galpang-shibuya.webp')}" alt="시부야 거리에서 휴대폰으로 갈팡질팡의 다음 장소 추천을 확인하는 장면" width="1536" height="1024" loading="lazy" decoding="async">
+      <div class="pj-strip">
+        <span class="pj-icon galpang-story-icon" aria-hidden="true"><img src="${asset('/personal/projects/galpang-icon.png')}" alt="" width="512" height="512"></span>
+        <span class="pj-strip-text"><strong>갈팡질팡.</strong><span>지금 여기서, 다음 여행지 고르기</span></span>
+        <span class="pj-get">서비스 보기${arrow}</span>
+      </div>
     </div>
   </div>
 </a>`;
@@ -71,6 +87,7 @@ export function personalizeProjectStoriesHTML(html) {
       .replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/stories.css')}"></head>`);
   }
   html = html.replace(/<a class="pj-story pj-story--cover" href="\/projects\/betatesta\/"[\s\S]*?<\/a>/, intumeCard);
+  html = html.replace(/<a class="pj-story pj-story--band" href="\/projects\/fiilo\/"[\s\S]*?<\/a>/, galpangCard);
   html = html.replace(/<a class="pj-story pj-story--band" href="\/projects\/beta-directory\/"[\s\S]*?<\/a>/, loamCard(asset));
   if (html.includes('class="pj-app loam-detail"')) {
     html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/loam-detail.css')}"></head>`)

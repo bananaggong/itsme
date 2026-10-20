@@ -1,0 +1,29 @@
+{
+  "project": "갈팡질팡.",
+  "date": "2026-10-20",
+  "scope": "Projects card and home project switcher for the 2026-10-21 production release. Service link opens the existing Galpang app; no new detail page.",
+  "url": "https://gal-pang-jil-pang.vercel.app/",
+  "copy": {
+    "eyebrow": "Side project",
+    "title": [
+      "여긴 다 봤는데,",
+      "다음엔 어디로?"
+    ],
+    "description": "지금 여기서, 다음 여행지 고르기",
+    "basis": "The user's account of building the app for a Japan trip, and the actual product DESIGN_GUIDE.md describing choosing the next action from current location and time."
+  },
+  "icon": {
+    "asset": "/personal/projects/galpang-icon.png",
+    "source": "C:/projects/gal-pang-jil-pang/public/brand/app-icon-512.png",
+    "method": "Unmodified official app icon"
+  },
+  "image": {
+    "asset": "/personal/projects/galpang-shibuya.webp",
+    "source": "C:/Users/rhkd3/OneDrive/Document/ChatGPT/ITSME 2/research/galpang-card/galpang-shibuya-v1.png",
+    "method": "User-approved image_gen screen composite, converted to WebP quality 92 without recropping",
+    "originalPhotoPage": "https://www.youcouldtravel.com/travel-blog/travel-apps-for-japan/",
+    "originalPhoto": "https://www.youcouldtravel.com/u/u/useful-travel-apps-for-japan.jpg",
+    "screen": "Actual mobile UI captured from the app's local E2E demo with Shibuya selected; AI-composited, not a pixel-identical overlay",
+    "presentation": "Separate solid sky-blue-gray (#b6ced4) title band above the photo, matching the original App Store band-card format. No headline overlay or gradient on the photo. The enlarged photo continues behind the frosted app footer, with its height at 150% of the media region and its top at -48%, keeping the phone screen above the footer. The footer uses the same translucent surface as NUVIO and INTUME in light and dark modes."
+  }
+}

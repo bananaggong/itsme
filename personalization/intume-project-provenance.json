@@ -85,6 +85,28 @@
       "generator": "Built-in image_gen",
       "note": "One presentation mockup generated from the three captured screens. It is a composed illustration of the UI, not an unmodified screenshot. Original source captures are retained.",
       "generationPrompt": "Use case: compositing / UI screenshot showcase. Make ONE wide landscape 16:9 App Store product preview composition using all THREE supplied Intume screenshots. These are real product screenshots: preserve each screenshot's exact Korean words, user photograph, UI elements, aspect ratio, and colors; do not redesign or invent UI or repaint the person's face. Image 1 is the main wide desktop profile and Q&A screen, Image 2 is the tall mobile photo profile, Image 3 is the tall coffee-chat application side panel. Arrange image 1 as a large flat desktop browser window occupying the back upper-left/center; add a slim tasteful Mac-style top toolbar with three tiny dots, no added words. Position the mobile screenshot as a rounded upright phone-like card in the foreground at bottom left, and the coffee-chat screenshot as a floating tall panel on the right. Use slight tasteful overlap only in screenshot whitespace; leave the profile bio and Q&A and coffee-chat inputs recognizable. Clean frontal flat view, no perspective tilt. One coherent composition with balanced hierarchy rather than three equally weighted columns. Pale neutral cool white background (#f4f5f7), very subtle soft natural shadows, delicate gray borders, soft 20px rounded window corners. Keep all three frames completely within the canvas with ample safe margin, mobile and coffee-chat similar visual height. High resolution, sharp text. No title, no added labels, no arrows, no decorative blobs, no fake logos, no marketing copy, no outer webpage or gallery. This will be placed as ONE preview image in an existing Apple App Store style portfolio page."
+    },
+    {
+      "path": "/personal/projects/intume-home-mobile.jpg",
+      "source": "https://intume.kr/",
+      "dimensions": [
+        430,
+        860
+      ],
+      "mode": "LIVE_PUBLIC_SCREEN",
+      "capturedOn": "2026-10-20",
+      "sha256": "ed4926e9e9f348802639258ace5d6f47cb1ba16e0aefec1df0118ba052cdd695"
+    },
+    {
+      "path": "/personal/projects/intume-events-mobile.jpg",
+      "source": "https://intume.kr/events",
+      "dimensions": [
+        415,
+        830
+      ],
+      "mode": "LIVE_PUBLIC_SCREEN",
+      "capturedOn": "2026-10-20",
+      "sha256": "b4ed57a79ea46f736f274093268791f8ece1af4af97d3c6af61df01b9db730dc"
     }
   ],
   "contentSources": [
@@ -125,5 +147,20 @@
     "intume-connect-preview.png",
     "intume-home-screen.jpg",
     "intume-events-screen.jpg"
-  ]
+  ],
+  "projectCard": {
+    "mode": "HTML_CSS_SCREEN_COMPOSITION",
+    "background": "#3DBFFB",
+    "brandSource": "https://github.com/bananaggong/intume-web/blob/main/INTUME%20BRAND%20GUIDE.pdf",
+    "guidePage": 6,
+    "guideGitBlobSha": "9ba007e03bf0b7bc2a24355fc3e7a117087b3a7a",
+    "screens": [
+      "intume-home-mobile.jpg",
+      "intume-profile-mobile.jpg",
+      "intume-events-mobile.jpg",
+      "intume-coffeechat-screen.jpg"
+    ],
+    "note": "Unchanged capture pixels presented in rotated and clipped CSS frames. Existing headline and App Store card structure retained. No generated imagery used for this card.",
+    "release": "Approved local card revision included in the 2026-10-21 portfolio production release."
+  }
 }
