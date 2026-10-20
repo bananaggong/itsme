@@ -4,6 +4,8 @@ import { createServer } from 'node:http';
 import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { personalizeHTML, personalizeJavaScript, personalizeSearchIndex } from './personalize.mjs';
+import { storeContactNote } from '../hosting/contact-notes.mjs';
+import { deliverMessageNotifications } from '../hosting/message-notifications.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.gif':'image/gif', '.woff2':'font/woff2', '.woff':'font/woff', '.mp3':'audio/mpeg', '.mp4':'video/mp4', '.webm':'video/webm', '.ico':'image/x-icon', '.vcf':'text/vcard; charset=utf-8', '.xml':'application/xml; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.pdf':'application/pdf' };
@@ -25,7 +27,7 @@ export function cloneJavaScript(source, name) {
 
 export const cloneJSON = (source, name) => name==='search.json' ? personalizeSearchIndex(source) : source;
 
-export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.env.DATA_DIR || resolve(root,'.data'), now=()=>Date.now() }={}) {
+export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.env.DATA_DIR || resolve(root,'.data'), now=()=>Date.now(), notifyMessage }={}) {
   const bookHTML = readFileSync(resolve(publicDir,'books/index.html'),'utf8');
   const bookData = JSON.parse(bookHTML.match(/<script[^>]*id="bk-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
   const books = new Set(bookData.map(book=>book.slug));
@@ -38,6 +40,14 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
     const temporary = `${file}.tmp`;
     writeFileSync(temporary,JSON.stringify(store,null,2)+'\n',{mode:0o600});
     renameSync(temporary,file);
+  };
+  const mutateMessages = async change => {
+    const next = structuredClone(store);
+    const result = change(next);
+    const previous = store;
+    store = next;
+    try { save(); } catch (error) { store = previous; throw error; }
+    return result;
   };
   const summary = slug => {
     const old = seed[slug] || {average:0,count:0};
@@ -72,12 +82,20 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
           const slugs = new Set([...Object.keys(seed),...Object.keys(store.votes)]);
           return json(res,200,{ratings:Object.fromEntries([...slugs].map(slug=>[slug,summary(slug)]))});
         }
-        if (!['/api/ratings','/api/subscribe'].includes(url.pathname)) return json(res,404,{ok:false,message:'Not found'});
+        if (!['/api/ratings','/api/subscribe','/api/messages'].includes(url.pathname)) return json(res,404,{ok:false,message:'Not found'});
         if (req.method!=='POST') { res.setHeader('Allow',url.pathname==='/api/ratings'?'GET, POST':'POST');return json(res,405,{ok:false,message:'Method not allowed'}); }
         const origin = req.headers.origin;
         if (origin && new URL(origin).host!==req.headers.host) return json(res,403,{ok:false,message:'Cross-origin submission rejected'});
         const data = await body(req);
         if (!data || typeof data!=='object' || Array.isArray(data)) return json(res,400,{ok:false,message:'Invalid request'});
+        if (url.pathname === '/api/messages') {
+          const result = await mutateMessages(next => storeContactNote(next, data, req.socket.remoteAddress, now()));
+          if (notifyMessage) {
+            void deliverMessageNotifications({ mutate: mutateMessages, notify: notifyMessage, now, id: result.id })
+              .catch(() => console.error('Message notification remains queued for retry.'));
+          }
+          return json(res,200,result);
+        }
         if (url.pathname==='/api/ratings') {
           if (!books.has(data.book) || !Number.isInteger(data.stars) || data.stars<1 || data.stars>5 || typeof data.voter!=='string' || !/^[a-zA-Z0-9-]{8,100}$/.test(data.voter)) return json(res,400,{ok:false,message:'Invalid rating'});
           const voter = createHash('sha256').update(data.voter).digest('hex');

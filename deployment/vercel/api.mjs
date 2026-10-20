@@ -1,6 +1,9 @@
 import { createHash } from 'node:crypto';
+import { waitUntil as keepAlive } from '@vercel/functions';
 import books from '../../hosting/generated/books.json' with { type: 'json' };
 import snapshot from '../../reference/ratings.json' with { type: 'json' };
+import { storeContactNote } from '../../hosting/contact-notes.mjs';
+import { deliverMessageNotifications, isNotificationRetryAuthorized } from '../../hosting/message-notifications.mjs';
 
 const allowed = new Set(books);
 const sha = value => createHash('sha256').update(value).digest('hex');
@@ -51,11 +54,17 @@ async function mutate(storage, change) {
   throw Object.assign(new Error('Concurrent update, retry'), { status: 503 });
 }
 
-export function createAPI(storage, now = Date.now) {
+export function createAPI(storage, now = Date.now, { notifyMessage, waitUntil = keepAlive, retrySecret } = {}) {
   return async function handle(request) {
     const url = new URL(request.url), path = url.pathname.replace(/\/$/, '');
-    if (!['/api/ratings', '/api/subscribe'].includes(path)) return json({ ok: false, message: 'Not found' }, 404);
+    if (!['/api/ratings', '/api/subscribe', '/api/messages', '/api/message-notifications'].includes(path)) return json({ ok: false, message: 'Not found' }, 404);
     try {
+      if (path === '/api/message-notifications') {
+        if (!isNotificationRetryAuthorized(request, retrySecret)) return json({ ok: false }, 401);
+        if (!['GET', 'POST'].includes(request.method)) return json({ ok: false }, 405, { Allow: 'GET, POST' });
+        if (!notifyMessage) return json({ ok: false }, 503);
+        return json({ ok: true, ...await deliverMessageNotifications({ mutate: change => mutate(storage, change), notify: notifyMessage, now }) });
+      }
       if (path === '/api/ratings' && request.method === 'GET') {
         const { value } = await storage.readStore();
         const slugs = new Set([...Object.keys(snapshot.ratings), ...Object.keys(value.votes)]);
@@ -67,6 +76,15 @@ export function createAPI(storage, now = Date.now) {
       const origin = request.headers.get('origin');
       if (origin && new URL(origin).origin !== url.origin) return json({ ok: false, message: 'Cross-origin submission rejected' }, 403);
       const data = await parse(request);
+      if (path === '/api/messages') {
+        const result = await mutate(storage, value => storeContactNote(value, data, request.headers.get('x-real-ip'), now()));
+        if (notifyMessage) {
+          const task = deliverMessageNotifications({ mutate: change => mutate(storage, change), notify: notifyMessage, now, id: result.id })
+            .catch(() => console.error('Message notification remains queued for retry.'));
+          if (waitUntil) waitUntil(task); else await task;
+        }
+        return json(result);
+      }
       if (path === '/api/ratings') {
         if (!allowed.has(data.book) || !Number.isInteger(data.stars) || data.stars < 1 || data.stars > 5 || typeof data.voter !== 'string' || !/^[a-zA-Z0-9-]{8,100}$/.test(data.voter)) {
           return json({ ok: false, message: 'Invalid rating' }, 400);

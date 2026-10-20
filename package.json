@@ -15,6 +15,7 @@
     "test:interactions": "node tools/interactions.mjs",
     "test:edges": "node tools/edge-cases.mjs",
     "subscribers:export": "node tools/export-subscribers.mjs",
+    "messages:inbox": "node tools/messages-inbox.mjs",
     "capture:source": "python3 tools/capture.py",
     "build:sites": "node tools/prepare-sites.mjs && vinext build",
     "db:generate": "drizzle-kit generate",

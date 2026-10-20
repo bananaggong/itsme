@@ -1,0 +1,70 @@
+.tile--hello {
+  --note-accent: var(--ch-green-text);
+  --note-wash: var(--ch-green-wash);
+  cursor: default;
+  gap: 10px;
+  min-height: 330px;
+  scroll-margin-top: 110px;
+}
+.tile--hello:hover { transform: none; box-shadow: none; }
+.tile--hello [hidden] { display: none !important; }
+.note-calendar-date { display: flex; flex-direction: column; }
+.note-calendar-open { font: inherit; cursor: pointer; }
+.note-idle { display: flex; flex-direction: column; flex: 1; min-height: 190px; }
+.note-topics { list-style: none; padding: 0; }
+.note-topic .ch-title { color: var(--muted); }
+.note-caption { margin-top: 10px; line-height: 1.5; font-size: 11px; }
+.tile--hello[data-note-state="compose"] .note-calendar-date { flex-direction: row; align-items: baseline; gap: 8px; }
+.tile--hello[data-note-state="compose"] .ch-date { font-size: 28px; }
+.tile--hello[data-note-state="compose"] .ch-weekday { font-size: 10px; }
+.note-send {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; min-height: 43px; padding: 10px 13px;
+  border: 1px solid transparent; border-left: 3px solid var(--ch-green); border-radius: 8px;
+  background: var(--note-wash); color: var(--note-accent);
+  font: 600 13px var(--font-system); cursor: pointer;
+  transition: background .18s ease, box-shadow .18s ease;
+}
+.note-send svg { width: 19px; height: 19px; flex: none; }
+.note-send:hover:not(:disabled) { background: var(--note-wash); box-shadow: 0 0 0 1px var(--note-accent), 0 6px 18px -10px var(--note-accent); }
+.note-compose { display: flex; flex: 1; flex-direction: column; gap: 12px; min-width: 0; }
+.note-compose-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.note-compose-head h2 { font-size: 16px; line-height: 1.3; font-weight: 650; letter-spacing: -.035em; }
+.note-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: var(--card); color: var(--muted); cursor: pointer; }
+.note-close svg { width: 20px; height: 20px; }
+.note-close:hover { color: var(--text); }
+.note-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.note-field-heading { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.note-field label { font-size: 11px; font-weight: 600; color: var(--text); }
+.note-field label span { padding-left: 3px; color: var(--muted); font-size: 10px; font-weight: 400; }
+.note-count { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.note-field textarea, .note-field input {
+  display: block; width: 100%; min-width: 0; margin: 0; padding: 10px 11px;
+  background: var(--card); border: 1px solid var(--outline); border-radius: 10px;
+  color: var(--text); font: 400 12px/1.5 var(--font-system); box-sizing: border-box;
+}
+.note-field textarea { resize: vertical; min-height: 84px; max-height: 180px; }
+.note-field input { height: 38px; }
+.note-field textarea::placeholder, .note-field input::placeholder { color: var(--muted); opacity: .85; }
+.note-field textarea:focus, .note-field input:focus { outline: 2px solid var(--note-accent); outline-offset: 1px; }
+.note-help { font-size: 10px; line-height: 1.5; color: var(--muted); }
+.note-trap { display: none; }
+.note-error { color: var(--ch-red); font-size: 11px; line-height: 1.5; word-break: keep-all; }
+.note-send { margin-top: auto; }
+.note-send:disabled, .note-close:disabled { cursor: wait; opacity: .65; }
+.note-success { display: flex; flex: 1; flex-direction: column; justify-content: center; align-items: flex-start; gap: 12px; }
+.note-success-icon { display: grid; place-items: center; width: 48px; height: 48px; color: var(--note-accent); background: var(--note-wash); border-radius: 50%; margin-bottom: 4px; }
+.note-success-icon svg { width: 28px; height: 28px; }
+.note-success h2 { font-size: 22px; letter-spacing: -.04em; line-height: 1.3; }
+.note-success-copy { font-size: 12px; line-height: 1.6; color: var(--muted); word-break: keep-all; }
+.note-reset { margin-top: 12px; padding: 9px 14px; border: 0; border-radius: 999px; background: var(--card); color: var(--text); font: 500 12px var(--font-system); cursor: pointer; }
+.tile--hello button:focus-visible { outline: 2px solid var(--note-accent); outline-offset: 3px; }
+@media (max-width: 640px) {
+  .tile--hello { min-height: 330px; }
+  .note-field textarea, .note-field input { font-size: 16px; }
+  .note-field textarea { min-height: 100px; }
+  .note-field input { height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-send, .tile--hello .ch-event--open { transition: none; }
+}

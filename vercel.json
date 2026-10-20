@@ -8,8 +8,9 @@
   "cleanUrls": false,
   "trailingSlash": true,
   "functions": {
-    "api/*.mjs": { "maxDuration": 30 }
+    "api/*.mjs": { "maxDuration": 60 }
   },
+  "crons": [{ "path": "/api/message-notifications", "schedule": "0 0 * * *" }],
   "redirects": [
     { "source": "/downloads/", "destination": "https://thisdickie.gumroad.com/", "permanent": false }
   ],

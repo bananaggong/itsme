@@ -8,10 +8,11 @@ import { personalizeBrandHTML } from './brand.mjs';
 import { portraitVersion, personalizePortraitHTML, personalizePortraitJavaScript } from './portrait.mjs';
 import { messagesVersion, personalizeMessagesHTML } from './messages.mjs';
 import { personalizeProjectStoriesHTML } from './project-stories.mjs';
+import { contactNoteVersion, personalizeContactNoteHTML } from './contact-note.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion);
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -87,6 +88,7 @@ export function personalizeHTML(html) {
       .replace(/(<meta (?:name="description"|property="og:(?:title|description)") content=")[^"]*(")/g, `$1${p.name}의 소개와 연락처$2`)
       .replace('content="Sam"', `content="${p.givenName}"`).replace('content="Dickie"', `content="${p.familyName}"`);
   }
+  html = personalizeContactNoteHTML(html);
   return personalizeMessagesHTML(personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
@@ -95,9 +97,13 @@ export function personalizeHTML(html) {
 export function personalizeJavaScript(source, name) {
   source = personalizePortraitJavaScript(source, name);
   if (name === 'findmy.js') return personalizeMapJavaScript(source);
-  if (name === 'rearrange.js') return source.replace("spotify: 'Spotify'", "spotify: 'Grapes 플레이어'").replace("newsletter: 'Newsletter'", "newsletter: '심심풀이 Instagram'").replace("switcher: 'Where to find me'", "switcher: '내가 만든 것들'");
+  if (name === 'rearrange.js') return source.replace("spotify: 'Spotify'", "spotify: 'Grapes 플레이어'").replace("newsletter: 'Newsletter'", "newsletter: '심심풀이 Instagram'").replace("switcher: 'Where to find me'", "switcher: '내가 만든 것들'").replace("office: 'Office hours'", "office: '한 줄 남기기'");
   if (!['spotlight.js', 'officehours.js', 'look.js', 'memoji.js', 'newsletter-page.js'].includes(name)) return source;
   if (name === 'spotlight.js') source = source.replace(/\n  \{\n    e: '📸', t: 'Open Photo Booth'[\s\S]*?\n  \},/, '');
+  if (name === 'spotlight.js') source = source
+    .replace("tile.querySelector('.ch-slot')", "tile.querySelector('[data-note-open]')")
+    .replace("id: 'officehours', e: '📅', t: 'Book office hours', s: 'A free 30 min video call with Sam', a: 'Book'", "id: 'officehours', e: '💬', t: '광일에게 한 줄 남기기', s: '질문과 제안을 비공개 메시지로 남겨주세요', a: '작성하기'")
+    .replace("w: 'office hours book call meeting advice validation help mentor chat calendar consult'", "w: 'message note hello contact feedback 질문 제안 메시지 한줄 남기기 연락 광일'");
   source = source.replaceAll('samdickie@gmail.com', p.email).replaceAll('samdickie.me', 'itsme')
     .replace(/\bSam\b/g, p.name).replaceAll('pixel art', 'photo');
   if (name === 'look.js') source = source.replaceAll('/assets/sam-memoji.webp', p.memoji+'?v='+profileVersion).replace("const KEY = 'sam-look';", "const KEY = 'itsme-look';")
@@ -118,6 +124,7 @@ export function personalizeSearchIndex(source) {
   index.push({g:'Links', t:'Grapes 음악 플레이어', u:'/#grapes-player', s:'포도알을 눌러 17곡의 샘플을 재생해보세요.', w:'grapes music audio sample player grape 포도 음악 샘플 재생 플레이어', e:'🍇', m:'Music'});
   index.push({g:'Links', t:instagram.name+' · Instagram 글쓰기', u:'/#instagram-writing', s:instagram.description, w:'instagram simsim__puli 심심풀이 인스타그램 글쓰기 에세이 일기 그림 영화 마음', m:'Writing'});
   index.push({g:'Links', t:'내가 만든 것들 · 프로젝트 둘러보기', u:'/#project-workbench', s:'누비오, 인투미, 갈팡질팡, LOAM의 화면과 서비스 소개', w:'NUVIO 누비오 Intume 인투미 갈팡질팡 LOAM 로암 프로젝트 개발 서비스 만든 것들', m:'Projects'});
+  index.push({g:'Links', t:'광일에게 한 줄 남기기', u:'/?spotlight=officehours#say-hello', s:'회원가입 없이 질문과 제안을 비공개로 남겨주세요.', w:'한 줄 남기기 질문 제안 메시지 연락 광일', m:'Message'});
   index.push({g:'Projects', t:'갈팡질팡 · 다음 여행지 고르기', u:'/projects/#galpang', s:'지금 위치와 남은 시간에 맞춰 다음 여행지를 고르는 길잡이.', w:'갈팡질팡 일본 여행 장소 추천 위치 시간 관광 프로젝트', m:'Side project'});
   index.push({g:'Projects', t:'누비오 · NUVIO', u:'/projects/nuvio/', s:'숨겨진 로컬 프로그램 예약까지 한 번에. 여행자 화면과 운영 도구, 지역 인터뷰와 제작 이야기.', w:'NUVIO 누비오 로컬 여행 체류 청년마을 프로그램 신청 호스트 운영 인터뷰 김천 개발 큐레이션 프로젝트', m:'Ongoing project'});
   index.push({g:'Projects', t:'인투미 · Intume', u:'/projects/intume/', s:'만남이 끝나도, 대화는 이어지도록. 프로필에서 커피챗과 모임으로 이어지는 커뮤니티.', w:'Intume 인투미 커피챗 프로필 명함 네트워킹 커뮤니티 모임 세션 이벤트 질문 프로젝트', m:'Ongoing project'});
