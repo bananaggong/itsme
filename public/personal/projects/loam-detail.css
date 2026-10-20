@@ -1,0 +1,20 @@
+/* LOAM content inside the site's existing App Store components. */
+@view-transition { navigation: none; }
+.loam-detail .loam-project-icon {--pj-icon-bg:#e5e7f3; color:#373553; font-size:36px; letter-spacing:-.055em; font-weight:650}
+.loam-detail .pj-fact-value {font-size:clamp(20px,2vw,26px)}
+.loam-detail .pj-fact-note {line-height:1.4}
+.loam-detail .pj-prose {line-height:1.75}
+.loam-detail .pj-history p,.loam-detail .pj-note p {line-height:1.65}
+.loam-detail .pj-history div {flex-wrap:wrap; align-items:baseline}
+.loam-preview-shot {grid-template-rows:minmax(0,1fr) auto}
+.loam-preview-shot a {display:grid; place-items:center; height:100%; width:100%; min-height:0; padding:12px 12px 0}
+.loam-preview-shot a:focus-visible {outline:2px solid var(--pj-blue); outline-offset:-4px; border-radius:24px}
+.loam-preview-shot img {min-height:0; width:100%; height:100%; object-fit:contain; mix-blend-mode:normal; border-radius:7px}
+.loam-preview-shot figcaption {padding:10px 12px 16px; font-size:12px; line-height:1.4; text-align:center; color:var(--body-text)}
+.loam-preview-note {margin-top:12px; font-size:12px; line-height:1.6; color:var(--muted)}
+.loam-detail .pj-read-title {line-height:1.4}
+@media(max-width:640px) {
+  .loam-detail .pj-app-sub span {display:block}
+  .loam-detail .pj-note div {flex-wrap:wrap}
+  .loam-detail .pj-read li a {align-items:center}
+}

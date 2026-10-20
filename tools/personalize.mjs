@@ -114,6 +114,7 @@ export function personalizeJavaScript(source, name) {
 
 export function personalizeSearchIndex(source) {
   const index = JSON.parse(source).filter(item => !item.u.startsWith('https://open.spotify.com/playlist/'));
+  index.push({g:'Projects', t:'LOAM · 가설 검증', u:'/projects/loam/', s:'가설에서, 근거 있는 판단까지. 증거를 분석하고 직접 판단하는 창업자 도구.', w:'LOAM 로암 가설 검증 증거 인터뷰 AI 창업 MVP 마감한입 프로젝트', m:'MVP project'});
   index.push({g:'Links', t:'Grapes 음악 플레이어', u:'/#grapes-player', s:'포도알을 눌러 17곡의 샘플을 재생해보세요.', w:'grapes music audio sample player grape 포도 음악 샘플 재생 플레이어', e:'🍇', m:'Music'});
   index.push({g:'Links', t:instagram.name+' · Instagram 글쓰기', u:'/#instagram-writing', s:instagram.description, w:'instagram simsim__puli 심심풀이 인스타그램 글쓰기 에세이 일기 그림 영화 마음', m:'Writing'});
   index.push({g:'Links', t:'내가 만든 것들 · 누비오와 인투미', u:'/#project-workbench', s:'누비오와 인투미의 실제 화면과 서비스 소개', w:'NUVIO 누비오 Intume 인투미 프로젝트 개발 서비스 만든 것들', m:'Projects'});

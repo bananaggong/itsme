@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- The shared App Store template with source-backed LOAM content. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOAM | 김광일</title>
+  <meta name="description" content="LOAM — 가설에서, 근거 있는 판단까지. 창업자의 증거를 AI가 분석하고, 최종 결정과 배운 점을 기록하는 가설 검증 도구.">
+  <link rel="canonical" href="https://gwangil.xyz/projects/loam/">
+  <meta property="og:site_name" content="김광일">
+  <meta property="og:title" content="LOAM | 김광일">
+  <meta property="og:description" content="가설에서, 근거 있는 판단까지. 증거를 읽고, 직접 판단하고, 배운 것을 남깁니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gwangil.xyz/projects/loam/">
+  <meta property="og:image" content="https://gwangil.xyz/personal/projects/loam-board.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="1060">
+  <meta property="og:image:alt" content="LOAM의 가상 프로젝트 마감한입 검증 보드">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+  <link rel="preload" href="/assets/fonts/inter-latin-v20.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/projects.css?v=2bec225315">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+    addEventListener('pageswap', function(e) { if (e.viewTransition) e.viewTransition.skipTransition(); });
+  </script>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/writing/" class="nav-link">Writing</a>
+    <a href="/projects/" class="nav-link is-active" aria-current="true">Projects</a>
+    <a href="/newsletter/" class="nav-link">Newsletter</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <main class="page pj">
+    <article class="pj-app loam-detail">
+      <a class="pj-back" href="/projects/#loam"><svg width="9" height="15" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2 2 8l6 6"/></svg>Projects</a>
+      <header class="pj-app-head">
+        <span class="pj-icon pj-icon--lg loam-project-icon" aria-hidden="true">Loam</span>
+        <div class="pj-app-text">
+          <h1>LOAM</h1>
+          <p class="pj-app-sub"><span>가설에서,</span> <span>근거 있는 판단까지</span></p>
+          <p class="pj-app-meta">MVP project · 창업자를 위한 AI 가설 검증 도구</p>
+          <div class="pj-app-actions">
+            <a class="pj-btn" href="/personal/projects/loam-demo/?view=board">예시 화면 체험</a>
+            <a class="pj-btn pj-btn--soft" href="https://loam-nu.vercel.app/" target="_blank" rel="noopener noreferrer">서비스 방문</a>
+          </div>
+        </div>
+      </header>
+      <dl class="pj-facts">
+        <div><dt>Status</dt><dd class="pj-fact-value">MVP</dd><dd class="pj-fact-note">핵심 흐름 구현</dd></div>
+        <div><dt>For</dt><dd class="pj-fact-value">창업자</dd><dd class="pj-fact-note">아이디어를 검증하는 사람</dd></div>
+        <div><dt>Focus</dt><dd class="pj-fact-value">3가지 축</dd><dd class="pj-fact-note">문제 · 지불 · 도달</dd></div>
+        <div><dt>Evidence</dt><dd class="pj-fact-value">증거 분석</dd><dd class="pj-fact-note">원문에서 신호 찾기</dd></div>
+        <div><dt>Decision</dt><dd class="pj-fact-value">직접 판단</dd><dd class="pj-fact-note">AI의 제안, 나의 결정</dd></div>
+        <div><dt>Platform</dt><dd class="pj-fact-value">Web</dd><dd class="pj-fact-note">브라우저에서 사용</dd></div>
+      </dl>
+      <section class="pj-section" aria-labelledby="pj-preview">
+        <h2 id="pj-preview">미리보기</h2>
+        <div class="pj-preview">
+          <figure class="pj-shot loam-preview-shot"><a href="/personal/projects/loam-board.jpg" target="_blank" rel="noopener" aria-label="LOAM 가설 보드 크게 보기 — 새 창"><img src="/personal/projects/loam-board.jpg" alt="마감한입 예시 프로젝트에서 문제 존재, 지불 의향, 채널 도달 가설을 나란히 검토하는 LOAM 보드" width="1440" height="1060" fetchpriority="high"></a><figcaption>무엇을 검증하고 있나요?</figcaption></figure>
+          <figure class="pj-shot loam-preview-shot"><a href="/personal/projects/loam-evidence.jpg" target="_blank" rel="noopener" aria-label="LOAM 증거 분석 크게 보기 — 새 창"><img src="/personal/projects/loam-evidence.jpg" alt="예시 고객 인터뷰의 원문과 반복되는 문제, 실제 손실에 관한 분석 결과" width="1100" height="900" loading="lazy"></a><figcaption>그 말은 어떤 근거가 될까요?</figcaption></figure>
+          <figure class="pj-shot loam-preview-shot"><a href="/personal/projects/loam-memory.jpg" target="_blank" rel="noopener" aria-label="LOAM 판단과 기록 크게 보기 — 새 창"><img src="/personal/projects/loam-memory.jpg" alt="사용자가 직접 확정한 예시 가설과 판단의 이유, 배운 점을 남긴 검증 기록" width="1100" height="900" loading="lazy"></a><figcaption>그래서 무엇을 배웠나요?</figcaption></figure>
+        </div>
+        <p class="loam-preview-note">‘마감한입’은 동네 카페의 마감 상품 예약을 가정한 예시 프로젝트입니다. 실제 LOAM 컴포넌트에 가상 인터뷰와 분석 결과를 넣어 화면을 구성했습니다.</p>
+      </section>
+      <div class="pj-cols">
+        <section class="pj-section" aria-labelledby="pj-about">
+          <h2 id="pj-about">LOAM 소개</h2>
+          <div class="pj-prose">
+            <p>아이디어를 설명했을 때 돌아오는 “좋네요”라는 말. 그 반응은 실제로 문제가 있다는 뜻일까요, 돈을 내고 사용하겠다는 뜻일까요?</p>
+            <p>LOAM은 창업자가 수집한 인터뷰와 실험 결과를 가설의 근거로 살펴보는 도구입니다. 문제가 존재하는지, 지불 의향이 있는지, 고객에게 닿을 수 있는지. 세 가지 질문에 증거를 연결합니다.</p>
+            <p>AI는 원문에서 긍정·부정 신호를 찾고 상태 변경을 제안합니다. 최종 판단은 사용자가 내립니다. 그때의 근거와 배운 점을 남겨, 다음 실험에서도 다시 꺼내볼 수 있도록 만들었습니다.</p>
+          </div>
+          <h2 class="pj-h2-gap" id="pj-flow">가설이 배움으로 남는 과정</h2>
+          <ol class="pj-history" aria-labelledby="pj-flow">
+            <li><div><strong>믿고 있는 것을 문장으로</strong><span>가설</span></div><p>“카페는 남는 상품을 처리하기 어렵다”처럼 확인하고 싶은 주장을 세웁니다. 문제·지불·도달을 나누어 검토합니다.</p></li>
+            <li><div><strong>들은 말과 관찰한 행동을 근거로</strong><span>증거</span></div><p>인터뷰나 실험 결과를 입력하면 AI가 원문의 어떤 부분이 가설을 지지하거나 반박하는지 정리합니다.</p></li>
+            <li><div><strong>판단의 이유와 배운 점까지</strong><span>기록</span></div><p>제안을 검토해 직접 확정하거나 검증을 이어갑니다. 결론에 도달한 이유와 핵심 인사이트를 검증 기록으로 남깁니다.</p></li>
+          </ol>
+        </section>
+        <section class="pj-section" aria-labelledby="pj-notes">
+          <div class="pj-section-head"><h2 id="pj-notes">LOAM에 담은 기준</h2><span>3 notes</span></div>
+          <div class="pj-note"><div><strong>“좋아요”와 “결제했어요”의 차이</strong><span>행동</span></div><p>호의적인 반응과 실제 행동은 다른 근거입니다. 막연한 가격 반응, 예약금 결제, 현재 쓰고 있는 대안 등을 구분해 가설을 살펴봅니다.</p></div>
+          <div class="pj-note"><div><strong>불확실한 것은, 불확실한 채로</strong><span>신뢰</span></div><p>표본이 없거나 전해들은 정보는 신호의 강도를 낮춥니다. 상충하는 증거와 부족한 맥락도 드러내어, 근거보다 큰 확신을 갖지 않도록 합니다.</p></div>
+          <div class="pj-note"><div><strong>AI가 제안하고, 내가 결정하기</strong><span>판단</span></div><p>가설을 검증했다고 볼지, 기각할지는 사용자가 정합니다. 판단과 배운 점을 함께 기록하는 과정을 제품의 중심에 두었습니다.</p></div>
+        </section>
+      </div>
+      <section class="pj-section" aria-labelledby="pj-making">
+        <h2 id="pj-making">만드는 과정</h2>
+        <div class="pj-prose"><p>1인 프로젝트로 제품 방향과 판단 기준을 정리하고, AI 도구와 협업해 구현했습니다. Next.js·TypeScript 화면, 증거에서 신호를 추출하는 AI 파이프라인, 가설 상태 전환 규칙을 연결하고 코드 리뷰와 배포를 맡았습니다.</p></div>
+      </section>
+      <section class="pj-section" aria-labelledby="pj-read">
+        <h2 id="pj-read">LOAM 둘러보기</h2>
+        <ul class="pj-read">
+          <li><a href="/personal/projects/loam-demo/?view=board"><span class="pj-read-title">마감한입의 가설 보드와 판단 흐름 체험</span><span class="pj-read-meta">예시 프로젝트 →</span></a></li>
+          <li><a href="/personal/projects/loam-demo/?view=evidence"><span class="pj-read-title">인터뷰, 실제 결제, 관심 표현은 어떻게 다를까?</span><span class="pj-read-meta">증거 비교 →</span></a></li>
+          <li><a href="https://loam-nu.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="pj-read-title">LOAM 서비스 방문</span><span class="pj-read-meta">로그인 필요 ↗</span></a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+</body>
+</html>

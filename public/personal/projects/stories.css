@@ -147,3 +147,65 @@
   .pj-story--intume, .intume-browser { transition: none; }
   .pj-story--intume:hover, .pj-story--intume:hover .intume-browser { transform: none; }
 }
+
+/* One type scale for the personalized App Store cards.
+   The site's shared font stack uses native Apple type, with Pretendard elsewhere. */
+.pj-story--loam {
+  --pj-ink: #111;
+}
+.pj-story--loam .pj-story-text {
+  gap: 12px;
+}
+.pj-story--loam .pj-story-title {
+  font-size: clamp(26px, 2.3vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+.pj-story--loam .pj-story-title > span {
+  display: block;
+}
+.pj-story--loam .pj-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .01em;
+  text-transform: none;
+  opacity: .9;
+}
+@media (max-width: 640px) {
+  .pj-story--loam .pj-story-title {
+    font-size: clamp(23px, 6.3vw, 30px);
+  }
+}
+
+/* Shared frosted app strip, matching the approved INTUME card. */
+.pj-story--loam .pj-strip {
+  min-height: 72px;
+  background: rgb(255 255 255 / 84%);
+  z-index: 3;
+}
+:root[data-theme="dark"] .pj-story--loam .pj-strip {
+  background: rgb(30 43 53 / 88%);
+}
+
+
+/* LOAM: source UI components rendered with a clearly marked example project. */
+.pj-story--loam {--pj-bg:#e5e7f3; scroll-margin-top:100px}
+.pj-story--loam .pj-story-text {padding:32px 32px 14px; flex-shrink:0}
+.loam-story-media {position:relative; flex:1; min-height:0}
+.loam-story-media img {width:100%; height:100%; object-fit:contain; object-position:center top}
+.loam-wordmark {--pj-icon-bg:#e5e7f3; color:#373553; font-size:13px; font-weight:650; letter-spacing:-.055em}
+.pj-story--loam .pj-get {text-transform:none; letter-spacing:0}
+@media(max-width:640px) {
+  .pj-story--loam {min-height:440px}
+  .pj-story--loam .pj-story-text {padding:24px 24px 12px}
+  .pj-story--loam .pj-strip {gap:10px; padding:14px 16px}
+  .pj-story--loam .pj-strip-text span {white-space:normal; font-size:12px; line-height:1.35}
+  .pj-story--loam .pj-get {padding:7px 10px; font-size:12px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .pj-story--loam {transition:none}
+  .pj-story--loam:hover {transform:none}
+}
+

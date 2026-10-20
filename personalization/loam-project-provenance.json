@@ -1,0 +1,35 @@
+{
+  "preparedOn": "2026-10-20",
+  "repository": "https://github.com/bananaggong/loam",
+  "sourceCommit": "8c682fe0a1d83d5102d5547d61130ce4a941b51a",
+  "service": "https://loam-nu.vercel.app",
+  "serviceVerification": "Deployment and public login page checked. Authenticated production workflows and database connectivity not tested.",
+  "sources": [
+    "README.md",
+    "CLAUDE.md",
+    "docs/prompt-changelog.md",
+    "src/types/loam.types.ts",
+    "src/app/(dashboard)/board/BoardClient.tsx",
+    "src/components/hypothesis/HypothesisCard.tsx",
+    "src/components/evidence/SignalResultCard.tsx",
+    "src/components/decision/DecisionMemoryTimeline.tsx",
+    "src/services/state-transition.service.ts"
+  ],
+  "example": {
+    "name": "마감한입",
+    "description": "Fictional neighborhood cafe surplus-food reservation service.",
+    "data": "All people, interview statements, metrics, dates, signals and decisions are fabricated demonstration fixtures.",
+    "runtime": "Static React demo with in-memory state. No database, authentication or AI requests.",
+    "source": "personalization/loam-preview",
+    "route": "/personal/projects/loam-demo/"
+  },
+  "visuals": {
+    "card": "/personal/projects/loam-card.jpg",
+    "board": "/personal/projects/loam-board.jpg",
+    "evidence": "/personal/projects/loam-evidence.jpg",
+    "memory": "/personal/projects/loam-memory.jpg",
+    "method": "Browser captures of source components with fictional fixtures; screenshot composition and navigation are portfolio additions.",
+    "brand": "No official logo supplied. Loam text wordmark and pale indigo portfolio background; not an official brand guide."
+  },
+  "scope": "Portfolio release includes the LOAM card, detail page and fixture demo. No production LOAM database or AI requests."
+}

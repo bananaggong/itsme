@@ -1,7 +1,11 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { loamCard } from './loam-project.mjs';
 
 const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)));
+for (const path of ['../tools/loam-project.mjs', '../public/personal/projects/loam-detail.css', '../public/personal/projects/loam-card.jpg', '../public/personal/projects/loam-board.jpg', '../public/personal/projects/loam-evidence.jpg', '../public/personal/projects/loam-memory.jpg']) {
+  hash.update(readFileSync(new URL(path, import.meta.url)));
+}
 for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css']) {
   hash.update(readFileSync(new URL('../public/personal/projects/' + name, import.meta.url)));
 }
@@ -63,10 +67,15 @@ export function personalizeProjectStoriesHTML(html) {
   const original = /<a class="pj-story pj-story--inset pj-story--wide" href="\/projects\/nocode\/"[\s\S]*?<\/a>/;
   if (original.test(html)) {
     html = html.replace(original, nuvioCard)
-      .replace("new URL(to).pathname.indexOf('/projects/') !== 0", "(new URL(to).pathname.indexOf('/projects/') !== 0 || ['/projects/nuvio/', '/projects/intume/'].includes(new URL(to).pathname))")
+      .replace("new URL(to).pathname.indexOf('/projects/') !== 0", "(new URL(to).pathname.indexOf('/projects/') !== 0 || ['/projects/nuvio/', '/projects/intume/', '/projects/loam/'].includes(new URL(to).pathname))")
       .replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/stories.css')}"></head>`);
   }
   html = html.replace(/<a class="pj-story pj-story--cover" href="\/projects\/betatesta\/"[\s\S]*?<\/a>/, intumeCard);
+  html = html.replace(/<a class="pj-story pj-story--band" href="\/projects\/beta-directory\/"[\s\S]*?<\/a>/, loamCard(asset));
+  if (html.includes('class="pj-app loam-detail"')) {
+    html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/loam-detail.css')}"></head>`)
+      .replace(/\b(src|href)="(\/personal\/projects\/loam-[^"?]+\.(?:jpg|png|svg|webp))"/g, (_, attr, path) => `${attr}="${asset(path)}"`);
+  }
   if (html.includes('class="pj-app nuvio-detail"')) {
     html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/nuvio-detail.css')}"></head>`)
       .replace(/\b(src|href)="(\/personal\/projects\/nuvio-[^"?]+)"/g, (_, attr, path) => `${attr}="${asset(path)}"`);
