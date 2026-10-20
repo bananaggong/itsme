@@ -1,0 +1,13 @@
+{
+  "sourceUrl": "https://nuvio.kr/open",
+  "source": "User-supplied screenshot of the public local travel discovery section",
+  "capturedOn": "2026-10-20",
+  "asset": "/personal/projects/nuvio-open-section.webp",
+  "sha256": "cdf5eb4cfc0155d7b83efe88d22acc9467b85d5721def895c03ec74e1b19ebd9",
+  "size": [
+    1022,
+    541
+  ],
+  "treatment": "Lossless WebP conversion; no generated artwork or reconstructed text",
+  "destination": "Projects index NUVIO card; opens the public introduction page in a new tab"
+}

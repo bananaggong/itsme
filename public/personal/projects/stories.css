@@ -1,0 +1,109 @@
+/* NUVIO's approved project card. The captured Projects stylesheet stays intact. */
+.pj-story--nuvio {
+  --pj-bg: #ffd0a6;
+  --pj-ink: #17130f;
+  container-type: inline-size;
+}
+
+.pj-story--nuvio .pj-story-text {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 36%;
+  max-width: none;
+  gap: 14px;
+  padding: 0;
+}
+
+.pj-story--nuvio .pj-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-transform: none;
+  opacity: .82;
+}
+
+.pj-story--nuvio .pj-story-title {
+  font-size: clamp(24px, 3.55cqi, 32px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+
+.pj-story--nuvio .pj-story-title > span { display: block; white-space: nowrap; }
+
+.nuvio-browser {
+  position: absolute;
+  top: 32px;
+  right: 28px;
+  bottom: 94px;
+  width: 58.6%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 24px -8px rgb(88 43 11 / 30%);
+  transition: transform .3s ease;
+}
+
+.pj-story--nuvio:hover .nuvio-browser { transform: translateY(-3px); }
+
+.nuvio-browser-bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+  height: 30px;
+  padding: 0 10px;
+  background: #eff0f3;
+  color: #53565d;
+}
+
+.nuvio-browser-lights { display: flex; flex-shrink: 0; gap: 4px; }
+.nuvio-browser-lights i { width: 7px; height: 7px; border-radius: 50%; background: #ff5f57; }
+.nuvio-browser-lights i:nth-child(2) { background: #febc2e; }
+.nuvio-browser-lights i:nth-child(3) { background: #28c840; }
+.nuvio-browser-nav { display: flex; gap: 5px; }
+.nuvio-browser-bar svg,
+.nuvio-story-visit svg { width: 13px; height: 13px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.nuvio-browser-nav svg + svg { transform: rotate(180deg); }
+.nuvio-browser-address { display: flex; align-items: center; justify-content: center; gap: 4px; position: relative; flex: 1; height: 20px; margin-right: 12%; border-radius: 5px; background: #e3e5e9; color: #46494f; font-size: 10px; line-height: 1; font-weight: 400; letter-spacing: 0; }
+.nuvio-browser-address > svg { width: 10px; height: 10px; }
+.nuvio-browser-address > svg:last-child { position: absolute; right: 5px; }
+.nuvio-browser-screen { display: block; flex: 1; min-height: 0; width: 100%; height: 0; object-fit: cover; object-position: center; background: #fff; }
+
+.pj-story--nuvio .pj-strip { min-height: 72px; background: #fff; }
+.pj-story--nuvio .nuvio-story-icon { --pj-icon-bg: #ff701e; }
+.pj-story--nuvio .nuvio-story-icon img { max-width: none; max-height: none; width: 100%; height: 100%; object-fit: contain; }
+.pj-story--nuvio .nuvio-story-visit { display: inline-flex; align-items: center; gap: 4px; color: var(--text); text-transform: none; letter-spacing: 0; }
+:root[data-theme="dark"] .pj-story--nuvio .pj-strip { background: #252526; }
+
+@container (max-width: 740px) {
+  .pj-story--nuvio .pj-story-text { top: 24px; left: 24px; }
+  .pj-story--nuvio .pj-story-title { font-size: clamp(20px, 3.55cqi, 26px); }
+  .nuvio-browser { top: 24px; right: 24px; width: 55%; }
+}
+
+@container (min-width: 1040px) {
+  .nuvio-browser-screen { object-fit: contain; }
+}
+
+@media (max-width: 640px) {
+  .pj-story--nuvio { min-height: 0; }
+  .pj-story--nuvio .pj-story-text { position: relative; top: auto; left: auto; width: 100%; padding: 24px 24px 20px; gap: 10px; }
+  .pj-story--nuvio .pj-story-title { font-size: clamp(23px, 6.3vw, 30px); }
+  .nuvio-browser { position: relative; top: auto; right: auto; bottom: auto; width: calc(100% - 40px); margin: 0 20px 22px; }
+  .nuvio-browser-screen { flex: none; height: auto; aspect-ratio: 1.4; }
+  .pj-story--nuvio .pj-strip { position: relative; margin-top: auto; gap: 10px; padding: 14px 16px; }
+  .pj-story--nuvio .pj-strip-text span { white-space: normal; font-size: 12px; line-height: 1.35; }
+  .pj-story--nuvio .nuvio-story-visit { padding: 7px 10px; font-size: 12px; }
+  .nuvio-browser-nav { display: none; }
+  .nuvio-browser-address { margin-right: 10%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pj-story--nuvio, .nuvio-browser { transition: none; }
+  .pj-story--nuvio:hover, .pj-story--nuvio:hover .nuvio-browser { transform: none; }
+}
