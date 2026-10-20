@@ -1,0 +1,35 @@
+/* Reuse the existing App Store project page layout and NUVIO's official assets. */
+/* Avoid aborted cross-document transitions on quick list/detail/back navigation. */
+@view-transition { navigation: none; }
+.nuvio-detail { --nuvio-orange: #fe701e; --nuvio-ink: #0d0d0c; }
+.nuvio-detail .nuvio-project-icon { --pj-icon-bg: var(--nuvio-orange); }
+.nuvio-detail .nuvio-project-icon img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }
+.nuvio-detail .pj-fact-value { font-size: clamp(20px, 2vw, 26px); }
+.nuvio-detail .pj-fact-note { line-height: 1.4; }
+.nuvio-detail .pj-prose { line-height: 1.75; }
+.nuvio-detail .pj-history p { line-height: 1.6; }
+.nuvio-detail .pj-note p { line-height: 1.65; }
+.nuvio-detail .nuvio-preview-shot { background: #fff6ec; }
+.nuvio-detail .nuvio-preview-shot img { mix-blend-mode: normal; }
+.nuvio-detail .nuvio-palette { --pj-bg: var(--nuvio-orange); --pj-ink: var(--nuvio-ink); }
+.nuvio-secondary-colors { display: flex; gap: 6px; margin-top: 14px; }
+.nuvio-secondary-colors i { height: 12px; flex: 1; border-radius: 3px; background: #ff9a3d; }
+.nuvio-secondary-colors i:nth-child(2) { background: #f5e1d3; }
+.nuvio-secondary-colors i:nth-child(3) { background: #5b3a29; }
+.nuvio-secondary-colors i:nth-child(4) { background: #7a8b52; }
+.nuvio-logo-swatch { --pj-bg: #fff; --pj-ink: #0d0d0c; }
+.nuvio-logo-assets { display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%; flex: 1; }
+.nuvio-logo-assets .nuvio-wordmark { width: 63%; height: auto; }
+.nuvio-logo-assets .nuvio-symbol { width: 25%; height: auto; }
+.nuvio-detail .pj-read-meta { display: inline-flex; align-items: center; gap: 5px; }
+.nuvio-detail .pj-read-meta svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.nuvio-detail .pj-read-title { line-height: 1.45; }
+.nuvio-detail .pj-history div { align-items: baseline; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .nuvio-detail .pj-app-head { gap: 20px; }
+  .nuvio-detail .pj-app-sub > span { display: block; }
+  .nuvio-detail .pj-preview { grid-template-rows: 240px; grid-auto-rows: 240px; }
+  .nuvio-detail .pj-read li a { align-items: center; }
+  .nuvio-detail .pj-read-meta { flex-shrink: 0; }
+}

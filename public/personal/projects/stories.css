@@ -3,6 +3,7 @@
   --pj-bg: #ffd0a6;
   --pj-ink: #17130f;
   container-type: inline-size;
+  scroll-margin-top: 100px;
 }
 
 .pj-story--nuvio .pj-story-text {

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-20",
+  "figmaGuide": "https://www.figma.com/design/s4tMFPfuBceOyZtenwxR1j/?node-id=0-1",
+  "figmaColorNode": "73:4",
+  "guideVerification": "Viewed the public logo and color guide in the browser. Main color #FE701E and four secondary colors verified. Figma connector extraction unavailable; official existing project assets reused unchanged.",
+  "layoutReference": [
+    "https://gwangil.xyz/projects/nocode/",
+    "https://gwangil.xyz/projects/betatesta/"
+  ],
+  "contentEvidence": [
+    "User account of discovering youth villages while traveling",
+    "bananaggong/nuvio-web README.md",
+    "bananaggong/nuvio-web docs/host-program-draft-safety.md"
+  ],
+  "assets": [
+    {
+      "path": "/personal/projects/nuvio-wordmark.svg",
+      "sourceUrl": "https://nuvio.kr/brand/nuvio-wordmark.svg",
+      "sha256": "57b52a35ae1450297b9b36cce98b0e61e82b2ad6f495130f8064e40b3cfaab1e"
+    },
+    {
+      "path": "/personal/projects/nuvio-symbol.svg",
+      "sourceUrl": "https://nuvio.kr/brand/nuvio-symbol.svg",
+      "sha256": "dd370fe0ac6317333ce738165ee55ea08556b2a64f844d673460117b684ebdf8"
+    },
+    {
+      "path": "/personal/projects/nuvio-social-preview.png",
+      "sourceUrl": "https://nuvio.kr/brand/nuvio-social-preview.png",
+      "sha256": "d8ff4e61952b623ed8451fb210aa532c8422f7f82a79517229235ac8b97b8af7"
+    },
+    {
+      "path": "/personal/projects/nuvio-open-hero.webp",
+      "sourceUrl": "https://nuvio.kr/images/open/open-landing-01.webp",
+      "sha256": "f8efeb26fc2eeb9db4af2ae57dfefb38d6f03821876d0a994480362d835d1d42"
+    }
+  ]
+}

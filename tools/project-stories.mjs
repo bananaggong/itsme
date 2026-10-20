@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)));
-for (const path of ['/personal/projects/stories.css', '/personal/projects/nuvio-open-section.webp', '/personal/projects/nuvio-icon.png']) {
+for (const path of ['/personal/projects/stories.css', '/personal/projects/nuvio-detail.css', '/personal/projects/nuvio-open-section.webp', '/personal/projects/nuvio-icon.png', '/personal/projects/nuvio-wordmark.svg', '/personal/projects/nuvio-symbol.svg', '/personal/projects/nuvio-open-hero.webp', '/personal/projects/nuvio-social-preview.png']) {
   hash.update(readFileSync(new URL('../public' + path, import.meta.url)));
 }
 export const projectStoriesVersion = hash.digest('hex').slice(0, 12);
@@ -13,7 +13,7 @@ const lock = glyph('<rect x="7" y="10" width="10" height="10" rx="2"/><path d="M
 const refresh = glyph('<path d="M19 8a8 8 0 1 0 1 8M19 3v5h-5"/>');
 const arrow = glyph('<path d="M7 17 17 7M7 7h10v10"/>');
 
-const nuvioCard = `<a class="pj-story pj-story--wide pj-story--nuvio" id="nuvio" href="https://nuvio.kr/open" target="_blank" rel="noopener noreferrer" aria-label="누비오 — 숨겨진 로컬 프로그램 예약까지 한 번에 (새 탭에서 열기)" lang="ko">
+const nuvioCard = `<a class="pj-story pj-story--wide pj-story--nuvio" id="nuvio" href="/projects/nuvio/" aria-label="누비오 프로젝트 자세히 보기" lang="ko">
   <div class="pj-story-clip">
     <div class="pj-story-text">
       <p class="pj-eyebrow" lang="en">Ongoing project</p>
@@ -37,7 +37,14 @@ const nuvioCard = `<a class="pj-story pj-story--wide pj-story--nuvio" id="nuvio"
 
 export function personalizeProjectStoriesHTML(html) {
   const original = /<a class="pj-story pj-story--inset pj-story--wide" href="\/projects\/nocode\/"[\s\S]*?<\/a>/;
-  if (!original.test(html)) return html;
-  return html.replace(original, nuvioCard)
-    .replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/stories.css')}"></head>`);
+  if (original.test(html)) {
+    html = html.replace(original, nuvioCard)
+      .replace("new URL(to).pathname.indexOf('/projects/') !== 0", "(new URL(to).pathname.indexOf('/projects/') !== 0 || new URL(to).pathname === '/projects/nuvio/')")
+      .replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/stories.css')}"></head>`);
+  }
+  if (html.includes('class="pj-app nuvio-detail"')) {
+    html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/nuvio-detail.css')}"></head>`)
+      .replace(/src="(\/personal\/projects\/nuvio-[^"?]+)"/g, (_, path) => `src="${asset(path)}"`);
+  }
+  return html;
 }
