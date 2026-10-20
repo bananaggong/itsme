@@ -117,7 +117,8 @@ export function personalizeSearchIndex(source) {
   index.push({g:'Links', t:'Grapes 음악 플레이어', u:'/#grapes-player', s:'포도알을 눌러 17곡의 샘플을 재생해보세요.', w:'grapes music audio sample player grape 포도 음악 샘플 재생 플레이어', e:'🍇', m:'Music'});
   index.push({g:'Links', t:instagram.name+' · Instagram 글쓰기', u:'/#instagram-writing', s:instagram.description, w:'instagram simsim__puli 심심풀이 인스타그램 글쓰기 에세이 일기 그림 영화 마음', m:'Writing'});
   index.push({g:'Links', t:'내가 만든 것들 · 누비오와 인투미', u:'/#project-workbench', s:'누비오와 인투미의 실제 화면과 서비스 소개', w:'NUVIO 누비오 Intume 인투미 프로젝트 개발 서비스 만든 것들', m:'Projects'});
-  index.push({g:'Projects', t:'누비오 · NUVIO', u:'/projects/nuvio/', s:'숨겨진 로컬 프로그램 예약까지 한 번에. 누비오 프로젝트 소개와 브랜드 이야기.', w:'NUVIO 누비오 로컬 여행 체류 청년마을 프로그램 신청 호스트 운영 브랜드 로고 프로젝트', m:'Ongoing project'});
+  index.push({g:'Projects', t:'누비오 · NUVIO', u:'/projects/nuvio/', s:'숨겨진 로컬 프로그램 예약까지 한 번에. 여행자 화면과 운영 도구, 지역 인터뷰와 제작 이야기.', w:'NUVIO 누비오 로컬 여행 체류 청년마을 프로그램 신청 호스트 운영 인터뷰 김천 개발 큐레이션 프로젝트', m:'Ongoing project'});
+  index.push({g:'Projects', t:'인투미 · Intume', u:'/projects/intume/', s:'만남이 끝나도, 대화는 이어지도록. 프로필에서 커피챗과 모임으로 이어지는 커뮤니티.', w:'Intume 인투미 커피챗 프로필 명함 네트워킹 커뮤니티 모임 세션 이벤트 질문 프로젝트', m:'Ongoing project'});
   for (const item of index) {
     if (item.u === '/') item.s = `${p.name}의 개인 웹사이트. ${p.email} · ${p.phone}`;
     if (item.u === '/about/') item.s = `${p.name}의 소개와 연락처. GitHub bananaggong`;

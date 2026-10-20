@@ -1,0 +1,129 @@
+{
+  "capturedOn": "2026-10-20",
+  "sourceCommit": "425970b",
+  "screens": "Mobile profile captured directly from the public @pang_l page. Desktop profile and coffee-chat panel captured from the unchanged Intume React components in an isolated local preview with user-supplied/publicly visible profile fields. No session, database or production API calls; no request submitted.",
+  "assets": [
+    {
+      "path": "/personal/projects/intume-icon.png",
+      "source": "C:/projects/intume-web/app/icon.png",
+      "sha256": "2890e300dfc3f7600b989a7c74957c9ffb117df20c58cfa7cacb13ccbe31f3b7",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "/personal/projects/intume-home-screen.jpg",
+      "source": "https://intume.kr/",
+      "sha256": "93ddc8ee7c0afb101c50dbaea69051ec189b4a27ca79d7b745c5152d3b85594f",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "path": "/personal/projects/intume-events-screen.jpg",
+      "source": "https://intume.kr/events",
+      "sha256": "5969ab9515c4e3dd2a4218312a13d4b80911236f3b4cee50efc50f8c39cd65a4",
+      "dimensions": [
+        1265,
+        791
+      ]
+    },
+    {
+      "path": "/personal/projects/intume-gathering-screen.jpg",
+      "source": "https://intume.kr/events/intume-first-question-meeting-2026-08",
+      "sha256": "08df3764769d9f753682767e0e5167719fff8d76961586a8b1fc94f0c30ecc27",
+      "dimensions": [
+        1265,
+        791
+      ]
+    },
+    {
+      "dimensions": [
+        1280,
+        560
+      ],
+      "source": "Local ProfileCoffeeChatPage using public @pang_l profile fields",
+      "mode": "LOCAL_COMPONENT_PREVIEW",
+      "sha256": "31fce4dd92afb16e6256596571be4d93b6764f2abb5c58263d0b24b8cc433f54",
+      "path": "/personal/projects/intume-profile-desktop.jpg"
+    },
+    {
+      "dimensions": [
+        430,
+        860
+      ],
+      "source": "https://intume.kr/@pang_l",
+      "mode": "LIVE_PUBLIC_SCREEN",
+      "sha256": "0eacfda2a8e11d10b5301a5ea62fe1894d80f6e027187ab2bc774f1292a4c7e4",
+      "path": "/personal/projects/intume-profile-mobile.jpg"
+    },
+    {
+      "dimensions": [
+        415,
+        830
+      ],
+      "source": "Local CoffeeChatRequestFormPanel opened through the real coffee-chat button",
+      "mode": "LOCAL_COMPONENT_PREVIEW",
+      "sha256": "3965ad34d77e6a8c5a11c173b2b7ce8e26057e14685d4b2bf288213ebea33028",
+      "path": "/personal/projects/intume-coffeechat-screen.jpg"
+    },
+    {
+      "path": "/personal/projects/intume-connect-preview.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "sha256": "7bea694887eb2e39fb0bdac63456ddf6b1d00e959a59960f541eca18c0803286",
+      "mode": "AI_COMPOSITED_MOCKUP",
+      "source": [
+        "intume-profile-desktop.jpg",
+        "intume-profile-mobile.jpg",
+        "intume-coffeechat-screen.jpg"
+      ],
+      "generator": "Built-in image_gen",
+      "note": "One presentation mockup generated from the three captured screens. It is a composed illustration of the UI, not an unmodified screenshot. Original source captures are retained.",
+      "generationPrompt": "Use case: compositing / UI screenshot showcase. Make ONE wide landscape 16:9 App Store product preview composition using all THREE supplied Intume screenshots. These are real product screenshots: preserve each screenshot's exact Korean words, user photograph, UI elements, aspect ratio, and colors; do not redesign or invent UI or repaint the person's face. Image 1 is the main wide desktop profile and Q&A screen, Image 2 is the tall mobile photo profile, Image 3 is the tall coffee-chat application side panel. Arrange image 1 as a large flat desktop browser window occupying the back upper-left/center; add a slim tasteful Mac-style top toolbar with three tiny dots, no added words. Position the mobile screenshot as a rounded upright phone-like card in the foreground at bottom left, and the coffee-chat screenshot as a floating tall panel on the right. Use slight tasteful overlap only in screenshot whitespace; leave the profile bio and Q&A and coffee-chat inputs recognizable. Clean frontal flat view, no perspective tilt. One coherent composition with balanced hierarchy rather than three equally weighted columns. Pale neutral cool white background (#f4f5f7), very subtle soft natural shadows, delicate gray borders, soft 20px rounded window corners. Keep all three frames completely within the canvas with ample safe margin, mobile and coffee-chat similar visual height. High resolution, sharp text. No title, no added labels, no arrows, no decorative blobs, no fake logos, no marketing copy, no outer webpage or gallery. This will be placed as ONE preview image in an existing Apple App Store style portfolio page."
+    }
+  ],
+  "contentSources": [
+    "User-provided origin: the emptiness after networking led to creating Intume.",
+    "C:/projects/intume-web/README.md",
+    "C:/projects/intume-web/components/profile/profile-share-modal.tsx",
+    "C:/projects/intume-web/components/coffee-chat/coffee-chat-detail-panel.tsx",
+    "C:/projects/intume-web/components/coffee-chat/coffee-chat-request-form.tsx",
+    "C:/projects/intume-web/components/coffee-chat/coffee-chat-kanban.tsx",
+    "https://intume.kr/",
+    "https://intume.kr/events/intume-first-question-meeting-2026-08",
+    "https://intume.kr/@pang_l",
+    "User-provided profile screenshots on 2026-10-20",
+    "C:/projects/intume-web/components/profile/profile-coffee-chat-page.tsx",
+    "C:/projects/intume-web/components/profile/profile-persona-layout.tsx",
+    "C:/projects/intume-web/components/coffee-chat/request-form-panel.tsx"
+  ],
+  "claimBoundaries": [
+    "No project start date, team size, individual contribution scope, user metrics or outcomes inferred.",
+    "Profile and coffee-chat UI checked interactively in the isolated local preview. No authenticated production flow or actual request submission executed.",
+    "Meeting described from public event introduction, without inferred attendance, feedback or commercial results.",
+    "Disabled payment and membership features are not promoted."
+  ],
+  "layoutPolicy": "Keep shared App Store card position and detail header, fact strip, three preview slots, two-column introduction/notes, related links. No separate case-study layout.",
+  "release": "Local implementation only.",
+  "localCapture": {
+    "components": [
+      "ProfileCoffeeChatPage",
+      "ProfilePersonaLayout",
+      "CoffeeChatRequestFormPanel"
+    ],
+    "viewer": "Local preview with request panel enabled; not an authenticated production session",
+    "data": "Public mobile profile fields and user-provided screenshots; no invented Q&A answers",
+    "harness": "research/intume-appstore/capture-server.mjs",
+    "network": "Environment files and DB clients are not loaded; fetch throws and the local server rejects all API requests and non-GET methods"
+  },
+  "previewSequence": [
+    "intume-connect-preview.png",
+    "intume-home-screen.jpg",
+    "intume-events-screen.jpg"
+  ]
+}

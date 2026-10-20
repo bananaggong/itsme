@@ -10,7 +10,8 @@
   "contentEvidence": [
     "User account of discovering youth villages while traveling",
     "bananaggong/nuvio-web README.md",
-    "bananaggong/nuvio-web docs/host-program-draft-safety.md"
+    "User-provided NUVIO branding meeting notes: audience fatigue, curation-first decision, B2C/B2B direction, developer assignment. Internal names, finances and operational targets omitted.",
+    "https://nuvio.kr/magazine/요즘에-여기-모르면-간첩임-떠오르는-로컬-경북-김천의-이야"
   ],
   "assets": [
     {
@@ -32,6 +33,41 @@
       "path": "/personal/projects/nuvio-open-hero.webp",
       "sourceUrl": "https://nuvio.kr/images/open/open-landing-01.webp",
       "sha256": "f8efeb26fc2eeb9db4af2ae57dfefb38d6f03821876d0a994480362d835d1d42"
+    },
+    {
+      "path": "/personal/projects/nuvio-traveler-screen.jpg",
+      "source": "https://nuvio.kr/open",
+      "sha256": "d41b66048e7975148612f81aac50205c5ba73bd8063294587bbdc8e55e540a72",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "/personal/projects/nuvio-host-editor.jpg",
+      "source": "local isolated NUVIO editor; example data",
+      "sha256": "91e9c2f1f59cb3d172598ba15e388cde35dc21c7c02682e033bde2e2f7b02eb8",
+      "dimensions": [
+        1280,
+        720
+      ]
     }
-  ]
+  ],
+  "localCaseStudyUpdate": "2026-10-20",
+  "claimBoundaries": [
+    "Role is limited to development, supported by the user-provided assignment. No project period, team size or performance metrics inferred.",
+    "Public interview is attributed to NUVIO, not to a specific interviewer or writer.",
+    "Planning decisions are described as decisions, not measured outcomes."
+  ],
+  "hostCapture": {
+    "sourceCommit": "4204381fb3155d07cc81e1f18d04e4244b4941c1",
+    "components": [
+      "src/components/host/HostProgramHub.tsx",
+      "tests/e2e/host-draft-safety/harness.tsx"
+    ],
+    "mode": "MOCK_ONLY",
+    "description": "Actual editor components and CSS rendered in an isolated local server with example fixture data and mocked HTTP endpoints. No environment files, production credentials or operational records were loaded."
+  },
+  "layoutPolicy": "Retain the existing App Store project template: header, fact strip, preview row, two-column description/notes, related-reading list. No custom hero, tabs, numbered case-study sections or table of contents.",
+  "editorialPolicy": "Introduce the local-travel service, audience, interviews and traveler/host flows. Save/recovery troubleshooting is excluded from the project introduction."
 }

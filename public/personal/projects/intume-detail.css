@@ -1,0 +1,23 @@
+/* Keep the shared App Store layout, with scoped asset and Korean copy adjustments. */
+@view-transition { navigation: none; }
+.intume-detail .intume-project-icon { --pj-icon-bg: #fff; }
+.intume-detail .intume-project-icon img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }
+.intume-detail .pj-fact-value { font-size: clamp(20px, 2vw, 26px); }
+.intume-detail .pj-fact-note { line-height: 1.4; }
+.intume-detail .pj-prose { line-height: 1.75; }
+.intume-detail .pj-history p { line-height: 1.6; }
+.intume-detail .pj-note p { line-height: 1.65; }
+.intume-preview-shot { grid-template-rows: minmax(0, 1fr) auto; }
+.intume-preview-shot a { display: grid; place-items: center; width: 100%; height: 100%; min-height: 0; }
+.intume-preview-shot a:focus-visible { outline: 2px solid var(--pj-blue); outline-offset: -4px; border-radius: 24px; }
+.intume-preview-shot img { min-height: 0; mix-blend-mode: normal; }
+.intume-preview-shot--connect img { width: 100%; height: 100%; object-fit: contain; }
+.intume-preview-shot figcaption { padding: 6px 14px 16px; font-size: 12px; line-height: 1.4; text-align: center; color: #505057; }
+.intume-detail .pj-read-title { line-height: 1.45; }
+.intume-detail .pj-history div { align-items: baseline; flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .intume-detail .pj-app-sub > span { display: block; }
+  .intume-detail .pj-read li a { align-items: center; }
+  .intume-detail .pj-read-meta { flex-shrink: 0; }
+  .intume-detail .pj-note div { flex-wrap: wrap; }
+}

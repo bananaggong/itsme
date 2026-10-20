@@ -108,3 +108,42 @@
   .pj-story--nuvio, .nuvio-browser { transition: none; }
   .pj-story--nuvio:hover, .pj-story--nuvio:hover .nuvio-browser { transform: none; }
 }
+
+/* Intume occupies the original second App Store story card. */
+.pj-story--intume { --pj-bg: #bee8fb; --pj-ink: #102630; scroll-margin-top: 100px; }
+.pj-story--intume .pj-story-text { padding: 32px; gap: 14px; }
+.pj-story--intume .pj-eyebrow { font-size: 12px; letter-spacing: .01em; text-transform: none; }
+.pj-story--intume .pj-story-title { font-size: clamp(26px, 2.3vw, 32px); line-height: 1.25; letter-spacing: -.035em; }
+.pj-story--intume .pj-story-title > span { display: block; }
+.intume-browser {
+  position: absolute;
+  top: 190px;
+  left: 24px;
+  right: 24px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 12px;
+  background: #0d0d0d;
+  box-shadow: 0 12px 24px -8px rgb(15 58 80 / 25%);
+  transition: transform .3s ease;
+}
+.intume-browser .nuvio-browser-address { margin-right: 18%; }
+.intume-browser-screen { display: block; width: 100%; height: auto; }
+.pj-story--intume:hover .intume-browser { transform: translateY(-3px); }
+.pj-story--intume .pj-strip { min-height: 72px; background: #fff; }
+.intume-story-icon { --pj-icon-bg: #fff; }
+.intume-story-icon img { max-width: none; max-height: none; width: 100%; height: 100%; object-fit: contain; }
+.pj-story--intume .pj-get { text-transform: none; letter-spacing: 0; }
+:root[data-theme="dark"] .pj-story--intume .pj-strip { background: #252526; }
+@media (max-width: 640px) {
+  .pj-story--intume .pj-story-text { padding: 24px; gap: 10px; }
+  .pj-story--intume .pj-story-title { font-size: clamp(23px, 6.3vw, 30px); }
+  .intume-browser { position: relative; top: auto; left: auto; right: auto; margin: 0 20px 28px; }
+  .pj-story--intume .pj-strip { position: relative; margin-top: auto; gap: 10px; padding: 14px 16px; }
+  .pj-story--intume .pj-strip-text span { white-space: normal; font-size: 12px; line-height: 1.35; }
+  .pj-story--intume .pj-get { padding: 7px 10px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pj-story--intume, .intume-browser { transition: none; }
+  .pj-story--intume:hover, .pj-story--intume:hover .intume-browser { transform: none; }
+}
