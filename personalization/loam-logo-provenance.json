@@ -1,0 +1,27 @@
+{
+  "project": "LOAM",
+  "updatedAt": "2026-10-21",
+  "concept": "L represents a tree and ground, O a falling apple, and the rounded AM silhouette a seated person.",
+  "approval": "The user selected the rounded B concept, requested removal of the extended foot, approved the compact direction, and requested a square app icon published to the gwangil.xyz home project switcher.",
+  "generation": {
+    "tool": "Built-in image_gen",
+    "source": "exec-4ab31d0d-44a5-4a8d-816f-912af11399d9.png",
+    "output": "exec-0cfbb290-1028-44c6-8a86-3d89a1f6d2a8.png",
+    "prompt": "Prepare this approved LOAM symbol as a finished square 1:1 app icon. Preserve the exact approved black symbol, including every curve, the detached circular apple, head, bent-knee outline and compact closed ground line. Do not redesign it. Clean pure black mark on solid pure white background, no gradients or texture. Optically center it on a perfectly square artboard and scale it to occupy roughly 78 percent of the canvas height, leaving balanced generous white safe margins. Keep its natural proportions and never stretch it. Full-bleed square white canvas, no drawn rounded-square border, no shadows, no text. Precise flat logo edges suitable for use at small app-icon sizes. Return only the one square icon."
+  },
+  "exports": [
+    {
+      "path": "/personal/projects/loam-icon.png",
+      "width": 256,
+      "height": 256,
+      "use": "Home project switcher dock and selected project label"
+    },
+    {
+      "path": "/personal/projects/loam-icon-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "use": "Reusable square app icon"
+    }
+  ],
+  "exportMethod": "Aspect-preserving PNG resize with high-quality bicubic interpolation."
+}
