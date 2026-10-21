@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- Messages shell shared with the captured newsletter layout. tools/chat.mjs supplies Chat content at serve/build time. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creator Club newsletter | Sam Dickie</title>
+  <meta name="description" content="What I’m building, the best things I’ve read and new products worth a look, roughly once a month. Join 8.8K+ readers of Creator Club.">
+  <link rel="canonical" href="https://www.samdickie.me/newsletter/">
+
+  <!-- Social sharing preview -->
+  <meta property="og:site_name" content="Sam Dickie">
+  <meta property="og:title" content="Creator Club newsletter | Sam Dickie">
+  <meta property="og:description" content="What I’m building, the best things I’ve read and new products worth a look, roughly once a month.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.samdickie.me/newsletter/">
+  <meta property="og:image" content="https://www.samdickie.me/assets/og/newsletter.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Creator Club newsletter page on samdickie.me">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+  <!-- Inter, hosted on this site (assets/fonts/, set up in styles.css); fetched early so text doesn't wait -->
+  <link rel="preload" href="/assets/fonts/inter-latin-v20.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/newsletter-page.css?v=66564d80e5">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Liquid Glass, if the visitor turned it on (glass.js)
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+  </script>
+</head>
+<body class="ms-body">
+
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/writing/" class="nav-link">Writing</a>
+    <a href="/projects/" class="nav-link">Projects</a>
+    <a href="/newsletter/" class="nav-link is-active" aria-current="page">Newsletter</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main class="ms-page">
+    <section class="ms-window" aria-label="The Creator Club newsletter, presented as a Messages chat with Sam">
+
+      <div class="ms-chat">
+        <header class="ms-header">
+          <div class="window-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img class="ms-header-avatar" src="/assets/sam-photo-small.webp" alt="" width="40" height="40">
+          <h1 class="ms-title">Sam Dickie <span>· Creator Club newsletter</span></h1>
+        </header>
+
+        <!-- The conversation. Sam's opening messages are plain HTML, so they show even
+             without JavaScript; newsletter-page.js replays them with a typing indicator. -->
+        <div class="ms-thread" role="log" aria-label="Conversation">
+          <p class="ms-stamp">iMessage · Today</p>
+          <div class="ms-msg ms-msg--sam"><p class="ms-bubble">Hey, I’m Sam.</p></div>
+          <div class="ms-msg ms-msg--sam"><p class="ms-bubble">Roughly once a month I send one email: what I’ve been building, the best things I’ve read and new products worth a look.</p></div>
+          <div class="ms-msg ms-msg--sam"><p class="ms-bubble">No fluff, no sales. I spend waaay too much time on the internet so you don’t have to.</p></div>
+          <div class="ms-msg ms-msg--sam">
+            <a class="ms-bubble ms-preview" href="https://samdickie.substack.com/p/letters-to-a-young-creator">
+              <img src="/assets/newsletter/letters-to-a-young-creator.webp" alt="" loading="lazy">
+              <span class="ms-preview-text"><strong>Letters to a young creator</strong><span>samdickie.substack.com · 9 min read</span></span>
+            </a>
+          </div>
+          <div class="ms-msg ms-msg--sam"><p class="ms-bubble">That’s the latest one, from <time datetime="2026-09-03">3 Sep 2026</time>. Want the next one in your inbox?</p></div>
+        </div>
+
+        <!-- Sam's answers. The quick-reply buttons are made from the data-q questions;
+             data-reply ones are sent after a sign-up (or a mistyped email). -->
+        <template class="ms-answers">
+          <div data-q="What’s in an issue?">
+            <p>Personal updates first, then the best hyperlinks, articles and new products I found that month.</p>
+          </div>
+          <div data-q="How often?">
+            <p>Roughly monthly. If I don’t have anything worth sharing, I skip a month rather than fill your inbox.</p>
+          </div>
+          <div data-q="Show me past issues">
+            <p>65 so far, since July 2020. The latest ones are in Links, and the rest are on Substack.</p>
+          </div>
+          <div data-reply="subscribed">
+            <p>Nice one! You’re on the list, so the next issue will land in your inbox.</p>
+          </div>
+          <div data-reply="invalid">
+            <p>Hmm, that doesn’t look like an email address. Try again?</p>
+          </div>
+          <div data-reply="error">
+            <p>Hmm, that didn’t go through on my end. Could you try again in a minute?</p>
+          </div>
+        </template>
+
+        <div class="ms-footer">
+          <div class="ms-chips" hidden></div>
+          <!-- Sends the email to this site's own sign-up address (worker/index.js), which saves it
+               for Sam to import into Substack. newsletter-page.js sends it in the background so the
+               chat carries on; without JavaScript it's a normal form and shows a thank-you page. -->
+          <form class="ms-compose" action="/api/subscribe" method="post">
+            <label class="ms-hidden-label" for="ms-email">Your email address</label>
+            <input id="ms-email" class="ms-input" type="email" name="email" placeholder="Reply with your email to subscribe" autocomplete="email" required>
+            <!-- Left empty by people (it's hidden); bots fill in every box, which gives them away -->
+            <input class="ms-trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="ms-send" type="submit" aria-label="Subscribe">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
+            </button>
+          </form>
+          <p class="ms-privacy">I only use your email to send you Creator Club, via Substack. Unsubscribe any time.</p>
+        </div>
+      </div>
+
+      <aside class="ms-info" aria-label="About the newsletter">
+        <div class="ms-contact">
+          <img src="/assets/sam-photo-small.webp" alt="Sam Dickie" width="80" height="80">
+          <h2>Sam Dickie</h2>
+          <p>Creator Club · 65 issues since July 2020</p>
+        </div>
+        <dl class="ms-facts">
+          <div><dt>readers</dt><dd>8.8K+</dd></div>
+          <div><dt>roughly</dt><dd>Monthly</dd></div>
+          <div><dt>always</dt><dd>Free</dd></div>
+        </dl>
+        <div class="ms-links-head">
+          <h2>Links</h2>
+          <a href="https://samdickie.substack.com/archive">Show all</a>
+        </div>
+        <ul class="ms-links">
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/letters-to-a-young-creator">
+              <img src="/assets/newsletter/letters-to-a-young-creator-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">Letters to a young creator</span><time datetime="2026-09-03">3 Sep 2026</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/paying-to-see-the-future">
+              <img src="/assets/newsletter/paying-to-see-the-future-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">Paying to see the future</span><time datetime="2026-05-26">26 May 2026</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/the-case-against-personal-software">
+              <img src="/assets/newsletter/the-case-against-personal-software-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">The case against personal software</span><time datetime="2026-04-22">22 Apr 2026</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/the-idiot-index-for-code">
+              <img src="/assets/newsletter/the-idiot-index-for-code-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">The Idiot Index for Code</span><time datetime="2026-02-28">28 Feb 2026</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/we-are-the-nerds">
+              <img src="/assets/newsletter/we-are-the-nerds-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">We are the nerds</span><time datetime="2026-01-28">28 Jan 2026</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/the-world-is-short-software">
+              <img src="/assets/newsletter/the-world-is-short-software-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">The world is short software</span><time datetime="2025-12-23">23 Dec 2025</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/the-website-built-like-an-operating">
+              <img src="/assets/newsletter/the-website-built-like-an-operating-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">The website built like an operating system</span><time datetime="2025-10-23">23 Oct 2025</time></span>
+            </a>
+          </li>
+          <li>
+            <a class="ms-link" href="https://samdickie.substack.com/p/did-ai-kill-the-lean-startup">
+              <img src="/assets/newsletter/did-ai-kill-the-lean-startup-thumb.webp" alt="" width="48" height="48" loading="lazy">
+              <span><span class="ms-link-title">Did AI Kill the Lean Startup?</span><time datetime="2025-08-27">27 Aug 2025</time></span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+    </section>
+  </main>
+
+  <script type="module" src="/newsletter-page.js?v=6cac5bde74"></script>
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+  <!-- Cloudflare Web Analytics: page views and visits, no cookies and nothing personal.
+       Dashboard: Cloudflare → Analytics & Logs → Web Analytics → samdickie.me -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bc4693f3cb624c0489fd86a5ecdb8d59"}'></script>
+</body>
+</html>

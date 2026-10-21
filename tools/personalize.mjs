@@ -9,10 +9,11 @@ import { portraitVersion, personalizePortraitHTML, personalizePortraitJavaScript
 import { messagesVersion, personalizeMessagesHTML } from './messages.mjs';
 import { personalizeProjectStoriesHTML } from './project-stories.mjs';
 import { contactNoteVersion, personalizeContactNoteHTML } from './contact-note.mjs';
+import { chatVersion, personalizeChatHTML } from './chat.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion);
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion).update(chatVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -89,6 +90,7 @@ export function personalizeHTML(html) {
       .replace('content="Sam"', `content="${p.givenName}"`).replace('content="Dickie"', `content="${p.familyName}"`);
   }
   html = personalizeContactNoteHTML(html);
+  html = personalizeChatHTML(html, p);
   return personalizeMessagesHTML(personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
@@ -119,7 +121,8 @@ export function personalizeJavaScript(source, name) {
 }
 
 export function personalizeSearchIndex(source) {
-  const index = JSON.parse(source).filter(item => !item.u.startsWith('https://open.spotify.com/playlist/'));
+  const index = JSON.parse(source).filter(item => !item.u.startsWith('https://open.spotify.com/playlist/') && item.u !== '/newsletter/');
+  index.push({g:'Pages', t:'Chat · 광일과 이야기', u:'/chat/', s:'취미, 일상, 여행과 프로젝트. 궁금한 질문을 골라보세요.', w:'chat 채팅 대화 광일 질문 취미 사진 여행', m:'Chat'});
   index.push({g:'Projects', t:'LOAM · 가설 검증', u:'/projects/loam/', s:'가설에서, 근거 있는 판단까지. 증거를 분석하고 직접 판단하는 창업자 도구.', w:'LOAM 로암 가설 검증 증거 인터뷰 AI 창업 MVP 마감한입 프로젝트', m:'MVP project'});
   index.push({g:'Links', t:'Grapes 음악 플레이어', u:'/#grapes-player', s:'포도알을 눌러 17곡의 샘플을 재생해보세요.', w:'grapes music audio sample player grape 포도 음악 샘플 재생 플레이어', e:'🍇', m:'Music'});
   index.push({g:'Links', t:instagram.name+' · Instagram 글쓰기', u:'/#instagram-writing', s:instagram.description, w:'instagram simsim__puli 심심풀이 인스타그램 글쓰기 에세이 일기 그림 영화 마음', m:'Writing'});

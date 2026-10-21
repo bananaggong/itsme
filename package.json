@@ -5,9 +5,10 @@
   "type": "module",
   "description": "Preserved samdickie.me reference clone for subsequent personalization",
   "scripts": {
-    "dev": "node tools/serve.mjs",
+    "dev": "node tools/chat-content.mjs && node tools/serve.mjs",
     "start": "node tools/serve.mjs",
-    "build": "node tools/build.mjs",
+    "build": "node tools/chat-content.mjs && node tools/build.mjs",
+    "chat:import": "node tools/import-chat.mjs",
     "build:grapes": "npm run build --prefix personalization/grape-player",
     "audit": "node tools/audit.mjs",
     "test": "node --test tests/*.test.mjs",

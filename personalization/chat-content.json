@@ -1,0 +1,609 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "hello",
+      "topic": "나에 대해",
+      "question": "어떤 사람인지 소개해줘",
+      "keywords": [
+        "자기소개",
+        "광일",
+        "누구",
+        "소개"
+      ],
+      "followups": [
+        "hobby",
+        "projects",
+        "seoul"
+      ],
+      "featured": true,
+      "published": true,
+      "notes": "기존 사이트 소개를 바탕으로 작성한 예시",
+      "answers": [
+        {
+          "type": "text",
+          "content": "안녕하세요, 하고 싶은 게 많은 광일이에요 🙂"
+        },
+        {
+          "type": "text",
+          "content": "프로덕트를 만들고, 가끔 음악을 만들거나 글을 써요. 직접 해보고 나서야 알게 되는 것들이 좋아요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/daily-01.webp",
+          "description": "일상 속 광일의 사진"
+        }
+      ]
+    },
+    {
+      "id": "hobby",
+      "topic": "일상과 취미",
+      "question": "요즘 취미가 뭐야?",
+      "keywords": [
+        "취미",
+        "음악",
+        "노래",
+        "글쓰기",
+        "일상"
+      ],
+      "followups": [
+        "music",
+        "writing",
+        "photo"
+      ],
+      "featured": true,
+      "published": true,
+      "notes": "기존 소개 기반 예시. 사진은 사이트에 있는 일상 사진",
+      "answers": [
+        {
+          "type": "text",
+          "content": "AI로 음악을 만들어 플레이리스트로 엮고, 생각이 길어질 때는 글을 써요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/daily-03.webp",
+          "description": "거울에 비친 모습을 남긴 일상 사진"
+        },
+        {
+          "type": "text",
+          "content": "이런 일상 사진도 종종 남겨요. 음악 이야기부터 해볼까요?"
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "topic": "만드는 것들",
+      "question": "어떤 프로젝트를 만들었어?",
+      "keywords": [
+        "개발",
+        "프로젝트",
+        "포트폴리오",
+        "서비스",
+        "만든 것"
+      ],
+      "followups": [
+        "nuvio",
+        "intume",
+        "galpang",
+        "loam"
+      ],
+      "featured": true,
+      "published": true,
+      "notes": "사이트 프로젝트 목록 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "로컬 여행을 연결하는 누비오, 만남 이후의 대화를 이어가는 인투미를 만들고 있어요."
+        },
+        {
+          "type": "text",
+          "content": "일본 여행에서 시작한 갈팡질팡과, 가설을 근거로 살펴보는 LOAM도 있어요. 궁금한 프로젝트를 골라보세요."
+        },
+        {
+          "type": "link",
+          "content": "/projects/",
+          "description": "만든 프로젝트 둘러보기"
+        }
+      ]
+    },
+    {
+      "id": "photo",
+      "topic": "일상과 취미",
+      "question": "일상 사진 한 장 보여줘",
+      "keywords": [
+        "사진",
+        "일상",
+        "셀카",
+        "모습"
+      ],
+      "followups": [
+        "hobby",
+        "seoul",
+        "writing"
+      ],
+      "featured": true,
+      "published": true,
+      "notes": "사진 답변 동작을 위한 예시 문구",
+      "answers": [
+        {
+          "type": "text",
+          "content": "좋아요. 제 일상에서 한 장 꺼내볼게요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/daily-02.webp",
+          "description": "거울 앞에서 찍은 광일의 일상 사진"
+        },
+        {
+          "type": "text",
+          "content": "사진으로 보니까 조금 더 가까워진 느낌이네요 🙂"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "topic": "일상과 취미",
+      "question": "음악도 직접 만들어?",
+      "keywords": [
+        "음악",
+        "노래",
+        "AI",
+        "Suno",
+        "수노",
+        "작곡"
+      ],
+      "followups": [
+        "playlist",
+        "writing",
+        "hobby"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 사이트 자기소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "네! AI로 음악을 만들고, 마음에 드는 곡들을 모아 플레이리스트로 엮어요."
+        },
+        {
+          "type": "text",
+          "content": "그 경험을 외국인들에게 강의한 적도 있어요. 만든 음악은 이 사이트의 포도 플레이어에 담아뒀어요."
+        },
+        {
+          "type": "link",
+          "content": "/#grapes-player",
+          "description": "포도 플레이어에서 들어보기"
+        }
+      ]
+    },
+    {
+      "id": "playlist",
+      "topic": "일상과 취미",
+      "question": "만든 음악은 어디서 들어?",
+      "keywords": [
+        "음악",
+        "노래",
+        "듣기",
+        "플레이리스트",
+        "포도",
+        "grapes"
+      ],
+      "followups": [
+        "music",
+        "hobby"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 플레이어 안내",
+      "answers": [
+        {
+          "type": "text",
+          "content": "홈에 있는 포도알을 눌러보세요. 곡을 고르고 재생할 수 있어요."
+        },
+        {
+          "type": "link",
+          "content": "/#grapes-player",
+          "description": "Grapes · 내가 만든 음악"
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "topic": "일상과 취미",
+      "question": "어떤 글을 써?",
+      "keywords": [
+        "글",
+        "글쓰기",
+        "에세이",
+        "영화",
+        "그림",
+        "심심풀이"
+      ],
+      "followups": [
+        "essay",
+        "hobby",
+        "ideas"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "그림이나 영화에서 시작한 이야기가 어느새 제 이야기가 되기도 해요."
+        },
+        {
+          "type": "text",
+          "content": "그렇게 쓴 글은 ‘심심풀이’라는 이름으로 모으고 있어요."
+        },
+        {
+          "type": "link",
+          "content": "/#instagram-writing",
+          "description": "심심풀이 글 보러 가기"
+        }
+      ]
+    },
+    {
+      "id": "essay",
+      "topic": "일상과 취미",
+      "question": "심심풀이는 뭐야?",
+      "keywords": [
+        "심심풀이",
+        "인스타",
+        "instagram",
+        "에세이"
+      ],
+      "followups": [
+        "writing",
+        "music"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 사이트 소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "제가 쓴 생각과 이야기를 모아두는 이름이에요. 잠깐 읽다가 자기 생각으로 이어지는 글이면 좋겠어요."
+        },
+        {
+          "type": "link",
+          "content": "/#instagram-writing",
+          "description": "심심풀이 만나보기"
+        }
+      ]
+    },
+    {
+      "id": "seoul",
+      "topic": "나에 대해",
+      "question": "서울에는 어떻게 오게 됐어?",
+      "keywords": [
+        "서울",
+        "졸업",
+        "이사",
+        "시작"
+      ],
+      "followups": [
+        "hello",
+        "ideas",
+        "photo"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 자기소개 기반. 기간은 단정하지 않음",
+      "answers": [
+        {
+          "type": "text",
+          "content": "학교를 졸업하고 무작정 서울로 올라왔어요."
+        },
+        {
+          "type": "text",
+          "content": "여전히 해보고 싶은 게 많아서 조금 분주하게 지내요. 하나를 시작하면 또 다른 게 궁금해지더라고요."
+        }
+      ]
+    },
+    {
+      "id": "ideas",
+      "topic": "만드는 것들",
+      "question": "아이디어는 어디서 얻어?",
+      "keywords": [
+        "아이디어",
+        "영감",
+        "시작",
+        "계기",
+        "경험"
+      ],
+      "followups": [
+        "nuvio",
+        "intume",
+        "galpang"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "시작은 대개 제가 겪었던 작은 경험이에요."
+        },
+        {
+          "type": "text",
+          "content": "네트워킹 뒤에 남았던 아쉬움은 인투미가 됐고, 여행에서 알게 된 청년마을은 누비오로 이어졌어요."
+        }
+      ]
+    },
+    {
+      "id": "nuvio",
+      "topic": "만드는 것들",
+      "question": "누비오는 어떤 서비스야?",
+      "keywords": [
+        "누비오",
+        "nuvio",
+        "로컬",
+        "여행",
+        "청년마을"
+      ],
+      "followups": [
+        "local",
+        "intume",
+        "projects"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "누비오 소개와 기획 자료 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "숨겨진 로컬 프로그램을 발견하고 예약까지 이어주는 서비스예요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/projects/nuvio-open-section.webp",
+          "description": "누비오의 로컬 여행 소개 화면"
+        },
+        {
+          "type": "text",
+          "content": "관광지만 보고 돌아오는 것보다, 그곳 사람들과 다른 삶의 방식을 만나보는 경험을 담고 싶어요."
+        },
+        {
+          "type": "link",
+          "content": "/projects/nuvio/",
+          "description": "누비오 프로젝트 자세히 보기"
+        }
+      ]
+    },
+    {
+      "id": "local",
+      "topic": "여행 이야기",
+      "question": "로컬 여행에서 뭘 만나고 싶어?",
+      "keywords": [
+        "로컬",
+        "여행",
+        "지역",
+        "사람",
+        "청년마을"
+      ],
+      "followups": [
+        "nuvio",
+        "japan",
+        "ideas"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "브랜드 기획을 대화로 바꾼 예시. 본인 말투로 수정 가능",
+      "answers": [
+        {
+          "type": "text",
+          "content": "그 지역에서 살아가는 사람들의 이야기가 궁금해요. 왜 그곳을 선택했고, 어떤 변화가 있었는지요."
+        },
+        {
+          "type": "text",
+          "content": "잠깐 머무는 여행이 다른 삶을 상상하는 계기가 되면 좋겠어요."
+        }
+      ]
+    },
+    {
+      "id": "intume",
+      "topic": "만드는 것들",
+      "question": "인투미는 왜 만들었어?",
+      "keywords": [
+        "인투미",
+        "intume",
+        "커피챗",
+        "네트워킹",
+        "모임"
+      ],
+      "followups": [
+        "profile",
+        "ideas",
+        "projects"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 프로젝트 소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "네트워킹이 끝난 뒤, 만남이 그날의 인사로만 남는 게 아쉬웠어요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/projects/intume-profile-desktop.jpg",
+          "description": "인투미에서 사용하는 광일의 프로필과 Q&A 화면"
+        },
+        {
+          "type": "text",
+          "content": "그래서 나를 소개하는 프로필에서 커피챗과 모임으로 자연스럽게 이어지도록 만들었어요."
+        },
+        {
+          "type": "link",
+          "content": "/projects/intume/",
+          "description": "인투미 프로젝트 자세히 보기"
+        }
+      ]
+    },
+    {
+      "id": "profile",
+      "topic": "나에 대해",
+      "question": "인투미 프로필도 볼 수 있어?",
+      "keywords": [
+        "프로필",
+        "명함",
+        "인투미",
+        "pang_l"
+      ],
+      "followups": [
+        "intume",
+        "hello",
+        "contact"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "사용자가 제공한 공개 프로필",
+      "answers": [
+        {
+          "type": "text",
+          "content": "그럼요. 제 한 문장 소개는 ‘생각의 실타래를 풀어내는 일’이에요."
+        },
+        {
+          "type": "link",
+          "content": "https://intume.kr/@pang_l",
+          "description": "광일의 인투미 프로필"
+        }
+      ]
+    },
+    {
+      "id": "galpang",
+      "topic": "만드는 것들",
+      "question": "갈팡질팡은 뭐 하는 앱이야?",
+      "keywords": [
+        "갈팡질팡",
+        "일본",
+        "여행",
+        "어디",
+        "관광"
+      ],
+      "followups": [
+        "japan",
+        "ideas",
+        "projects"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "프로젝트 소개 기반. 사진은 실제 여행사진이 아닌 프로젝트 연출 이미지",
+      "answers": [
+        {
+          "type": "text",
+          "content": "‘여긴 다 봤는데, 다음엔 어디로 가지?’라는 순간에 쓸 여행 길잡이예요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/projects/galpang-shibuya.webp",
+          "description": "일본 거리에서 갈팡질팡을 사용하는 모습을 연출한 프로젝트 이미지"
+        },
+        {
+          "type": "link",
+          "content": "/projects/#galpang",
+          "description": "갈팡질팡 프로젝트 보기"
+        }
+      ]
+    },
+    {
+      "id": "japan",
+      "topic": "여행 이야기",
+      "question": "여행하다가 앱을 만든 거야?",
+      "keywords": [
+        "일본",
+        "여행",
+        "앱",
+        "길잡이"
+      ],
+      "followups": [
+        "galpang",
+        "local",
+        "ideas"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 자기소개 기반",
+      "answers": [
+        {
+          "type": "text",
+          "content": "네, 일본을 여행할 때 갈팡질팡을 소소하게 만들어봤어요."
+        },
+        {
+          "type": "text",
+          "content": "제가 여행하면서 느낀 불편함을 직접 풀어보는 게 출발점이었어요."
+        }
+      ]
+    },
+    {
+      "id": "loam",
+      "topic": "만드는 것들",
+      "question": "LOAM은 어떤 프로젝트야?",
+      "keywords": [
+        "로암",
+        "loam",
+        "가설",
+        "검증",
+        "창업",
+        "근거"
+      ],
+      "followups": [
+        "ideas",
+        "projects",
+        "contact"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 상세 페이지 기반. 화면은 데모 아이템",
+      "answers": [
+        {
+          "type": "text",
+          "content": "아이디어를 둘러싼 가설과 증거를 함께 살펴보고, 다음 판단을 돕는 도구예요."
+        },
+        {
+          "type": "photo",
+          "content": "/personal/projects/loam-board.jpg",
+          "description": "예시 아이템으로 구성한 LOAM 가설 보드 화면"
+        },
+        {
+          "type": "link",
+          "content": "/projects/loam/",
+          "description": "LOAM 프로젝트 자세히 보기"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "topic": "나에 대해",
+      "question": "직접 이야기하고 싶으면?",
+      "keywords": [
+        "연락",
+        "메시지",
+        "협업",
+        "제안",
+        "안녕",
+        "문의"
+      ],
+      "followups": [
+        "profile",
+        "projects",
+        "hello"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "기존 실제 메시지 기능 연결",
+      "answers": [
+        {
+          "type": "text",
+          "content": "프로젝트에 대한 질문이나 함께 만들고 싶은 일이 있다면 한 줄 남겨주세요."
+        },
+        {
+          "type": "link",
+          "content": "/?spotlight=officehours#say-hello",
+          "description": "광일에게 메시지 남기기"
+        }
+      ]
+    }
+  ]
+}

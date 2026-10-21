@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "npm ci --prefix deployment/vercel --ignore-scripts",
-  "buildCommand": "node tools/build.mjs",
+  "buildCommand": "node tools/chat-content.mjs && node tools/build.mjs",
   "outputDirectory": "dist",
   "regions": ["icn1"],
   "cleanUrls": false,
