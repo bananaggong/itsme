@@ -9,7 +9,14 @@
 .tile--hello:hover { transform: none; box-shadow: none; }
 .tile--hello [hidden] { display: none !important; }
 .note-calendar-date { display: flex; flex-direction: column; }
-.note-calendar-open { font: inherit; cursor: pointer; }
+.tile--hello .note-calendar-open {
+  padding: 0;
+  font: 400 14px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  background: var(--text);
+  color: var(--on-text);
+  border-color: var(--text);
+  cursor: pointer;
+}
 .note-idle { display: flex; flex-direction: column; flex: 1; min-height: 190px; }
 .note-topics { list-style: none; padding: 0; }
 .note-topic .ch-title { color: var(--muted); }
