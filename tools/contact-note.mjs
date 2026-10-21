@@ -20,7 +20,7 @@ export function personalizeContactNoteHTML(html) {
         <ul class="ch-events note-topics" aria-label="이런 이야기를 나눠요">
           <li class="ch-event note-topic"><span class="ch-title">프로젝트 이야기</span><span class="ch-time">궁금한 점과 작은 피드백</span></li>
           <li class="ch-event note-topic"><span class="ch-title">함께 만드는 일</span><span class="ch-time">아이디어와 협업 제안</span></li>
-          <li class="ch-event ch-event--open"><button class="ch-slot note-start" type="button" data-note-open aria-expanded="false" aria-controls="note-composer"><span class="ch-title">광일에게 한 줄 남기기</span><span class="ch-time">메시지 작성하기 →</span></button></li>
+          <li class="ch-event ch-event--open"><button class="ch-slot note-start" type="button" data-note-open aria-expanded="false" aria-controls="note-composer"><span class="ch-title">광일에게 한 줄 남기기</span><span class="ch-time"><span class="ch-status">광일에게 직접 전달돼요</span><span class="ch-cta" aria-hidden="true">메시지 작성하기 →</span></span></button></li>
         </ul>
         <p class="ch-foot note-caption">가벼운 인사도 좋아요.</p>
       </div>

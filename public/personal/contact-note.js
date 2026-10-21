@@ -42,15 +42,28 @@ if (tile) {
   function showError(text) { error.textContent = text; error.hidden = false; }
   function count() { tile.querySelector('.note-count').textContent = `${message.value.length.toLocaleString('en-US')} / 1,200`; }
 
-  for (const button of [open, calendarOpen]) button.addEventListener('click', () => {
+  function openComposer(button) {
     opener = button;
     view('compose');
     message.focus({ preventScroll: true });
-  });
-  close.addEventListener('click', () => {
+  }
+  function closeComposer(restoreFocus = true) {
     if (pending) return;
     view('idle');
-    opener.focus({ preventScroll: true });
+    if (restoreFocus) opener.focus({ preventScroll: true });
+  }
+  for (const button of [open, calendarOpen]) button.addEventListener('click', () => openComposer(button));
+  close.addEventListener('click', () => closeComposer());
+  // Match the original calendar: the date, topics and empty card area also open it.
+  tile.addEventListener('click', event => {
+    if (event.target.closest('a, button, form')) return;
+    if (tile.dataset.noteState === 'idle') openComposer(calendarOpen);
+    else if (tile.dataset.noteState === 'compose') closeComposer();
+  });
+  document.addEventListener('click', event => {
+    if (tile.dataset.noteState === 'compose' && !tile.contains(event.target)) {
+      closeComposer(form.contains(document.activeElement));
+    }
   });
   tile.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !event.isComposing && !form.hidden) {

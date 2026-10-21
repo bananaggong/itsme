@@ -6,20 +6,22 @@
   min-height: 330px;
   scroll-margin-top: 110px;
 }
-.tile--hello:hover { transform: none; box-shadow: none; }
+.tile--hello[data-note-state="idle"] { cursor: pointer; }
+.tile--hello:not([data-note-state="idle"]):hover { transform: none; box-shadow: none; }
 .tile--hello [hidden] { display: none !important; }
 .note-calendar-date { display: flex; flex-direction: column; }
 .tile--hello .note-calendar-open {
   padding: 0;
   font: 400 14px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  background: var(--text);
-  color: var(--on-text);
-  border-color: var(--text);
   cursor: pointer;
 }
 .note-idle { display: flex; flex-direction: column; flex: 1; min-height: 190px; }
 .note-topics { list-style: none; padding: 0; }
+.note-topic { transition: opacity .2s ease; }
+.tile--hello[data-note-state="idle"]:hover .note-topic { opacity: .55; }
 .note-topic .ch-title { color: var(--muted); }
+.note-start:focus-visible .ch-status { opacity: 0; transform: translateY(-4px); }
+.note-start:focus-visible .ch-cta { opacity: 1; transform: none; }
 .note-caption { margin-top: 10px; line-height: 1.5; font-size: 11px; }
 .tile--hello[data-note-state="compose"] .note-calendar-date { flex-direction: row; align-items: baseline; gap: 8px; }
 .tile--hello[data-note-state="compose"] .ch-date { font-size: 28px; }
@@ -73,5 +75,6 @@
   .note-field input { height: 42px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .note-send, .tile--hello .ch-event--open { transition: none; }
+  .tile--hello, .note-calendar-open, .note-topic, .note-send,
+  .tile--hello .ch-event--open, .note-start .ch-status, .note-start .ch-cta { transition: none; }
 }
