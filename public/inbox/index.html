@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer">
+<title>광일의 메시지함</title><link rel="stylesheet" href="/inbox/inbox.css?v=1"><script src="/inbox/inbox.js?v=1" defer></script>
+</head><body><main>
+<header><a class="back" href="/">← gwangil.xyz</a><span class="private">나만 보는 공간</span></header>
+<section id="login-panel" class="login panel" hidden>
+<span class="mark" aria-hidden="true">↙</span><p class="eyebrow">GWANGIL'S INBOX</p><h1>남겨주신 이야기</h1><p class="description">방문자가 건넨 인사와 제안을 모아두는 곳이에요.</p>
+<form id="login-form"><label for="password">메시지함 비밀번호</label><input id="password" type="password" autocomplete="current-password" required maxlength="256"><button class="primary" type="submit">메시지함 열기</button></form><p class="hint">로그인은 이 브라우저에서 7일 동안 유지돼요.</p>
+</section>
+<section id="inbox-panel" hidden>
+<div class="title-row"><div><p class="eyebrow">GWANGIL'S INBOX</p><h1>메시지함</h1><p id="count" class="description"></p></div><button id="logout" class="subtle">로그아웃</button></div>
+<div class="toolbar"><div class="filters" role="group" aria-label="메시지 필터"><button id="all" aria-pressed="true">전체</button><button id="unread" aria-pressed="false">안 읽음</button></div><label class="search"><span class="sr-only">메시지 검색</span><input id="search" type="search" placeholder="메시지 또는 이메일 검색"></label><button id="refresh" class="subtle">새로고침</button><button id="export" class="subtle">CSV 다운로드 ↓</button></div>
+<div class="panel table-wrap"><table><caption class="sr-only">받은 메시지</caption><thead><tr><th>상태</th><th>받은 시각</th><th>메시지</th><th>답장 주소</th></tr></thead><tbody id="messages"></tbody></table><p id="empty" class="empty" hidden>아직 남겨진 메시지가 없어요.</p></div>
+<p class="hint">CSV 파일은 엑셀이나 Google 스프레드시트에서 열 수 있어요. 받은 시각은 한국 시간으로 표시합니다.</p>
+</section><p id="notice" role="status" aria-live="polite">메시지함을 확인하고 있어요.</p>
+</main></body></html>

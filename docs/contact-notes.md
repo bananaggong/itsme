@@ -1,22 +1,19 @@
-# Private contact notes
+# Private message inbox
 
-The calendar widget posts to `/api/messages`. The server validates and saves the message before acknowledging it. Local data stays in `.data/store.json`; Vercel uses the existing private Blob store. Public endpoints never list notes or reply addresses.
+The calendar widget saves through `/api/messages`. Production uses the existing private Vercel Blob document `itsme/store.json`; local development uses `.data/store.json`. This is persistent document storage, not a relational database. ETag-conditional writes protect concurrent changes. A save finishes before the visitor sees success.
 
-## Notification setup
+## Owner access
 
-- `CONTACT_NOTIFY_EMAIL`: fixed owner email, configured on the server only.
-- `CRON_SECRET`: random secret of at least 32 characters for the private retry endpoint.
-- Notifications use FormSubmit's documented AJAX endpoint. Activate the owner address once using its confirmation email, then verify a test message in the actual recipient inbox before promotion.
-- A visitor's optional email is used as Reply-To. The recipient and subject prefix cannot be supplied by a visitor.
+Open `/inbox/`. Its public HTML is an empty login shell marked noindex. No credentials or messages are embedded in HTML or JavaScript.
 
-For local testing, put the notification address in an ignored `.env.notifications.local` file and run `node --env-file=.env.notifications.local tools/serve.mjs`. Ordinary tests do not load this file or send real email. `npm run messages:inbox` reads local messages and notification status.
+Set `INBOX_PASSWORD_HASH` to a salted scrypt hash created by `hashInboxPassword` in `hosting/message-inbox.mjs`. Keep the plaintext password only in the owner's private credential file or password manager. Never put it in source, public assets, logs or URLs.
 
-## Delivery behavior
+Sessions use random 256-bit opaque tokens in HttpOnly, Secure, SameSite=Strict, host-only cookies. HTTP localhost is the development exception. Only token hashes are persisted. Sessions expire after seven days, logout revokes the token, and changing the password hash invalidates existing sessions. Login attempts are limited per hashed address in persistent storage. State changes require matching Origin. Unauthenticated list, status and CSV requests are rejected.
 
-Vercel `waitUntil` keeps the notification task alive after the saved-message response. Each send first acquires a persisted lease so concurrent submissions or retries do not send the same message simultaneously. Accepted notifications are skipped thereafter. `accepted` means the mail provider acknowledged the request, not that the recipient inbox was independently checked.
+## Reading messages
 
-Failed attempts remain in the private store with a backoff. An authenticated daily Vercel cron checks up to two queued messages at 00:00 UTC; authenticated POST requests to `/api/message-notifications` can run the same retry manually. A repeated submission of the same message ID also tries a due notification. The original message is retained if delivery fails.
+The inbox shows message content, optional reply address, received time in Asia/Seoul and read/unread status. It supports search, unread filtering, refresh and CSV export. CSV uses UTF-8 BOM for Korean Excel and escapes formula-like values. Message content is rendered as plain text. Reply links open the owner's mail app; no automatic email is sent.
 
-Provider timeouts are ambiguous: an email might have been accepted before its response was lost. Because FormSubmit has no documented idempotency key, a later retry can produce a duplicate email; the stable reference ID identifies it. The stored message itself is deduplicated.
+FormSubmit, its notification endpoint and cron have been removed. Google Sheets is not synchronized automatically. CSV can be opened in Excel or imported into a private Google spreadsheet.
 
-The provider documents 30-day submission retention. References: https://formsubmit.co/documentation and https://formsubmit.co/help.
+For local development run `node --env-file=.env.inbox.local tools/serve.mjs`. `npm run messages:inbox` reads local saved notes. Existing stored messages and notification history remain intact. Never expose `.env*`, `.data`, or the private Blob token.

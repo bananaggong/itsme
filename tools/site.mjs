@@ -5,7 +5,7 @@ import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { personalizeHTML, personalizeJavaScript, personalizeSearchIndex } from './personalize.mjs';
 import { storeContactNote } from '../hosting/contact-notes.mjs';
-import { deliverMessageNotifications } from '../hosting/message-notifications.mjs';
+import { createInboxHandler } from '../hosting/message-inbox.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.gif':'image/gif', '.woff2':'font/woff2', '.woff':'font/woff', '.mp3':'audio/mpeg', '.mp4':'video/mp4', '.webm':'video/webm', '.ico':'image/x-icon', '.vcf':'text/vcard; charset=utf-8', '.xml':'application/xml; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.pdf':'application/pdf' };
@@ -27,7 +27,7 @@ export function cloneJavaScript(source, name) {
 
 export const cloneJSON = (source, name) => name==='search.json' ? personalizeSearchIndex(source) : source;
 
-export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.env.DATA_DIR || resolve(root,'.data'), now=()=>Date.now(), notifyMessage }={}) {
+export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.env.DATA_DIR || resolve(root,'.data'), now=()=>Date.now(), inboxPasswordHash }={}) {
   const bookHTML = readFileSync(resolve(publicDir,'books/index.html'),'utf8');
   const bookData = JSON.parse(bookHTML.match(/<script[^>]*id="bk-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
   const books = new Set(bookData.map(book=>book.slug));
@@ -55,6 +55,7 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
     const count = old.count + votes.length;
     return {average:count ? (old.average*old.count + votes.reduce((a,b)=>a+b,0))/count : 0,count};
   };
+  const inbox = createInboxHandler({ readStore: async () => structuredClone(store), mutate: mutateMessages, passwordHash: inboxPasswordHash, now });
   const json = (res,status,data) => {
     res.writeHead(status,{'Content-Type':mime['.json'],'Cache-Control':'no-store'});
     res.end(JSON.stringify(data));
@@ -78,6 +79,14 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
         res.writeHead(302,{Location:'https://thisdickie.gumroad.com/'});return res.end();
       }
       if (url.pathname.startsWith('/api/')) {
+        if (url.pathname.replace(/\/$/, '') === '/api/inbox') {
+          const headers = new Headers(req.headers);
+          headers.set('x-real-ip', req.socket.remoteAddress);
+          const request = new Request(`http://${req.headers.host}${req.url}`, { method: req.method, headers, ...(['GET','HEAD'].includes(req.method) ? {} : { body: req, duplex: 'half' }) });
+          const response = await inbox(request);
+          res.writeHead(response.status, Object.fromEntries(response.headers));
+          return res.end(Buffer.from(await response.arrayBuffer()));
+        }
         if (url.pathname==='/api/ratings' && req.method==='GET') {
           const slugs = new Set([...Object.keys(seed),...Object.keys(store.votes)]);
           return json(res,200,{ratings:Object.fromEntries([...slugs].map(slug=>[slug,summary(slug)]))});
@@ -90,10 +99,6 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
         if (!data || typeof data!=='object' || Array.isArray(data)) return json(res,400,{ok:false,message:'Invalid request'});
         if (url.pathname === '/api/messages') {
           const result = await mutateMessages(next => storeContactNote(next, data, req.socket.remoteAddress, now()));
-          if (notifyMessage) {
-            void deliverMessageNotifications({ mutate: mutateMessages, notify: notifyMessage, now, id: result.id })
-              .catch(() => console.error('Message notification remains queued for retry.'));
-          }
           return json(res,200,result);
         }
         if (url.pathname==='/api/ratings') {
