@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { loamCard } from './loam-project.mjs';
 
 const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)));
-for (const path of ['../tools/loam-project.mjs', '../public/personal/projects/loam-detail.css', '../public/personal/projects/loam-card.jpg', '../public/personal/projects/loam-board.jpg', '../public/personal/projects/loam-evidence.jpg', '../public/personal/projects/loam-memory.jpg']) {
+for (const path of ['../tools/loam-project.mjs', '../public/personal/projects/loam-detail.css', '../public/personal/projects/loam-icon.png', '../public/personal/projects/loam-card.jpg', '../public/personal/projects/loam-board.jpg', '../public/personal/projects/loam-evidence.jpg', '../public/personal/projects/loam-memory.jpg']) {
   hash.update(readFileSync(new URL(path, import.meta.url)));
 }
 for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-home-mobile.jpg', 'intume-events-mobile.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css', 'galpang-icon.png', 'galpang-shibuya.webp']) {
