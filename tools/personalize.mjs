@@ -14,7 +14,7 @@ import { chatVersion, personalizeChatHTML } from './chat.mjs';
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
 const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion).update(chatVersion);
-for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
+for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/intro.js', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const mail = `mailto:${p.email}?subject=${encodeURIComponent(`안녕하세요, ${p.name}님`)}`;
@@ -27,14 +27,19 @@ const github = icon('<path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21
 const save = icon('<circle cx="10" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 20c.6-3.6 3.2-5.6 6.5-5.6 1.2 0 2.3.3 3.2.8M18 13.5v7M14.5 17h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 const action = (href, label, glyph, extra = '') => `<li><a class="ct-action" href="${escape(href)}" ${extra}>${glyph}${label}</a></li>`;
 const intro = `<div class="intro-body">
+  <div class="intro-preview">
   <p>학교를 졸업하고 무작정 서울로 올라온 지, 어느덧 1년이 되었습니다. 여전히 하고 싶은 게 많습니다. 하나를 시작하면 또 다른 게 궁금해져서, 취미도 하나둘 늘어났고요.</p>
+  <p>IT 스타트업에서 일하며 네트워킹부터 방문 영업, 인플루언서 마케팅, 기획과 디자인, 개발까지 직접 해보았습니다. 하는 일마다 만나는 사람도, 문제를 바라보는 방식도 달라서 배울 게 참 많았습니다.</p>
+  </div>
+  <div class="intro-more" id="intro-more">
   <p>AI로 음악을 만들어 플레이리스트로 엮기도 하고, 그 경험을 외국인들에게 강의하기도 했습니다. 제가 만든 음악은 이곳의 플레이어에서 들으실 수 있어요. 잠깐 틀어두고 읽으셔도 좋겠습니다.</p>
   <p>때로는 사색에 잠겨 글을 씁니다. 그림이나 영화에서 시작한 이야기가 어느새 제 이야기가 되기도 해요. 그렇게 쓴 글들은 ‘심심풀이’라는 이름으로 모으고 있습니다. 아래 인스타그램에서 만나보실 수 있어요.</p>
   <p>그중에서도 가장 무게를 두고 있는 일은 프로덕트를 만드는 일입니다. 시작은 대개 제가 겪었던 작은 경험이었어요.</p>
   <p>네트워킹이 끝난 뒤 남았던 공허함은 커피챗 플랫폼 <a href="https://intume.kr/" target="_blank" rel="noopener noreferrer">‘인투미’</a>를 만드는 계기가 되었습니다. 지방을 여행하다 알게 된 청년마을은 로컬 여행 플랫폼 <a href="https://nuvio.kr/" target="_blank" rel="noopener noreferrer">‘누비오’</a>로 이어졌고요. 일본을 여행할 때는 여행 길잡이 <a href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer">‘갈팡질팡’</a>도 소소하게 만들어보았습니다.</p>
   <p>그 밖에도 이런저런 웹사이트를 만들며 지내고 있습니다. 하고 싶은 게 많아 조금 분주하지만, 직접 해보고 나서야 알게 되는 것들이 좋아요.</p>
-  <p>이곳에는 그렇게 해본 일들을 하나씩 남겨두려고 합니다. 음악을 듣거나, 글을 읽거나, 만든 것들을 눌러보세요. 지금의 저는 이곳에 조금씩 담겨 있습니다.</p>
-</div>`;
+  </div>
+</div>
+<button class="intro-toggle" type="button" aria-expanded="false" aria-controls="intro-more" hidden><span>더 보기</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`;
 
 export function personalizeHTML(html) {
   html = personalizeProjectStoriesHTML(html);
@@ -63,8 +68,11 @@ export function personalizeHTML(html) {
       .replace(/<!-- Featured story,[\s\S]*?<section class="tile tile--news[\s\S]*?<\/section>/, '')
       .replace(/<!-- Photo Booth window,[\s\S]*?<dialog class="pb-window"[\s\S]*?<\/dialog>/, '')
       .replace(/<script\b[^>]*src="\/photobooth\.js[^"]*"[^>]*><\/script>\s*/, '');
-    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">하고잡이, ${p.name}입니다.</h1>`)
+    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">호기심 많은 청년, ${p.name}입니다.</h1>`)
       .replace(/<div class="intro-body">[\s\S]*?<\/div>/, intro)
+      .replace('<section class="tile tile--intro">', '<section class="tile tile--intro" id="intro" aria-labelledby="intro-title">')
+      .replace('<h1 class="intro-title">', '<h1 class="intro-title" id="intro-title">')
+      .replace('</body>', `<script src="/personal/intro.js?v=${profileVersion}" defer></script></body>`)
       .replace(/<section class="tile tile--contact"[\s\S]*?<\/section>/, `<section class="tile tile--contact" aria-label="${p.name} 연락처"><div class="ct-head"><img class="ct-photo" src="${p.photo}" data-profile-photo alt="${p.name} 프로필 사진"><h2 class="ct-name">${p.name}</h2></div><ul class="ct-actions">${action(mail, '메일', envelope)}${action('tel:'+p.phoneInternational, '전화', phone)}${action(p.github, 'GitHub', github, 'target="_blank" rel="noopener" aria-label="bananaggong GitHub"')}${action(p.vcard, '저장', save, `download="${p.name}.vcf" aria-label="${p.name} 연락처 저장"`)}</ul>${field('이메일', p.email, mail)}${field('전화번호', p.phone, 'tel:'+p.phoneInternational)}</section>`)
       .replace(/(<span class="fm-card-text"><strong>)Sam Dickie/, '$1지도 데모')
       .replace(' · Probably lost', ' · 샘플 경로')

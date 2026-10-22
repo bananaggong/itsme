@@ -36,3 +36,34 @@ img[data-profile-photo] { image-rendering: auto; object-position: 50% 24%; }
   text-shadow: 0 0 3px var(--fm-land), 0 0 3px var(--fm-land);
 }
 :root[data-theme="dark"] .fm-home-label { color: #8ab4f8; }
+
+/* The introduction starts as a single-row widget, beside the other home tiles. */
+.intro-preview, .intro-more { display: grid; gap: 18px; }
+.intro-more[hidden], .intro-toggle[hidden] { display: none; }
+.tile--intro.is-collapsible { grid-row: span 1; min-height: 0; }
+.tile--intro.is-collapsible:not(.is-expanded) { height: clamp(330px, 23vw, 353px); }
+.tile--intro.is-collapsible .intro-title { flex-shrink: 0; }
+.tile--intro.is-collapsible .intro-body { padding-top: 20px; min-height: 0; }
+.tile--intro.is-collapsible:not(.is-expanded) .intro-body { display: block; flex: 1; overflow: hidden; }
+.tile--intro.has-preview-overflow:not(.is-expanded) .intro-body { mask-image: linear-gradient(#000 calc(100% - 28px), transparent); }
+.intro-toggle {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  align-self: flex-start; flex-shrink: 0; min-height: 36px; margin-top: 16px;
+  padding: 7px 13px; border: 0; border-radius: 999px;
+  background: var(--card); color: var(--apple-blue); font: 600 14px var(--font);
+  cursor: pointer; transition: background .2s, color .2s;
+}
+.intro-toggle:hover { background: var(--text); color: var(--on-text); }
+.intro-toggle:focus-visible { outline: 2px solid var(--apple-blue); outline-offset: 4px; }
+.intro-toggle svg { width: 16px; height: 16px; transition: transform .2s; }
+.intro-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.tile--intro.is-expanded .intro-more { animation: intro-reveal .2s ease-out; }
+@keyframes intro-reveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (min-width: 1181px) {
+  .tile--intro.is-collapsible:not(.is-expanded) { height: auto; align-self: stretch; max-height: 370px; }
+  .tile--intro.is-collapsible.is-expanded { grid-row: span 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-toggle, .intro-toggle svg { transition: none; }
+  .tile--intro.is-expanded .intro-more { animation: none; }
+}
