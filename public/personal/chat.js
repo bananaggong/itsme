@@ -157,13 +157,15 @@ async function load() {
     const response = await fetch(windowEl.dataset.chatData);
     if (!response.ok) throw new Error('Chat data unavailable');
     const data = await response.json(); questions = data.questions;
-    if (!Array.isArray(questions) || !questions.length) throw new Error('Empty questions');
+    if (!Array.isArray(questions)) throw new Error('Invalid questions');
     const topics = [...new Set(questions.map(q => q.topic))];
     const group = windowEl.querySelector('.gc-topics');
     for (const label of ['', ...topics]) { const node = button(label || '전체', '', () => openPicker(label)); node.dataset.topic = label; node.setAttribute('aria-pressed', String(!label)); group.append(node); }
     const categories = windowEl.querySelector('.gc-categories');
     for (const label of topics) { const node = button(label, '', () => { input.value = ''; openPicker(label); input.focus(); }); categories.append(node); }
     showSuggestions();
+    // A visitor may start searching while the saved answers are still loading.
+    if (!picker.hidden || input.value.trim()) openPicker(topic);
   } catch {
     prompt.textContent = '질문을 불러오지 못했어요.';
     chips.append(button('다시 불러오기', 'ms-chip', () => { chips.replaceChildren(); load(); }));
