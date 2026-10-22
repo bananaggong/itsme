@@ -28,3 +28,14 @@ export async function writeStore(value, etag) {
     throw error;
   }
 }
+
+export async function writeImage(id,content,type) {
+  const extension={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[type];
+  const pathname=`itsme/chat-media/${id}.${extension}`;
+  await put(pathname,content,{access:'private',contentType:type,addRandomSuffix:false,allowOverwrite:false});
+  return {pathname};
+}
+export async function readImage(entry) {
+  const result=await get(entry.pathname,{access:'private'});
+  return result?.statusCode===200?result.stream:null;
+}

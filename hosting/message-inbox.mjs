@@ -28,6 +28,13 @@ function tokenFrom(request, name) {
   return /^[A-Za-z0-9_-]{43}$/.test(token || '') ? token : null;
 }
 
+export function hasInboxSession(request, store, passwordHash, now = Date.now()) {
+  if (!validHash(passwordHash)) return false;
+  const token = tokenFrom(request, cookieSettings(new URL(request.url)).name);
+  const session = token && store.inboxSessions?.[sha(token)];
+  return Boolean(session && session.expiresAt > now && session.credentialVersion === sha(passwordHash));
+}
+
 function rows(store) {
   return Object.values(store.messages || {}).sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(({ id, message, email, createdAt, status }) => ({ id, message, email, createdAt, status: status === 'read' ? 'read' : 'unread' }));
 }

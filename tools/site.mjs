@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { personalizeHTML, personalizeJavaScript, personalizeSearchIndex } from './personalize.mjs';
 import { storeContactNote } from '../hosting/contact-notes.mjs';
 import { createInboxHandler } from '../hosting/message-inbox.mjs';
+import { createChatHandler } from '../hosting/chat-studio.mjs';
+import chatBank from '../hosting/generated/chat-bank.json' with {type:'json'};
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.json':'application/json; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.gif':'image/gif', '.woff2':'font/woff2', '.woff':'font/woff', '.mp3':'audio/mpeg', '.mp4':'video/mp4', '.webm':'video/webm', '.ico':'image/x-icon', '.vcf':'text/vcard; charset=utf-8', '.xml':'application/xml; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.pdf':'application/pdf' };
@@ -56,6 +58,10 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
     return {average:count ? (old.average*old.count + votes.reduce((a,b)=>a+b,0))/count : 0,count};
   };
   const inbox = createInboxHandler({ readStore: async () => structuredClone(store), mutate: mutateMessages, passwordHash: inboxPasswordHash, now });
+  const chat = createChatHandler({bank:chatBank,readStore:async()=>structuredClone(store),mutate:mutateMessages,passwordHash:inboxPasswordHash,now,
+    writeImage:async(id,content,type)=>{const pathname=`chat-media/${id}`;const path=resolve(dataDir,pathname);mkdirSync(dirname(path),{recursive:true});writeFileSync(path,content,{mode:0o600});return {pathname};},
+    readImage:async entry=>{const path=resolve(dataDir,entry.pathname);return path.startsWith(resolve(dataDir,'chat-media')+sep)&&existsSync(path)?readFileSync(path):null;}
+  });
   const json = (res,status,data) => {
     res.writeHead(status,{'Content-Type':mime['.json'],'Cache-Control':'no-store'});
     res.end(JSON.stringify(data));
@@ -79,11 +85,11 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
         res.writeHead(302,{Location:'https://thisdickie.gumroad.com/'});return res.end();
       }
       if (url.pathname.startsWith('/api/')) {
-        if (url.pathname.replace(/\/$/, '') === '/api/inbox') {
+        if (['/api/inbox','/api/chat-studio','/api/chat-content','/api/chat-media'].includes(url.pathname.replace(/\/$/, ''))) {
           const headers = new Headers(req.headers);
           headers.set('x-real-ip', req.socket.remoteAddress);
           const request = new Request(`http://${req.headers.host}${req.url}`, { method: req.method, headers, ...(['GET','HEAD'].includes(req.method) ? {} : { body: req, duplex: 'half' }) });
-          const response = await inbox(request);
+          const response = await (url.pathname.replace(/\/$/,'')==='/api/inbox'?inbox:chat)(request);
           res.writeHead(response.status, Object.fromEntries(response.headers));
           return res.end(Buffer.from(await response.arrayBuffer()));
         }

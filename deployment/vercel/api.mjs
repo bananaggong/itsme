@@ -3,6 +3,8 @@ import books from '../../hosting/generated/books.json' with { type: 'json' };
 import snapshot from '../../reference/ratings.json' with { type: 'json' };
 import { storeContactNote } from '../../hosting/contact-notes.mjs';
 import { createInboxHandler } from '../../hosting/message-inbox.mjs';
+import { createChatHandler } from '../../hosting/chat-studio.mjs';
+import bank from '../../hosting/generated/chat-bank.json' with { type: 'json' };
 
 const allowed = new Set(books);
 const sha = value => createHash('sha256').update(value).digest('hex');
@@ -55,9 +57,11 @@ async function mutate(storage, change) {
 
 export function createAPI(storage, now = Date.now, { inboxPasswordHash } = {}) {
   const inbox = createInboxHandler({ readStore: async () => (await storage.readStore()).value, mutate: change => mutate(storage, change), passwordHash: inboxPasswordHash, now });
+  const chat = createChatHandler({bank,readStore:async()=>(await storage.readStore()).value,mutate:change=>mutate(storage,change),passwordHash:inboxPasswordHash,writeImage:storage.writeImage,readImage:storage.readImage,now});
   return async function handle(request) {
     const url = new URL(request.url), path = url.pathname.replace(/\/$/, '');
     if (path === '/api/inbox') return inbox(request);
+    if (['/api/chat-studio','/api/chat-media','/api/chat-content'].includes(path)) return chat(request);
     if (!['/api/ratings', '/api/subscribe', '/api/messages'].includes(path)) return json({ ok: false, message: 'Not found' }, 404);
     try {
       if (path === '/api/ratings' && request.method === 'GET') {

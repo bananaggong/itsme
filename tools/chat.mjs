@@ -8,7 +8,7 @@ export function personalizeChatHTML(html, profile) {
   html = html.replace(/(<a\b[^>]*href=")\/newsletter\/("[^>]*>)(?:<span[^>]*>)?Newsletter(?:<\/span>)?/g, '$1/chat/$2Chat');
   html = html.replace(/<script\b[^>]*src="\/nav-badge\.js[^"]*"[^>]*><\/script>/g, '');
   if (!html.includes('class="ms-window"')) return html;
-  const content = `<section class="ms-window gc-window" aria-label="광일과 이야기" data-chat-data="/personal/chat-data.json?v=${chatVersion}">
+  const content = `<section class="ms-window gc-window" aria-label="광일과 이야기" data-chat-data="/api/chat-content/">
     <div class="ms-chat">
       <header class="ms-header">
         <div class="window-lights" aria-hidden="true"><span></span><span></span><span></span></div>

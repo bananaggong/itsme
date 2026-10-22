@@ -83,7 +83,7 @@ function addAnswer(answer) {
     node.setAttribute('aria-label', `${answer.description} · 크게 보기`);
     const img = el('img'); img.src = answer.content; img.alt = answer.description; img.decoding = 'async';
     img.addEventListener('error', () => { img.hidden = true; node.disabled = true; node.append(el('small', '', '사진을 불러오지 못했어요.')); }, {once:true});
-    node.append(img); if (answer.content.includes('/projects/')) node.append(el('small', '', answer.description));
+    node.append(img); node.append(el('small', '', answer.description));
     row.append(node);
     if (!photos.has(answer.content)) {
       photos.add(answer.content);
