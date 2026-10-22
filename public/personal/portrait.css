@@ -2,6 +2,19 @@
    profile pictures on the site. Framing is independent of the grid row height. */
 .tile--avatar[data-portrait-mode] { aspect-ratio: 1; align-self: start; overflow: clip; }
 .tile--avatar .avatar-profile { display: block; position: absolute; inset: 0; }
+/* Use only the generated cutout's alpha: the visible face, hair and clothing
+   still come from the original photograph in both themes. A tiny mask inset
+   removes white background fringes; changing theme never moves the photo. */
+:root[data-theme="dark"] .tile--avatar[data-portrait-mode] {
+  background:
+    radial-gradient(ellipse at 8% 42%, rgba(56, 129, 174, .32), transparent 64%),
+    radial-gradient(ellipse at 94% 34%, rgba(131, 84, 197, .4), transparent 66%),
+    linear-gradient(145deg, #10131f, #1d172c 72%, #11131d);
+}
+:root[data-theme="dark"] .tile--avatar .avatar-profile {
+  -webkit-mask: url('./portrait-dark-mask-v1.png') 50% calc(24% + .4cqi) / 99% auto no-repeat;
+  mask: url('./portrait-dark-mask-v1.png') 50% calc(24% + .4cqi) / 99% auto no-repeat;
+}
 .portrait-photos, .portrait-slide { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .portrait-slide { opacity: 0; transition: opacity .3s ease; }
 .tile--avatar[data-portrait-mode="daily"] .portrait-slide.is-current { opacity: 1; }

@@ -9,7 +9,8 @@ const photos = [
   { file: 'daily-03.webp', width: 3024, x: 70, y: 920, size: 1250, alt: '밤거리에서 찍은 김광일의 거울 사진' },
 ];
 const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)));
-for (const file of ['portrait.js', 'portrait.css', ...photos.map(p => p.file)]) {
+// Version the dark-mode alpha mask with the portrait styles, keeping the photo original.
+for (const file of ['portrait.js', 'portrait.css', 'portrait-dark-mask-v1.png', ...photos.map(p => p.file)]) {
   hash.update(readFileSync(new URL('../public/personal/' + file, import.meta.url)));
 }
 export const portraitVersion = hash.digest('hex').slice(0, 10);

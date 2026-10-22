@@ -45,6 +45,9 @@ const intro = `<div class="intro-body">
 export function personalizeHTML(html) {
   html = personalizeProjectStoriesHTML(html);
   html = personalizeBrandHTML(html);
+  // Keep the Writing pages on disk for later; hide only their navigation entry.
+  html = html.replace(/(<nav\b[^>]*>)([\s\S]*?)(<\/nav>)/g, (_, open, content, close) =>
+    open + content.replace(/\s*<a\b(?=[^>]*\bhref="\/writing\/")[^>]*>[\s\S]*?<\/a>/g, '') + close);
   html = html.replace(/<title>([^<]*)<\/title>/, (_, title) => `<title>${title.replaceAll('Sam Dickie', p.name)}</title>`)
     .replace(/(<meta property="og:(?:site_name|title)" content=")([^"]*)/g, (_, prefix, value) => prefix + value.replaceAll('Sam Dickie', p.name))
     .replace(/(<link rel="canonical" href=")https:\/\/www\.samdickie\.me/g, `$1${p.siteUrl}`)
