@@ -10,10 +10,11 @@ import { messagesVersion, personalizeMessagesHTML } from './messages.mjs';
 import { personalizeProjectStoriesHTML } from './project-stories.mjs';
 import { contactNoteVersion, personalizeContactNoteHTML } from './contact-note.mjs';
 import { chatVersion, personalizeChatHTML } from './chat.mjs';
+import { homeLayoutVersion, personalizeHomeLayout } from './home-layout.mjs';
 
 export const profile = JSON.parse(readFileSync(new URL('../personalization/profile.json', import.meta.url), 'utf8'));
 const p = profile;
-const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion).update(chatVersion);
+const version = createHash('sha256').update(JSON.stringify(p)).update(readFileSync(new URL(import.meta.url))).update(mapVersion).update(instagramVersion).update(projectsVersion).update(portraitVersion).update(messagesVersion).update(contactNoteVersion).update(chatVersion).update(homeLayoutVersion);
 for (const file of [p.photo, p.memoji, '/personal/typography.css', '/personal/profile.css', '/personal/intro.js', '/personal/contact.js', '/personal/about.js']) version.update(readFileSync(new URL('../public'+file, import.meta.url)));
 export const profileVersion = version.digest('hex').slice(0, 10);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -29,7 +30,7 @@ const action = (href, label, glyph, extra = '') => `<li><a class="ct-action" hre
 const intro = `<div class="intro-body">
   <div class="intro-preview">
   <p>학교를 졸업하고 무작정 서울로 올라온 지, 어느덧 1년이 되었습니다. 여전히 하고 싶은 게 많습니다. 하나를 시작하면 또 다른 게 궁금해져서, 취미도 하나둘 늘어났고요.</p>
-  <p>IT 스타트업에서 일하며 네트워킹부터 방문 영업, 인플루언서 마케팅, 기획과 디자인, 개발까지 직접 해보았습니다. 하는 일마다 만나는 사람도, 문제를 바라보는 방식도 달라서 배울 게 참 많았습니다.</p>
+  <p>IT 스타트업에서 일하며 영업, 인플루언서 마케팅, 기획과 디자인, 개발까지 경험했습니다. 하는 일마다 만나는 사람도 문제를 바라보는 방식도 달라서 배울 게 참 많았습니다.</p>
   </div>
   <div class="intro-more" id="intro-more">
   <p>AI로 음악을 만들어 플레이리스트로 엮기도 하고, 그 경험을 외국인들에게 강의하기도 했습니다. 제가 만든 음악은 이곳의 플레이어에서 들으실 수 있어요. 잠깐 틀어두고 읽으셔도 좋겠습니다.</p>
@@ -68,7 +69,7 @@ export function personalizeHTML(html) {
       .replace(/<!-- Featured story,[\s\S]*?<section class="tile tile--news[\s\S]*?<\/section>/, '')
       .replace(/<!-- Photo Booth window,[\s\S]*?<dialog class="pb-window"[\s\S]*?<\/dialog>/, '')
       .replace(/<script\b[^>]*src="\/photobooth\.js[^"]*"[^>]*><\/script>\s*/, '');
-    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">호기심 많은 청년, ${p.name}입니다.</h1>`)
+    html = html.replace('<html lang="en">', '<html lang="ko">').replace(/<h1 class="intro-title">[\s\S]*?<\/h1>/, `<h1 class="intro-title">호기심 많음 청년, ${p.name}입니다.</h1>`)
       .replace(/<div class="intro-body">[\s\S]*?<\/div>/, intro)
       .replace('<section class="tile tile--intro">', '<section class="tile tile--intro" id="intro" aria-labelledby="intro-title">')
       .replace('<h1 class="intro-title">', '<h1 class="intro-title" id="intro-title">')
@@ -99,7 +100,7 @@ export function personalizeHTML(html) {
   }
   html = personalizeContactNoteHTML(html);
   html = personalizeChatHTML(html, p);
-  return personalizeMessagesHTML(personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p), p).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
+  return personalizeHomeLayout(personalizeMessagesHTML(personalizePortraitHTML(personalizeMapHTML(personalizeProjectsHTML(personalizeInstagramHTML(replacePlaylist(html)))), p), p)).replaceAll(`src="${p.photo}"`, `src="${p.photo}?v=${profileVersion}"`)
     .replaceAll(`src="${p.memoji}"`, `src="${p.memoji}?v=${profileVersion}"`)
     .replaceAll(`href="${p.vcard}"`, `href="${p.vcard}?v=${profileVersion}"`);
 }

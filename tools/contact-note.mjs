@@ -24,10 +24,9 @@ export function personalizeContactNoteHTML(html) {
         </ul>
         <p class="ch-foot note-caption">가벼운 인사도 좋아요.</p>
       </div>
-      <form class="note-compose" id="note-composer" data-note-view="compose" hidden>
-        <div class="note-compose-head"><h2>광일에게 메시지</h2></div>
+      <form class="note-compose" id="note-composer" data-note-view="compose" aria-label="광일에게 메시지 남기기" hidden>
         <div class="note-field"><div class="note-field-heading"><label for="note-message">메시지</label><span class="note-count" aria-hidden="true">0 / 1,200</span></div><textarea id="note-message" name="message" rows="3" maxlength="1200" required placeholder="어떤 이야기를 나누고 싶으세요?"></textarea></div>
-        <div class="note-field"><label for="note-email">답장받을 이메일 <span>선택</span></label><input id="note-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="note-email-help"><p id="note-email-help" class="note-help">비워두면 답장을 받을 수 없어요.</p></div>
+        <div class="note-field"><label for="note-email">답장받을 이메일 <span>선택</span></label><input id="note-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com"></div>
         <div class="note-trap" aria-hidden="true"><label for="note-website">Website</label><input id="note-website" name="website" tabindex="-1" autocomplete="off"></div>
         <p class="note-error" role="alert" hidden></p>
         <button class="note-send" type="submit"><span>보내기</span>${arrow}</button>
