@@ -5,19 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>페이킹뮤직 | 김광일</title>
-  <meta name="description" content="페이킹뮤직 — 매장의 음악과 운영을 한곳에서. 음악 탐색·연속 재생·운영 도구를 구현한 개발 이야기.">
+  <meta name="description" content="페이킹뮤직 — 공간에 맞는 플레이리스트를 고르고, 다음 곡까지 이어서. 음악 재생과 운영을 연결한 개발 이야기.">
   <link rel="canonical" href="https://gwangil.xyz/projects/payking/">
 
   <!-- Social sharing preview -->
   <meta property="og:site_name" content="김광일">
   <meta property="og:title" content="페이킹뮤직 | 김광일">
-  <meta property="og:description" content="페이킹뮤직 — 매장의 음악과 운영을 한곳에서. 음악 탐색·연속 재생·운영 도구를 구현한 개발 이야기.">
+  <meta property="og:description" content="페이킹뮤직 — 공간에 맞는 플레이리스트를 고르고, 다음 곡까지 이어서. 음악 재생과 운영을 연결한 개발 이야기.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gwangil.xyz/projects/payking/">
-  <meta property="og:image" content="https://gwangil.xyz/personal/projects/payking-home.png">
-  <meta property="og:image:width" content="1440">
-  <meta property="og:image:height" content="1100">
-  <meta property="og:image:alt" content="페이킹뮤직의 실제 공개 홈">
+  <meta property="og:image" content="https://gwangil.xyz/personal/projects/payking-detail-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="560">
+  <meta property="og:image:alt" content="페이킹뮤직 — 공간에 맞는 플레이리스트와 연속 재생">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/webclip.png">
@@ -59,22 +59,59 @@
   <main class="page pj">
     <article class="pj-app payking-detail">
       <a class="pj-back" href="/projects/#payking">‹ Projects</a>
-      <header class="pj-app-head">
-        <span class="pj-icon pj-icon--lg" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="512" height="512"></span>
-        <div class="pj-app-text"><h1>페이킹뮤직</h1><p class="pj-app-sub">매장의 음악과 운영을 한곳에서</p><p class="pj-app-meta">Music service · 매장용 음악 서비스</p><div class="pj-app-actions"><a class="pj-btn" href="https://pay-king-music.vercel.app/" target="_blank" rel="noopener noreferrer">공개 홈 보기</a></div></div>
+      <header class="pk-hero">
+        <div class="pk-hero-copy">
+          <div class="pk-brand"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214"><h1>페이킹뮤직</h1></div>
+          <p class="pk-headline"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></p>
+          <p class="pk-intro">매장에 어울리는 플레이리스트를 고르고,<br class="pk-desktop-break"> 원하는 순서로 음악을 이어 듣는 서비스입니다.</p>
+          <div class="pk-actions"><a class="pk-primary" href="https://pay-king-music.vercel.app/" target="_blank" rel="noopener noreferrer">서비스 둘러보기 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="pk-text-link" href="#project-work-title">만든 과정 보기</a></div>
+        </div>
+        <figure class="pk-art">
+          <!-- PAYKING_VISUAL -->
+          <figcaption>공개 샘플 플레이리스트를 바탕으로 재구성한 화면</figcaption>
+        </figure>
       </header>
-      <dl class="pj-facts">
-        <div><dt>Category</dt><dd class="pj-fact-value">매장 음악</dd><dd class="pj-fact-note">공간에 맞는 플레이리스트</dd></div>
-        <div><dt>Listener</dt><dd class="pj-fact-value">탐색 · 재생</dd><dd class="pj-fact-note">음악과 현재 재생목록</dd></div>
-        <div><dt>Operations</dt><dd class="pj-fact-value">심사 · 관리</dd><dd class="pj-fact-note">회원 · 음원 · 플레이리스트</dd></div>
-        <div><dt>My role</dt><dd class="pj-fact-value">개발</dd><dd class="pj-fact-note">재생 흐름 · 운영 · 권한</dd></div>
+      <dl class="pk-summary">
+        <div><dt>플레이리스트</dt><dd>공간에 맞게 고르기</dd></div>
+        <div><dt>연속 재생</dt><dd>다음 곡을 미리 준비하기</dd></div>
+        <div><dt>담당 영역</dt><dd>플레이어 · 운영 · 권한</dd></div>
       </dl>
-      <section class="pj-section" aria-labelledby="pj-preview"><h2 id="pj-preview">미리보기</h2><figure class="payking-preview"><a href="/personal/projects/payking-home.png" target="_blank" rel="noopener" aria-label="페이킹뮤직 공개 홈 크게 보기 — 새 창"><img src="/personal/projects/payking-home.png" alt="페이킹뮤직 공개 홈. 샘플 플레이리스트와 재생 대기 중인 플레이어" width="1440" height="1100" fetchpriority="high"></a><figcaption>실제 공개 홈 · 샘플 음악과 재생 화면</figcaption></figure></section>
-      <div class="pj-cols">
-        <section class="pj-section" aria-labelledby="pj-about"><h2 id="pj-about">페이킹뮤직 소개</h2><div class="pj-prose"><p>페이킹뮤직은 매장에서 사용할 음악을 탐색하고 재생목록으로 구성하는 음악 서비스입니다. 회원의 음악 재생 화면과 운영자의 회원 심사·음원·플레이리스트 관리 도구를 함께 구현했습니다.</p><p>매장에서 음악이 이어지는 경험을 위해 다음 곡을 준비하는 방식과 재생 권한의 수명을 함께 다뤘습니다. 운영 화면에서는 필요한 데이터를 화면별로 조회하고, 저장과 계정 전환 과정의 오류를 구분하도록 보완했습니다.</p></div></section>
-        <section class="pj-section" aria-labelledby="pj-flow"><h2 id="pj-flow">음악을 사용하는 흐름</h2><ol class="pj-history"><li><div><strong>매장과 회원 확인</strong><span>신청 · 심사</span></div><p>매장 신청 정보를 운영자가 검토하고 이용 권한을 관리합니다.</p></li><li><div><strong>공간에 맞는 음악 고르기</strong><span>탐색 · 구성</span></div><p>음악과 플레이리스트를 살펴보고 현재 재생목록에 담습니다.</p></li><li><div><strong>음악을 이어서 듣기</strong><span>재생 · 기기 인계</span></div><p>곡의 순서를 바꾸거나 다른 기기로 재생을 이어가는 흐름을 다룹니다.</p></li></ol></section>
-      </div>
-      <section class="pj-section" aria-labelledby="pj-permission"><h2 id="pj-permission">운영과 권한을 연결한 부분</h2><div class="pj-prose"><p>캐시에 음원이 남아 있어도 현재 재생 권한을 서버에서 먼저 확인하도록 했습니다. 외부 사업자 등록 조회는 운영자 심사의 참고 정보로 연결하고, 등록 여부와 이용 승인을 별개로 다뤘습니다.</p></div></section>
+
+      <section class="pk-feature pk-playlists" aria-labelledby="pk-playlists-title">
+        <div class="pk-feature-copy">
+          <h2 id="pk-playlists-title">공간의 분위기를<br>플레이리스트로.</h2>
+          <p>공개된 음악과 플레이리스트를 살펴보고, 매장에 맞는 곡을 현재 재생목록에 담습니다.</p>
+          <a class="pk-text-link" href="https://pay-king-music.vercel.app/playlists/81b15f32-a914-4a84-b2f7-c27581c29b19" target="_blank" rel="noopener noreferrer">샘플 플레이리스트 보기 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        </div>
+        <figure class="pk-screen">
+          <a href="/personal/projects/payking-playlist-screen.png" target="_blank" rel="noopener" aria-label="실제 공개 플레이리스트 원본 크게 보기 — 새 창">
+            <img src="/personal/projects/payking-playlist-screen.png" alt="ODO GYM의 여유로운 템포 플레이리스트. 차분한 분위기의 곡 8개와 곡별 재생 시간이 표시된 실제 서비스 화면" width="1004" height="1006" loading="lazy">
+          </a>
+          <figcaption>실제 공개 플레이리스트 일부 <a href="/personal/projects/payking-playlist-screen.png" target="_blank" rel="noopener">원본 크게 보기 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></figcaption>
+        </figure>
+      </section>
+
+      <section class="pk-feature pk-continuous" aria-labelledby="pk-continuous-title">
+        <div class="pk-feature-copy">
+          <h2 id="pk-continuous-title">다음 곡을 준비해,<br>음악의 흐름을 이어서.</h2>
+          <p>현재 곡을 듣는 동안 다음 곡을 미리 준비합니다. 곡이 끝난 뒤 다시 요청하는 대기를 줄이도록 재생 흐름을 구성했습니다.</p>
+        </div>
+        <figure class="pk-sequence">
+          <div class="pk-sequence-track"><p>현재 곡</p><div><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214" loading="lazy"><strong>To me</strong></div></div>
+          <div class="pk-sequence-join"><span>재생 시점에<br>맞춰 연결</span><svg viewBox="0 0 120 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8h108m-5-5 5 5-5 5"/><circle cx="4" cy="8" r="3"/></svg></div>
+          <div class="pk-sequence-track"><p>다음 곡</p><div><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214" loading="lazy"><strong>Neon Nights,<br>City Lights</strong></div></div>
+          <figcaption>연속 재생 동작을 설명하는 도식</figcaption>
+        </figure>
+        <div class="pk-playback-notes">
+          <div><h3>순서는 내 방식대로</h3><p>다음·이전·셔플로 현재 재생목록을 다룹니다. 같은 곡을 여러 번 담아도 목록에서 각각의 위치를 구분합니다.</p></div>
+          <div><h3>다시 열어도 이어서</h3><p>재생목록과 마지막 위치를 복원하도록 구성했습니다. 화면을 다시 열었을 때 듣던 흐름을 이어갈 수 있게 했습니다.</p></div>
+        </div>
+      </section>
+
+      <section class="pk-operations" aria-labelledby="pk-operations-title">
+        <h2 id="pk-operations-title">재생 화면 뒤의 운영까지.</h2>
+        <div><p>음악을 듣는 회원의 화면과 함께, 운영자의 회원 심사·음원·플레이리스트 관리 도구를 구현했습니다. 화면마다 필요한 범위만 조회하고 저장과 계정 전환 과정의 오류를 구분했습니다.</p><p>캐시에 음원이 남아 있어도 현재 재생 권한을 서버에서 확인하도록 했습니다. 외부 사업자 등록 조회는 운영자 심사의 참고 정보로 연결하고, 등록 여부와 이용 승인을 별개로 다뤘습니다.</p></div>
+      </section>
     </article>
 
   </main>

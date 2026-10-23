@@ -22,7 +22,21 @@
     "iconNote": "Existing waveform cover used as a project icon; not a claim of an official brand logo.",
     "cardComposition": "Decorative HTML/CSS composition of the public playlist and player, not a live player or a screenshot. Track titles, durations and playlist size verified on the public page on 2026-10-23.",
     "playlistReference": "https://pay-king-music.vercel.app/playlists/81b15f32-a914-4a84-b2f7-c27581c29b19",
-    "controlIcons": "Copied unchanged from pay-king-music/public/assets/{previous,play,next}.svg. Decorative, within the project detail link."
+    "controlIcons": "Copied unchanged from pay-king-music/public/assets/{previous,play,next}.svg. Decorative, within the project detail link.",
+    "detailPlaylistCapture": "/personal/projects/payking-playlist-screen.png",
+    "detailCaptureNote": "Anonymous public playlist on 2026-10-23. Unmodified 1004x1006 main-content screenshot, captured at a 1440px viewport. The page previews part of it and links to the complete original. No audio, account or operational state changed.",
+    "detailSharingPreview": "/personal/projects/payking-detail-preview.png",
+    "detailSharingPreviewNote": "1200x560 screenshot of the implemented portfolio hero, not a screenshot of the music service.",
+    "detailIllustrations": "The hero reuses the card's decorative HTML/CSS playlist and player. Continuous playback is a labeled static diagram, without simulated audio, timing or measured performance claims.",
+    "detailDesignReferences": [
+      "Image Gen concept: exec-88d717bd-a889-42e4-b437-475f597b387e.png",
+      "Image Gen concept: exec-99cdc1e5-105c-41bc-9f94-b8ff8592d90e.png"
+    ],
+    "detailDesignReview": {
+      "compared": "Card palette, headline and CTA copy, typography, overlapping playlist/player composition, feature order, actual screenshot framing, diagram labels and mobile layout.",
+      "intentionalDifferences": "Retain the existing site navigation and dark theme. Omit unrequested summary icons and feature eyebrow from the generated concepts. Use the real public playlist capture instead of the concept's invented app sidebar. Stack panels and the playback diagram on narrow screens.",
+      "evidencePreserved": "Existing development cases and verification scope remain available below the service overview; daily_stats excluded."
+    }
   },
   "templateCleanup": {
     "sourcePreserved": true,

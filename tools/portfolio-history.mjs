@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
-export const historyVersion = createHash('sha256').update(readFileSync(new URL(import.meta.url))).update(readFileSync(new URL('../public/personal/projects/work.css', import.meta.url))).digest('hex').slice(0, 12);
+export const historyVersion = createHash('sha256').update(readFileSync(new URL(import.meta.url))).update(readFileSync(new URL('../public/personal/projects/work.css', import.meta.url))).update(readFileSync(new URL('../public/personal/projects/payking-detail.css', import.meta.url))).digest('hex').slice(0, 12);
 
 const work = {
   nuvio: {
@@ -42,11 +42,8 @@ function workSection(id) {
   </section>`;
 }
 
-export const paykingCard = `<a class="pj-story pj-story--payking" id="payking" href="/projects/payking/" aria-label="페이킹뮤직 프로젝트 자세히 보기" lang="ko">
-  <div class="pj-story-clip">
-    <div class="pj-story-text"><p class="pj-eyebrow">Music for your space</p><h2 class="pj-story-title"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></h2></div>
-    <!-- Decorative composition of the public playlist and player, using real sample tracks. -->
-    <div class="payking-music-scene" aria-hidden="true">
+// Shared decorative illustration; this is not an interactive music player.
+const paykingScene = `<div class="payking-music-scene" aria-hidden="true">
       <div class="payking-playlist">
         <div class="payking-playlist-label">PLAYLIST <span>ODO GYM</span></div>
         <div class="payking-playlist-head"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214" loading="lazy"><div><span>차분한</span><strong>여유로운 템포</strong><small>8곡 · 21:38</small></div></div>
@@ -60,7 +57,12 @@ export const paykingCard = `<a class="pj-story pj-story--payking" id="payking" h
         <strong>To me</strong><span class="payking-player-sub">ODO GYM · 여유로운 템포</span>
         <div class="payking-player-controls"><img src="/personal/projects/payking-previous.svg" alt="" width="20" height="16"><img class="payking-player-play" src="/personal/projects/payking-play.svg" alt="" width="30" height="30"><img src="/personal/projects/payking-next.svg" alt="" width="20" height="16"></div>
       </div>
-    </div>
+    </div>`;
+
+export const paykingCard = `<a class="pj-story pj-story--payking" id="payking" href="/projects/payking/" aria-label="페이킹뮤직 프로젝트 자세히 보기" lang="ko">
+  <div class="pj-story-clip">
+    <div class="pj-story-text"><p class="pj-eyebrow">Music for your space</p><h2 class="pj-story-title"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></h2></div>
+    ${paykingScene}
     <div class="pj-strip"><span class="pj-icon payking-story-icon" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214"></span><span class="pj-strip-text"><strong>페이킹뮤직</strong><span>매장 음악·플레이리스트·연속 재생</span></span><span class="pj-get">자세히 보기</span></div>
   </div>
 </a>`;
@@ -69,6 +71,8 @@ export function personalizePortfolioHTML(html) {
   const id = Object.keys(work).find(id => html.includes(`class="pj-app ${id}-detail"`));
   if (id) {
     html = html.replace('</article>', workSection(id) + '\n</article>');
+    if (id === 'payking') html = html.replace('<!-- PAYKING_VISUAL -->', paykingScene)
+      .replace('</head>', `<link rel="stylesheet" href="/personal/projects/payking-detail.css?v=${historyVersion}"></head>`);
     if (id === 'intume') html = html.replace('<dt>Together</dt><dd class="pj-fact-value">모임 · 세션</dd><dd class="pj-fact-note">함께 질문하는 시간</dd>', '<dt>My role</dt><dd class="pj-fact-value">개발</dd><dd class="pj-fact-note">커피챗 · 신청 · 운영 도구</dd>');
   }
   if (id || html.includes('class="pj-stories"')) {
