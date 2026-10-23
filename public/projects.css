@@ -130,8 +130,8 @@ a.pj-get:hover { filter: brightness(.96); }
   box-shadow: 0 0 0 1px var(--dark-tile-edge);
   transition: transform .3s ease, box-shadow .3s ease;
 }
-/* Clip the artwork and frosted strip together. Native rounded overflow avoids the black
-   corner artifacts caused by animating a clip-path ancestor of a backdrop-filter layer. */
+/* Native rounded overflow avoids clip-path hover artifacts. The opaque mask composites the
+   artwork and frosted strip together so their antialiased edges cannot leave a colour seam. */
 .pj-story-clip {
   position: relative;
   flex: 1;
@@ -142,6 +142,8 @@ a.pj-get:hover { filter: brightness(.96); }
   border-radius: inherit;
   overflow: clip;
   isolation: isolate;
+  -webkit-mask-image: linear-gradient(#fff, #fff);
+  mask-image: linear-gradient(#fff, #fff);
 }
 .pj-story:hover {
   transform: translateY(-4px);
