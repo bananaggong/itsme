@@ -39,7 +39,7 @@ const intro = `<div class="intro-body">
   <p>때로는 사색에 잠겨 글을 씁니다. 그림이나 영화에서 시작한 이야기가 어느새 제 이야기가 되기도 해요. 그렇게 쓴 글들은 ‘심심풀이’라는 이름으로 모으고 있습니다. 아래 인스타그램에서 만나보실 수 있어요.</p>
   <p>그중에서도 가장 무게를 두고 있는 일은 프로덕트를 만드는 일입니다. 시작은 대개 제가 겪었던 작은 경험이었어요.</p>
   <p>네트워킹이 끝난 뒤 남았던 공허함은 커피챗 플랫폼 <a href="https://intume.kr/" target="_blank" rel="noopener noreferrer">‘인투미’</a>를 만드는 계기가 되었습니다. 지방을 여행하다 알게 된 청년마을은 로컬 여행 플랫폼 <a href="https://nuvio.kr/" target="_blank" rel="noopener noreferrer">‘누비오’</a>로 이어졌고요. 일본을 여행할 때는 여행 길잡이 <a href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer">‘갈팡질팡’</a>도 소소하게 만들어보았습니다.</p>
-  <p>매장 음악의 재생과 운영을 연결하는 <a href="/projects/payking/">‘페이킹뮤직’</a>도 개발했습니다. 그 밖에도 이런저런 웹사이트를 만들며 지내고 있습니다. 하고 싶은 게 많아 조금 분주하지만, 직접 해보고 나서야 알게 되는 것들이 좋아요.</p>
+  <p>그 밖에도 이런저런 웹사이트를 만들며 지내고 있습니다. 하고 싶은 게 많아 조금 분주하지만, 직접 해보고 나서야 알게 되는 것들이 좋아요.</p>
   </div>
 </div>
 <button class="intro-toggle" type="button" aria-expanded="false" aria-controls="intro-more" hidden><span>더 보기</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`;
@@ -143,7 +143,10 @@ export function personalizeSearchIndex(source) {
   index.push({g:'Projects', t:'인투미 · Intume', u:'/projects/intume/', s:'만남이 끝나도, 대화는 이어지도록. 프로필과 커피챗, 행사 신청·운영과 가입 복구를 연결하는 커뮤니티.', w:'Intume 인투미 커피챗 프로필 명함 네트워킹 커뮤니티 모임 세션 이벤트 질문 프로젝트', m:'Ongoing project'});
   for (const item of index) {
     if (item.u === '/') item.s = `${p.name}의 개인 웹사이트. ${p.email} · ${p.phone}`;
-    if (item.u === '/about/') item.s = `${p.name}의 소개와 연락처. GitHub bananaggong`;
+    if (item.u === '/about/') {
+      item.s = `${p.name}의 소개와 경험. 전공·인턴십, 영업·개발·창업 준비의 이야기.`;
+      item.w = 'about 소개 김광일 호기심 많음 청년 경험 전북대학교 컴퓨터공학 문헌정보학 미래내일 리모트 인턴십 최우수 CJ올리브네트웍스 데이터 분석 시스코 Cisco DevNet 네트워크 그레이프스 Grapes 비글코퍼레이션 SNOW EPIK SODA Foodie 푸디 소다 ODO EASYSHOP 바나나테크놀러지 Banana 방문 영업 마케팅 리팩터링 MVP 기획 문구 디자인 개발 배포 웹사이트 홈페이지 랜딩페이지 리뉴얼 팀 창업 음악 글쓰기 여행';
+    }
   }
   return JSON.stringify(index);
 }

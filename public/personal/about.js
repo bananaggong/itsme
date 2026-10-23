@@ -5,6 +5,7 @@ const windowElement = document.querySelector('.notes-window');
 const editor = document.querySelector('.note-editor');
 const sectionRows = [...document.querySelectorAll('.note-row[href^="#"]')];
 const sections = sectionRows.map(row => document.getElementById(row.hash.slice(1)));
+const legacySections = { '#background': '#experience', '#current-role': '#experience', '#how-i-work': '#skills', '#interests': '#about' };
 const sidebarToggle = document.querySelector('.notes-sidebar-toggle');
 const composeButton = document.querySelector('.notes-compose');
 const aboutDocument = document.querySelector('.note-document');
@@ -79,6 +80,7 @@ function synchronize() {
 }
 
 function queueSync() {
+  if (restoreFrame) return;
   if (!syncFrame) syncFrame = requestAnimationFrame(synchronize);
 }
 
@@ -123,9 +125,10 @@ function showDraft({ focus = false, mode = 'push' } = {}) {
   if (!draftCreated) {
     draftCreated = true;
     draftRow.hidden = false;
-    document.querySelector('.note-count').textContent = '6 notes';
-    document.querySelector('.folder-count').textContent = '6';
-    document.querySelector('.notes-account small').textContent = '6 notes';
+    const count = sectionRows.length + 1;
+    document.querySelector('.note-count').textContent = `${count} notes`;
+    document.querySelector('.folder-count').textContent = String(count);
+    document.querySelector('.notes-account small').textContent = `${count} notes`;
     composeButton?.setAttribute('aria-label', 'Open temporary note');
   }
   aboutDocument.hidden = true;
@@ -138,12 +141,17 @@ function showDraft({ focus = false, mode = 'push' } = {}) {
 }
 
 function restoreLocation() {
+  const hash = location.hash;
+  const saved = history.state?.aboutNavigation;
+  clearTimeout(saveTimer);
+  stopMovement();
+  cancelAnimationFrame(syncFrame);
+  syncFrame = 0;
   cancelAnimationFrame(restoreFrame);
   restoreFrame = requestAnimationFrame(() => {
     restoreFrame = 0;
-    const saved = history.state?.aboutNavigation;
-    if (saved?.id === null && draftCreated && !location.hash) showDraft({ mode: 'replace' });
-    else showAbout(sectionRows.find(row => row.hash === location.hash) || sectionRows[0], { mode: 'replace', instant: true, saved });
+    if (saved?.id === null && draftCreated && !hash) showDraft({ mode: 'replace' });
+    else showAbout(sectionRows.find(row => row.hash === (legacySections[hash] || hash)) || sectionRows[0], { mode: 'replace', instant: true, saved });
     // Native fragment restoration may also scroll the outer page on a short desktop.
     if (context().internal) window.scrollTo({ top: 0, behavior: 'instant' });
   });
@@ -154,6 +162,7 @@ sectionRows.forEach(row => row.addEventListener('click', event => {
   event.preventDefault();
   interacted = true;
   cancelAnimationFrame(restoreFrame);
+  restoreFrame = 0;
   showAbout(row);
 }));
 

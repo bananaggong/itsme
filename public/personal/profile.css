@@ -67,3 +67,30 @@ img[data-profile-photo] { image-rendering: auto; object-position: 50% 24%; }
   .intro-toggle, .intro-toggle svg { transition: none; }
   .tile--intro.is-expanded .intro-more { animation: none; }
 }
+
+/* Skills use the Notes document's table, list, and collapsible-heading styles. */
+.note-skills { margin-top: 24px; }
+.note-skills h3 { margin: 28px 0 12px; font-size: 18px; line-height: 1.5; }
+.note-skills > h3:first-child { margin-top: 0; }
+.note-skill-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+.note-skill-table th, .note-skill-table td { padding: 12px 14px; border: 1px solid var(--notes-rule); text-align: left; vertical-align: top; }
+.note-skill-table th { width: 128px; font-weight: 600; }
+.note-skill-table ul { margin: 0; padding: 0; list-style: none; }
+.note-skill-table li + li { margin-top: 3px; }
+.note-skill-lines { margin: 0 0 24px; }
+.note-skill-lines > div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; padding: 10px 0; }
+.note-skill-lines dt { color: var(--notes-secondary); font-size: 14px; line-height: 1.75; }
+.note-skill-lines dd { min-width: 0; margin: 0; font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; }
+.note-skill-detail { border-top: 1px solid var(--notes-rule); }
+.note-skill-detail summary { padding: 14px 0; font-size: 16px; font-weight: 600; line-height: 1.6; cursor: pointer; }
+.note-skill-detail summary::marker { color: var(--notes-accent, #bd8800); }
+.note-skill-detail summary:focus-visible { outline: 2px solid var(--notes-accent, #bd8800); outline-offset: 4px; border-radius: 3px; }
+.note-skill-detail[open] > summary { margin-bottom: 4px; }
+.note-skill-detail .note-skill-lines { margin-bottom: 14px; }
+@media (max-width: 700px) {
+  .note-skills h3 { font-size: 17px; }
+  .note-skill-table th, .note-skill-table td { padding: 10px; }
+  .note-skill-table th { width: 80px; }
+  .note-skill-lines > div { grid-template-columns: 1fr; gap: 3px; padding: 8px 0; }
+  .note-skill-detail summary { font-size: 15px; }
+}
