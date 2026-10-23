@@ -1,0 +1,27 @@
+{
+  "public/lost.js": {
+    "referenceSha256": "592a52d86dba2570bd128ce9efd0fb4a2cba1ed5272912cc5649451e75bd2b33",
+    "sha256": "08565dcbcc7de4354859f15af78035475cd6e38f9ff9498b3bc6131768beda53",
+    "reason": "Use the personalized Korean missing-page message."
+  },
+  "public/projects.css": {
+    "referenceSha256": "2bec225315f1fa60c16cc5db5ebd3ac5ea8e159dbb3634d601bead986bd062b9",
+    "sha256": "dff8c8a27b268da719ba4963cfd7cd72b940d6e76db2f41ca1db6fc722bff104",
+    "reason": "Composite rounded project cards without hover corner artifacts or footer seams."
+  },
+  "public/robots.txt": {
+    "referenceSha256": "d63a917934249dbd7cfb7a0f74af37eea7db62e904ba0f533dababe7811106a0",
+    "sha256": "b410d34fad4d23284bcf6341738e04f031ac201fc87b2353c8136e774a99c94b",
+    "reason": "Point crawlers to the gwangil.xyz sitemap."
+  },
+  "public/sitemap.xml": {
+    "referenceSha256": "3c021671012d3914c8525ddd02543c0160cfdd9de3d31479cd7e6530a6eb5bea",
+    "sha256": "1ef4f061b9cb877a2a33b64ef71ae2f7344599e250690223b237c1c7f4d9a93f",
+    "reason": "Index only the published personal portfolio routes."
+  },
+  "public/spotlight.js": {
+    "referenceSha256": "eb0e1e92b2e8aabdb634d3f9d1f07b2e2ff12121e9bc876794af9bce07165754",
+    "sha256": "405b4cfbf47134754907a210c782fcc26e4a812a4cf6fe008ed8fd521eb10c27",
+    "reason": "Remove retired reference-project search shortcuts and personalize the contact action."
+  }
+}
