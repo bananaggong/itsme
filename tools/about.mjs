@@ -15,6 +15,7 @@ export function personalizeAboutHTML(html, profile) {
   const name = escape(profile.name);
   const rows = sections.map(([id, title, summary], i) => `<a class="note-row${i === 0 ? ' is-selected' : ''}" href="#${id}"><strong>${escape(title)}</strong><span>${summary}</span></a>`).join('\n');
   const document = `<div class="note-document" id="about-document">
+    <nav class="notes-mobile-nav" aria-label="소개 목차"><a href="#about" aria-current="location">소개</a><a href="#experience">경험</a><a href="#skills">스킬</a></nav>
     <p class="note-date">About ${name}</p>
     <section class="note-section note-intro" id="about">
       <div class="note-profile">

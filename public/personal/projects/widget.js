@@ -1,7 +1,7 @@
 const tile = document.querySelector('.tile--projects');
 
 if (tile) {
-  const buttons = [...tile.querySelectorAll('.sw-app')];
+  const links = [...tile.querySelectorAll('.sw-app')];
   const panels = [...tile.querySelectorAll('.sw-panel')];
   const cards = tile.querySelector('.sw-cards');
   const labelIcon = tile.querySelector('.sw-label-icon');
@@ -9,17 +9,15 @@ if (tile) {
   let selected = 0;
 
   function measure() {
-    const button = buttons[selected].getBoundingClientRect();
-    tile.style.setProperty('--caret-x', `${button.left + button.width/2 - cards.getBoundingClientRect().left}px`);
+    const link = links[selected].getBoundingClientRect();
+    tile.style.setProperty('--caret-x', `${link.left + link.width/2 - cards.getBoundingClientRect().left}px`);
   }
 
   function select(index) {
     selected = index;
-    const active = buttons[index];
-    buttons.forEach(button => {
-      const current = button === active;
-      button.classList.toggle('is-active', current);
-      button.setAttribute('aria-pressed', String(current));
+    const active = links[index];
+    links.forEach(link => {
+      link.classList.toggle('is-active', link === active);
     });
     panels.forEach(panel => {
       const current = panel.dataset.app === active.dataset.app;
@@ -27,19 +25,19 @@ if (tile) {
       panel.classList.toggle('is-active', current);
     });
     labelIcon.src = active.querySelector('img').src;
-    labelName.textContent = active.getAttribute('aria-label');
+    labelName.textContent = active.dataset.name;
     measure();
   }
 
-  buttons.forEach((button, index) => {
-    button.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') select(index); });
-    button.addEventListener('focus', () => select(index));
-    button.addEventListener('click', () => select(index));
-    button.addEventListener('keydown', event => {
-      const next = {ArrowRight: (index+1)%buttons.length, ArrowLeft: (index-1+buttons.length)%buttons.length, Home: 0, End: buttons.length-1}[event.key];
+  links.forEach((link, index) => {
+    link.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') select(index); });
+    link.addEventListener('focus', () => select(index));
+    // Keep native link activation (including Ctrl/Cmd-click and mobile taps).
+    link.addEventListener('keydown', event => {
+      const next = {ArrowRight: (index+1)%links.length, ArrowLeft: (index-1+links.length)%links.length, Home: 0, End: links.length-1}[event.key];
       if (next === undefined) return;
       event.preventDefault();
-      buttons[next].focus();
+      links[next].focus();
     });
   });
 

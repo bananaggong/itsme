@@ -6,7 +6,7 @@ const hash = createHash('sha256').update(readFileSync(new URL(import.meta.url)))
 for (const path of ['../tools/loam-project.mjs', '../public/personal/projects/loam-detail.css', '../public/personal/projects/loam-icon.png', '../public/personal/projects/loam-card.jpg', '../public/personal/projects/loam-board.jpg', '../public/personal/projects/loam-evidence.jpg', '../public/personal/projects/loam-memory.jpg']) {
   hash.update(readFileSync(new URL(path, import.meta.url)));
 }
-for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-home-mobile.jpg', 'intume-events-mobile.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css', 'galpang-icon.png', 'galpang-shibuya.webp']) {
+for (const name of ['nuvio-traveler-screen.jpg', 'nuvio-host-editor.jpg', 'intume-icon.png', 'intume-home-screen.jpg', 'intume-home-mobile.jpg', 'intume-events-mobile.jpg', 'intume-events-screen.jpg', 'intume-connect-preview.png', 'intume-profile-desktop.jpg', 'intume-profile-mobile.jpg', 'intume-coffeechat-screen.jpg', 'intume-detail.css', 'galpang-icon.png', 'galpang-shibuya.webp', 'galpang-detail.css']) {
   hash.update(readFileSync(new URL('../public/personal/projects/' + name, import.meta.url)));
 }
 for (const path of ['/personal/projects/stories.css', '/personal/projects/nuvio-detail.css', '/personal/projects/nuvio-open-section.webp', '/personal/projects/nuvio-icon.png', '/personal/projects/nuvio-wordmark.svg', '/personal/projects/nuvio-symbol.svg', '/personal/projects/nuvio-open-hero.webp', '/personal/projects/nuvio-social-preview.png']) {
@@ -62,18 +62,18 @@ const intumeCard = `<a class="pj-story pj-story--intume" id="intume" href="/proj
   </div>
 </a>`;
 
-const galpangCard = `<a class="pj-story pj-story--galpang" id="galpang" href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="갈팡질팡. 서비스 보기 (새 탭)" lang="ko">
+const galpangCard = `<a class="pj-story pj-story--galpang" id="galpang" href="/projects/galpang/" aria-label="갈팡질팡 프로젝트 자세히 보기" lang="ko">
   <div class="pj-story-clip">
     <div class="pj-story-text">
       <p class="pj-eyebrow" lang="en">Side project</p>
       <h2 class="pj-story-title"><span>여긴 다 봤는데,</span><span>다음엔 어디로?</span></h2>
     </div>
     <div class="galpang-story-media">
-      <img class="pj-story-img galpang-story-photo" src="${asset('/personal/projects/galpang-shibuya.webp')}" alt="시부야 거리에서 휴대폰으로 갈팡질팡의 다음 장소 추천을 확인하는 장면" width="1536" height="1024" loading="lazy" decoding="async">
+      <img class="pj-story-img galpang-story-photo" src="${asset('/personal/projects/galpang-shibuya.webp')}" alt="일본 거리에서 갈팡질팡을 사용하는 모습을 연출한 합성 이미지" width="1536" height="1024" loading="lazy" decoding="async">
       <div class="pj-strip">
         <span class="pj-icon galpang-story-icon" aria-hidden="true"><img src="${asset('/personal/projects/galpang-icon.png')}" alt="" width="512" height="512"></span>
         <span class="pj-strip-text"><strong>갈팡질팡.</strong><span>지금 여기서, 다음 여행지 고르기</span></span>
-        <span class="pj-get">서비스 보기${arrow}</span>
+        <span class="pj-get">자세히 보기${arrow}</span>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@ export function personalizeProjectStoriesHTML(html) {
   const original = /<a class="pj-story pj-story--inset pj-story--wide" href="\/projects\/nocode\/"[\s\S]*?<\/a>/;
   if (original.test(html)) {
     html = html.replace(original, nuvioCard)
-      .replace("new URL(to).pathname.indexOf('/projects/') !== 0", "(new URL(to).pathname.indexOf('/projects/') !== 0 || ['/projects/nuvio/', '/projects/intume/', '/projects/loam/'].includes(new URL(to).pathname))")
+      .replace("new URL(to).pathname.indexOf('/projects/') !== 0", "(new URL(to).pathname.indexOf('/projects/') !== 0 || ['/projects/nuvio/', '/projects/intume/', '/projects/loam/', '/projects/galpang/'].includes(new URL(to).pathname))")
       .replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/stories.css')}"></head>`);
   }
   html = html.replace(/<a class="pj-story pj-story--cover" href="\/projects\/betatesta\/"[\s\S]*?<\/a>/, intumeCard);
@@ -100,6 +100,10 @@ export function personalizeProjectStoriesHTML(html) {
   if (html.includes('class="pj-app intume-detail"')) {
     html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/intume-detail.css')}"></head>`)
       .replace(/\b(src|href)="(\/personal\/projects\/intume-[^"?]+)"/g, (_, attr, path) => `${attr}="${asset(path)}"`);
+  }
+  if (html.includes('class="pj-app galpang-detail"')) {
+    html = html.replace('</head>', `<link rel="stylesheet" href="${asset('/personal/projects/galpang-detail.css')}"></head>`)
+      .replace(/\b(src|href)="(\/personal\/projects\/galpang-[^"?]+\.(?:jpg|png|svg|webp))"/g, (_, attr, path) => `${attr}="${asset(path)}"`);
   }
   return html;
 }

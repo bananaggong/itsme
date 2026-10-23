@@ -16,7 +16,7 @@
   },
   "public/sitemap.xml": {
     "referenceSha256": "3c021671012d3914c8525ddd02543c0160cfdd9de3d31479cd7e6530a6eb5bea",
-    "sha256": "1ef4f061b9cb877a2a33b64ef71ae2f7344599e250690223b237c1c7f4d9a93f",
+    "sha256": "2719439037c2b1c905129899b4351a890c04bcbf8c64c33855dcf9369f6db289",
     "reason": "Index only the published personal portfolio routes."
   },
   "public/spotlight.js": {

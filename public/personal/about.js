@@ -4,6 +4,7 @@ import { scrollBehavior } from '../utils.js?v=8c1091ee90';
 const windowElement = document.querySelector('.notes-window');
 const editor = document.querySelector('.note-editor');
 const sectionRows = [...document.querySelectorAll('.note-row[href^="#"]')];
+const mobileLinks = [...document.querySelectorAll('.notes-mobile-nav a')];
 const sections = sectionRows.map(row => document.getElementById(row.hash.slice(1)));
 const legacySections = { '#background': '#experience', '#current-role': '#experience', '#how-i-work': '#skills', '#interests': '#about' };
 const sidebarToggle = document.querySelector('.notes-sidebar-toggle');
@@ -31,6 +32,10 @@ function context() {
 }
 
 function selectRow(selected) {
+  mobileLinks.forEach(link => {
+    if (link.hash === selected?.hash) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
   document.querySelectorAll('.note-row').forEach(row => {
     row.classList.toggle('is-selected', row === selected);
     if (row === selected) row.setAttribute('aria-current', 'location');
@@ -157,13 +162,13 @@ function restoreLocation() {
   });
 }
 
-sectionRows.forEach(row => row.addEventListener('click', event => {
+[...sectionRows, ...mobileLinks].forEach(link => link.addEventListener('click', event => {
   if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   interacted = true;
   cancelAnimationFrame(restoreFrame);
   restoreFrame = 0;
-  showAbout(row);
+  showAbout(sectionRows.find(row => row.hash === link.hash));
 }));
 
 function interrupt() {

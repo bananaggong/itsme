@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { personalizeHTML } from '../tools/personalize.mjs';
-import { HOME_TILE_ORDER, HIDDEN_HOME_TILES, personalizeHomeLayout } from '../tools/home-layout.mjs';
+import { HOME_TILE_ORDER, MOBILE_HOME_TILE_ORDER, HIDDEN_HOME_TILES, personalizeHomeLayout } from '../tools/home-layout.mjs';
 
 const source = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
 
@@ -35,4 +35,14 @@ test('the preserved board can be restored with the visibility setting', () => {
 test('other pages are not rearranged', () => {
   const page = '<main><div class="grid"><article>Project</article></div></main>';
   assert.equal(personalizeHomeLayout(page), page);
+});
+
+test('mobile prioritizes projects and contact without dropping widgets or changing desktop order', () => {
+  const html = personalizeHTML(source);
+  const order = html.match(/data-mobile-order="([^"]+)"/)[1].split(' ');
+  assert.deepEqual(order, MOBILE_HOME_TILE_ORDER.filter(name => !HIDDEN_HOME_TILES.has(name)));
+  assert.deepEqual([...order].sort(), HOME_TILE_ORDER.filter(name => !HIDDEN_HOME_TILES.has(name)).sort());
+  assert.ok(order.indexOf('switcher') < order.indexOf('spotify'));
+  assert.ok(order.indexOf('contact') < order.indexOf('spotify'));
+  assert.match(html, /src="\/personal\/home-order\.js\?v=/);
 });

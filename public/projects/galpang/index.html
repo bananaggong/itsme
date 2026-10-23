@@ -1,0 +1,113 @@
+<!doctype html>
+<!-- The shared App Store project template with source-backed Galpang content. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>갈팡질팡. | 김광일</title>
+  <meta name="description" content="갈팡질팡. — 여긴 다 봤는데, 다음엔 어디로? 지금 위치와 남은 시간에 맞춰 도쿄의 다음 여행지를 고르는 길잡이.">
+  <link rel="canonical" href="https://gwangil.xyz/projects/galpang/">
+  <meta property="og:site_name" content="김광일">
+  <meta property="og:title" content="갈팡질팡. | 김광일">
+  <meta property="og:description" content="지금 위치와 남은 시간에 맞춰 도쿄의 다음 여행지를 고르는 길잡이.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gwangil.xyz/projects/galpang/">
+  <meta property="og:image" content="https://gwangil.xyz/personal/projects/galpang-shibuya.webp">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="일본 거리에서 갈팡질팡.을 사용하는 모습을 연출한 합성 이미지">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/projects.css?v=2bec225315">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+    addEventListener('pageswap', function(e) { if (e.viewTransition) e.viewTransition.skipTransition(); });
+  </script>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/projects/" class="nav-link is-active" aria-current="page">Projects</a>
+    <a href="/chat/" class="nav-link">Chat</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <main class="page pj">
+    <article class="pj-app galpang-detail">
+      <a class="pj-back" href="/projects/#galpang"><svg width="9" height="15" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2 2 8l6 6"/></svg>Projects</a>
+      <header class="pj-app-head">
+        <span class="pj-icon pj-icon--lg galpang-project-icon" aria-hidden="true"><img src="/personal/projects/galpang-icon.png" alt="" width="256" height="256"></span>
+        <div class="pj-app-text">
+          <h1>갈팡질팡.</h1>
+          <p class="pj-app-sub"><span>여긴 다 봤는데,</span> <span>다음엔 어디로?</span></p>
+          <p class="pj-app-meta">Side project · 도쿄 여행 길잡이 · Mobile Web</p>
+          <div class="pj-app-actions">
+            <a class="pj-btn" href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer">서비스 체험하기 ↗</a>
+            <a class="pj-btn pj-btn--soft" href="#pj-flow">이용 흐름 보기</a>
+          </div>
+        </div>
+      </header>
+      <dl class="pj-facts">
+        <div><dt>Category</dt><dd class="pj-fact-value">여행</dd><dd class="pj-fact-note">다음 목적지를 고르는 일</dd></div>
+        <div><dt>Region</dt><dd class="pj-fact-value">도쿄</dd><dd class="pj-fact-note">동네마다 다른 선택지</dd></div>
+        <div><dt>Start</dt><dd class="pj-fact-value">지금 위치</dd><dd class="pj-fact-note">현재 위치 또는 지역 선택</dd></div>
+        <div><dt>Time</dt><dd class="pj-fact-value">남은 시간</dd><dd class="pj-fact-note">지금 이어갈 여행</dd></div>
+        <div><dt>Choose</dt><dd class="pj-fact-value">다음 장소</dd><dd class="pj-fact-note">후보를 살펴보고 선택</dd></div>
+        <div><dt>Platform</dt><dd class="pj-fact-value">Web</dd><dd class="pj-fact-note">휴대폰 브라우저에서 사용</dd></div>
+      </dl>
+      <section class="pj-section" aria-labelledby="pj-preview">
+        <h2 id="pj-preview">미리보기</h2>
+        <div class="pj-preview galpang-preview">
+          <figure class="pj-shot galpang-preview-shot">
+            <a href="/personal/projects/galpang-shibuya.webp" target="_blank" rel="noopener noreferrer" aria-label="갈팡질팡. 사용 장면 크게 보기 — 새 창"><img src="/personal/projects/galpang-shibuya.webp" alt="일본 거리에서 도쿄의 다음 여행지를 추천하는 갈팡질팡. 화면을 휴대폰으로 보는 연출 이미지" width="1536" height="1024" fetchpriority="high"></a>
+            <figcaption>일본 거리에서 갈팡질팡.을 사용하는 상황을 연출한 합성 이미지입니다.</figcaption>
+          </figure>
+        </div>
+      </section>
+      <div class="pj-cols">
+        <section class="pj-section" aria-labelledby="pj-about">
+          <h2 id="pj-about">갈팡질팡. 소개</h2>
+          <div class="pj-prose">
+            <p>갈팡질팡.은 지금 위치와 남은 시간에 맞춰 도쿄의 다음 여행지를 고르는 길잡이입니다. 한 곳을 둘러본 뒤 어디로 갈지 고민될 때, 이어갈 선택지를 살펴볼 수 있습니다.</p>
+            <p>현재 위치를 사용하거나 지역을 직접 고르고, 추천 범위를 조절합니다. 장소뿐 아니라 동네와 산책 같은 선택지도 함께 살펴봅니다.</p>
+          </div>
+          <h2 class="pj-h2-gap" id="pj-start">일본 여행에서 시작했습니다</h2>
+          <div class="pj-prose">
+            <p>일본을 여행하며 다음 장소를 고르기 위한 길잡이로 만들었습니다. “여긴 다 봤는데, 다음엔 어디로?”라는 질문에 지금 있는 곳에서 이어갈 선택지를 보여주고 싶었습니다.</p>
+          </div>
+        </section>
+        <section class="pj-section" aria-labelledby="pj-flow">
+          <h2 id="pj-flow">다음 장소를 고르는 흐름</h2>
+          <ol class="pj-history">
+            <li><div><strong>어디서 출발할까요?</strong><span>위치</span></div><p>현재 위치를 사용하거나 도쿄의 지역을 직접 선택합니다. 추천 범위를 조절해 가까운 곳과 새로운 동네를 살펴볼 수 있습니다.</p></li>
+            <li><div><strong>지금 갈 만한 곳을 살펴봅니다</strong><span>추천</span></div><p>최대 세 개의 후보를 보고 이동 정보와 머무는 시간을 확인합니다. 마음에 들지 않는 선택지는 다시 추천받을 수 있습니다.</p></li>
+            <li><div><strong>고른 곳으로, 그다음 일정으로</strong><span>선택</span></div><p>가고 싶은 선택지를 고릅니다. 장소는 Google Maps에서 확인하고, 다음 일정 선택으로 여행을 이어갈 수 있습니다.</p></li>
+          </ol>
+        </section>
+      </div>
+      <section class="pj-section" aria-labelledby="pj-read">
+        <h2 id="pj-read">갈팡질팡. 둘러보기</h2>
+        <ul class="pj-read">
+          <li><a href="https://gal-pang-jil-pang.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="pj-read-title">도쿄의 다음 여행지 골라보기</span><span class="pj-read-meta">서비스 체험 ↗</span></a></li>
+          <li><a href="/projects/#galpang"><span class="pj-read-title">다른 프로젝트도 둘러보기</span><span class="pj-read-meta">Projects →</span></a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+</body>
+</html>

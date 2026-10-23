@@ -5,20 +5,22 @@
       "name": "누비오",
       "brand": "NUVIO",
       "description": "여행자의 신청과 호스트의 프로그램 운영을 함께 만드는 서비스",
-      "url": "https://nuvio.kr/",
+      "url": "/projects/nuvio/",
       "domain": "nuvio.kr",
       "icon": "/personal/projects/nuvio-icon.png",
-      "preview": "/personal/projects/nuvio-preview.png"
+      "preview": "/personal/projects/nuvio-preview.png",
+      "cta": "프로젝트 보기"
     },
     {
       "id": "intume",
       "name": "인투미",
       "brand": "intume",
       "description": "프로필과 커피챗, 행사 신청과 운영을 연결하는 커뮤니티",
-      "url": "https://intume.kr/",
+      "url": "/projects/intume/",
       "domain": "intume.kr",
       "icon": "/personal/projects/intume-icon.png",
-      "preview": "/personal/projects/intume-preview.png"
+      "preview": "/personal/projects/intume-preview.png",
+      "cta": "프로젝트 보기"
     },
     {
       "id": "payking",
@@ -37,11 +39,12 @@
       "name": "갈팡질팡",
       "brand": "갈팡질팡.",
       "description": "지금 위치와 남은 시간에 맞춰 다음 여행지를 고르는 길잡이",
-      "url": "https://gal-pang-jil-pang.vercel.app/",
+      "url": "/projects/galpang/",
       "domain": "gal-pang-jil-pang.vercel.app",
       "icon": "/personal/projects/galpang-icon.png",
       "preview": "/personal/projects/galpang-shibuya.webp",
-      "previewAlt": "일본 거리에서 갈팡질팡을 사용하는 모습을 연출한 합성 이미지"
+      "previewAlt": "일본 거리에서 갈팡질팡을 사용하는 모습을 연출한 합성 이미지",
+      "cta": "프로젝트 보기"
     },
     {
       "id": "loam",
@@ -50,7 +53,7 @@
       "description": "가설에 증거를 연결하고, 판단과 배운 점을 기록하는 도구",
       "url": "/projects/loam/",
       "domain": "예시 화면 체험 가능",
-      "cta": "자세히 보기",
+      "cta": "프로젝트 보기",
       "icon": "/personal/projects/loam-icon.png",
       "preview": "/personal/projects/loam-board.jpg",
       "previewAlt": "가상 예시 프로젝트 마감한입으로 구성한 LOAM 가설 보드"

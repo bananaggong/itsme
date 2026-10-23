@@ -69,6 +69,23 @@ img[data-profile-photo] { image-rendering: auto; object-position: 50% 24%; }
 }
 
 /* Skills use the Notes document's table, list, and collapsible-heading styles. */
+.notes-mobile-nav { display: none; }
+@media (max-width: 700px) {
+  .notes-window { overflow: clip; }
+  .notes-mobile-nav {
+    display: flex; gap: 4px; position: sticky; top: 72px; z-index: 5;
+    padding: 6px; margin: -12px -8px 24px; border: 1px solid var(--notes-rule);
+    border-radius: 12px; background: var(--notes-paper, var(--bg));
+  }
+  .notes-mobile-nav a {
+    flex: 1; display: grid; place-items: center; min-height: 38px;
+    border-radius: 8px; color: var(--notes-secondary); font-size: 14px;
+    font-weight: 600; text-decoration: none;
+  }
+  .notes-mobile-nav a[aria-current] { background: var(--notes-selected); color: var(--notes-selected-text); }
+  .notes-mobile-nav a:focus-visible { outline: 2px solid var(--notes-yellow); outline-offset: 2px; }
+  .note-document .note-section { scroll-margin-top: 132px; }
+}
 .note-skills { margin-top: 24px; }
 .note-skills h3 { margin: 28px 0 12px; font-size: 18px; line-height: 1.5; }
 .note-skills > h3:first-child { margin-top: 0; }

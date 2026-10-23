@@ -40,3 +40,6 @@
 .tile--projects .sw-app { --sw-app-size: clamp(36px, 8vw, 50px); flex-shrink: 1; }
 .tile--projects .sw-app img { width: 100%; height: 100%; }
 @media (max-width: 360px) { .tile--projects .sw-dock { gap: 4px; padding: 5px; } .tile--projects .sw-app { --sw-app-size: 36px; } }
+
+.tile--projects .sw-app { --sw-app-size: 58px; display: grid; place-items: center; border-radius: 17px; text-decoration: none; }
+.tile--projects .sw-app:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }

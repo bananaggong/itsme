@@ -1,7 +1,7 @@
 {
   "project": "갈팡질팡.",
-  "date": "2026-10-20",
-  "scope": "Projects card and home project switcher for the 2026-10-21 production release. Service link opens the existing Galpang app; no new detail page.",
+  "date": "2026-10-23",
+  "scope": "Home logos, project cards and search link to the internal Galpang detail page first. The detail page links to the existing service; copy follows the previously verified product guide and user account.",
   "url": "https://gal-pang-jil-pang.vercel.app/",
   "copy": {
     "eyebrow": "Side project",

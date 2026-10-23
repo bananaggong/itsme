@@ -138,7 +138,7 @@ export function personalizeSearchIndex(source) {
   index.push({g:'Links', t:instagram.name+' · Instagram 글쓰기', u:'/#instagram-writing', s:instagram.description, w:'instagram simsim__puli 심심풀이 인스타그램 글쓰기 에세이 일기 그림 영화 마음', m:'Writing'});
   index.push({g:'Links', t:'내가 만든 것들 · 프로젝트 둘러보기', u:'/#project-workbench', s:'누비오, 인투미, 페이킹뮤직, 갈팡질팡, LOAM의 화면과 서비스 소개', w:'NUVIO 누비오 Intume 인투미 페이킹뮤직 payking 갈팡질팡 LOAM 로암 프로젝트 개발 서비스 만든 것들', m:'Projects'});
   index.push({g:'Links', t:'광일에게 한 줄 남기기', u:'/?spotlight=officehours#say-hello', s:'회원가입 없이 질문과 제안을 비공개로 남겨주세요.', w:'한 줄 남기기 질문 제안 메시지 연락 광일', m:'Message'});
-  index.push({g:'Projects', t:'갈팡질팡 · 다음 여행지 고르기', u:'/projects/#galpang', s:'지금 위치와 남은 시간에 맞춰 다음 여행지를 고르는 길잡이.', w:'갈팡질팡 일본 여행 장소 추천 위치 시간 관광 프로젝트', m:'Side project'});
+  index.push({g:'Projects', t:'갈팡질팡 · 다음 여행지 고르기', u:'/projects/galpang/', s:'지금 위치와 남은 시간에 맞춰 다음 여행지를 고르는 길잡이.', w:'갈팡질팡 일본 여행 장소 추천 위치 시간 관광 프로젝트', m:'Side project'});
   index.push({g:'Projects', t:'누비오 · NUVIO', u:'/projects/nuvio/', s:'로컬 프로그램의 발견부터 신청과 운영까지. 저장 복구와 신청서, 호스트 AI 도구의 권한 설계.', w:'NUVIO 누비오 로컬 여행 체류 청년마을 프로그램 신청 호스트 운영 인터뷰 김천 개발 큐레이션 프로젝트', m:'Ongoing project'});
   index.push({g:'Projects', t:'인투미 · Intume', u:'/projects/intume/', s:'만남이 끝나도, 대화는 이어지도록. 프로필과 커피챗, 행사 신청·운영과 가입 복구를 연결하는 커뮤니티.', w:'Intume 인투미 커피챗 프로필 명함 네트워킹 커뮤니티 모임 세션 이벤트 질문 프로젝트', m:'Ongoing project'});
   for (const item of index) {
