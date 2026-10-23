@@ -19,7 +19,10 @@
     "capture": "Anonymous public home on 2026-10-23; 1440x1100 viewport; actual sample catalog; no authenticated or private operational data.",
     "icon": "/personal/projects/payking-icon.png",
     "iconSource": "C:/projects/pay-king-music/public/assets/default-cover.png",
-    "iconNote": "Existing waveform cover used as a project icon; not a claim of an official brand logo."
+    "iconNote": "Existing waveform cover used as a project icon; not a claim of an official brand logo.",
+    "cardComposition": "Decorative HTML/CSS composition of the public playlist and player, not a live player or a screenshot. Track titles, durations and playlist size verified on the public page on 2026-10-23.",
+    "playlistReference": "https://pay-king-music.vercel.app/playlists/81b15f32-a914-4a84-b2f7-c27581c29b19",
+    "controlIcons": "Copied unchanged from pay-king-music/public/assets/{previous,play,next}.svg. Decorative, within the project detail link."
   },
   "templateCleanup": {
     "sourcePreserved": true,

@@ -12,17 +12,38 @@
 .project-scope summary { cursor: pointer; font-size: 13px; color: var(--muted); }
 .project-scope p { font-size: 13px; margin: 14px 0 2px; }
 .project-scope summary:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
-.pj-story--payking { --pj-bg: #e0e3ff; --pj-ink: #171936; scroll-margin-top: 100px; }
-.pj-story--payking .pj-story-text { position: absolute; top: 32px; left: 28px; width: calc(100% - 56px); padding: 0; gap: 12px; }
-.pj-story--payking .pj-story-title { font-size: clamp(26px, 2.3vw, 32px); line-height: 1.3; letter-spacing: -.035em; }
+.pj-story--payking { --pj-bg: #dce0ff; --pj-ink: #171936; container-type: inline-size; scroll-margin-top: 100px; }
+.pj-story--payking .pj-story-text { position: absolute; top: 32px; left: 32px; width: calc(100% - 64px); padding: 0; gap: 12px; z-index: 2; }
+.pj-story--payking .pj-story-title { font-size: clamp(26px, 2.3vw, 32px); line-height: 1.25; letter-spacing: -.035em; }
 .pj-story--payking .pj-story-title > span { display: block; }
 .pj-story--payking .pj-eyebrow { font-size: 12px; letter-spacing: .01em; text-transform: none; }
 .pj-story--payking .pj-strip { min-height: 72px; background: rgb(255 255 255 / 88%); z-index: 3; }
-.payking-browser { position: absolute; top: 172px; right: 22px; bottom: 94px; width: calc(100% - 44px); border-radius: 12px; overflow: hidden; background: #0d0e13; box-shadow: 0 12px 24px -8px rgb(35 36 93 / 30%); }
-.payking-browser img { display: block; width: 100%; height: calc(100% - 26px); object-fit: cover; object-position: top; }
-.payking-browser-bar { display: flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px; background: #242632; color: #d4d6e3; font-size: 9px; }
-.payking-browser-bar i { width: 6px; height: 6px; border-radius: 50%; background: #777a90; }
-.payking-browser-bar span { margin: auto; padding-right: 26px; }
+.payking-music-scene { position: absolute; inset: 164px 0 72px; pointer-events: none; color: #f5f5fa; }
+.payking-playlist, .payking-player { position: absolute; border: 1px solid #40414f; background: #171821; border-radius: 18px; box-shadow: 0 20px 28px -12px rgb(29 31 84 / 40%), 0 3px 6px rgb(29 31 84 / 14%); transition: transform .4s ease; }
+.payking-playlist { top: 40px; left: -7%; width: 88%; padding: 18px 20px; transform: rotate(-8deg); }
+.payking-playlist-label { display: flex; align-items: center; gap: 14px; font-size: 9px; font-weight: 600; letter-spacing: .09em; color: #a9a9c4; }
+.payking-playlist-label span { font-size: 8px; letter-spacing: .02em; color: #e4e4f0; }
+.payking-playlist-head { display: flex; align-items: center; gap: 12px; margin: 15px 0 12px; }
+.payking-playlist-head > img { width: 54px; height: 54px; border-radius: 7px; object-fit: cover; }
+.payking-playlist-head > div { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.payking-playlist-head strong { font-size: clamp(13px, 3.5cqw, 16px); font-weight: 650; letter-spacing: -.02em; }
+.payking-playlist-head span { color: #b7b6ee; font-size: 9px; }
+.payking-playlist-head small { font-size: 8px; color: #9b9eae; }
+.payking-track { display: grid; grid-template-columns: 20px minmax(0,1fr) 26px; align-items: center; gap: 7px; height: 34px; border-top: 1px solid #30313d; }
+.payking-track > span { font-size: 8px; color: #9294a7; }
+.payking-track strong { font-size: clamp(9px, 2.5cqw, 11px); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.payking-track small { font-size: 8px; color: #a4a6b4; }
+.payking-player { top: 0; right: -2%; width: 47%; height: calc(100% - 16px); display: flex; flex-direction: column; padding: 14px; transform: rotate(10deg); }
+.payking-player-label { display: block; font-size: 10px; font-weight: 650; margin-bottom: 10px; }
+.payking-player-cover { display: block; width: 100%; height: 0; min-height: 0; flex: 1; object-fit: contain; background: #1e1e2a; border-radius: 10px; margin-bottom: 12px; }
+.payking-player > strong { display: block; font-size: 13px; line-height: 1.3; font-weight: 650; }
+.payking-player-sub { display: block; margin-top: 4px; font-size: 8px; color: #b8bacb; white-space: nowrap; }
+.payking-player-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 12px; }
+.payking-player-controls > img { display: block; object-fit: contain; }
+.payking-player-controls > img:not(.payking-player-play) { opacity: .6; }
+.payking-story-icon img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
+.pj-story--payking:is(:hover, :focus-visible) .payking-playlist { transform: translateY(-3px) rotate(-10deg); }
+.pj-story--payking:is(:hover, :focus-visible) .payking-player { transform: translateY(-5px) rotate(7deg); }
 .payking-detail .pj-preview { display: block; }
 .payking-detail .payking-preview { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .payking-preview img { width: 100%; height: auto; display: block; }
@@ -38,6 +59,17 @@
   .project-cases p { font-size: 14px; }
   .pj-story--payking .pj-story-text { top: 24px; left: 24px; width: calc(100% - 48px); }
   .pj-story--payking .pj-story-title { font-size: clamp(23px, 6.3vw, 30px); }
-  .payking-browser { top: 145px; right: 20px; bottom: 90px; width: calc(100% - 40px); }
+  .payking-music-scene { top: 140px; bottom: 76px; }
+  .payking-player { width: 46%; padding: 12px; }
+  .payking-playlist { padding: 16px 18px; }
+  .pj-story--payking .pj-strip { gap: 10px; padding: 14px 16px; }
+  .pj-story--payking .pj-strip-text span { white-space: normal; font-size: 12px; line-height: 1.35; }
+  .pj-story--payking .pj-get { padding: 7px 10px; font-size: 12px; }
   .payking-detail .pj-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pj-story--payking, .payking-playlist, .payking-player { transition: none; }
+  .pj-story--payking:hover { transform: none; }
+  .pj-story--payking:is(:hover, :focus-visible) .payking-playlist { transform: rotate(-8deg); }
+  .pj-story--payking:is(:hover, :focus-visible) .payking-player { transform: rotate(10deg); }
 }

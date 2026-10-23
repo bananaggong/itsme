@@ -44,9 +44,24 @@ function workSection(id) {
 
 export const paykingCard = `<a class="pj-story pj-story--payking" id="payking" href="/projects/payking/" aria-label="페이킹뮤직 프로젝트 자세히 보기" lang="ko">
   <div class="pj-story-clip">
-    <div class="pj-story-text"><p class="pj-eyebrow">Music service</p><h2 class="pj-story-title"><span>매장의 음악과 운영을</span><span>한곳에서</span></h2></div>
-    <div class="payking-browser" aria-hidden="true"><div class="payking-browser-bar"><i></i><i></i><i></i><span>페이킹뮤직</span></div><img src="/personal/projects/payking-home.png" alt="" width="1440" height="1100" loading="lazy"></div>
-    <div class="pj-strip"><span class="pj-icon" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="512" height="512"></span><span class="pj-strip-text"><strong>페이킹뮤직</strong><span>음악 탐색·연속 재생·운영 도구</span></span><span class="pj-get">자세히 보기</span></div>
+    <div class="pj-story-text"><p class="pj-eyebrow">Music for your space</p><h2 class="pj-story-title"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></h2></div>
+    <!-- Decorative composition of the public playlist and player, using real sample tracks. -->
+    <div class="payking-music-scene" aria-hidden="true">
+      <div class="payking-playlist">
+        <div class="payking-playlist-label">PLAYLIST <span>ODO GYM</span></div>
+        <div class="payking-playlist-head"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214" loading="lazy"><div><span>차분한</span><strong>여유로운 템포</strong><small>8곡 · 21:38</small></div></div>
+        <div class="payking-track"><span>01</span><strong>To me</strong><small>3:40</small></div>
+        <div class="payking-track"><span>02</span><strong>Neon Nights, City Lights</strong><small>2:39</small></div>
+        <div class="payking-track"><span>03</span><strong>Love Theory</strong><small>2:26</small></div>
+      </div>
+      <div class="payking-player">
+        <span class="payking-player-label">Player</span>
+        <img class="payking-player-cover" src="/personal/projects/payking-icon.png" alt="" width="206" height="214" loading="lazy">
+        <strong>To me</strong><span class="payking-player-sub">ODO GYM · 여유로운 템포</span>
+        <div class="payking-player-controls"><img src="/personal/projects/payking-previous.svg" alt="" width="20" height="16"><img class="payking-player-play" src="/personal/projects/payking-play.svg" alt="" width="30" height="30"><img src="/personal/projects/payking-next.svg" alt="" width="20" height="16"></div>
+      </div>
+    </div>
+    <div class="pj-strip"><span class="pj-icon payking-story-icon" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214"></span><span class="pj-strip-text"><strong>페이킹뮤직</strong><span>매장 음악·플레이리스트·연속 재생</span></span><span class="pj-get">자세히 보기</span></div>
   </div>
 </a>`;
 
