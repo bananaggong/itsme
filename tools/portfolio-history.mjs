@@ -1,7 +1,12 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
-export const historyVersion = createHash('sha256').update(readFileSync(new URL(import.meta.url))).update(readFileSync(new URL('../public/personal/projects/work.css', import.meta.url))).update(readFileSync(new URL('../public/personal/projects/payking-detail.css', import.meta.url))).digest('hex').slice(0, 12);
+const projectsStyleVersion = createHash('sha256').update(readFileSync(new URL('../public/projects.css', import.meta.url))).digest('hex').slice(0, 12);
+export const historyVersion = createHash('sha256')
+  .update(readFileSync(new URL(import.meta.url)))
+  .update(readFileSync(new URL('../public/personal/projects/work.css', import.meta.url)))
+  .update(readFileSync(new URL('../public/personal/projects/payking-detail.css', import.meta.url)))
+  .update(projectsStyleVersion).digest('hex').slice(0, 12);
 
 const work = {
   nuvio: {
@@ -61,13 +66,14 @@ const paykingScene = `<div class="payking-music-scene" aria-hidden="true">
 
 export const paykingCard = `<a class="pj-story pj-story--payking" id="payking" href="/projects/payking/" aria-label="페이킹뮤직 프로젝트 자세히 보기" lang="ko">
   <div class="pj-story-clip">
-    <div class="pj-story-text"><p class="pj-eyebrow">Music for your space</p><h2 class="pj-story-title"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></h2></div>
+    <div class="pj-story-text"><p class="pj-eyebrow">Client project</p><h2 class="pj-story-title"><span>공간에 맞는 음악,</span><span>다음 곡까지 이어서</span></h2></div>
     ${paykingScene}
     <div class="pj-strip"><span class="pj-icon payking-story-icon" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="206" height="214"></span><span class="pj-strip-text"><strong>페이킹뮤직</strong><span>매장 음악·플레이리스트·연속 재생</span></span><span class="pj-get">자세히 보기</span></div>
   </div>
 </a>`;
 
 export function personalizePortfolioHTML(html) {
+  html = html.replace(/href="\/projects\.css(?:\?[^\"]*)?"/g, `href="/projects.css?v=${projectsStyleVersion}"`);
   const id = Object.keys(work).find(id => html.includes(`class="pj-app ${id}-detail"`));
   if (id) {
     html = html.replace('</article>', workSection(id) + '\n</article>');

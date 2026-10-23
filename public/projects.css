@@ -130,9 +130,8 @@ a.pj-get:hover { filter: brightness(.96); }
   box-shadow: 0 0 0 1px var(--dark-tile-edge);
   transition: transform .3s ease, box-shadow .3s ease;
 }
-/* The card's colour and everything on it, cut to the rounded shape in one go. (Rounding the
-   card and clipping its contents separately softened the corner edge twice, and a thin line
-   of the card's colour showed round the bottom corners under the frosted strip.) */
+/* Clip the artwork and frosted strip together. Native rounded overflow avoids the black
+   corner artifacts caused by animating a clip-path ancestor of a backdrop-filter layer. */
 .pj-story-clip {
   position: relative;
   flex: 1;
@@ -140,9 +139,9 @@ a.pj-get:hover { filter: brightness(.96); }
   display: flex;
   flex-direction: column;
   background: var(--pj-bg);
-  overflow: hidden;        /* square, so it doesn't soften the corners again; it stops pictures
-                              that poke out of the card from widening the page on phones */
-  clip-path: inset(0 round var(--radius));
+  border-radius: inherit;
+  overflow: clip;
+  isolation: isolate;
 }
 .pj-story:hover {
   transform: translateY(-4px);
