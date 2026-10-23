@@ -1,0 +1,30 @@
+{
+  "reviewedOn": "2026-10-23",
+  "purpose": "Commit-evidence-based portfolio copy; daily_stats excluded.",
+  "sources": {
+    "nuvio": "C:/projects/outputs/nuvio-history-20261023-0225/EVIDENCE.md",
+    "intume": "C:/projects/git-history-analysis/intume-web-20261023-0228/EVIDENCE.md",
+    "payking": "C:/projects/_history-analysis/pay-king-music-20261023-0227/EVIDENCE.md",
+    "approvedCopy": "C:/Users/rhkd3/OneDrive/Document/ChatGPT/ITSME 2/outputs/history-site-review-20261023/SITE_COPY.md"
+  },
+  "editorialRules": [
+    "Describe implemented behavior without claiming exclusive contribution, user growth, conversion gains or measured cost savings.",
+    "Separate source and synthetic-test evidence from authenticated production validation and physical-device acceptance.",
+    "Retain the existing NUVIO and Intume project motivations and service imagery.",
+    "About uses the biographical statements already published on the home page; no employer names or dates inferred from commits."
+  ],
+  "paykingMedia": {
+    "home": "/personal/projects/payking-home.png",
+    "source": "https://pay-king-music.vercel.app/",
+    "capture": "Anonymous public home on 2026-10-23; 1440x1100 viewport; actual sample catalog; no authenticated or private operational data.",
+    "icon": "/personal/projects/payking-icon.png",
+    "iconSource": "C:/projects/pay-king-music/public/assets/default-cover.png",
+    "iconNote": "Existing waveform cover used as a project icon; not a claim of an official brand logo."
+  },
+  "templateCleanup": {
+    "sourcePreserved": true,
+    "publishedRoutePolicy": "tools/published-routes.mjs",
+    "removed": "Original project cards, employer list, About biography, search entries, original project and writing routes, VR experiment and old-site archive, external Gumroad redirect.",
+    "chatAliasPreserved": "/newsletter/ is already personalized to Chat and remains a working alias."
+  }
+}

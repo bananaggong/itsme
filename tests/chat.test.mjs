@@ -10,7 +10,7 @@ const source = JSON.parse(readFileSync(new URL('../personalization/chat-content.
 test('publishing omits drafts, editorial notes and links to hidden questions', () => {
   const data = structuredClone(source); data.questions[1].published = false;
   const result = validateChat(data);
-  assert.equal(result.questions.length, 17);
+  assert.equal(result.questions.length, source.questions.filter(q => q.published).length - 1);
   assert.ok(result.questions.every(q => !('notes' in q) && q.id !== 'hobby' && !q.followups.includes('hobby')));
 });
 test('authoring rejects broken media, unsafe links, duplicate IDs and missing follow-ups', () => {

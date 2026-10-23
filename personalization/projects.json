@@ -4,7 +4,7 @@
       "id": "nuvio",
       "name": "누비오",
       "brand": "NUVIO",
-      "description": "로컬 체류 프로그램의 모집과 운영을 연결하는 서비스",
+      "description": "여행자의 신청과 호스트의 프로그램 운영을 함께 만드는 서비스",
       "url": "https://nuvio.kr/",
       "domain": "nuvio.kr",
       "icon": "/personal/projects/nuvio-icon.png",
@@ -14,11 +14,23 @@
       "id": "intume",
       "name": "인투미",
       "brand": "intume",
-      "description": "커피챗과 세션으로 연결과 협업을 돕는 커뮤니티",
+      "description": "프로필과 커피챗, 행사 신청과 운영을 연결하는 커뮤니티",
       "url": "https://intume.kr/",
       "domain": "intume.kr",
       "icon": "/personal/projects/intume-icon.png",
       "preview": "/personal/projects/intume-preview.png"
+    },
+    {
+      "id": "payking",
+      "name": "페이킹뮤직",
+      "brand": "페이킹뮤직",
+      "description": "매장 음악의 탐색·연속 재생과 회원·음원 운영 도구",
+      "url": "/projects/payking/",
+      "cta": "프로젝트 보기",
+      "domain": "음악 재생 · 운영 도구",
+      "icon": "/personal/projects/payking-icon.png",
+      "preview": "/personal/projects/payking-home.png",
+      "previewAlt": "페이킹뮤직의 실제 공개 홈. 샘플 음악과 재생 대기 화면"
     },
     {
       "id": "galpang",

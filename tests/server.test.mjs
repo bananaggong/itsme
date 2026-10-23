@@ -1,3 +1,4 @@
+import { isRetiredPath } from '../tools/published-routes.mjs';
 import assert from 'node:assert/strict';
 import { after, before, test } from 'node:test';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
@@ -15,23 +16,23 @@ before(async()=>{
 after(async()=>{await new Promise(resolve=>server.close(resolve));rmSync(dataDir,{recursive:true,force:true});});
 const post=(path,data,headers={})=>fetch(base+path,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',...headers},body:JSON.stringify(data)});
 
-test('all 42 routes serve captured content and no original analytics',async()=>{
+test('published routes serve content and template-only routes return 404',async()=>{
   const routes=JSON.parse(readFileSync(new URL('../reference/routes.json',import.meta.url),'utf8'));
   for(const route of routes) {
     const response=await fetch(base+route.path);
-    assert.equal(response.status,200,route.path);
+    assert.equal(response.status,isRetiredPath(route.path) ? 404 : 200,route.path);
     const html=await response.text();
     assert.ok(html.includes('<html'),route.path);
     assert.ok(!html.includes('src="https://static.cloudflareinsights.com/'));
     assert.ok(response.headers.get('permissions-policy').includes('camera=(self)'));
   }
 });
-test('404, trailing slash, downloads redirect and HEAD preserve route behavior',async()=>{
+test('404, trailing slash, retired downloads and HEAD preserve route behavior',async()=>{
   assert.equal((await fetch(base+'/missing/')).status,404);
   const trailing=await fetch(base+'/books?from=test',{redirect:'manual'});
   assert.equal(trailing.status,308);assert.equal(trailing.headers.get('location'),'/books/?from=test');
   const downloads=await fetch(base+'/downloads/',{redirect:'manual'});
-  assert.equal(downloads.status,302);assert.equal(downloads.headers.get('location'),'https://thisdickie.gumroad.com/');
+  assert.equal(downloads.status,404);assert.equal(downloads.headers.get('location'),null);
   const head=await fetch(base+'/assets/sam-memoji.webp',{method:'HEAD'});
   assert.equal(head.status,200);assert.equal((await head.arrayBuffer()).byteLength,0);assert.ok(Number(head.headers.get('content-length'))>0);
   const original=readFileSync(new URL('../public/newsletter-page.js',import.meta.url),'utf8');

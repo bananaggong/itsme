@@ -1,3 +1,4 @@
+import { isRetiredPath } from './published-routes.mjs';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
@@ -81,9 +82,6 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
     res.setHeader('X-Frame-Options','SAMEORIGIN');
     try {
       const url = new URL(req.url,'http://localhost');
-      if(url.pathname==='/downloads/' || url.pathname==='/downloads') {
-        res.writeHead(302,{Location:'https://thisdickie.gumroad.com/'});return res.end();
-      }
       if (url.pathname.startsWith('/api/')) {
         if (['/api/inbox','/api/chat-studio','/api/chat-content','/api/chat-media'].includes(url.pathname.replace(/\/$/, ''))) {
           const headers = new Headers(req.headers);
@@ -141,7 +139,7 @@ export function makeServer({ publicDir=resolve(root,'public'), dataDir=process.e
         target=resolve(target,'index.html');
       }
       let status=200;
-      if(!existsSync(target)) {status=404;target=resolve(publicDir,'404.html');}
+      if(isRetiredPath(path) || !existsSync(target)) {status=404;target=resolve(publicDir,'404.html');}
       let bytes=readFileSync(target);
       if(extname(target)==='.html') bytes=Buffer.from(cloneHTML(bytes.toString('utf8')));
       if(extname(target)==='.js') bytes=Buffer.from(cloneJavaScript(bytes.toString('utf8'),target.slice(target.lastIndexOf(sep)+1)));

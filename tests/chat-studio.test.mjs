@@ -7,6 +7,8 @@ import {join,resolve} from 'node:path';
 import {makeServer} from '../tools/site.mjs';
 import {createAPI} from '../deployment/vercel/api.mjs';
 import {hashInboxPassword} from '../hosting/message-inbox.mjs';
+import bank from '../hosting/generated/chat-bank.json' with {type:'json'};
+const publicSeedCount = bank.filter(q => q.seedAnswers?.length).length;
 
 const password='test-only-studio-password-20261022',passwordHash=hashInboxPassword(password);
 const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64');
@@ -33,8 +35,8 @@ async function ok(response){assert.equal(response.status,200,await response.clon
 
 test('studio and exports require the existing session; only authored public snapshots reach visitors',async()=>{
  const f=fixture();assert.equal((await f.call()).status,401);assert.equal((await f.call(undefined,{},'/api/chat-studio/?format=export')).status,401);
- const publicData=await ok(await f.call(undefined,{},'/api/chat-content/'));assert.equal(publicData.questions.length,18);assert.ok(!publicData.questions.some(q=>q.id.startsWith('bank-')));
- await f.login();const data=await ok(await f.call());assert.equal(data.questions.length,500);assert.deepEqual(data.records,{});assert.ok(!JSON.stringify(data).includes(password));
+ const publicData=await ok(await f.call(undefined,{},'/api/chat-content/'));assert.equal(publicData.questions.length,publicSeedCount);assert.ok(!publicData.questions.some(q=>q.id.startsWith('bank-')));
+ await f.login();const data=await ok(await f.call());assert.equal(data.questions.length,bank.length);assert.deepEqual(data.records,{});assert.ok(!JSON.stringify(data).includes(password));
  assert.equal((await f.call(save([bubble('test')]),{Origin:'https://other.invalid'})).status,403);
  assert.equal((await f.call(save([bubble('test')]),{'sec-fetch-site':'cross-site'})).status,403);
  assert.equal((await f.call(save([bubble('test')]),{Origin:''})).status,403);
@@ -49,7 +51,7 @@ test('text, images, links, order and whitespace persist; private uploads become 
  const blocks=[bubble('  첫 번째 말풍선\n줄바꿈과 공백도 유지  '),bubble(uploaded.content,'photo','업로드 확인용 사진'),bubble('https://gwangil.xyz/','link','홈페이지'),bubble('마지막 이야기')];
  assert.equal((await ok(await f.call(save(blocks)))).record.revision,1);
  assert.deepEqual((await ok(await f.call())).records['bank-001'].blocks,blocks);
- assert.equal((await ok(await f.call(undefined,{},'/api/chat-content/'))).questions.length,18);
+ assert.equal((await ok(await f.call(undefined,{},'/api/chat-content/'))).questions.length,publicSeedCount);
  await ok(await f.call(action('publish',1)));
  const live=(await ok(await f.call(undefined,{},'/api/chat-content/'))).questions.find(q=>q.id==='bank-001');
  assert.deepEqual(live.answers,blocks.map(({id,...b})=>b));assert.equal((await f.api(anonymous)).status,200);assert.deepEqual(Buffer.from(await (await f.api(anonymous)).arrayBuffer()),png);

@@ -19,7 +19,7 @@ function init(tile) {
   let address = location.pathname;
   try { address = decodeURI(address); } catch { /* a malformed address: show it as typed */ }
 
-  const lostText = `No location found · Last seen on the old version of this site`;
+  const lostText = `페이지를 찾을 수 없습니다`;
 
   if (lessMotion()) {
     showLost();

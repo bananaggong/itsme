@@ -189,14 +189,6 @@ const ACTIONS = [
 
 // Easter eggs: typing one of these exactly makes it the Top Hit
 const EGGS = [
-  { on: ['webflow'], e: '🤫', t: 'We don’t talk about Webflow.', s: '…but here’s the old site anyway.', a: 'Open', go: '/projects/old-site/' },
-  {
-    on: ['seafoam', '#66ffcc', '66ffcc'], e: '🟩', swatch: '#66ffcc', t: 'Seafoam, #66FFCC',
-    s: 'NoCode’s colour. An eyesore at first. Still desperate to use it again.', a: 'Paint the town',
-    run() { close(); wash('#66ffcc'); },
-  },
-  { on: ['revenue', '£0'], e: '💷', t: 'Beta Directory: £0.', s: 'Still proud.', a: 'Open', go: '/projects/beta-directory/' },
-  { on: ['tokens', 'token'], e: '🪙', t: '1,000,000,000+ tokens.', s: 'Not a typo. That’s what it took to rebuild this site with Claude.', a: 'Open', go: '/' },
   {
     on: ['hello', 'hi', 'hey', 'hiya', 'hello sam', 'hi sam'], e: '👋', t: 'Say hello to Sam', s: 'He might just say hello back.', a: 'Say hello',
     run() { close(); onHomepage('hello'); },
@@ -207,7 +199,7 @@ const EGGS = [
   },
   {
     on: ['hire', 'hire sam', 'hiring', 'job', 'jobs', 'recruiter', 'recruiters', 'recruiting', 'recruitment'],
-    e: '💼', t: 'Sam’s happily employed.', s: 'He does reply to email, though.', a: 'Copy his email',
+    e: '💼', t: '광일에게 연락하기', s: '궁금한 점과 제안을 보내주세요.', a: 'Copy his email',
     run() { close(); copy(EMAIL, 'Email address copied'); },
   },
   { on: [/^sudo\b/], e: '🔒', t: 'Nice try.', s: 'This incident will be reported.', a: 'Try anyway', run() { shake(); } },

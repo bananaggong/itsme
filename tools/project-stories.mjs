@@ -36,7 +36,7 @@ const nuvioCard = `<a class="pj-story pj-story--wide pj-story--nuvio" id="nuvio"
     </span>
     <div class="pj-strip">
       <span class="pj-icon nuvio-story-icon" aria-hidden="true"><img src="${asset('/personal/projects/nuvio-icon.png')}" alt="" width="512" height="512"></span>
-      <span class="pj-strip-text"><strong>누비오</strong><span>로컬 여행의 발견부터 예약까지</span></span>
+      <span class="pj-strip-text"><strong>누비오</strong><span>로컬 여행의 발견부터 신청과 운영까지</span></span>
       <span class="pj-get nuvio-story-visit">자세히 보기${arrow}</span>
     </div>
   </div>
@@ -56,7 +56,7 @@ const intumeCard = `<a class="pj-story pj-story--intume" id="intume" href="/proj
     </span>
     <div class="pj-strip">
       <span class="pj-icon intume-story-icon" aria-hidden="true"><img src="${asset('/personal/projects/intume-icon.png')}" alt="" width="512" height="512"></span>
-      <span class="pj-strip-text"><strong>인투미</strong><span>프로필에서 커피챗과 모임까지</span></span>
+      <span class="pj-strip-text"><strong>인투미</strong><span>프로필·커피챗·행사 신청과 운영</span></span>
       <span class="pj-get">자세히 보기</span>
     </div>
   </div>

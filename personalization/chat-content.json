@@ -84,6 +84,7 @@
       "followups": [
         "nuvio",
         "intume",
+        "payking",
         "galpang",
         "loam"
       ],
@@ -94,6 +95,10 @@
         {
           "type": "text",
           "content": "로컬 여행을 연결하는 누비오, 만남 이후의 대화를 이어가는 인투미를 만들고 있어요."
+        },
+        {
+          "type": "text",
+          "content": "매장 음악을 위한 페이킹뮤직에서는 재생목록과 연속 재생, 회원·음원 운영 도구를 구현했어요."
         },
         {
           "type": "text",
@@ -602,6 +607,40 @@
           "type": "link",
           "content": "/?spotlight=officehours#say-hello",
           "description": "광일에게 메시지 남기기"
+        }
+      ]
+    },
+    {
+      "id": "payking",
+      "topic": "만드는 것들",
+      "question": "페이킹뮤직은 어떤 서비스야?",
+      "keywords": [
+        "페이킹뮤직",
+        "페이킹",
+        "음악",
+        "재생목록",
+        "payking"
+      ],
+      "followups": [
+        "projects",
+        "music"
+      ],
+      "featured": false,
+      "published": true,
+      "notes": "2026-10-23 Git 이력 검토 기반. 운영 성과 수치 없이 구현 범위만 기술.",
+      "answers": [
+        {
+          "type": "text",
+          "content": "매장에서 사용할 음악을 탐색하고 재생목록으로 구성하는 서비스예요. 음악 재생 화면과 회원 심사·음원·플레이리스트 운영 도구를 함께 구현했어요."
+        },
+        {
+          "type": "text",
+          "content": "다음 곡을 미리 준비하는 연속 재생, 같은 곡이 여러 번 담긴 큐의 위치 관리, 운영 화면에서 필요한 데이터만 조회하는 흐름을 다뤘어요."
+        },
+        {
+          "type": "link",
+          "content": "/projects/payking/",
+          "description": "페이킹뮤직 개발 이야기 보기"
         }
       ]
     }

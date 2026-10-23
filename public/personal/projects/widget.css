@@ -34,3 +34,9 @@
   .pj-name { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { .tile--projects .sw-panel.is-active { animation: none; } }
+
+/* Five project choices stay within the home tile, including a 320px viewport. */
+.tile--projects .sw-dock { gap: 6px; }
+.tile--projects .sw-app { --sw-app-size: clamp(36px, 8vw, 50px); flex-shrink: 1; }
+.tile--projects .sw-app img { width: 100%; height: 100%; }
+@media (max-width: 360px) { .tile--projects .sw-dock { gap: 4px; padding: 5px; } .tile--projects .sw-app { --sw-app-size: 36px; } }

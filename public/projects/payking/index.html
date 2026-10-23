@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Payking Music project detail. Uses the shared preserved project-page components. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>페이킹뮤직 | 김광일</title>
+  <meta name="description" content="페이킹뮤직 — 매장의 음악과 운영을 한곳에서. 음악 탐색·연속 재생·운영 도구를 구현한 개발 이야기.">
+  <link rel="canonical" href="https://gwangil.xyz/projects/payking/">
+
+  <!-- Social sharing preview -->
+  <meta property="og:site_name" content="김광일">
+  <meta property="og:title" content="페이킹뮤직 | 김광일">
+  <meta property="og:description" content="페이킹뮤직 — 매장의 음악과 운영을 한곳에서. 음악 탐색·연속 재생·운영 도구를 구현한 개발 이야기.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gwangil.xyz/projects/payking/">
+  <meta property="og:image" content="https://gwangil.xyz/personal/projects/payking-home.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="1100">
+  <meta property="og:image:alt" content="페이킹뮤직의 실제 공개 홈">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/webclip.png">
+  <!-- Inter, hosted on this site (assets/fonts/, set up in styles.css); fetched early so text doesn't wait -->
+  <link rel="preload" href="/assets/fonts/inter-latin-v20.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles.css?v=6f7943b3a4">
+  <link rel="stylesheet" href="/projects.css?v=2bec225315">
+  <link rel="stylesheet" href="/glass.css?v=89ed5cd0b8">
+
+  <script>
+    try { var savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.dataset.theme = savedTheme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Liquid Glass, if the visitor turned it on (glass.js)
+    try { if (localStorage.getItem('glass') === 'on') document.documentElement.dataset.glass = 'on'; } catch (e) {}
+    // Payking Music uses ordinary navigation, including quick returns to the project list.
+    addEventListener('pageswap', function (e) {
+      if (e.viewTransition) e.viewTransition.skipTransition();
+    });
+  </script>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/writing/" class="nav-link">Writing</a>
+    <a href="/projects/" class="nav-link is-active" aria-current="true">Projects</a>
+    <a href="/newsletter/" class="nav-link">Newsletter</a>
+    <button class="nav-search" type="button" aria-label="Search the site" aria-keyshortcuts="Meta+K Control+K /"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button>
+  </nav>
+
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main class="page pj">
+    <article class="pj-app payking-detail">
+      <a class="pj-back" href="/projects/#payking">‹ Projects</a>
+      <header class="pj-app-head">
+        <span class="pj-icon pj-icon--lg" aria-hidden="true"><img src="/personal/projects/payking-icon.png" alt="" width="512" height="512"></span>
+        <div class="pj-app-text"><h1>페이킹뮤직</h1><p class="pj-app-sub">매장의 음악과 운영을 한곳에서</p><p class="pj-app-meta">Music service · 매장용 음악 서비스</p><div class="pj-app-actions"><a class="pj-btn" href="https://pay-king-music.vercel.app/" target="_blank" rel="noopener noreferrer">공개 홈 보기</a></div></div>
+      </header>
+      <dl class="pj-facts">
+        <div><dt>Category</dt><dd class="pj-fact-value">매장 음악</dd><dd class="pj-fact-note">공간에 맞는 플레이리스트</dd></div>
+        <div><dt>Listener</dt><dd class="pj-fact-value">탐색 · 재생</dd><dd class="pj-fact-note">음악과 현재 재생목록</dd></div>
+        <div><dt>Operations</dt><dd class="pj-fact-value">심사 · 관리</dd><dd class="pj-fact-note">회원 · 음원 · 플레이리스트</dd></div>
+        <div><dt>My role</dt><dd class="pj-fact-value">개발</dd><dd class="pj-fact-note">재생 흐름 · 운영 · 권한</dd></div>
+      </dl>
+      <section class="pj-section" aria-labelledby="pj-preview"><h2 id="pj-preview">미리보기</h2><figure class="payking-preview"><a href="/personal/projects/payking-home.png" target="_blank" rel="noopener" aria-label="페이킹뮤직 공개 홈 크게 보기 — 새 창"><img src="/personal/projects/payking-home.png" alt="페이킹뮤직 공개 홈. 샘플 플레이리스트와 재생 대기 중인 플레이어" width="1440" height="1100" fetchpriority="high"></a><figcaption>실제 공개 홈 · 샘플 음악과 재생 화면</figcaption></figure></section>
+      <div class="pj-cols">
+        <section class="pj-section" aria-labelledby="pj-about"><h2 id="pj-about">페이킹뮤직 소개</h2><div class="pj-prose"><p>페이킹뮤직은 매장에서 사용할 음악을 탐색하고 재생목록으로 구성하는 음악 서비스입니다. 회원의 음악 재생 화면과 운영자의 회원 심사·음원·플레이리스트 관리 도구를 함께 구현했습니다.</p><p>매장에서 음악이 이어지는 경험을 위해 다음 곡을 준비하는 방식과 재생 권한의 수명을 함께 다뤘습니다. 운영 화면에서는 필요한 데이터를 화면별로 조회하고, 저장과 계정 전환 과정의 오류를 구분하도록 보완했습니다.</p></div></section>
+        <section class="pj-section" aria-labelledby="pj-flow"><h2 id="pj-flow">음악을 사용하는 흐름</h2><ol class="pj-history"><li><div><strong>매장과 회원 확인</strong><span>신청 · 심사</span></div><p>매장 신청 정보를 운영자가 검토하고 이용 권한을 관리합니다.</p></li><li><div><strong>공간에 맞는 음악 고르기</strong><span>탐색 · 구성</span></div><p>음악과 플레이리스트를 살펴보고 현재 재생목록에 담습니다.</p></li><li><div><strong>음악을 이어서 듣기</strong><span>재생 · 기기 인계</span></div><p>곡의 순서를 바꾸거나 다른 기기로 재생을 이어가는 흐름을 다룹니다.</p></li></ol></section>
+      </div>
+      <section class="pj-section" aria-labelledby="pj-permission"><h2 id="pj-permission">운영과 권한을 연결한 부분</h2><div class="pj-prose"><p>캐시에 음원이 남아 있어도 현재 재생 권한을 서버에서 먼저 확인하도록 했습니다. 외부 사업자 등록 조회는 운영자 심사의 참고 정보로 연결하고, 등록 여부와 이용 승인을 별개로 다뤘습니다.</p></div></section>
+    </article>
+
+  </main>
+
+  <script type="module" src="/theme.js?v=74ea5f93ab"></script>
+  <script type="module" src="/look.js?v=d45ebe80f1"></script>
+  <script type="module" src="/spotlight.js?v=eb0e1e92b2"></script>
+  <script type="module" src="/nav-badge.js?v=1ba31a2e38"></script>
+  <script type="module" src="/sound.js?v=824da64e95"></script>
+</body>
+</html>
